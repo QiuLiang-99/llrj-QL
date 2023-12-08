@@ -133,7 +133,7 @@ require = function e(t, n, a) {
                     28: "【天下第二】通关挑战副本",
                     29: "【真爱粉】本游戏通关6次以上（" + n.gameData[1] + "/6）",
                     30: "【作者亲爹妈】本游戏在你手机中存活达300小时（" + o + "/300）"
-                }
+                },
                 l = {
                     0: function () {
                         if(n.gameData2[0] == 1){
@@ -736,7 +736,7 @@ require = function e(t, n, a) {
                     cc.director.loadScene("rest");
                 }, this);
                 n.ifGameOver();
-                t.runAction(cc.fadeTo(3, 0));//这个label的淡入时间和透明度，改成不透明
+                t.runAction(cc.fadeTo(0.3, 150));//这个label的淡入时间和透明度，改成不透明
                 var a = e("scr_data"), 
                 i = {
                     //每日睡觉时剧情传送门
@@ -794,7 +794,8 @@ require = function e(t, n, a) {
                     177: ["杨世军虽然游手好闲、手脚不干净，但是对女孩却非常好，从也不打骂。", "或许太久没有尝过温暖，女孩渐渐在大山里、安定了下来，", "开始了一段平静的生活。", "（待续）", "", []],
                     178: ["女孩似乎为了报答杨世军，非常努力，", "挑水、扎荆条、养猪、下田...样样都做", "杨世军在女孩反复的劝说下，也开始做些简单的农活。", "日子，开始渐渐有了起色。", "（待续）", "", []],
                     179: ["1988年，女孩生下一名男孩，杨世军对女孩更加喜爱。", "一年后，杨世军第一次允许女孩独自去县城。", "然而，女孩离开后，就再也没有回来过。", "直到一个月后才得知，女孩已回到\n自己老家...", "这个女孩是我的母亲。", "杨世军是我的父亲。他最常说的一句话是，", "“我不需要你们来可怜！”", "（剧终）", "", []]
-                }[function () {
+                }
+                [function () {
                     var t = e("scr_public").regionId(), n = a.stayDay, i = 0;
                     1e3 == t && (i = 1e3 + n[0]);
                     2e3 == t && (i = 2e3 + n[1]);
@@ -805,8 +806,8 @@ require = function e(t, n, a) {
                 }()];
                 if ("undefined" == typeof i) cc.director.loadScene("rest"); else {
                     var c = i.pop();
-                    i.pop();
-                    if (0 == c.length || c[0] >= c[1]) {//显示每日睡觉剧情处
+                    i.pop();//显示每日睡觉剧情处
+                    if (0 == c.length || c[0] >= c[1]) {//这个c0c1是用来判断是否显示的，c0大于c1才会显示
                         var o = i.length, r = this, s = 1, l = cc.find("Canvas/Layout"), u = cc.find("Canvas/Determine");
                         window.setTimeout(function () {
                             r.creatText(l, "plot0", i[0]);
@@ -1124,14 +1125,14 @@ require = function e(t, n, a) {
             properties: {},
             onLoad: function () {
                 var e = this, n = {
-                    playText: function (e, t, n) {
+                    playText: function (e, t, n) {//文字逐渐显示函数，万恶之源
                         var a = 0;
                         cc.game.startPlay && window.clearTimeout(cc.game.startPlay);
                         (function i() {
                             if (null != cc.find(e)) if (a <= t.length) {
                                 var c = t.slice(0, a++);
                                 cc.find(e).getComponent("cc.Label").string = c;
-                                cc.game.startPlay = window.setTimeout(i, n);
+                                cc.game.startPlay = window.setTimeout(i, 10);//本来是n的，但是大部分是100，我直接改成10
                             } else cc.game.startPlay && window.clearTimeout(cc.game.startPlay);
                         })();
                     },
@@ -1275,11 +1276,13 @@ require = function e(t, n, a) {
             extends: cc.Component,
             properties: {},
             onLoad: function () {
-                var n, i = e("scr_public"), c = e("scr_data"), o = {
+                var n, i = e("scr_public"), c = e("scr_data"), 
+                o = {
                     maxHp: i.role.maxHp(),
                     att: i.role.att(),
                     def: i.role.def()
-                }, r = {
+                }, 
+                r = {
                     0: {
                         name: "女贼",
                         lv: 99,
@@ -6437,7 +6440,8 @@ require = function e(t, n, a) {
             },
             //每日早上剧情后续传送门
             event: function () {
-                var t = this, n = e("scr_data"), a = e("scr_data2"), i = e("scr_public"), c = e("scr_effect"), o = {
+                var t = this, n = e("scr_data"), a = e("scr_data2"), i = e("scr_public"), c = e("scr_effect"), 
+                o = {
                     1: {
                         text: ["来到破旧的小区，", "一位热情的小姐姐将我带到一个房间，\n寒暄一番后，她认真的介绍道，", "“我们的工作内容是向附近居民推广净水器。\n公司要统一着装，\n入职前需交1块钱的服装费，\n交完费明天就可上班，\n日薪2元加提成，你看咋样？”", "我没钱", "交1块钱"],
                         BGM: "",
@@ -7559,7 +7563,7 @@ require = function e(t, n, a) {
                         }
                     }
                 };
-                function r(n) {
+                function r(n) {//输出文字函数，n为内容，也就是r里面的字
                     cc.find("Canvas/Determine");
                     e("scr_public").save();
                     cc.find("Canvas/Choice").active = !1;
@@ -7568,8 +7572,8 @@ require = function e(t, n, a) {
                     e("scr_effect").playText("Canvas/Notify", n, 80);
                     t.scheduleOnce(function () {
                         cc.find("Canvas/Determine").active = !0;
-                        cc.find("Canvas/Determine").runAction(cc.fadeIn(2));
-                    }, 2);
+                        cc.find("Canvas/Determine").runAction(cc.fadeIn(0.2));// 在延迟后，执行淡入效果
+                    }, 0.2);// 在 2 秒后执行上述延迟的逻辑
                 }
                 return o;
             },
