@@ -133,11 +133,13 @@ require = function e(t, n, a) {
                     28: "【天下第二】通关挑战副本",
                     29: "【真爱粉】本游戏通关6次以上（" + n.gameData[1] + "/6）",
                     30: "【作者亲爹妈】本游戏在你手机中存活达300小时（" + o + "/300）"
-                }, l = {
+                }
+                l = {
                     0: function () {
                         if(n.gameData2[0] == 1){
                         n.achieveMent[0] = 1;
-                        a.save();}
+                        a.save();
+                    }
                         return n.achieveMent[0];
                     },
                     1: function () {
@@ -237,8 +239,9 @@ require = function e(t, n, a) {
                     30: function () {
                         return o >= 300;
                     }
-                }, u = cc.find("Canvas/Scroll/view/content");
-                for (var p in s) {
+                }, 
+                u = cc.find("Canvas/Scroll/view/content");
+                for (var p in s) {//把文字内容输出到屏幕上
                     this.creatText(u, "skill" + p, s[p]);
                     l[p]() && (u.getChildByName("skill" + p).color = new cc.Color(0, 255, 0));
                 }
@@ -733,8 +736,9 @@ require = function e(t, n, a) {
                     cc.director.loadScene("rest");
                 }, this);
                 n.ifGameOver();
-                t.runAction(cc.fadeTo(3, 150));
-                var a = e("scr_data"), i = {
+                t.runAction(cc.fadeTo(3, 0));//这个label的淡入时间和透明度，改成不透明
+                var a = e("scr_data"), 
+                i = {
                     //每日睡觉时剧情传送门
                     1001: ["“你不配做一个父亲！”", "“既然那么恨我！为什么要生下我！”", "“没有你我照样可以活！”", "BGM1", [a.distance, 0]],
                     1003: ["晚上下起了雨，", "又湿又冷，", "但是，我是不会回去的！:-)", "BGM2", []],
@@ -802,19 +806,19 @@ require = function e(t, n, a) {
                 if ("undefined" == typeof i) cc.director.loadScene("rest"); else {
                     var c = i.pop();
                     i.pop();
-                    if (0 == c.length || c[0] >= c[1]) {
+                    if (0 == c.length || c[0] >= c[1]) {//显示每日睡觉剧情处
                         var o = i.length, r = this, s = 1, l = cc.find("Canvas/Layout"), u = cc.find("Canvas/Determine");
                         window.setTimeout(function () {
                             r.creatText(l, "plot0", i[0]);
-                        }, 500);
+                        }, 50); // 在 500 毫秒（0.5 秒）之后执行以下逻辑。
                         this.schedule(function () {
                             this.creatText(l, "plot" + s, i[s]);
                             s++;
-                        }, 3, o - 2);
+                        }, 0.3, o - 2);// 每隔 3 秒执行以下逻辑，总共执行 o - 2 次  也就是文本逐渐显示
                         this.scheduleOnce(function () {
                             u.active = !0;
                             u.runAction(cc.fadeIn(2));
-                        }, 3 * o);
+                        }, 0.3 * o); // 在 3 * o 秒之后执行一次以下逻辑。
                     } else cc.director.loadScene("rest");
                 }
             }
@@ -1093,13 +1097,13 @@ require = function e(t, n, a) {
                 cc.find("Canvas/hunger").getComponent("cc.Label").string = "饥饿：" + t.hunger + "/" + n.maxHunger() + "  精力：" + t.energy + "/" + n.maxEnergy() + "  生命：" + t.role.hp + "/" + n.role.maxHp();
             },
             delayCreatItemUI1: function () {
-                this.scheduleOnce(this.creatItemUI1, .1);
+                this.scheduleOnce(this.creatItemUI1, .01);//使用 scheduleOnce 方法，在当前帧结束后延迟 0.1 秒执行 creatItemUI1 函数。
             },
             delayCreatItemUI2: function () {
-                this.scheduleOnce(this.creatItemUI2, .1);
+                this.scheduleOnce(this.creatItemUI2, .01);
             },
             delayCreatItemUI3: function () {
-                this.scheduleOnce(this.creatItemUI3, .1);
+                this.scheduleOnce(this.creatItemUI3, .01);
             },
             onLoad: function () {
                 this.creatItemUI1();
