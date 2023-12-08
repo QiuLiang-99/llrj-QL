@@ -7597,7 +7597,10 @@ require = function e(t, n, a) {
             },
             //剧情速度设置传送门
             triggerEvent: function () {
-                var t = e("scr_data"), n = this.eventData(), a = n.text, i = a.pop(), c = a.pop(), o = a.length, r = 1, s = t.publicVar[6] || 2, l = parseInt(.25 * s * 1e3), u = cc.find("Canvas/EventText"), p = this;
+                var t = e("scr_data"), n = this.eventData(), a = n.text, i = a.pop(), c = a.pop(), o = a.length, r = 1, 
+                s = t.publicVar[6] || 2, //剧情速度被赋值给了这个东西
+                l = parseInt(.25 * s * 1e2), //延迟时间，原来是1e3
+                u = cc.find("Canvas/EventText"), p = this;
                 n.BGM;
                 "undefined" != typeof n.action && n.action();
                 this.initUI();
@@ -7607,19 +7610,21 @@ require = function e(t, n, a) {
                 this.schedule(function () {
                     this.creatText(u, "plot" + r, a[r]);
                     r++;
-                }, s, o - 2);
+                }, s*0.1, o - 2);//加入*0.1
                 this.scheduleOnce(function () {
-                    var e = n.choice1, t = n.choice2, a = cc.find("Canvas/Choice/Choice1"), o = cc.find("Canvas/Choice/Choice2");
+                    var e = n.choice1, 
+                    t = n.choice2, 
+                    a = cc.find("Canvas/Choice/Choice1"), o = cc.find("Canvas/Choice/Choice2");
                     a.getChildByName("choiceText").getComponent("cc.Label").string = c;
                     o.getChildByName("choiceText").getComponent("cc.Label").string = i;
                     if ("" == c) {
                         a.active = !1;
                         cc.find("Canvas/Choice/label").active = !1;
                     } else a.active = !0;
-                    cc.find("Canvas/Choice").runAction(cc.fadeIn(2));
+                    cc.find("Canvas/Choice").runAction(cc.fadeIn(0.2));//原来是2
                     a.on("touchstart", e, this);
                     o.on("touchstart", t, this);
-                }, s * o);
+                }, s * o *0.1);//加入*0.1
             },
             initUI: function () {
                 var e = cc.find("Canvas/Choice");
@@ -7651,7 +7656,8 @@ require = function e(t, n, a) {
             extends: cc.Component,
             properties: {},
             onLoad: function () {
-                var t = cc.find("Canvas/Button/button_forward").getComponent("scr_forwardButton").constructor, n = new t(), a = new t(), i = new t(), c = new t(), o = this, r = e("scr_data");
+                var t = cc.find("Canvas/Button/button_forward").getComponent("scr_forwardButton").constructor, n = new t(), a = new t(), i = new t(), c = new t(), 
+                o = this, r = e("scr_data");
                 this.node.runAction(cc.tintTo(.3, 255, 255, 255));
                 n.addDistance = function () { };
                 a.addDistance = function () { };
