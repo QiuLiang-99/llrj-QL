@@ -846,7 +846,7 @@ require = function e(t, n, a) {
     }, {}],
     scr_eatUI: [function (e, t, n) {
         "use strict";
-        cc._RF.push(t, "UIscr_eatUI", "scr_eatUI");
+        cc._RF.push(t, "d3b81KfDgxIVoCTL1xk+Q03", "scr_eatUI");
         cc.Class({
             extends: cc.Component,
             properties: {
@@ -7614,7 +7614,7 @@ require = function e(t, n, a) {
                 l = parseInt(.25 * s * 1e2), //延迟时间，原来是1e3
                 u = cc.find("Canvas/EventText"), p = this;
                 n.BGM;
-                "undefined" != typeof n.action && n.action();//触发事件自带的action函数
+                "undefined" != typeof n.action && n.action();
                 this.initUI();
                 window.setTimeout(function () {
                     p.creatText(u, "plot0", a[0]);
@@ -7921,11 +7921,9 @@ require = function e(t, n, a) {
                 })();
                 //修罗难度传送门
                 (function () {
-                    if (n.publicVar[1] == 2 ) {
-                        theEnemy.hp = parseInt(Math.max(2 * theEnemy.hp, 1));
-                        theEnemy.maxHp = parseInt(Math.max(2 * theEnemy.maxhp, 1));
-                        theEnemy.att = parseInt(Math.max(2 * theEnemy.att, 1));
-                        theEnemy.def = parseInt(Math.max(2 * theEnemy.def, 1));
+                    if (-1 == n.publicVar[1]) {
+                        theEnemy.hp = parseInt(Math.max(.01 * theEnemy.hp, 1));
+                        theEnemy.maxHp = parseInt(Math.max(.01 * theEnemy.maxhp, 1));
                     } 
                     else if (1 == n.publicVar[1]) {
                         var e = n.day, a = e / 40 + 1, i = parseInt(Math.pow(e, 1.5) / 6);
@@ -8201,7 +8199,7 @@ require = function e(t, n, a) {
                 }
                 function refreshEnemyStatus() {//战斗场景标签的内容
                     roleHpLabel.getComponent("cc.Label").string = "ATT" + youinFight.att +"|"+ "DEF" + youinFight.def;
-                    d.getComponent("cc.Label").string = theEnemy.name + "LV" + theEnemy.lv + "\nHP" + theEnemy.hp + "\nATT" + theEnemy.att +"|"+ + "DEF" + theEnemy.def;
+                    d.getComponent("cc.Label").string = theEnemy.name + "LV" + theEnemy.lv + "\nHP" + theEnemy.hp + "\nATT" + theEnemy.att + "DEF" + theEnemy.def;
                     m.getComponent("cc.Label").string = calEscapeRate() + "%";
                     n.publicVar[4] > 0 && gunLabel();
                 }
@@ -8585,7 +8583,7 @@ require = function e(t, n, a) {
                 for (var t in e) var n = e[t].getComponent("scr_BGM").BGM4;
                 cc.audioEngine.play(n, !1, 1);
             },
-            callBack: function () {//当按钮被按下，执行这个函数
+            callBack: function () {
                 var t = e("scr_data"), n = e("scr_effect"), a = e("scr_public"), i = this.dryUp();
                 a.ifGameOver();
                 this.Energy = 10;
@@ -8625,7 +8623,7 @@ require = function e(t, n, a) {
                 a.autoEat();
                 a.init();
                 a.save();
-                this.shieldButton();//保护按钮，在一定时间内不能多次按下
+                this.shieldButton();
             },
             end: function () {
                 var t = e("scr_effect"), n = e("scr_data"), a = e("scr_public");
@@ -8854,10 +8852,10 @@ require = function e(t, n, a) {
             dryUp: function () {
                 return !1;
             },
-            shieldButton: function () {//保护按钮的函数
-                this.node.off("touchstart", this.callBack, this);//移除按钮可被点击
-                this.node.runAction(cc.tintTo(.1, 114, 199, 255));
-                this.scheduleOnce(this.onLoad, .2);//0.2秒后让按钮可以被点击
+            shieldButton: function () {
+                this.node.off("touchstart", this.callBack, this);
+                this.node.runAction(cc.tintTo(.3, 114, 199, 255));
+                this.scheduleOnce(this.onLoad, .2);//不知道是啥，改了再说
             },
             autoEat: function () {
                 //饱食度传送门
@@ -8884,10 +8882,10 @@ require = function e(t, n, a) {
                 }
                 return !1;
             },
-            onLoad: function () {//按钮保护之后会调用这个函数
+            onLoad: function () {
                 this.endActionId = 0;
-                this.node.runAction(cc.tintTo(.1, 255, 255, 255));
-                this.node.on("touchstart", this.callBack, this);//让按钮重新能被响应，也就是触发callback
+                this.node.runAction(cc.tintTo(.3, 255, 255, 255));
+                this.node.on("touchstart", this.callBack, this);
             }
         });
         cc._RF.pop();
@@ -9094,7 +9092,7 @@ require = function e(t, n, a) {
                 t.getChildByName("button3").on("touchstart", function () {
                     cc.director.loadScene("friendSkill1");
                 }, this);
-                t.getChildByName("button5").on("touchstart", function () {//新增的按钮
+                t.getChildByName("button5").on("touchstart", function () {
                     cc.director.loadScene("friendSkill2");
                 }, this);
             }
@@ -10836,49 +10834,44 @@ require = function e(t, n, a) {
                 }
                 return o;
             },
-            startEvent: function (e) {//事件开始函数，用于创建事件
-                var t = this.event()[e], n = t.text, 
-                a = n.pop(), i = n.pop(), //从事件描述文本中取出最后两个元素，通常用作选项的文本。
-                c = n.length, o = cc.find("Canvas/Event/Choice");
+            startEvent: function (e) {
+                var t = this.event()[e], n = t.text, a = n.pop(), i = n.pop(), c = n.length, o = cc.find("Canvas/Event/Choice");
                 cc.find("Canvas/Event/EventText").removeAllChildren();
                 cc.find("Canvas/Event/Choice/label").getComponent("cc.Label").string = "你选择...";
                 "undefined" != typeof t.action && t.action();
                 this.showUI();
                 this.printEventDes(n);
                 this.scheduleOnce(function () {
-                    o.runAction(cc.scaleTo(.2, 1));//表示在 0.5 秒内将节点缩放到原始大小
-                }, 0.4 * c);//因此这里的意思是在事件描述的长度（秒数）之后执行上述的缩放动作
+                    o.runAction(cc.scaleTo(.5, 1));
+                }, 1 * c);
                 (function () {
-                    var e = t.choice1,     // 获取事件中的第一个选项的回调函数
-                        n = t.choice2,     // 获取事件中的第二个选项的回调函数
-                        c = o.getChildByName("Choice1"),  // 获取名为 "Choice1" 的节点
-                        r = o.getChildByName("Choice2");  // 获取名为 "Choice2" 的节点               
-                    c.getChildByName("choiceText").getComponent("cc.Label").string = i;  // 设置第一个选项的文本内容
-                    r.getChildByName("choiceText").getComponent("cc.Label").string = a;  // 设置第二个选项的文本内容        
+                    var e = t.choice1, n = t.choice2, c = o.getChildByName("Choice1"), r = o.getChildByName("Choice2");
+                    c.getChildByName("choiceText").getComponent("cc.Label").string = i;
+                    r.getChildByName("choiceText").getComponent("cc.Label").string = a;
                     if ("" == i) {
-                        c.opacity = 0;  // 如果第一个选项的文本为空，设置第一个选项节点的不透明度为 0
-                        o.getChildByName("label").opacity = 0;  // 设置 "label" 节点的不透明度为 0
+                        c.opacity = 0;
+                        o.getChildByName("label").opacity = 0;
                     }
-                    c.on("touchstart", e, c);  // 为第一个选项节点添加 "touchstart" 事件监听器，当被触摸时执行回调函数 e
-                    r.on("touchstart", n, r);  // 为第二个选项节点添加 "touchstart" 事件监听器，当被触摸时执行回调函数 n
-                })();   
+                    c.on("touchstart", e, c);
+                    r.on("touchstart", n, r);
+                })();
             },
             //UI传送门
             printEventDes: function (e) {
                 var t = e.length, n = 1, a = this, i = cc.find("Canvas/Event/EventText");
                 cc.find("Event/scr_mainUIEvent");
-                this.creatText(i, "plot0", e[0]);//逐行输出文本
+                this.creatText(i, "plot0", e[0]);
                 this.schedule(function () {
                     a.creatText(i, "plot" + n, e[n]);
                     n++;
-                }, 0.2, t - 2);//原来是1，改成0.2
+                }, 1, t - 2);
             },
             showUI: function () {
                 cc.find("Canvas/Text/txt_notify").opacity = 0;
                 cc.find("Canvas/Text/txt_notify").getComponent("cc.Label").string = "";
                 cc.find("Canvas/Event").scale = 1;
                 cc.find("Canvas/Event/Choice").scale = 0;
-                cc.find("Canvas/Button").runAction(cc.scaleTo(.1, 0));//获取名为 "Button" 的节点，并执行一个缩放动作，将其缩放比例在 0.3 秒内缩小为 0
+                cc.find("Canvas/Button").runAction(cc.scaleTo(.3, 0));
             },
             closeUI: function (t) {
                 var n = cc.find("Canvas/Button"), a = e("scr_public"), i = cc.find("Canvas/Event/Choice/Choice1"), c = cc.find("Canvas/Event/Choice/Choice2");
@@ -10887,7 +10880,7 @@ require = function e(t, n, a) {
                 i.targetOff(i);
                 c.targetOff(c);
                 cc.find("Canvas/Event").scale = 0;
-                n.runAction(cc.scaleTo(.1, 1));//改为0.1
+                n.runAction(cc.scaleTo(.3, 1));
                 t = t || "";
                 e("scr_effect").playText("Canvas/Text/txt_notify", t, 60);
                 a.save();
@@ -10929,7 +10922,7 @@ require = function e(t, n, a) {
             },
             onButton: function () {
                 var t = e("scr_data"), n = cc.find("Canvas/Button"), a = n.getChildByName("button_dekaron");
-                t.day > 45 && t.publicVar[1] >= -1 ? a.on("touchstart", this.dekaronButton, this) : a.active = !1;//45天之后开启挑战！
+                t.day > 45 && t.publicVar[1] >= -1 ? a.on("touchstart", this.dekaronButton, this) : a.active = !1;
                 1 == t.ifFollow[0] ? n.getChildByName("button_friend").on("touchstart", function () {
                     cc.director.loadScene("friend1");
                 }, this) : 1 == t.ifFollow[1] && n.getChildByName("button_friend").on("touchstart", function () {
@@ -13560,7 +13553,7 @@ require = function e(t, n, a) {
     }],
     scr_startChoice: [function (e, t, n) {
         "use strict";
-        cc._RF.push(t, "UIstartChoice", "scr_startChoice");/*ad中为套餐界面*/
+        cc._RF.push(t, "abb1fsZ7zZIh7RCgg95JM2L", "scr_startChoice");/*ad中为套餐界面*/
         cc.Class({
             extends: cc.Component,
             properties: {},
@@ -13590,11 +13583,16 @@ require = function e(t, n, a) {
                 t.getChildByName("choice5").on("touchstart", function () {
                     i.ifFollow[0] = 1;
                     i.ifFollow[1] = 1;
-                    i.publicVar[7] = -1580;
+                    i.publicVar[7] = -580;
                     u();
                 }, this);
-                t.getChildByName("choice6").on("touchstart", function () {//choice6是第一个按钮
-                    i.publicVar[1] = 2;
+                t.getChildByName("choice6").on("touchstart", function () {
+                    i.itemNum2[2] += 20;
+                    i.itemNum2[15] += 50;
+                    i.itemNum[0] += 1000;
+                    i.achieve += 1000;
+                    i.money += 10000;
+                    i.publicVar[1] = -1;
                     u();
                 }, this);
                 t.getChildByName("choice7").on("touchstart", function () {
