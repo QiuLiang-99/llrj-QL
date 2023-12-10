@@ -20,7 +20,8 @@ require = function e(t, n, a) {
     }
     for (var c = "function" == typeof require && require, o = 0; o < a.length; o++) i(a[o]);
     return i;
-}({
+}
+({
     NewScript: [function (e, t, n) {
         "use strict";
         cc._RF.push(t, "157ea2hkc9J8KsDAUfgUmue", "NewScript");
@@ -140,7 +141,7 @@ require = function e(t, n, a) {
                         n.achieveMent[0] = 1;
                         a.save();
                     }
-                        return n.achieveMent[0];
+                        return n.achieveMent[0]==1;
                     },
                     1: function () {
                         var e = 100 * t.publicVar2[1] / i;
@@ -353,6 +354,20 @@ require = function e(t, n, a) {
             onLoad: function () {
                 var e = {};
                 "undefined" == typeof JSON.parse(cc.sys.localStorage.getItem("dataCopy")) && (e = JSON.parse(cc.sys.localStorage.getItem("userData")));
+                t.exports = e;
+            }
+        });
+        cc._RF.pop();
+    }, {}],
+    scr_autodataCopy: [function (e, t, n) {
+        "use strict";
+        cc._RF.push(t, "justfortest", "scr_autodataCopy");
+        cc.Class({
+            extends: cc.Component,
+            properties: {},
+            onLoad: function () {
+                var e = {};
+                "undefined" == typeof JSON.parse(cc.sys.localStorage.getItem("autodataCopy")) && (e = JSON.parse(cc.sys.localStorage.getItem("userData")));
                 t.exports = e;
             }
         });
@@ -1199,7 +1214,10 @@ require = function e(t, n, a) {
             },
             onLoad: function () {
                 var t = ["正式开始全职制作游戏已有大半年，我并不担心自己的生存问题，但是对于能否长期做下去却感到有些焦虑。", "国产独立游戏的发展其实上是取决于玩家（或者说市场），而不是开发商或者平台（有市场才会有平台，有平台才会有开发商...）。虽然可能短期内不会有太大问题，但是能否长期、甚至终身坚持，我不是很确定，因为有太多难以控制的因素掺杂。不过，至少目前我会坚持下去——我的目标是打造文字游戏精品品牌。", "如果你真的喜欢独立游戏，恳求您推荐给周围的人————我真的需要你的帮助。", "我是晓风。（2017.10.1）"], n = (t.length,
-                    this), a = e("scr_data2"), i = e("scr_data"), c = 0, o = cc.find("Canvas/Show"), r = cc.find("Canvas/choice"), s = r.getChildByName("determine1"), l = r.getChildByName("determine2"), u = e("scr_public");
+                    this), a = e("scr_data2"), i = e("scr_data"), c = 0, 
+                    o = cc.find("Canvas/Show"), r = cc.find("Canvas/choice"), 
+                    s = r.getChildByName("determine1"), l = r.getChildByName("determine2"), 
+                    u = e("scr_public");
                 (function () {
                     var e = i.choice[5] + i.publicVar[7];
                     if (0 == a.gameData[3]) {
@@ -12223,7 +12241,8 @@ require = function e(t, n, a) {
     }, {
         scr_data: "scr_data",
         scr_data2: "scr_data2",
-        scr_dataCopy: "scr_dataCopy"
+        scr_dataCopy: "scr_dataCopy",
+        scr_autodataCopy: "scr_autodataCopy"
     }],
     scr_quitGame: [function (e, t, n) {
         "use strict";
@@ -12545,11 +12564,16 @@ require = function e(t, n, a) {
                     cc.find("Canvas/AttrShow/hunger/text").getComponent("cc.Label").string = "饥饿 -" + e + "（" + t.hunger + "/" + n.maxHunger() + "）";
                 })();
                 (function () {
-                    if (9 == t.stayDay[2]) {
+                    if (9 == t.stayDay[2]) {//在山脉停留的第9天，将会保存一个存档
                         var n = e("scr_dataCopy");
                         n = JSON.parse(cc.sys.localStorage.getItem("userData"));
                         cc.sys.localStorage.setItem("dataCopy", JSON.stringify(n));
                     }
+                })();
+                (function () {//非常重要！！！！每天睡觉保存一次存档！！！用来回档！！！
+                        var n = e("scr_autodataCopy");
+                        n = JSON.parse(cc.sys.localStorage.getItem("userData"));
+                        cc.sys.localStorage.setItem("autodataCopy", JSON.stringify(n));
                 })();
                 n.save();
                 function c() {
@@ -12574,6 +12598,7 @@ require = function e(t, n, a) {
     }, {
         scr_data: "scr_data",
         scr_dataCopy: "scr_dataCopy",
+        scr_autodataCopy:"scr_autodataCopy",
         scr_public: "scr_public"
     }],
     scr_shop2: [function (e, t, n) {
@@ -13626,7 +13651,7 @@ require = function e(t, n, a) {
         scr_effect: "scr_effect",
         scr_public: "scr_public"
     }],
-    scr_startUI: [function (e, t, n) {
+    scr_startUI: [function (e, t, n) {//开始游戏界面的按钮在这设置！！！
         "use strict";
         cc._RF.push(t, "cea75di7zpJiqfvO6EeKLF9", "scr_startUI");
         cc.Class({
@@ -13638,12 +13663,18 @@ require = function e(t, n, a) {
             messageButton: function () {
                 cc.director.loadScene("message");
             },
+            reloadgameButton: function () {
+                t = JSON.parse(cc.sys.localStorage.getItem("autodataCopy"));
+                cc.sys.localStorage.setItem("userData", JSON.stringify(t));
+                cc.director.loadScene("main");//加载今天早上保存的存档！！！正常请不要使用
+            },
             controlButton: function () {
                 JSON.parse(cc.sys.localStorage.getItem("userData")) || (cc.find("Canvas/button/button_continue").active = !1);
             },
             onLoad: function () {
                 cc.find("Canvas/button/button_support").on("touchstart", this.supportButton, this);
                 cc.find("Canvas/button/button_message").on("touchstart", this.messageButton, this);
+                cc.find("Canvas/button/button_reloadgame").on("touchstart", this.reloadgameButton, this);
                 this.controlButton();
             }
         });
@@ -13751,4 +13782,4 @@ require = function e(t, n, a) {
         });
         cc._RF.pop();
     }, {}]
-}, {}, ["scr_eatButton", "scr_makeButton", "scr_shopButton", "scr_skillButton", "scr_backMainUI", "scr_diaryDetermine", "scr_eventDetermine", "scr_restDetermine", "scr_QQpay", "scr_backStartUI", "scr_backSupport", "scr_continueButton", "scr_initGame", "scr_newGame", "scr_notice", "scr_notice2", "scr_open", "scr_startChoice", "scr_startUI", "scr_weixin", "scr_achieve", "scr_eatUI", "scr_eventData", "scr_makeUI", "scr_shop2", "scr_shop3", "scr_shop4", "scr_shopUI", "scr_skillJudge", "scr_skillUI", "scr_data", "scr_data2", "scr_dataCopy", "scr_diary", "scr_event", "scr_mainUIEvent", "scr_plot", "scr_rest", "scr_enemy", "scr_explore", "scr_fight", "scr_fightState", "scr_forwardButton", "scr_friendSkillJudge1", "scr_friendSkillUI1", "scr_friendSkillUI2", "scr_friendUI1", "scr_skillJudge2", "scr_effect", "scr_public", "scr_home", "scr_mainUIinit", "scr_readConfession", "scr_end", "scr_initData", "scr_over", "scr_over2", "scr_over2_1", "scr_system", "NewScript", "scr_BGM", "scr_playAds", "scr_quitGame", "test", "testAll", "scr_liveModeMain"]);
+}, {}, ["scr_eatButton", "scr_makeButton", "scr_shopButton", "scr_skillButton", "scr_backMainUI", "scr_diaryDetermine", "scr_eventDetermine", "scr_restDetermine", "scr_QQpay", "scr_backStartUI", "scr_backSupport", "scr_continueButton", "scr_initGame", "scr_newGame", "scr_notice", "scr_notice2", "scr_open", "scr_startChoice", "scr_startUI", "scr_weixin", "scr_achieve", "scr_eatUI", "scr_eventData", "scr_makeUI", "scr_shop2", "scr_shop3", "scr_shop4", "scr_shopUI", "scr_skillJudge", "scr_skillUI", "scr_data", "scr_data2", "scr_dataCopy" ,"scr_autodataCopy", "scr_diary", "scr_event", "scr_mainUIEvent", "scr_plot", "scr_rest", "scr_enemy", "scr_explore", "scr_fight", "scr_fightState", "scr_forwardButton", "scr_friendSkillJudge1", "scr_friendSkillUI1", "scr_friendSkillUI2", "scr_friendUI1", "scr_skillJudge2", "scr_effect", "scr_public", "scr_home", "scr_mainUIinit", "scr_readConfession", "scr_end", "scr_initData", "scr_over", "scr_over2", "scr_over2_1", "scr_system", "NewScript", "scr_BGM", "scr_playAds", "scr_quitGame", "test", "testAll", "scr_liveModeMain"]);
