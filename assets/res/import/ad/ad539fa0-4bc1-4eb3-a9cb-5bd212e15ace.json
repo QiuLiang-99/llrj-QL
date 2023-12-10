@@ -137,7 +137,7 @@
                 "_fitWidth": true
             },
             {
-                "__type__": "abb1fsZ7zZIh7RCgg95JM2L",
+                "__type__": "UIstartChoice",
                 "node": {
                     "__id__": 5
                 }
@@ -633,7 +633,7 @@
                 "_useOriginalSize": false,
                 "_actualFontSize": 24,
                 "_fontSize": 24,
-                "_N$string": "测试模式：作者专用，十倍前进",
+                "_N$string": "炼狱模式：怪物攻防血翻倍，不享受修罗加成",
                 "_N$horizontalAlign": 1,
                 "_N$verticalAlign": 1
             }
@@ -715,7 +715,6 @@
                 "__id__": 25
             }
         ],
-        "_active": false,
         "_components": [
             {
                 "__type__": "cc.Sprite",
@@ -734,7 +733,7 @@
         },
         "_position": {
             "__type__": "cc.Vec2",
-            "y": -540
+            "y": -460
         }
     },
     {
