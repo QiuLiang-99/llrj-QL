@@ -7658,7 +7658,7 @@ require = function e(t, n, a) {
             onLoad: function () {
                 var t = cc.find("Canvas/Button/button_forward").getComponent("scr_forwardButton").constructor, n = new t(), a = new t(), i = new t(), c = new t(), 
                 o = this, r = e("scr_data");
-                this.node.runAction(cc.tintTo(.1, 255, 255, 255));//变成黑色
+                this.node.runAction(cc.tintTo(.3, 255, 255, 255));//变成黑色
                 n.addDistance = function () { };
                 a.addDistance = function () { };
                 i.addDistance = function () { };
@@ -7667,23 +7667,23 @@ require = function e(t, n, a) {
                 };
                 n.shieldButton = function () {
                     o.node.off("touchstart", n.callBack, n);
-                    o.node.runAction(cc.tintTo(.1, 114, 199, 255));//变成淡蓝色，本来是0.3秒，现在改成0.1秒
-                    o.scheduleOnce(o.onLoad, .2);//按钮保护，0.7秒后才能再次按下，改为0.2
+                    o.node.runAction(cc.tintTo(.3, 114, 199, 255));//变成淡蓝色，本来是0.3秒，现在改成0.1秒
+                    o.scheduleOnce(o.onLoad, .7);//按钮保护，0.7秒后才能再次按下，改为0.2
                 };
                 a.shieldButton = function () {
                     o.node.off("touchstart", a.callBack, a);
-                    o.node.runAction(cc.tintTo(.1, 114, 199, 255));
-                    o.scheduleOnce(o.onLoad, .2);
+                    o.node.runAction(cc.tintTo(.3, 114, 199, 255));
+                    o.scheduleOnce(o.onLoad, .7);
                 };
                 i.shieldButton = function () {
                     o.node.off("touchstart", i.callBack, i);
-                    o.node.runAction(cc.tintTo(.1, 114, 199, 255));
-                    o.scheduleOnce(o.onLoad, .2);
+                    o.node.runAction(cc.tintTo(.3, 114, 199, 255));
+                    o.scheduleOnce(o.onLoad, .7);
                 };
                 c.shieldButton = function () {
                     o.node.off("touchstart", c.callBack, c);
-                    o.node.runAction(cc.tintTo(.1, 114, 199, 255));
-                    o.scheduleOnce(o.onLoad, .2);
+                    o.node.runAction(cc.tintTo(.3, 114, 199, 255));
+                    o.scheduleOnce(o.onLoad, .7);
                 };
                 n.getItemNum = function () {
                     return 1;
@@ -8321,7 +8321,7 @@ require = function e(t, n, a) {
                         inFight.scheduleOnce(function () {
                             i.playText("Canvas/Text/txt_notify", fightwinText, 80);
                             yourLostskill();
-                        }, 0.4);
+                        }, 1);
                     }
                 }
                 function isYouLOst() {
@@ -8810,7 +8810,11 @@ require = function e(t, n, a) {
             shieldButton: function () {
                 this.node.off("touchstart", this.callBack, this);
                 this.node.runAction(cc.tintTo(.3, 114, 199, 255));
+<<<<<<< HEAD
                 this.scheduleOnce(this.onLoad, .7);
+=======
+                this.scheduleOnce(this.onLoad, .7);//不知道是啥，改了再说
+>>>>>>> e752a792f3b39cfe86ff11363386435343e0e3f2
             },
             autoEat: function () {
                 //饱食度传送门
@@ -11453,8 +11457,8 @@ require = function e(t, n, a) {
                 e("scr_effect").playText("Canvas/text", "系统检测到你还有没用完的精力，你确定要睡觉吗？", 80);
                 t.opacity = 0;
                 this.scheduleOnce(function () {
-                    t.runAction(cc.fadeIn(2));
-                }, 2);
+                    t.runAction(cc.fadeIn(.2));
+                }, .2);
             }
         });
         cc._RF.pop();
@@ -11499,7 +11503,7 @@ require = function e(t, n, a) {
                 a.parent = e;
                 a.setPosition(0, 0);
                 a.opacity = 0;
-                a.runAction(cc.fadeIn(3));
+                a.runAction(cc.fadeIn(.3));//开场十倍速
                 a.color = new cc.Color(255, 255, 255);
                 a.getComponent(cc.Label).overflow = 3;
                 a.getComponent(cc.Label).horizontalAlign = 1;
@@ -13568,7 +13572,7 @@ require = function e(t, n, a) {
                     a.schedule(l, 2, 1);
                 })();
                 function l() {
-                    cc.find(["Canvas/Determine", "Canvas/text2"][s]).runAction(cc.fadeIn(2));
+                    cc.find(["Canvas/Determine", "Canvas/text2"][s]).runAction(cc.fadeIn(.2));
                     s++;
                 }
                 function u() {
