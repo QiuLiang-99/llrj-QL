@@ -3669,31 +3669,26 @@ require = function e(t, n, a) {
                                 scr_data.itemNum2[14] = 0
                                 this.publicVar += 1;
                                 return "【枪支限制！弹药清零】";
-                            }
-                            if (this.publicVar < 3) {
+                            } else if (this.publicVar < 3) {
                                 this.publicVar += 1;
                                 return "【秋良正在掏四次元口袋】";
-                            }
-                            if (this.publicVar == 3) {
+                            } else if (this.publicVar == 3) {
                                 this.publicVar += 1;
                                 var e = 2 * this.att - yourstatus.def;
                                 scr_data.role.hp -= e;
                                 return "【秋良使用「空气炮」，造成" + e + "点伤害】"
-                            }
-                            if (this.publicVar == 4) {
+                            } else if (this.publicVar == 4) {
                                 this.publicVar += 1;
                                 var e = 1 * this.att - yourstatus.def;
                                 scr_data.role.hp -= e;
-                                cc.find("Event/scr_fight").getComponent("scr_fight").correct[1] -= parseInt(.05 * yourstatus.def);
+                                cc.find("Event/scr_fight").getComponent("scr_fight").correct[1] -= parseInt(.5 * yourstatus.def);
                                 return "【秋良使用「绊倒乐队」，造成" + e + "点伤害，减少防御50%】"
-                            }
-                            if (this.publicVar == 5) {
+                            } else if (this.publicVar == 5) {
                                 this.publicVar += 1;
                                 this.def += parseInt(1 * this.def);
                                 this.att += parseInt(1 * this.att);
                                 return "【秋良使用「放大灯」，攻防翻倍】"
-                            }
-                            if (this.publicVar == 6) {
+                            } else if (this.publicVar == 6) {
                                 return "【暂时就拿这么多道具好了！】"
                             }
                             e = this.att - yourstatus.def;
@@ -3733,29 +3728,29 @@ require = function e(t, n, a) {
                         skill: function () {
                             if (this.publicVar = 0) {
                                 this.publicVar += 1;
-                                return "【“你这家伙，上来就不由分说的攻击，什么意思！”】";
+                                return "【“明明是无能力者却有这等实力...可恶啊”】";
                             }
-                            if (this.publicVar == 1) {
+                            else if (this.publicVar == 1) {
                                 this.publicVar += 1;
                                 var e = 1 * this.att - yourstatus.def;
                                 scr_data.role.hp -= e;
                                 cc.find("Event/scr_fight").getComponent("scr_fight").correct[1] -= parseInt(.5 * yourstatus.def);
                                 return "【" + this.name + "使用「铁砂之剑」，造成" + e + "点伤害，你减少50%防御】"
                             }    
-                            if (this.publicVar == 2) {
+                            else if (this.publicVar == 2) {
                                 this.publicVar += 1;
                                 var e = 5 * this.att - yourstatus.def;
                                 scr_data.role.hp -= e;
-                                cc.find("Event/scr_fight").getComponent("scr_fight").correct[0] -= parseInt(.5 * yourstatus.def);
+                                cc.find("Event/scr_fight").getComponent("scr_fight").correct[0] -= parseInt(.5 * yourstatus.att);
                                 return "【" + this.name + "使用「雷击之枪」，造成" + e + "点伤害，你减少50%攻击】"
                             }                        
-                            if (this.publicVar == 3) {
+                            else if (this.publicVar == 3) {
                                 this.publicVar += 1;
                                 var e = 5 * this.att - yourstatus.def;
                                 scr_data.role.hp -= e;
                                 return "【" + this.name + "使用「超电磁炮」，造成" + e + "点伤害】"
                             }
-                            if (this.publicVar == 4) {
+                            else if (this.publicVar == 4) {
                                 this.publicVar = 1;
                                 this.def += parseInt(1 * this.def);
                                 this.att += parseInt(1 * this.att);
@@ -8038,10 +8033,10 @@ require = function e(t, n, a) {
                             BYsDamage = Math.max(BYsDamage, 0);
                             if (a < BYstatus.crit) {
                                 BYsDamage = parseInt(2.5 * BYsDamage);
-                                BYsattText = BYsattText.replace(/普攻/, "暗杀（250%）");
+                                BYsattText = BYsattText.replace(/普攻/, "暗杀250%");
                                 if (n.friendSkill[8] > 0 && BYstatus.attackTimes % 2 == 0) {
                                     BYsDamage = parseInt(4 * BYsDamage);
-                                    BYsattText = /暗杀（250%）/.test(BYsattText) ? BYsattText.replace(/暗杀（250%）/, "终结.蝶舞1000%") : BYsattText.replace(/普攻/, "终结400%");
+                                    BYsattText = /暗杀250%/.test(BYsattText) ? BYsattText.replace(/暗杀250%/, "终结.蝶舞1000%") : BYsattText.replace(/普攻/, "终结400%");
                                 }
                                 if (n.friendSkill[3] > 0) {
                                     var o = parseInt(.25 * BYsDamage * BYstatus.bleedNum), s = parseInt(.25 * theEnemy.def);
@@ -8441,14 +8436,11 @@ require = function e(t, n, a) {
             //探索传送门
             getItem: function () {
                 e("scr_public").regionId();
-                var t = e("scr_data"), n = this.getDrop(), 
-                itemText = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n), 
-                Fangdajing = function () {
+                var t = e("scr_data"), n = this.getDrop(), a = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n), i = function () {
                     var t = e("scr_data"), a = t.itemNum2[17] + t.publicVar3[9], i = 100 * Math.random(), c = "";
                     i < a && (c = "没发现道具" != (c = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n)) ? "\n【放大镜：发现" + c + "】" : "\n【放大镜：什么也没有发现！】");
                     return c;
-                }(), 
-                XL = function () {
+                }(), c = function () {
                     var t = e("scr_data"), a = "";
                     if (1 == t.publicVar[1]) {
                         var i = t.day + 40, c = 100 * Math.random();
@@ -8456,25 +8448,27 @@ require = function e(t, n, a) {
                     }
                     return a;
                 }();
-                var XYslText = function () {
-                    var t = e("scr_data"), a = 5 * (t.itemNum2[27] + t.publicVar3[17]), i = 100 * Math.random(), XYsl = "";
-                    i < a && (c = "没发现道具" != (c = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n)) ? "\n【晓月：发现" + c + "】" : "\n【晓月：什么也没有发现！】");
-                    return XYsl;
-                }();
-                if (t.skillLv[23] > 0) {
-                    t.money += 1;
-                    itemText += "【逆袭：金钱+0.1】";
-                }
-                if (t.day <= 5) {
-                    t.itemNum[4] += 1;
-                    itemText += "【作者的呵护：获得「亚麻」*1（游戏前5天有效）】";
-                }
-                if ("没发现道具" != itemText) itemText = XYslText + Fangdajing + XL + "发现" + itemText; 
-                else {
+                if ("没发现道具" != a) a = i + c + "发现" + a; else {
+                    var o = function () {
+                        var t = e("scr_data"), a = 5 * (t.itemNum2[27] + t.publicVar3[17]), i = 100 * Math.random(), c = "";
+                        if (i < a) if ("没发现道具" != (c = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n))) c = "\n【晓月手链：发现" + c + "】"; else {
+                            t.money += 1;
+                            c = "\n【晓月手链：发现0.1元！】";
+                        }
+                        return c;
+                    }();
                     t.publicVar2[1] += 1;
-                    itemText = XYslText + Fangdajing + XL + "什么也没有找到！";
+                    a = o + i + c + "什么也没有找到！";
+                    if (t.skillLv[23] > 0) {
+                        t.money += 1;
+                        a += "【逆袭：金钱+0.1】";
+                    }
+                    if (t.day <= 5) {
+                        t.itemNum[4] += 2;
+                        a += "【作者的呵护：获得「亚麻」*2（游戏前5天有效）】";
+                    }
                 }
-                e("scr_effect").playText("Canvas/Text/txt_notify", itemText, 60);
+                e("scr_effect").playText("Canvas/Text/txt_notify", a, 60);
             },
             getDrop: function () {
                 var t = [], n = this.getItemNum(), a = e("scr_public").regionId();
@@ -9000,7 +8994,7 @@ require = function e(t, n, a) {
     }],
     scr_friendUI1: [function (e, t, n) {
         "use strict";
-        cc._RF.push(t, "871fc61bpBNRLPJHo54vOLw", "scr_friendUI1");
+        cc._RF.push(t, "UIscr_friendUI1", "scr_friendUI1");
         cc.Class({
             extends: cc.Component,
             properties: {},
