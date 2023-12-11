@@ -139,37 +139,22 @@ require = function e(t, n, a) {
                     0: function () {
                         if(n.gameData2[0] == 1){
                         n.achieveMent[0] = 1;
-                        a.save2();
+                        a.save();
                     }
-                        return n.achieveMent[0] == 1;
+                        return n.achieveMent[0]==1;
                     },
                     1: function () {
-                        if(t.achieve >=99){
-                            n.achieveMent[1] = 1;
-                            a.save2();
-                        }
-                        return n.achieveMent[1] == 1;
+                        var e = 100 * t.publicVar2[1] / i;
+                        return i >= 999 && e >= 24;
                     },
                     2: function () {
-                        if(t.publicVar2[0] >= 66){
-                            n.achieveMent[2] = 1;
-                            a.save2();
-                        }
-                        return n.achieveMent[2] == 1;
+                        return t.publicVar2[0] >= 66;
                     },
                     3: function () {
-                        if((t.publicVar2[1] / i)>=.25){
-                            n.achieveMent[3] = 1;
-                            a.save2();
-                        }
-                        return n.achieveMent[3] == 1;
+                        return t.publicVar2[1] >= 999;
                     },
                     4: function () {
-                        if(t.randomEvent[0] >= 10 && t.publicVar2[13] >= 10){
-                            n.achieveMent[4] = 1;
-                            a.save2();
-                        }
-                        return n.achieveMent[4] == 1;
+                        return t.randomEvent[0] >= 10 && t.publicVar2[13] >= 10;
                     },
                     5: function () {
                         var e = 100 * t.publicVar2[2] / i;
@@ -264,7 +249,6 @@ require = function e(t, n, a) {
                 var f = cc.find("Canvas/Button_backMainUI");
                 f.on("touchstart", function () {
                     cc.director.loadScene("main");
-                    a.save2();
                 }, f);
             }
         });
@@ -346,13 +330,13 @@ require = function e(t, n, a) {
             onLoad: function () {
                 var e = {
                     initMoney: 0,
-                    achieveMent: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],//新增一堆数据，用来永久保存成就
+                    achieveMent: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],//新增一堆数据，用来永久保存成就
                     dieChoice: [0, 0, 0, 0, 0],
                     gameData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                     gameData2: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                 };
                 JSON.parse(cc.sys.localStorage.getItem("data2")) && function (e) {
-                    "undefined" == typeof e.achieveMent &&(e.achieveMent = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+                    "undefined" == typeof e.gameData &&(e.achieveMent = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
                     "undefined" == typeof e.gameData && (e.gameData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
                     "undefined" == typeof e.gameData2 && (e.gameData2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);				/*新增gamedate函数传送门*/
                 }(e = JSON.parse(cc.sys.localStorage.getItem("data2")));
