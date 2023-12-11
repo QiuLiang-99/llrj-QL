@@ -450,151 +450,27 @@ require = function e(t, n, a) {
                     escapeExp: 0,
                     buffState: [0, 0],
                     ifNotify: !1,
-                    skillLv: {
-                        0: 0,
-                        1: 0,
-                        2: 0,
-                        3: 0,
-                        4: 0,
-                        5: 0,
-                        6: 0,
-                        7: 0,
-                        8: 0,
-                        9: 0,
-                        10: 0,
-                        11: 0,
-                        12: 0,
-                        13: 0,
-                        14: 0,
-                        15: 0,
-                        16: 0,
-                        17: 0,
-                        18: 0,
-                        19: 0,
-                        20: 0,
-                        21: 0,
-                        22: 0,
-                        23: 0,
-                        24: 0,
-                        25: 0,
-                        26: 0,
-                        27: 0
-                    },
+                    skillLv: {0:0,1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0,
+                        10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:0,18:0,19:0,
+                        20:0,21:0,22:0,23:0,24:0,25:0,26:0,27:0},
                     //特殊敌人传送门
-                    specialEnemy: {
-                        100001: {
-                            lv: 1,
-                            hp: 20,
-                            maxHp: 20,
-                            att: 1,
-                            def: 0
-                        },
-                        100002: {
-                            lv: 25,
-                            hp: 875,
-                            maxHp: 875,
-                            att: 0,
-                            def: 0
-                        },
-                        200001: {
-                            lv: 8,
-                            hp: 310,
-                            maxHp: 310,
-                            att: 20,
-                            def: 0
-                        },
-                        300001: {
-                            lv: 20,
-                            hp: 510,
-                            maxHp: 510,
-                            att: 0,
-                            def: 0
-                        },
-                        300002: {
-                            lv: 45,
-                            hp: 1550,
-                            maxHp: 1550,
-                            att: 0,
-                            def: 0
-                        },
-                        300003: {
-                            lv: 35,
-                            hp: 3270,
-                            maxHp: 3270,
-                            att: 0,
-                            def: 0
-                        },
-                        400001: {
-                            lv: 100,
-                            hp: 3345,
-                            maxHp: 3345,
-                            att: 0,
-                            def: 234
-                        },
-                        400002: {
-                            lv: 199,
-                            hp: 19999,
-                            maxHp: 19999,
-                            att: 0,
-                            def: 20
-                        },
-                        400003: {
-                            lv: 60,
-                            hp: 2050,
-                            maxHp: 2050,
-                            att: 310,
-                            def: 121
-                        },
-                        900001: {
-                            lv: 15,
-                            hp: 575,
-                            maxHp: 575,
-                            att: 59,
-                            def: 16
-                        },
-                        900002: {
-                            lv: 20,
-                            hp: 998,
-                            maxHp: 998,
-                            att: 50,
-                            def: 36
-                        },
-                        900003: {
-                            lv: 500,
-                            hp: 16500,
-                            maxHp: 16500,
-                            att: 1500,
-                            def: 1150
-                        },
-                        900004: {
-                            lv: 1,
-                            hp: 999999,
-                            maxHp: 999999,
-                            att: 999,
-                            def: 0
-                        },
-                        900005: {
-                            lv: 500,
-                            hp: 599999,
-                            maxHp: 599999,
-                            att: 0,
-                            def: 0
-                        },
-                        900006: {
-                            lv: 200,
-                            hp: 299999,
-                            maxHp: 299999,
-                            att: 0,
-                            def: 0
-                        },
-                        900007: {
-                            lv: 40,
-                            hp: 3900,
-                            maxHp: 3900,
-                            att: 90,
-                            def: 50
-                        }
-                    },
+                    specialEnemy:
+                    {100001:{lv:1,hp:20,maxHp:20,att:1,def:0},
+                    100002:{lv:25,hp:875,maxHp:875,att:0,def:0},
+                    200001:{lv:8,hp:310,maxHp:310,att:20,def:0},
+                    300001:{lv:20,hp:510,maxHp:510,att:0,def:0},
+                    300002:{lv:45,hp:1550,maxHp:1550,att:0,def:0},
+                    300003:{lv:35,hp:3270,maxHp:3270,att:0,def:0},
+                    400001:{lv:100,hp:3345,maxHp:3345,att:0,def:234},
+                    400002:{lv:199,hp:19999,maxHp:19999,att:0,def:20},
+                    400003:{lv:60,hp:2050,maxHp:2050,att:310,def:121},
+                    900001:{lv:15,hp:575,maxHp:575,att:59,def:16},
+                    900002:{lv:20,hp:998,maxHp:998,att:50,def:36},
+                    900003:{lv:500,hp:16500,maxHp:16500,att:1500,def:1150},
+                    900004:{lv:1,hp:999999,maxHp:999999,att:999,def:0},
+                    900005:{lv:500,hp:599999,maxHp:599999,att:0,def:0},
+                    900006:{lv:200,hp:299999,maxHp:299999,att:0,def:0},
+                    900007:{lv:40,hp:3900,maxHp:3900,att:90,def:50}},
                     friendSkill1: [1, 0, 0, 0, 0],
                     friendSkill2: [1, 0, 0, 0, 0],
                     friendSkill: [1, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -628,97 +504,19 @@ require = function e(t, n, a) {
                     "undefined" == typeof e.publicVar && (e.publicVar = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
                     "undefined" == typeof e.publicVar2 && (e.publicVar2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
                     "undefined" == typeof e.publicVar3 && (e.publicVar3 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-                    "undefined" == typeof e.specialEnemy[300001] && (e.specialEnemy[300001] = {
-                        lv: 35,
-                        hp: 510,
-                        maxHp: 510,
-                        att: 0,
-                        def: 0
-                    });
-                    "undefined" == typeof e.specialEnemy[300002] && (e.specialEnemy[300002] = {
-                        lv: 45,
-                        hp: 1550,
-                        maxHp: 1550,
-                        att: 0,
-                        def: 0
-                    });
-                    "undefined" == typeof e.specialEnemy[300003] && (e.specialEnemy[300003] = {
-                        lv: 35,
-                        hp: 3270,
-                        maxHp: 3270,
-                        att: 0,
-                        def: 0
-                    });
-                    "undefined" == typeof e.specialEnemy[400001] && (e.specialEnemy[400001] = {
-                        lv: 100,
-                        hp: 3345,
-                        maxHp: 3345,
-                        att: 0,
-                        def: 234
-                    });
-                    "undefined" == typeof e.specialEnemy[400002] && (e.specialEnemy[400002] = {
-                        lv: 199,
-                        hp: 19999,
-                        maxHp: 19999,
-                        att: 0,
-                        def: 20
-                    });
-                    "undefined" == typeof e.specialEnemy[400003] && (e.specialEnemy[400003] = {
-                        lv: 60,
-                        hp: 2050,
-                        maxHp: 2050,
-                        att: 310,
-                        def: 121
-                    });
-                    "undefined" == typeof e.specialEnemy[900001] && (e.specialEnemy[900001] = {
-                        lv: 15,
-                        hp: 575,
-                        maxHp: 575,
-                        att: 59,
-                        def: 16
-                    });
-                    "undefined" == typeof e.specialEnemy[900002] && (e.specialEnemy[900002] = {
-                        lv: 20,
-                        hp: 998,
-                        maxHp: 998,
-                        att: 50,
-                        def: 36
-                    });
-                    "undefined" == typeof e.specialEnemy[900003] && (e.specialEnemy[900003] = {
-                        lv: 500,
-                        hp: 16500,
-                        maxHp: 16500,
-                        att: 1500,
-                        def: 1150
-                    });
-                    "undefined" == typeof e.specialEnemy[900004] && (e.specialEnemy[900004] = {
-                        lv: 1,
-                        hp: 999999,
-                        maxHp: 999999,
-                        att: 999,
-                        def: 0
-                    });
-                    "undefined" == typeof e.specialEnemy[900005] && (e.specialEnemy[900005] = {
-                        lv: 500,
-                        hp: 599999,
-                        maxHp: 599999,
-                        att: 0,
-                        def: 0
-                    });
-                    "undefined" == typeof e.specialEnemy[900006] && (e.specialEnemy[900006] = {
-                        lv: 200,
-                        hp: 299999,
-                        maxHp: 299999,
-                        att: 0,
-                        def: 0
-                    });
-                    "undefined" == typeof e.specialEnemy[900007] && (e.specialEnemy[900007] = {
-                        lv: 40,
-                        hp: 3900,
-                        maxHp: 3900,
-                        att: 90,
-                        def: 50
-                    });
+                    "undefined"==typeofe.specialEnemy[300001]&&(e.specialEnemy[300001]={lv:35,hp:510,maxHp:510,att:0,def:0});
+                    "undefined"==typeofe.specialEnemy[300002]&&(e.specialEnemy[300002]={lv:45,hp:1550,maxHp:1550,att:0,def:0});
+                    "undefined"==typeofe.specialEnemy[300003]&&(e.specialEnemy[300003]={lv:35,hp:3270,maxHp:3270,att:0,def:0});
+                    "undefined"==typeofe.specialEnemy[400001]&&(e.specialEnemy[400001]={lv:100,hp:3345,maxHp:3345,att:0,def:234});
+                    "undefined"==typeofe.specialEnemy[400002]&&(e.specialEnemy[400002]={lv:199,hp:19999,maxHp:19999,att:0,def:20});
+                    "undefined"==typeofe.specialEnemy[400003]&&(e.specialEnemy[400003]={lv:60,hp:2050,maxHp:2050,att:310,def:121});
+                    "undefined"==typeofe.specialEnemy[900001]&&(e.specialEnemy[900001]={lv:15,hp:575,maxHp:575,att:59,def:16});
+                    "undefined"==typeofe.specialEnemy[900002]&&(e.specialEnemy[900002]={lv:20,hp:998,maxHp:998,att:50,def:36});
+                    "undefined"==typeofe.specialEnemy[900003]&&(e.specialEnemy[900003]={lv:500,hp:16500,maxHp:16500,att:1500,def:1150});
+                    "undefined"==typeofe.specialEnemy[900004]&&(e.specialEnemy[900004]={lv:1,hp:999999,maxHp:999999,att:999,def:0});
+                    "undefined"==typeofe.specialEnemy[900005]&&(e.specialEnemy[900005]={lv:500,hp:599999,maxHp:599999,att:0,def:0});
+                    "undefined"==typeofe.specialEnemy[900006]&&(e.specialEnemy[900006]={lv:200,hp:299999,maxHp:299999,att:0,def:0});
+                    "undefined"==typeofe.specialEnemy[900007]&&(e.specialEnemy[900007]={lv:40,hp:3900,maxHp:3900,att:90,def:50});
                 }(e = JSON.parse(cc.sys.localStorage.getItem("userData")));
                 t.exports = e;
             }
