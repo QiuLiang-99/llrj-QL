@@ -20,7 +20,8 @@ require = function e(t, n, a) {
     }
     for (var c = "function" == typeof require && require, o = 0; o < a.length; o++) i(a[o]);
     return i;
-}({
+}
+({
     NewScript: [function (e, t, n) {
         "use strict";
         cc._RF.push(t, "157ea2hkc9J8KsDAUfgUmue", "NewScript");
@@ -131,103 +132,134 @@ require = function e(t, n, a) {
                     30: "【作者亲爹妈】本游戏在你手机中存活达300小时（" + o + "/300）"
                 }, l = {
                     0: function () {
-                        return n.gameData2[0] == 1;
+                        if(n.gameData2[0] == 1){n.achieveMent[0] = 1;}
+                        return n.achieveMent[0]==1;
+
                     },
                     1: function () {
-                        var e = 100 * t.publicVar2[1] / i;
-                        return i >= 999 && e >= 24;
+                        if(t.achieve >=99){n.achieveMent[1] = 1;}
+                        return n.achieveMent[1] == 1;
                     },
                     2: function () {
-                        return t.publicVar2[0] >= 66;
+                        if(t.publicVar2[0] >= 66){n.achieveMent[2] = 1;}
+                        return n.achieveMent[2] == 1;
                     },
                     3: function () {
-                        return t.publicVar2[1] >= 999;
+                        if((t.publicVar2[1] / i)>=.25 && i>=999){n.achieveMent[3] = 1;}
+                        return n.achieveMent[3] == 1;
                     },
                     4: function () {
-                        return t.randomEvent[0] >= 10 && t.publicVar2[13] >= 10;
+                        if(t.randomEvent[0] >= 10 && t.publicVar2[13] >= 10){n.achieveMent[4] = 1;}
+                        return n.achieveMent[4] == 1;
                     },
                     5: function () {
                         var e = 100 * t.publicVar2[2] / i;
-                        return i >= 999 && e >= 24;
+                        if(i >= 999 && e >= 24){n.achieveMent[5] = 1;}
+                        return n.achieveMent[5] == 1;
                     },
                     6: function () {
-                        return t.publicVar2[5] >= 10;
+                        if(t.publicVar2[5] >= 10){n.achieveMent[6] = 1;}
+                        return n.achieveMent[6] == 1;
                     },
                     7: function () {
-                        return t.publicVar2[6] >= 999;
+                        if( t.publicVar2[6] >= 999 ){ n.achieveMent[7] = 1 ; }
+                        return n.achieveMent[7] == 1;
                     },
                     8: function () {
-                        return t.publicVar2[12] >= 49;
+                        if( t.publicVar2[12] >= 49 ){ n.achieveMent[8] = 1 ; }
+                        return n.achieveMent[8] == 1;
                     },
                     9: function () {
-                        return t.kills[3] >= 10;
+                        if( t.kills[3] >= 10 ){ n.achieveMent[9] = 1 ; }
+                        return n.achieveMent[9] == 1;
                     },
                     10: function () {
-                        return 1 == t.publicVar[5];
+                        if( 1 == t.publicVar[5] ){ n.achieveMent[10] = 1 ; }
+                        return n.achieveMent[10] == 1;
                     },
                     11: function () {
-                        return t.publicVar2[8] >= 36;
+                        if( t.publicVar2[8] >= 36 ){ n.achieveMent[11] = 1 ; }
+                        return n.achieveMent[11] == 1;
                     },
                     12: function () {
-                        return t.publicVar[0] >= 60;
+                        if( t.publicVar[0] >= 60 ){ n.achieveMent[12] = 1 ; }
+                        return n.achieveMent[12] == 1;
                     },
                     13: function () {
-                        return t.choice[5] >= 400;
+                        if( t.choice[5] >= 400 ){ n.achieveMent[13] = 1 ; }
+                        return n.achieveMent[13] == 1;
                     },
                     14: function () {
                         if (t.publicVar2[10] >= 30 || 1 == t.publicVar2[11]) {
                             t.publicVar2[11] = 1;
+                            n.achieveMent[14] = 1 ;
                             a.save();
                             return !0;
                         }
                         return !1;
                     },
                     15: function () {
-                        return 300 == t.distance && n.gameData[0] > 0 && 0 == t.choice[5];
+                        if( 300 == t.distance && n.gameData[0] > 0 && 0 == t.choice[5] ){ n.achieveMent[15] = 1 ; }
+                        return n.achieveMent[15] == 1;
                     },
                     16: function () {
-                        return t.publicVar[3] > 0;
+                        if( t.publicVar[3] > 0 ){ n.achieveMent[16] = 1 ; }
+                        return n.achieveMent[16] == 1;
                     },
                     17: function () {
-                        return t.randomEvent[1] >= 6;
+                        if( t.randomEvent[1] >= 6 ){ n.achieveMent[17] = 1 ; }
+                        return n.achieveMent[17] == 1;
                     },
                     18: function () {
-                        return t.kills[2] >= 40 && t.publicVar2[7] >= 20;
+                        if( t.kills[2] >= 40 && t.publicVar2[7] >= 20 ){ n.achieveMent[18] = 1 ; }
+                        return n.achieveMent[18] == 1;
                     },
                     19: function () {
-                        return t.orderTimes[3] >= 21;
+                        if( t.orderTimes[3] >= 21 ){ n.achieveMent[19] = 1 ; }
+                        return n.achieveMent[19] == 1;
                     },
                     20: function () {
-                        return c >= 99;
+                        if( c >= 99 ){ n.achieveMent[20] = 1 ; }
+                        return n.achieveMent[20] == 1;
                     },
                     21: function () {
-                        return t.publicVar2[9] >= 49;
+                        if( t.publicVar2[9] >= 49 ){ n.achieveMent[21] = 1 ; }
+                        return n.achieveMent[21] == 1;
                     },
                     22: function () {
-                        return t.itemNum[12] >= 6;
+                        if( t.itemNum[12] >= 6 ){ n.achieveMent[22] = 1 ; }
+                        return n.achieveMent[22] == 1;
                     },
                     23: function () {
-                        return t.itemNum2[10] >= 9 && t.itemNum2[11] >= 9;
+                        if( t.itemNum2[10] >= 9 && t.itemNum2[11] >= 9 ){ n.achieveMent[23] = 1 ; }
+                        return n.achieveMent[23] == 1;
                     },
                     24: function () {
-                        return t.publicVar3[14] >= 99;
+                        if( t.publicVar3[14] >= 99 ){ n.achieveMent[24] = 1 ; }
+                        return n.achieveMent[24] == 1;
                     },
                     25: function () {
-                        return t.publicVar[7] >= 600 && t.choice[5] <= 0;
+                        if( t.publicVar[7] >= 600 && t.choice[5] <= 0 ){ n.achieveMent[25] = 1 ; }
+                        return n.achieveMent[25] == 1;
                     },
                     26: function () {
-                        return t.publicVar2[9] >= 49;
+                        if( t.publicVar2[9] >= 49 ){ n.achieveMent[26] = 1 ; }
+                        return n.achieveMent[26] == 1;
                     },
                     27: function () {
-                        return r >= 1999;
+                        if( r >= 1999 ){ n.achieveMent[27] = 1 ; }
+                        return n.achieveMent[27] == 1;
                     },
                     28: function () {
-                        return t.choice[6] >= 17;
+                        if( t.choice[6] >= 17 ){ n.achieveMent[28] = 1 ; }
+                        return n.achieveMent[28] == 1;
                     },
                     29: function () {
-                        return n.gameData[1] + 1 >= 6;
+                        if( n.gameData[1] + 1 >= 6 ){ n.achieveMent[29] = 1 ; }
+                        return n.achieveMent[29] == 1;
                     },
                     30: function () {
+                        if( o >= 300 ){ n.achieveMent[30] = 1 ; }
                         return o >= 300;
                     }
                 }, 
@@ -239,6 +271,7 @@ require = function e(t, n, a) {
                 var f = cc.find("Canvas/Button_backMainUI");
                 f.on("touchstart", function () {
                     cc.director.loadScene("main");
+                    a.save2();
                 }, f);
             }
         });
@@ -320,13 +353,13 @@ require = function e(t, n, a) {
             onLoad: function () {
                 var e = {
                     initMoney: 0,
-                    achieveMent: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],//新增一堆数据，用来永久保存成就
+                    achieveMent: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],//新增一堆数据，用来永久保存成就
                     dieChoice: [0, 0, 0, 0, 0],
                     gameData: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                     gameData2: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                 };
                 JSON.parse(cc.sys.localStorage.getItem("data2")) && function (e) {
-                    "undefined" == typeof e.gameData &&(e.achieveMent = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
+                    "undefined" == typeof e.achieveMent &&(e.achieveMent = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]);
                     "undefined" == typeof e.gameData && (e.gameData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
                     "undefined" == typeof e.gameData2 && (e.gameData2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);				/*新增gamedate函数传送门*/
                 }(e = JSON.parse(cc.sys.localStorage.getItem("data2")));
@@ -344,6 +377,20 @@ require = function e(t, n, a) {
             onLoad: function () {
                 var e = {};
                 "undefined" == typeof JSON.parse(cc.sys.localStorage.getItem("dataCopy")) && (e = JSON.parse(cc.sys.localStorage.getItem("userData")));
+                t.exports = e;
+            }
+        });
+        cc._RF.pop();
+    }, {}],
+    scr_autodataCopy: [function (e, t, n) {
+        "use strict";
+        cc._RF.push(t, "FUNautodataCopy", "scr_autodataCopy");
+        cc.Class({
+            extends: cc.Component,
+            properties: {},
+            onLoad: function () {
+                var e = {};
+                "undefined" == typeof JSON.parse(cc.sys.localStorage.getItem("autogamesave")) && (e = JSON.parse(cc.sys.localStorage.getItem("userData")));
                 t.exports = e;
             }
         });
@@ -399,156 +446,40 @@ require = function e(t, n, a) {
                     escapeExp: 0,
                     buffState: [0, 0],
                     ifNotify: !1,
-                    skillLv: {
-                        0: 0,
-                        1: 0,
-                        2: 0,
-                        3: 0,
-                        4: 0,
-                        5: 0,
-                        6: 0,
-                        7: 0,
-                        8: 0,
-                        9: 0,
-                        10: 0,
-                        11: 0,
-                        12: 0,
-                        13: 0,
-                        14: 0,
-                        15: 0,
-                        16: 0,
-                        17: 0,
-                        18: 0,
-                        19: 0,
-                        20: 0,
-                        21: 0,
-                        22: 0,
-                        23: 0,
-                        24: 0,
-                        25: 0,
-                        26: 0,
-                        27: 0
-                    },
+                    skillLv: {0:0,1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0,
+                        10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:0,18:0,19:0,
+                        20:0,21:0,22:0,23:0,24:0,25:0,26:0,27:0},
                     //特殊敌人传送门
-                    specialEnemy: {
-                        100001: {
-                            lv: 1,
-                            hp: 20,
-                            maxHp: 20,
-                            att: 1,
-                            def: 0
-                        },
-                        100002: {
-                            lv: 25,
-                            hp: 875,
-                            maxHp: 875,
-                            att: 0,
-                            def: 0
-                        },
-                        200001: {
-                            lv: 8,
-                            hp: 310,
-                            maxHp: 310,
-                            att: 20,
-                            def: 0
-                        },
-                        300001: {
-                            lv: 20,
-                            hp: 510,
-                            maxHp: 510,
-                            att: 0,
-                            def: 0
-                        },
-                        300002: {
-                            lv: 45,
-                            hp: 1550,
-                            maxHp: 1550,
-                            att: 0,
-                            def: 0
-                        },
-                        300003: {
-                            lv: 35,
-                            hp: 3270,
-                            maxHp: 3270,
-                            att: 0,
-                            def: 0
-                        },
-                        400001: {
-                            lv: 100,
-                            hp: 3345,
-                            maxHp: 3345,
-                            att: 0,
-                            def: 234
-                        },
-                        400002: {
-                            lv: 199,
-                            hp: 19999,
-                            maxHp: 19999,
-                            att: 0,
-                            def: 20
-                        },
-                        400003: {
-                            lv: 60,
-                            hp: 2050,
-                            maxHp: 2050,
-                            att: 310,
-                            def: 121
-                        },
-                        900001: {
-                            lv: 15,
-                            hp: 575,
-                            maxHp: 575,
-                            att: 59,
-                            def: 16
-                        },
-                        900002: {
-                            lv: 20,
-                            hp: 998,
-                            maxHp: 998,
-                            att: 50,
-                            def: 36
-                        },
-                        900003: {
-                            lv: 500,
-                            hp: 16500,
-                            maxHp: 16500,
-                            att: 1500,
-                            def: 1150
-                        },
-                        900004: {
-                            lv: 1,
-                            hp: 999999,
-                            maxHp: 999999,
-                            att: 999,
-                            def: 0
-                        },
-                        900005: {
-                            lv: 500,
-                            hp: 599999,
-                            maxHp: 599999,
-                            att: 0,
-                            def: 0
-                        },
-                        900006: {
-                            lv: 200,
-                            hp: 299999,
-                            maxHp: 299999,
-                            att: 0,
-                            def: 0
-                        },
-                        900007: {
-                            lv: 40,
-                            hp: 3900,
-                            maxHp: 3900,
-                            att: 90,
-                            def: 50
-                        }
-                    },
+                    specialEnemy:
+                    {100001:{lv:1,hp:20,maxHp:20,att:1,def:0},
+                    100002:{lv:25,hp:875,maxHp:875,att:0,def:0},
+                    200001:{lv:8,hp:310,maxHp:310,att:20,def:0},
+                    300001:{lv:20,hp:510,maxHp:510,att:0,def:0},
+                    300002:{lv:45,hp:1550,maxHp:1550,att:0,def:0},
+                    300003:{lv:35,hp:3270,maxHp:3270,att:0,def:0},
+                    400001:{lv:100,hp:3345,maxHp:3345,att:0,def:234},
+                    400002:{lv:199,hp:19999,maxHp:19999,att:0,def:20},
+                    400003:{lv:60,hp:2050,maxHp:2050,att:310,def:121},
+                    900001:{lv:15,hp:575,maxHp:575,att:59,def:16},
+                    900002:{lv:20,hp:998,maxHp:998,att:50,def:36},
+                    900003:{lv:500,hp:16500,maxHp:16500,att:1500,def:1150},
+                    900004:{lv:1,hp:999999,maxHp:999999,att:999,def:0},
+                    900005:{lv:500,hp:599999,maxHp:599999,att:0,def:0},
+                    900006:{lv:200,hp:299999,maxHp:299999,att:0,def:0},
+                    900007:{lv:40,hp:3900,maxHp:3900,att:90,def:50}},
                     friendSkill1: [1, 0, 0, 0, 0],
                     friendSkill2: [1, 0, 0, 0, 0],
                     friendSkill: [1, 0, 0, 0, 0, 0, 0, 0, 0]
                 };
                 JSON.parse(cc.sys.localStorage.getItem("userData")) && function (e) {
+                    "undefined" == typeof e.itemNum[10] && (e.itemNum[10] = 0);
+                    "undefined" == typeof e.itemNum[11] && (e.itemNum[11] = 0);
+                    "undefined" == typeof e.itemNum[12] && (e.itemNum[12] = 0);
+                    "undefined" == typeof e.itemNum[13] && (e.itemNum[13] = 0);
+                    "undefined" == typeof e.itemNum[14] && (e.itemNum[14] = 0);
+                    "undefined" == typeof e.itemNum[15] && (e.itemNum[15] = 0);
+                    "undefined" == typeof e.itemNum[16] && (e.itemNum[16] = 0);
+                    "undefined" == typeof e.itemNum[17] && (e.itemNum[17] = 0);
                     "undefined" == typeof e.itemNum2[18] && (e.itemNum2[18] = 0);
                     "undefined" == typeof e.itemNum2[19] && (e.itemNum2[19] = 0);
                     "undefined" == typeof e.itemNum2[20] && (e.itemNum2[20] = 0);
@@ -577,97 +508,19 @@ require = function e(t, n, a) {
                     "undefined" == typeof e.publicVar && (e.publicVar = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
                     "undefined" == typeof e.publicVar2 && (e.publicVar2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
                     "undefined" == typeof e.publicVar3 && (e.publicVar3 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-                    "undefined" == typeof e.specialEnemy[300001] && (e.specialEnemy[300001] = {
-                        lv: 35,
-                        hp: 510,
-                        maxHp: 510,
-                        att: 0,
-                        def: 0
-                    });
-                    "undefined" == typeof e.specialEnemy[300002] && (e.specialEnemy[300002] = {
-                        lv: 45,
-                        hp: 1550,
-                        maxHp: 1550,
-                        att: 0,
-                        def: 0
-                    });
-                    "undefined" == typeof e.specialEnemy[300003] && (e.specialEnemy[300003] = {
-                        lv: 35,
-                        hp: 3270,
-                        maxHp: 3270,
-                        att: 0,
-                        def: 0
-                    });
-                    "undefined" == typeof e.specialEnemy[400001] && (e.specialEnemy[400001] = {
-                        lv: 100,
-                        hp: 3345,
-                        maxHp: 3345,
-                        att: 0,
-                        def: 234
-                    });
-                    "undefined" == typeof e.specialEnemy[400002] && (e.specialEnemy[400002] = {
-                        lv: 199,
-                        hp: 19999,
-                        maxHp: 19999,
-                        att: 0,
-                        def: 20
-                    });
-                    "undefined" == typeof e.specialEnemy[400003] && (e.specialEnemy[400003] = {
-                        lv: 60,
-                        hp: 2050,
-                        maxHp: 2050,
-                        att: 310,
-                        def: 121
-                    });
-                    "undefined" == typeof e.specialEnemy[900001] && (e.specialEnemy[900001] = {
-                        lv: 15,
-                        hp: 575,
-                        maxHp: 575,
-                        att: 59,
-                        def: 16
-                    });
-                    "undefined" == typeof e.specialEnemy[900002] && (e.specialEnemy[900002] = {
-                        lv: 20,
-                        hp: 998,
-                        maxHp: 998,
-                        att: 50,
-                        def: 36
-                    });
-                    "undefined" == typeof e.specialEnemy[900003] && (e.specialEnemy[900003] = {
-                        lv: 500,
-                        hp: 16500,
-                        maxHp: 16500,
-                        att: 1500,
-                        def: 1150
-                    });
-                    "undefined" == typeof e.specialEnemy[900004] && (e.specialEnemy[900004] = {
-                        lv: 1,
-                        hp: 999999,
-                        maxHp: 999999,
-                        att: 999,
-                        def: 0
-                    });
-                    "undefined" == typeof e.specialEnemy[900005] && (e.specialEnemy[900005] = {
-                        lv: 500,
-                        hp: 599999,
-                        maxHp: 599999,
-                        att: 0,
-                        def: 0
-                    });
-                    "undefined" == typeof e.specialEnemy[900006] && (e.specialEnemy[900006] = {
-                        lv: 200,
-                        hp: 299999,
-                        maxHp: 299999,
-                        att: 0,
-                        def: 0
-                    });
-                    "undefined" == typeof e.specialEnemy[900007] && (e.specialEnemy[900007] = {
-                        lv: 40,
-                        hp: 3900,
-                        maxHp: 3900,
-                        att: 90,
-                        def: 50
-                    });
+                    "undefined"==typeofe.specialEnemy[300001]&&(e.specialEnemy[300001]={lv:35,hp:510,maxHp:510,att:0,def:0});
+                    "undefined"==typeofe.specialEnemy[300002]&&(e.specialEnemy[300002]={lv:45,hp:1550,maxHp:1550,att:0,def:0});
+                    "undefined"==typeofe.specialEnemy[300003]&&(e.specialEnemy[300003]={lv:35,hp:3270,maxHp:3270,att:0,def:0});
+                    "undefined"==typeofe.specialEnemy[400001]&&(e.specialEnemy[400001]={lv:100,hp:3345,maxHp:3345,att:0,def:234});
+                    "undefined"==typeofe.specialEnemy[400002]&&(e.specialEnemy[400002]={lv:199,hp:19999,maxHp:19999,att:0,def:20});
+                    "undefined"==typeofe.specialEnemy[400003]&&(e.specialEnemy[400003]={lv:60,hp:2050,maxHp:2050,att:310,def:121});
+                    "undefined"==typeofe.specialEnemy[900001]&&(e.specialEnemy[900001]={lv:15,hp:575,maxHp:575,att:59,def:16});
+                    "undefined"==typeofe.specialEnemy[900002]&&(e.specialEnemy[900002]={lv:20,hp:998,maxHp:998,att:50,def:36});
+                    "undefined"==typeofe.specialEnemy[900003]&&(e.specialEnemy[900003]={lv:500,hp:16500,maxHp:16500,att:1500,def:1150});
+                    "undefined"==typeofe.specialEnemy[900004]&&(e.specialEnemy[900004]={lv:1,hp:999999,maxHp:999999,att:999,def:0});
+                    "undefined"==typeofe.specialEnemy[900005]&&(e.specialEnemy[900005]={lv:500,hp:599999,maxHp:599999,att:0,def:0});
+                    "undefined"==typeofe.specialEnemy[900006]&&(e.specialEnemy[900006]={lv:200,hp:299999,maxHp:299999,att:0,def:0});
+                    "undefined"==typeofe.specialEnemy[900007]&&(e.specialEnemy[900007]={lv:40,hp:3900,maxHp:3900,att:90,def:50});
                 }(e = JSON.parse(cc.sys.localStorage.getItem("userData")));
                 t.exports = e;
             }
@@ -701,7 +554,7 @@ require = function e(t, n, a) {
                 a.parent = e;
                 a.setPosition(0, 0);
                 a.opacity = 0;
-                a.runAction(cc.fadeIn(3));
+                a.runAction(cc.fadeIn(.3));
                 a.color = new cc.Color(255, 255, 255);
                 a.getComponent(cc.Label).overflow = 3;
                 a.getComponent(cc.Label).horizontalAlign = 1;
@@ -731,16 +584,23 @@ require = function e(t, n, a) {
                 var a = e("scr_data"), i = {
                     //每日睡觉时剧情传送门
                     1001: ["“你不配做一个父亲！”", "“既然那么恨我！为什么要生下我！”", "“没有你我照样可以活！”", "BGM1", [a.distance, 0]],
+                    1002: ["现在回头已经看不见家的方向了", "我回头看了看，", "他果然没有追过来", "BGM2", []],
                     1003: ["晚上下起了雨，", "又湿又冷，", "但是，我是不会回去的！:-)", "BGM2", []],
+                    1004: ["路上饿了就摘不知名的果树上的果子，", "有时候能看见一些猎物，但我确很难抓得住", "偶尔抓到一两只还能吃吃烤肉。", "感觉味道比家里的饭好吃。", "BGM1", []],
                     1005: ["16年前，1988年一个炎热的下午，", "我出生在一个小山村。", "母亲在我一岁时离家出走。", "我的童年，只有父亲醉酒后的叫骂声和远处的大山。", "BGM1", []],
+                    1007: ["夜里，我思索着以后的去路，", "我没有能去的地方，", "我想起了以前经常去玩的城里", "在城里逛的日子是我少数开心的时候，", "我决定去县城", "我来到了马路边", "勉强辨认出了方向", "BGM3", []],
                     1009: ["敏感、内向、偏执，", "不愿在社交上投入任何时间，", "几乎没什么朋友；", "而我唯一的亲人，", "现在也断了联系…", "我以后该怎么办?", "到了县城再去想吧...", "BGM3", []],
+                    2001: ["当我到达县城的时候，", "我的身上早脏的不成样子","我从垃圾桶翻出来了一些干净一点的衣服","顺便把自己洗了一下", "", []],
+                    2004: ["在县城我感觉到了自力更生的感觉，", "我偶尔可以打上零工","我也会从一些打折的商场买衣服","但我不喜欢这，太吵闹了", "", []],
                     2007: ["我来到昨天面试的小区，", "屋里早已没了人影", "", [a.choice[1], 2]],
+                    2014: ["不知道从何时起", "城里的小混混开始怕我了，", "这个县城我已经如鱼得水了", "BGM3", []],
                     2021: ["未成年，没技能，不善言谈...", "如果我死了，", "会有人伤心吗？", "BGM3", []],
                     2022: ["今天街道上聚集了一群人，", "我凑过去一看，", "——我的父亲——正被旁人拉着，他满脸通红，对着一个年轻人大声叫骂，", "他还是一如既往的暴躁，只是头上多了些许白发。", "我没敢多看，赶紧离开了。", "我决定，明天就离开县城，待在这里迟早会被发现。", "BGM1", []],
                     3001: ["山里异常安静，", "晚上湿度很大，篝火没法驱散。", "我喜欢这种安静，", "——这里才是我的世界。", "BGM2", []],
                     3002: ["母亲出走后的第二年，", "父亲开始带一些女人回家，", "而我，就像是一个不存在的人。", "或者，", "是个累赘...", "", []],
                     3003: ["既不种田，也不会哄女人的父亲，", "很快就没人愿意跟着他。", "他开始变得极度暴躁，动不动就砸东西。", "", []],
                     3004: ["由于生活习惯极差，", "父亲患上了痛风，", "我经常听到他晚上疼得大声叫骂。", "但是，第二天他依然会喝得酩酊大醉。", "", []],
+                    3014: ["晓月的性格很奇怪", "有时候会突然发脾气 ，", "有时候又会突然很开心，", "而且她很爱吃，只要我给她吃东西她就会很高兴", "难道她的肚子是无底洞吗", "", [a.ifFollow[0],0]],
                     3018: ["邻村，有一个我暗恋多年的女孩", "她清澈、而又懵懂的眼睛，就像朝阳下雾气缭绕的小河。", "然而，", "今年春节，在她辍学外出打工一年后，", "我亲耳听到她对她妈吼道", "“这种破地方！我TM再也不会回来了！......”", "", []],
                     3027: ["月光透过树叶，映入帐篷，", "斑驳的树影，在夏虫声中轻轻摇曳。", "我，", "真的可以脱开一切关系，而独自存活吗？", "", []],
                     3028: ["世界上有这么一类人，", "即使明知某种关系不健康，", "却依然难以舍弃。", "这是亲情、爱情、无奈、还是无知呢？", "", []],
@@ -808,8 +668,8 @@ require = function e(t, n, a) {
                         }, 3, o - 2);
                         this.scheduleOnce(function () {
                             u.active = !0;
-                            u.runAction(cc.fadeIn(2));
-                        }, 3 * o);
+                            u.runAction(cc.fadeIn(.2));
+                        }, 0.3 * o); // 在 3 * o 秒之后执行一次以下逻辑。
                     } else cc.director.loadScene("rest");
                 }
             }
@@ -976,13 +836,13 @@ require = function e(t, n, a) {
                     },
                     5: {
                         itemName: " 晓月的爱心料理 ",
-                        needDes: "※注满了晓月对你的爱",
+                        needDes: "※注满了晓月对你的爱，你有"+ this.data.itemNum[13] +"个",
                         des: "※你发誓，这是你这辈子吃过最好吃的东西 。所有属性全面提高，晓月好感越高，加成越高",
                         ifEnough: function (t) {
                             e("scr_data").itemNum[13] > 1 && (cc.find("Canvas/Page/view/content/page_2/" + t + "/button/name").color = new cc.color(255, 0, 0));
                         },
                         button: function () {
-                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = n.choice[5], o = i.maxHunger();
+                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = n.choice[5];
                                 if (n.itemNum[3] >= 0) {
                                 var r = "入口的那一刻，你快哭出来了" ;
                                 n.itemNum[13] -= 1;
@@ -1064,7 +924,7 @@ require = function e(t, n, a) {
                 n.getChildByName("des").getComponent("cc.Label").string = a.des;
                 n.getChildByName("button").getChildByName("name").getComponent("cc.Button").scheduleOnce(function () {
                     n.getChildByName("button").getChildByName("name").on("touchstart", i, this);
-                }, .4);
+                }, .2);
                 cc.find("Canvas/Page/view/content").getChildByName(t).addChild(n);
                 "undefined" != typeof a.ifEnough && a.ifEnough(c);
             },
@@ -1178,7 +1038,7 @@ require = function e(t, n, a) {
                 a.parent = e;
                 a.setPosition(0, 0);
                 a.opacity = 0;
-                a.runAction(cc.fadeIn(3));
+                a.runAction(cc.fadeIn(.3));
                 a.color = new cc.Color(255, 255, 255);
                 a.getComponent(cc.Label).overflow = 3;
                 a.getComponent(cc.Label).horizontalAlign = 0;
@@ -1189,7 +1049,10 @@ require = function e(t, n, a) {
             },
             onLoad: function () {
                 var t = ["正式开始全职制作游戏已有大半年，我并不担心自己的生存问题，但是对于能否长期做下去却感到有些焦虑。", "国产独立游戏的发展其实上是取决于玩家（或者说市场），而不是开发商或者平台（有市场才会有平台，有平台才会有开发商...）。虽然可能短期内不会有太大问题，但是能否长期、甚至终身坚持，我不是很确定，因为有太多难以控制的因素掺杂。不过，至少目前我会坚持下去——我的目标是打造文字游戏精品品牌。", "如果你真的喜欢独立游戏，恳求您推荐给周围的人————我真的需要你的帮助。", "我是晓风。（2017.10.1）"], n = (t.length,
-                    this), a = e("scr_data2"), i = e("scr_data"), c = 0, o = cc.find("Canvas/Show"), r = cc.find("Canvas/choice"), s = r.getChildByName("determine1"), l = r.getChildByName("determine2"), u = e("scr_public");
+                    this), a = e("scr_data2"), i = e("scr_data"), c = 0, 
+                    o = cc.find("Canvas/Show"), r = cc.find("Canvas/choice"), 
+                    s = r.getChildByName("determine1"), l = r.getChildByName("determine2"), 
+                    u = e("scr_public");
                 (function () {
                     var e = i.choice[5] + i.publicVar[7];
                     if (0 == a.gameData[3]) {
@@ -1223,7 +1086,7 @@ require = function e(t, n, a) {
                             15000: function () {
                                 (function () {
                                     r.active = !0;
-                                    r.runAction(cc.fadeIn(2));
+                                    r.runAction(cc.fadeIn(.2));
                                     s.on("touchstart", f, this);
                                     l.on("touchstart", d, this);
                                 })();
@@ -3657,31 +3520,27 @@ require = function e(t, n, a) {
                                 c.itemNum2[14] = 0
                                 this.publicVar += 1;
                                 return "【枪支限制！弹药清零】";
-                            }
-                            if (this.publicVar < 3) {
+                            } else if (this.publicVar < 3) {
                                 this.publicVar += 1;
                                 return "【秋良正在掏四次元口袋】";
-                            }                            
-                            if (this.publicVar == 3) {
+                            } else if (this.publicVar == 3) {
+
                                 this.publicVar += 1;
                                 var e = 2 * this.att - yourstatus.def;
                                 scr_data.role.hp -= e;
                                 return "【秋良使用「空气炮」，造成" + e + "点伤害】"
-                            }
-                            if (this.publicVar == 4) {
+                            } else if (this.publicVar == 4) {
                                 this.publicVar += 1;
-                                var e = 1 * this.att - o.def;
-                                c.role.hp -= e;
-                                cc.find("Event/scr_fight").getComponent("scr_fight").correct[1] -= parseInt(.05 * yourstatus.def);
+                                var e = 1 * this.att - yourstatus.def;
+                                scr_data.role.hp -= e;
+                                cc.find("Event/scr_fight").getComponent("scr_fight").correct[1] -= parseInt(.5 * yourstatus.def);
                                 return "【秋良使用「绊倒乐队」，造成" + e + "点伤害，减少防御50%】"
-                            }
-                            if (this.publicVar == 5) {
+                            } else if (this.publicVar == 5) {
                                 this.publicVar += 1;
                                 this.def += parseInt(1 * this.def);
                                 this.att += parseInt(1 * this.att);
                                 return "【秋良使用「放大灯」，攻防翻倍】"
-                            }
-                            if (this.publicVar == 6) {
+                            } else if (this.publicVar == 6) {
                                 return "【暂时就拿这么多道具好了！】"
                             }
                             e = this.att - o.def;
@@ -3721,29 +3580,30 @@ require = function e(t, n, a) {
                         skill: function () {
                             if (this.publicVar = 0) {
                                 this.publicVar += 1;
-                                return "【“你这家伙，上来就不由分说的攻击，什么意思！”】";
+                                return "【“明明是无能力者却有这等实力...可恶啊”】";
                             }
-                            if (this.publicVar == 1) {
+                            else if (this.publicVar == 1) {
                                 this.publicVar += 1;
                                 var e = 1 * this.att - o.def;
                                 c.role.hp -= e;
                                 cc.find("Event/scr_fight").getComponent("scr_fight").correct[1] -= parseInt(.5 * yourstatus.def);
                                 return "【" + this.name + "使用「铁砂之剑」，造成" + e + "点伤害，你减少50%防御】"
-                            }
-                            if (this.publicVar == 2) {
+                            }    
+                            else if (this.publicVar == 2) {
                                 this.publicVar += 1;
-                                var e = 5 * this.att - o.def;
-                                c.role.hp -= e;
-                                cc.find("Event/scr_fight").getComponent("scr_fight").correct[0] -= parseInt(.5 * yourstatus.def);
+                                var e = 5 * this.att - yourstatus.def;
+                                scr_data.role.hp -= e;
+                                cc.find("Event/scr_fight").getComponent("scr_fight").correct[0] -= parseInt(.5 * yourstatus.att);
                                 return "【" + this.name + "使用「雷击之枪」，造成" + e + "点伤害，你减少50%攻击】"
-                            }
-                            if (this.publicVar == 3) {
+                            }                        
+                            else if (this.publicVar == 3) {
+
                                 this.publicVar += 1;
                                 var e = 5 * this.att - o.def;
                                 c.role.hp -= e;
                                 return "【" + this.name + "使用「超电磁炮」，造成" + e + "点伤害】"
                             }
-                            if (this.publicVar == 4) {
+                            else if (this.publicVar == 4) {
                                 this.publicVar = 1;
                                 this.def += parseInt(1 * this.def);
                                 this.att += parseInt(1 * this.att);
@@ -6429,7 +6289,7 @@ require = function e(t, n, a) {
                 a.parent = e;
                 a.setPosition(0, 0);
                 a.opacity = 0;
-                a.runAction(cc.fadeIn(2));
+                a.runAction(cc.fadeIn(.2));
                 a.color = new cc.Color(255, 255, 255);
                 a.getComponent(cc.Label).overflow = 3;
                 a.getComponent(cc.Label).horizontalAlign = 1;
@@ -8026,10 +7886,10 @@ require = function e(t, n, a) {
                             BYsDamage = Math.max(BYsDamage, 0);
                             if (a < BYstatus.crit) {
                                 BYsDamage = parseInt(2.5 * BYsDamage);
-                                BYsattText = BYsattText.replace(/普攻/, "暗杀（250%）");
+                                BYsattText = BYsattText.replace(/普攻/, "暗杀250%");
                                 if (n.friendSkill[8] > 0 && BYstatus.attackTimes % 2 == 0) {
                                     BYsDamage = parseInt(4 * BYsDamage);
-                                    BYsattText = /暗杀（250%）/.test(BYsattText) ? BYsattText.replace(/暗杀（250%）/, "终结.蝶舞1000%") : BYsattText.replace(/普攻/, "终结400%");
+                                    BYsattText = /暗杀250%/.test(BYsattText) ? BYsattText.replace(/暗杀250%/, "终结.蝶舞1000%") : BYsattText.replace(/普攻/, "终结400%");
                                 }
                                 if (n.friendSkill[3] > 0) {
                                     var o = parseInt(.25 * BYsDamage * BYstatus.bleedNum), s = parseInt(.25 * theEnemy.def);
@@ -8187,7 +8047,7 @@ require = function e(t, n, a) {
                 }
                 function refreshEnemyStatus() {//战斗场景标签的内容
                     roleHpLabel.getComponent("cc.Label").string = "ATT" + youinFight.att +"|"+ "DEF" + youinFight.def;
-                    d.getComponent("cc.Label").string = theEnemy.name + "LV" + theEnemy.lv + "\nHP" + theEnemy.hp + "\nATT" + theEnemy.att + "DEF" + theEnemy.def;
+                    d.getComponent("cc.Label").string = theEnemy.name + "LV" + theEnemy.lv + "\nHP" + theEnemy.hp + "\nATT" + theEnemy.att + +"|" + "DEF" + theEnemy.def;
                     m.getComponent("cc.Label").string = calEscapeRate() + "%";
                     n.publicVar[4] > 0 && gunLabel();
                 }
@@ -8408,14 +8268,11 @@ require = function e(t, n, a) {
             //探索传送门
             getItem: function () {
                 e("scr_public").regionId();
-                var t = e("scr_data"), n = this.getDrop(), 
-                itemText = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n), 
-                Fangdajing = function () {
+                var t = e("scr_data"), n = this.getDrop(), a = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n), i = function () {
                     var t = e("scr_data"), a = t.itemNum2[17] + t.publicVar3[9], i = 100 * Math.random(), c = "";
                     i < a && (c = "没发现道具" != (c = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n)) ? "\n【放大镜：发现" + c + "】" : "\n【放大镜：什么也没有发现！】");
                     return c;
-                }(), 
-                XL = function () {
+                }(), c = function () {
                     var t = e("scr_data"), a = "";
                     if (1 == t.publicVar[1]) {
                         var i = t.day + 40, c = 100 * Math.random();
@@ -8423,25 +8280,27 @@ require = function e(t, n, a) {
                     }
                     return a;
                 }();
-                var XYslText = function () {
-                    var t = e("scr_data"), a = 5 * (t.itemNum2[27] + t.publicVar3[17]), i = 100 * Math.random(), XYsl = "";
-                    i < a && (c = "没发现道具" != (c = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n)) ? "\n【晓月：发现" + c + "】" : "\n【晓月：什么也没有发现！】");
-                    return XYsl;
+                if ("没发现道具" != a) a = i + c + "发现" + a; else {
+                    var o = function () {
+                        var t = e("scr_data"), a = 5 * (t.itemNum2[27] + t.publicVar3[17]), i = 100 * Math.random(), c = "";
+                        if (i < a) if ("没发现道具" != (c = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n))) c = "\n【晓月手链：发现" + c + "】"; else {
+                            t.money += 1;
+                            c = "\n【晓月手链：发现0.1元！】";
+                        }
+                        return c;
                     }();
+                    t.publicVar2[1] += 1;
+                    a = o + i + c + "什么也没有找到！";
                     if (t.skillLv[23] > 0) {
                         t.money += 1;
-                    itemText += "【逆袭：金钱+0.1】";
+                        a += "【逆袭：金钱+0.1】";
                     }
                     if (t.day <= 5) {
-                    t.itemNum[4] += 1;
-                    itemText += "【作者的呵护：获得「亚麻」*1（游戏前5天有效）】";
+                        t.itemNum[4] += 2;
+                        a += "【作者的呵护：获得「亚麻」*2（游戏前5天有效）】";
                     }
-                if ("没发现道具" != itemText) itemText = XYslText + Fangdajing + XL + "发现" + itemText; 
-                else {
-                    t.publicVar2[1] += 1;
-                    itemText = XYslText + Fangdajing + XL + "什么也没有找到！";
                 }
-                e("scr_effect").playText("Canvas/Text/txt_notify", itemText, 60);
+                e("scr_effect").playText("Canvas/Text/txt_notify", a, 60);
             },
             getDrop: function () {
                 var t = [], n = this.getItemNum(), a = e("scr_public").regionId();
@@ -8810,11 +8669,8 @@ require = function e(t, n, a) {
             shieldButton: function () {
                 this.node.off("touchstart", this.callBack, this);
                 this.node.runAction(cc.tintTo(.3, 114, 199, 255));
-<<<<<<< HEAD
-                this.scheduleOnce(this.onLoad, .7);
-=======
                 this.scheduleOnce(this.onLoad, .7);//不知道是啥，改了再说
->>>>>>> e752a792f3b39cfe86ff11363386435343e0e3f2
+
             },
             autoEat: function () {
                 //饱食度传送门
@@ -8898,7 +8754,12 @@ require = function e(t, n, a) {
             extends: cc.Component,
             properties: {},
             skillDes: function () {
-                var t = e("scr_data"), n = ["【陪伴】给主角增加" + parseInt(t.choice[5] / 4 + 10) + "点攻击，增加幅度与好感有关。天生自带，无需激活！", "【小伙伴】精力上限+20，好感达到1激活！", "【声援】每回合，" + Math.min(parseInt(t.choice[5] / 4), 100) + "%几率给主角恢复10%生命，并增加主角3%攻击（可无限叠加），触发概率与好感相关，好感达到500激活！", "【复刻】胜利后，100%几率再获得一次奖励，全怪物有效，好感达到800激活！", "【元气少女】睡觉时，健康恢复效果翻倍，生命恢复效果翻倍，精力额外再恢复20！好感达到1000激活！"];
+                var t = e("scr_data"), 
+                n = ["【陪伴】给主角增加" + parseInt(t.choice[5] / 4 + 10) + "点攻击，增加幅度与好感有关。天生自带，无需激活！", 
+                "【小伙伴】精力上限+20，好感达到1激活！", 
+                "【声援】每回合，" + Math.min(parseInt(t.choice[5] / 4), 100) + "%几率给主角恢复10%生命，并增加主角3%攻击（可无限叠加），触发概率与好感相关，好感达到500激活！", 
+                "【复刻】胜利后，100%几率再获得一次奖励，全怪物有效，好感达到800激活！", 
+                "【元气少女】睡觉时，健康恢复效果翻倍，生命恢复效果翻倍，精力额外再恢复20！好感达到1000激活！"];
                 return n;
             },
             showDes: function () {
@@ -8959,7 +8820,7 @@ require = function e(t, n, a) {
     }],
     scr_friendUI1: [function (e, t, n) {
         "use strict";
-        cc._RF.push(t, "871fc61bpBNRLPJHo54vOLw", "scr_friendUI1");
+        cc._RF.push(t, "UIscr_friendUI1", "scr_friendUI1");
         cc.Class({
             extends: cc.Component,
             properties: {},
@@ -9678,7 +9539,7 @@ require = function e(t, n, a) {
                 a.parent = e;
                 a.setPosition(0, 0);
                 a.opacity = 0;
-                a.runAction(cc.fadeIn(1));
+                a.runAction(cc.fadeIn(.1));
                 a.color = new cc.Color(0, 0, 0);
                 a.getComponent(cc.Label).overflow = 3;
                 a.getComponent(cc.Label).horizontalAlign = 1;
@@ -10854,7 +10715,7 @@ require = function e(t, n, a) {
         scr_effect: "scr_effect",
         scr_public: "scr_public"
     }],
-    scr_mainUIinit: [function (e, t, n) {
+    scr_mainUIinit: [function (e, t, n) {//主界面的ui设置
         "use strict";
         cc._RF.push(t, "63b63kuwo9N7JpekGEK/q7S", "scr_mainUIinit");
         cc.Class({
@@ -10868,11 +10729,11 @@ require = function e(t, n, a) {
             initSkillShow: function () {
                 cc.find("Canvas/Text/txt_skillNum").getComponent("cc.Label").string = "特性  " + this.skillShow() + "/27";
             },
-            whichShow: function (t, n) {
+            whichShow: function (t, n) {//控制按钮显示函数
                 for (var a = e("scr_data").distance, i = cc.find(n).children, c = t.length, o = 0; o <= c; o++) a >= t[o] ? i[o].active = !0 : i[o].active = !1;
             },
             showButton: function () {
-                this.whichShow([6, 4, 7, 23], "Canvas/Button");
+                this.whichShow([3, 2, 4, 5], "Canvas/Button");//当距离大于多少的时候显示按钮    [6, 4, 7, 23]
                 e("scr_public").init();
             },
             showfriendButton: function () {
@@ -10881,7 +10742,7 @@ require = function e(t, n, a) {
             },
             onButton: function () {
                 var t = e("scr_data"), n = cc.find("Canvas/Button"), a = n.getChildByName("button_dekaron");
-                t.day > 45 && t.publicVar[1] >= -1 ? a.on("touchstart", this.dekaronButton, this) : a.active = !1;
+                t.day > 35 && t.publicVar[1] >= -1 ? a.on("touchstart", this.dekaronButton, this) : a.active = !1;//挑战45天才开，加速！
                 1 == t.ifFollow[0] ? n.getChildByName("button_friend").on("touchstart", function () {
                     cc.director.loadScene("friend1");
                 }, this) : 1 == t.ifFollow[1] && n.getChildByName("button_friend").on("touchstart", function () {
@@ -11255,7 +11116,7 @@ require = function e(t, n, a) {
                     {
                         itemName: "JK制服鞋LV" + this.data.itemNum2[18],
                         needDes: "※似乎是从某个美少女处获得的原味JK制服鞋子（10）",
-                        des: "※战斗结束后恢复" + this.data.itemNum2[18] + "点精力",
+                        des: "※战斗结束后恢复" + this.data.itemNum2[18] + "点精力，当前声望"+ e("scr_data").achieve,
                         ifEnough: function (t) {
                             e("scr_data").achieve >= 10 && (cc.find("Canvas/Page/view/content/page_5/" + t + "/button/name").color = new cc.color(255, 0, 0));
                         },
@@ -11389,25 +11250,25 @@ require = function e(t, n, a) {
                 }, .2);
             },
             delayCreatItemUI1: function () {
-                this.scheduleOnce(this.creatItemUI1, .2);
+                this.scheduleOnce(this.creatItemUI1, .05);//制造按钮延迟时间，降低
             },
             delayCreatItemUI2: function () {
-                this.scheduleOnce(this.creatItemUI2, .2);
+                this.scheduleOnce(this.creatItemUI2, .05);
             },
             delayCreatItemUI3: function () {
-                this.scheduleOnce(this.creatItemUI3, .2);
+                this.scheduleOnce(this.creatItemUI3, .05);
             },
             delayCreatItemUI4: function () {
-                this.scheduleOnce(this.creatItemUI4, .2);
+                this.scheduleOnce(this.creatItemUI4, .05);
             },
             delayCreatItemUI5: function () {
-                this.scheduleOnce(this.creatItemUI5, .2);
+                this.scheduleOnce(this.creatItemUI5, .05);
             },
             delayCreatItemUI6: function () {
-                this.scheduleOnce(this.creatItemUI6, .2);
+                this.scheduleOnce(this.creatItemUI6, .05);
             },
             delayCreatItemUI7: function () {
-                this.scheduleOnce(this.creatItemUI7, .2);
+                this.scheduleOnce(this.creatItemUI7, .05);
             },
             onLoad: function () {
                 this.creatItemUI1();
@@ -11571,7 +11432,7 @@ require = function e(t, n, a) {
                 a.parent = e;
                 a.setPosition(0, 0);
                 a.opacity = 0;
-                a.runAction(cc.fadeIn(3));
+                a.runAction(cc.fadeIn(.3));
                 a.color = new cc.Color(255, 255, 255);
                 a.getComponent(cc.Label).overflow = 3;
                 a.getComponent(cc.Label).horizontalAlign = 1;
@@ -11595,8 +11456,8 @@ require = function e(t, n, a) {
                 }, 3, i - 1);
                 this.scheduleOnce(function () {
                     r.active = !0;
-                    r.runAction(cc.fadeIn(2));
-                }, 3 * (i + 1));
+                    r.runAction(cc.fadeIn(.2));
+                }, .3 * (i + 1));
                 r.getChildByName("choice1").on("touchstart", function () {
                     t.initMoney = l;
                     t.dieChoice[3] += 0;
@@ -11631,7 +11492,7 @@ require = function e(t, n, a) {
                 a.parent = e;
                 a.setPosition(0, 0);
                 a.opacity = 0;
-                a.runAction(cc.fadeIn(3));
+                a.runAction(cc.fadeIn(.3));
                 a.color = new cc.Color(255, 255, 255);
                 a.getComponent(cc.Label).overflow = 3;
                 a.getComponent(cc.Label).horizontalAlign = 1;
@@ -11647,11 +11508,11 @@ require = function e(t, n, a) {
                 this.schedule(function () {
                     s.creatText(o, "plot" + c, a[c]);
                     c++;
-                }, 2.5, i - 1);
+                }, .5, i - 1);
                 this.scheduleOnce(function () {
                     r.active = !0;
-                    r.runAction(cc.fadeIn(2));
-                }, 2.5 * (i + 1));
+                    r.runAction(cc.fadeIn(.2));
+                }, .5 * (i + 1));
                 r.getChildByName("choice1").on("touchstart", function () {
                     var e = t.role;
                     e.maxHp -= parseInt(.04 * n.role.maxHp());
@@ -11699,7 +11560,7 @@ require = function e(t, n, a) {
                 a.parent = e;
                 a.setPosition(0, 0);
                 a.opacity = 0;
-                a.runAction(cc.fadeIn(3));
+                a.runAction(cc.fadeIn(.3));
                 a.color = new cc.Color(255, 255, 255);
                 a.getComponent(cc.Label).overflow = 3;
                 a.getComponent(cc.Label).horizontalAlign = 1;
@@ -11713,11 +11574,11 @@ require = function e(t, n, a) {
                 this.schedule(function () {
                     s.creatText(o, "plot" + c, n[c]);
                     c++;
-                }, 2, i - 1);
+                }, .2, i - 1);
                 this.scheduleOnce(function () {
                     r.active = !0;
-                    r.runAction(cc.fadeIn(2));
-                }, 2 * (i + 1));
+                    r.runAction(cc.fadeIn(.2));
+                }, .2 * (i + 1));
                 r.on("touchstart", function () {
                     JSON.parse(cc.sys.localStorage.getItem("userData")) && cc.sys.localStorage.removeItem("userData");
                     cc.director.loadScene("start");
@@ -11752,7 +11613,7 @@ require = function e(t, n, a) {
                 a.parent = e;
                 a.setPosition(0, 0);
                 a.opacity = 0;
-                a.runAction(cc.fadeIn(2));
+                a.runAction(cc.fadeIn(.2));
                 a.color = new cc.Color(255, 255, 255);
                 a.getComponent(cc.Label).overflow = 3;
                 a.getComponent(cc.Label).horizontalAlign = 1;
@@ -11955,7 +11816,7 @@ require = function e(t, n, a) {
                 this.schedule(function () {
                     this.creatText(l, "plot" + s, i[s]);
                     s++;
-                }, 2.5, r - 1);
+                }, .5, r - 1);
                 this.scheduleOnce(function () {
                     var e = a.choice1, t = a.choice2, n = cc.find("Canvas/Choice/Choice1"), i = cc.find("Canvas/Choice/Choice2");
                     n.getChildByName("choiceText").getComponent("cc.Label").string = o;
@@ -11964,7 +11825,7 @@ require = function e(t, n, a) {
                         n.active = !1;
                         cc.find("Canvas/Choice/label").active = !1;
                     }
-                    cc.find("Canvas/Choice").runAction(cc.fadeIn(2));
+                    cc.find("Canvas/Choice").runAction(cc.fadeIn(.2));
                     n.on("touchstart", e, this);
                     i.on("touchstart", t, this);
                 }, 2.5 * (r + 1));
@@ -12159,7 +12020,7 @@ require = function e(t, n, a) {
                         i.parent = e;
                         i.setPosition(0, 0);
                         i.opacity = 0;
-                        i.runAction(cc.fadeIn(3));
+                        i.runAction(cc.fadeIn(.3));
                         i.color = new cc.Color(255, 255, 255);
                         i.getComponent(cc.Label).overflow = 3;
                         i.getComponent(cc.Label).horizontalAlign = 1;
@@ -12188,7 +12049,8 @@ require = function e(t, n, a) {
     }, {
         scr_data: "scr_data",
         scr_data2: "scr_data2",
-        scr_dataCopy: "scr_dataCopy"
+        scr_dataCopy: "scr_dataCopy",
+        scr_autodataCopy: "scr_autodataCopy"
     }],
     scr_quitGame: [function (e, t, n) {
         "use strict";
@@ -12510,11 +12372,16 @@ require = function e(t, n, a) {
                     cc.find("Canvas/AttrShow/hunger/text").getComponent("cc.Label").string = "饥饿 -" + e + "（" + t.hunger + "/" + n.maxHunger() + "）";
                 })();
                 (function () {
-                    if (9 == t.stayDay[2]) {
+                    if (9 == t.stayDay[2]) {//在山脉停留的第9天，将会保存一个存档
                         var n = e("scr_dataCopy");
                         n = JSON.parse(cc.sys.localStorage.getItem("userData"));
                         cc.sys.localStorage.setItem("dataCopy", JSON.stringify(n));
                     }
+                })();
+                (function () {//非常重要！！！！每天睡觉保存一次存档！！！用来回档！！！
+                        var n = e("scr_autodataCopy");
+                        n = JSON.parse(cc.sys.localStorage.getItem("userData"));
+                        cc.sys.localStorage.setItem("autodataCopy", JSON.stringify(n));
                 })();
                 n.save();
                 function c() {
@@ -12525,13 +12392,13 @@ require = function e(t, n, a) {
                 var t = 0;
                 e("scr_data");
                 this.restMain();
-                cc.find("Canvas/Day").runAction(cc.fadeIn(1));
+                cc.find("Canvas/Day").runAction(cc.fadeIn(.1));
                 this.schedule(function () {
                     var e = ["Canvas/AttrShow", "Canvas/SkillShow", "Canvas/Determine"];
                     "Canvas/Determine" == e[t] && (cc.find("Canvas/Determine").active = !0);
-                    cc.find(e[t]).runAction(cc.fadeIn(1));
+                    cc.find(e[t]).runAction(cc.fadeIn(.1));
                     t++;
-                }, 1, 2);
+                }, .1, 2);
                 e("scr_public").save();
             }
         });
@@ -12539,6 +12406,7 @@ require = function e(t, n, a) {
     }, {
         scr_data: "scr_data",
         scr_dataCopy: "scr_dataCopy",
+        scr_autodataCopy:"scr_autodataCopy",
         scr_public: "scr_public"
     }],
     scr_shop2: [function (e, t, n) {
@@ -13233,10 +13101,10 @@ require = function e(t, n, a) {
                 n.getChildByName("need").getComponent("cc.Label").string = a.needDes;
                 "undefined" != typeof i ? n.getChildByName("button1").getComponent("cc.Button").scheduleOnce(function () {
                     n.getChildByName("button1").on("touchstart", i, this);
-                }, .4) : n.getChildByName("button1").active = !1;
+                }, .2) : n.getChildByName("button1").active = !1;
                 "undefined" != typeof c ? n.getChildByName("button2").getComponent("cc.Button").scheduleOnce(function () {
                     n.getChildByName("button2").on("touchstart", c, this);
-                }, .6) : n.getChildByName("button2").active = !1;
+                }, .3) : n.getChildByName("button2").active = !1;
                 cc.find("Canvas/Page/view/content").getChildByName(t).addChild(n);
                 "undefined" != typeof a.ifEnough && a.ifEnough(o);
             },
@@ -13269,13 +13137,13 @@ require = function e(t, n, a) {
                 }, .2);
             },
             delayCreatItemUI1: function () {
-                this.scheduleOnce(this.creatItemUI1, .2);
+                this.scheduleOnce(this.creatItemUI1, .05);
             },
             delayCreatItemUI2: function () {
-                this.scheduleOnce(this.creatItemUI2, .2);
+                this.scheduleOnce(this.creatItemUI2, .05);
             },
             delayCreatItemUI3: function () {
-                this.scheduleOnce(this.creatItemUI3, .2);
+                this.scheduleOnce(this.creatItemUI3, .05);
             },
             onLoad: function () {
                 this.creatItemUI1();
@@ -13487,13 +13355,14 @@ require = function e(t, n, a) {
                     25: "【霸气】狂拽炫酷吊炸天！攻击时，10%几率无视目标防御，且恢复自身3%生命。木棍、麻布衣达到15级时激活",
                     26: "【不屈的精神力】睡觉时30%几率额外再恢复30%精力！击败「草带男孩」40次后激活！（" + t.kills[2] + "/40）",
                     27: "【宿醉】前一天每喝一口酒增加15%概率触发，当天造成的伤害减少30%"
-                }, i = e("scr_data").skillLv, c = cc.find("Canvas/Scroll/view/content"), o = parseInt(1 + t.day / 3), r = Object.keys(a).length;
-                "undefined" == typeof r && (r = 99);
-                for (var s in a) {
-                    var l = r - s - 1;
-                    if (l > o - 1); else {
+                }, skillvalues = e("scr_data").skillLv, c = cc.find("Canvas/Scroll/view/content"), 
+                daystoT = parseInt(1 + t.day / 3), skillcount = Object.keys(a).length;
+                "undefined" == typeof skillcount && (skillcount = 99);
+                for (var keysF in a) {
+                    var l = skillcount - keysF - 1;
+                    if (l > 999); else {//从下往上显示，如果（比如27）大于天数除以3，（80天）则不显示，改成999   daystoT - 1
                         this.creatText(c, "skill" + l, a[l]);
-                        i[l] > 0 && (c.getChildByName("skill" + l).color = new cc.Color(0, 255, 0));
+                        skillvalues[l] > 0 && (c.getChildByName("skill" + l).color = new cc.Color(0, 255, 0));
                     }
                 }
                 var u = cc.find("Canvas/Button_loadAchieve"), p = cc.find("Canvas/Button_system");
@@ -13569,7 +13438,7 @@ require = function e(t, n, a) {
                 })();
                 (function () {
                     r.playText("Canvas/text1", "逃跑的时候，脑子里浮现的是之前的往事...", 80);
-                    a.schedule(l, 2, 1);
+                    a.schedule(l, .2, 1);
                 })();
                 function l() {
                     cc.find(["Canvas/Determine", "Canvas/text2"][s]).runAction(cc.fadeIn(.2));
@@ -13591,7 +13460,7 @@ require = function e(t, n, a) {
         scr_effect: "scr_effect",
         scr_public: "scr_public"
     }],
-    scr_startUI: [function (e, t, n) {
+    scr_startUI: [function (e, t, n) {//开始游戏界面的按钮在这设置！！！
         "use strict";
         cc._RF.push(t, "cea75di7zpJiqfvO6EeKLF9", "scr_startUI");
         cc.Class({
@@ -13603,12 +13472,18 @@ require = function e(t, n, a) {
             messageButton: function () {
                 cc.director.loadScene("message");
             },
+            reloadgameButton: function () {
+                t = JSON.parse(cc.sys.localStorage.getItem("autogamesave"));
+                cc.sys.localStorage.setItem("userData", JSON.stringify(t));
+                cc.director.loadScene("main");//加载今天早上保存的存档！！！正常请不要使用
+            },
             controlButton: function () {
                 JSON.parse(cc.sys.localStorage.getItem("userData")) || (cc.find("Canvas/button/button_continue").active = !1);
             },
             onLoad: function () {
                 cc.find("Canvas/button/button_support").on("touchstart", this.supportButton, this);
                 cc.find("Canvas/button/button_message").on("touchstart", this.messageButton, this);
+                cc.find("Canvas/button/button_reloadgame").on("touchstart", this.reloadgameButton, this);
                 this.controlButton();
             }
         });
@@ -13716,4 +13591,4 @@ require = function e(t, n, a) {
         });
         cc._RF.pop();
     }, {}]
-}, {}, ["scr_eatButton", "scr_makeButton", "scr_shopButton", "scr_skillButton", "scr_backMainUI", "scr_diaryDetermine", "scr_eventDetermine", "scr_restDetermine", "scr_QQpay", "scr_backStartUI", "scr_backSupport", "scr_continueButton", "scr_initGame", "scr_newGame", "scr_notice", "scr_notice2", "scr_open", "scr_startChoice", "scr_startUI", "scr_weixin", "scr_achieve", "scr_eatUI", "scr_eventData", "scr_makeUI", "scr_shop2", "scr_shop3", "scr_shop4", "scr_shopUI", "scr_skillJudge", "scr_skillUI", "scr_data", "scr_data2", "scr_dataCopy", "scr_diary", "scr_event", "scr_mainUIEvent", "scr_plot", "scr_rest", "scr_enemy", "scr_explore", "scr_fight", "scr_fightState", "scr_forwardButton", "scr_friendSkillJudge1", "scr_friendSkillUI1", "scr_friendSkillUI2", "scr_friendUI1", "scr_skillJudge2", "scr_effect", "scr_public", "scr_home", "scr_mainUIinit", "scr_readConfession", "scr_end", "scr_initData", "scr_over", "scr_over2", "scr_over2_1", "scr_system", "NewScript", "scr_BGM", "scr_playAds", "scr_quitGame", "test", "testAll", "scr_liveModeMain"]);
+}, {}, ["scr_eatButton", "scr_makeButton", "scr_shopButton", "scr_skillButton", "scr_backMainUI", "scr_diaryDetermine", "scr_eventDetermine", "scr_restDetermine", "scr_QQpay", "scr_backStartUI", "scr_backSupport", "scr_continueButton", "scr_initGame", "scr_newGame", "scr_notice", "scr_notice2", "scr_open", "scr_startChoice", "scr_startUI", "scr_weixin", "scr_achieve", "scr_eatUI", "scr_eventData", "scr_makeUI", "scr_shop2", "scr_shop3", "scr_shop4", "scr_shopUI", "scr_skillJudge", "scr_skillUI", "scr_data", "scr_data2", "scr_dataCopy" ,"scr_autodataCopy", "scr_diary", "scr_event", "scr_mainUIEvent", "scr_plot", "scr_rest", "scr_enemy", "scr_explore", "scr_fight", "scr_fightState", "scr_forwardButton", "scr_friendSkillJudge1", "scr_friendSkillUI1", "scr_friendSkillUI2", "scr_friendUI1", "scr_skillJudge2", "scr_effect", "scr_public", "scr_home", "scr_mainUIinit", "scr_readConfession", "scr_end", "scr_initData", "scr_over", "scr_over2", "scr_over2_1", "scr_system", "NewScript", "scr_BGM", "scr_playAds", "scr_quitGame", "test", "testAll", "scr_liveModeMain"]);

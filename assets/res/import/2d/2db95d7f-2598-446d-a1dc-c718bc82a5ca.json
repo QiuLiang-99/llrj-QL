@@ -1,1 +1,622 @@
-[{"__type__":"cc.SceneAsset","_name":"friend1","scene":{"__id__":1},"asyncLoadAssets":null},{"__type__":"cc.Scene","_name":"New Node","_children":[{"__id__":2}],"_anchorPoint":{"__type__":"cc.Vec2"},"autoReleaseAssets":true},{"__type__":"cc.Node","_name":"Canvas","_parent":{"__id__":1},"_children":[{"__id__":3},{"__id__":4},{"__id__":5},{"__id__":6},{"__id__":8},{"__id__":17}],"_components":[{"__type__":"cc.Canvas","node":{"__id__":2},"_designResolution":{"__type__":"cc.Size","width":720,"height":1280},"_fitWidth":true},{"__type__":"871fc61bpBNRLPJHo54vOLw","node":{"__id__":2}},{"__type__":"fc5f8Ub5xdFcbVtSTj8STEm","node":{"__id__":2}}],"_id":"bc432qh+nRGs5f6McfRvQtW","_contentSize":{"__type__":"cc.Size","width":720,"height":1280},"_position":{"__type__":"cc.Vec2","x":360,"y":640}},{"__type__":"cc.Node","_name":"BG","_parent":{"__id__":2},"_components":[{"__type__":"cc.Sprite","node":{"__id__":3},"_spriteFrame":{"__uuid__":"a2MjXRFdtLlYQ5ouAFv/+R"},"_sizeMode":0}],"_color":{"__type__":"cc.Color"},"_contentSize":{"__type__":"cc.Size","width":720,"height":1280}},{"__type__":"cc.Node","_name":"notify","_parent":{"__id__":2},"_components":[{"__type__":"cc.Label","node":{"__id__":4},"_useOriginalSize":false,"_lineHeight":70,"_N$string":"","_N$horizontalAlign":1,"_N$overflow":3}],"_anchorPoint":{"__type__":"cc.Vec2","x":0.5,"y":1},"_contentSize":{"__type__":"cc.Size","width":600,"height":70},"_position":{"__type__":"cc.Vec2","x":8,"y":286}},{"__type__":"cc.Node","_name":"Show","_parent":{"__id__":2},"_components":[{"__type__":"cc.Layout","node":{"__id__":5},"_layoutSize":{"__type__":"cc.Size","width":630,"height":650},"_N$layoutType":2,"_N$spacingY":20}],"_anchorPoint":{"__type__":"cc.Vec2","x":0.5,"y":1},"_contentSize":{"__type__":"cc.Size","width":630,"height":650},"_position":{"__type__":"cc.Vec2","y":545}},{"__type__":"cc.Node","_name":"inf","_parent":{"__id__":2},"_children":[{"__id__":7}]},{"__type__":"cc.Node","_name":"good","_parent":{"__id__":6},"_components":[{"__type__":"cc.Label","node":{"__id__":7},"_useOriginalSize":false,"_actualFontSize":32,"_fontSize":32,"_N$string":"晓月好感：4","_N$horizontalAlign":1,"_N$verticalAlign":1}],"_anchorPoint":{"__type__":"cc.Vec2","y":0.5},"_contentSize":{"__type__":"cc.Size","width":177.8,"height":40},"_position":{"__type__":"cc.Vec2","x":-274,"y":-192}},{"__type__":"cc.Node","_name":"button","_parent":{"__id__":2},"_children":[{"__id__":9},{"__id__":11},{"__id__":13},{"__id__":15}],"_position":{"__type__":"cc.Vec2","y":-46}},{"__type__":"cc.Node","_name":"button1","_parent":{"__id__":8},"_children":[{"__id__":10}],"_components":[{"__type__":"cc.Sprite","node":{"__id__":9},"_spriteFrame":{"__uuid__":"c7hf6zsgtIO4ifNzD28fX7"}},{"__type__":"cc.Button","node":{"__id__":9},"transition":3,"zoomScale":1.1,"_N$target":{"__id__":9}}],"_contentSize":{"__type__":"cc.Size","width":584,"height":84},"_position":{"__type__":"cc.Vec2","y":-230}},{"__type__":"cc.Node","_name":"text","_parent":{"__id__":9},"_components":[{"__type__":"cc.Label","node":{"__id__":10},"_useOriginalSize":false,"_actualFontSize":32,"_fontSize":32,"_lineHeight":60,"_N$string":"聊天（需10点精力）","_N$horizontalAlign":1,"_N$verticalAlign":1,"_N$overflow":3}],"_contentSize":{"__type__":"cc.Size","width":600,"height":60},"_position":{"__type__":"cc.Vec2","y":-1}},{"__type__":"cc.Node","_name":"button2","_parent":{"__id__":8},"_children":[{"__id__":12}],"_components":[{"__type__":"cc.Sprite","node":{"__id__":11},"_spriteFrame":{"__uuid__":"c7hf6zsgtIO4ifNzD28fX7"}}],"_contentSize":{"__type__":"cc.Size","width":584,"height":84},"_position":{"__type__":"cc.Vec2","x":5,"y":-330}},{"__type__":"cc.Node","_name":"text","_parent":{"__id__":11},"_components":[{"__type__":"cc.Label","node":{"__id__":12},"_useOriginalSize":false,"_actualFontSize":32,"_fontSize":32,"_lineHeight":60,"_N$string":"投食（任何食物都可）","_N$horizontalAlign":1,"_N$verticalAlign":1,"_N$overflow":3}],"_contentSize":{"__type__":"cc.Size","width":600,"height":60},"_position":{"__type__":"cc.Vec2","y":-1}},{"__type__":"cc.Node","_name":"button3","_parent":{"__id__":8},"_children":[{"__id__":14}],"_components":[{"__type__":"cc.Sprite","node":{"__id__":13},"_spriteFrame":{"__uuid__":"c7hf6zsgtIO4ifNzD28fX7"}}],"_contentSize":{"__type__":"cc.Size","width":584,"height":84},"_position":{"__type__":"cc.Vec2","y":-530}},{"__type__":"cc.Node","_name":"text","_parent":{"__id__":13},"_components":[{"__type__":"cc.Label","node":{"__id__":14},"_useOriginalSize":false,"_actualFontSize":32,"_fontSize":32,"_lineHeight":60,"_N$string":"查看特性","_N$horizontalAlign":1,"_N$verticalAlign":1,"_N$overflow":3}],"_contentSize":{"__type__":"cc.Size","width":600,"height":60},"_position":{"__type__":"cc.Vec2","y":-1}},{"__type__":"cc.Node","_name":"button4","_parent":{"__id__":8},"_children":[{"__id__":16}],"_components":[{"__type__":"cc.Sprite","node":{"__id__":15},"_spriteFrame":{"__uuid__":"c7hf6zsgtIO4ifNzD28fX7"}}],"_contentSize":{"__type__":"cc.Size","width":584,"height":84},"_position":{"__type__":"cc.Vec2","y":-430}},{"__type__":"cc.Node","_name":"text","_parent":{"__id__":15},"_components":[{"__type__":"cc.Label","node":{"__id__":16},"_useOriginalSize":false,"_actualFontSize":32,"_fontSize":32,"_lineHeight":60,"_N$string":"喂药...","_N$horizontalAlign":1,"_N$verticalAlign":1,"_N$overflow":3}],"_contentSize":{"__type__":"cc.Size","width":600,"height":60},"_position":{"__type__":"cc.Vec2","y":-1}},{"__type__":"cc.Node","_name":"close","_parent":{"__id__":2},"_components":[{"__type__":"cc.Label","node":{"__id__":17},"_useOriginalSize":false,"_N$string":"<退出>","_N$horizontalAlign":1,"_N$verticalAlign":1}],"_contentSize":{"__type__":"cc.Size","width":126.72,"height":40},"_position":{"__type__":"cc.Vec2","x":258,"y":-191}}]
+[
+    {
+        "__type__": "cc.SceneAsset",
+        "_name": "friend1",
+        "scene": {
+            "__id__": 1
+        },
+        "asyncLoadAssets": null
+    },
+    {
+        "__type__": "cc.Scene",
+        "_name": "New Node",
+        "_children": [
+            {
+                "__id__": 2
+            }
+        ],
+        "_anchorPoint": {
+            "__type__": "cc.Vec2"
+        },
+        "autoReleaseAssets": true
+    },
+    {
+        "__type__": "cc.Node",
+        "_name": "Canvas",
+        "_parent": {
+            "__id__": 1
+        },
+        "_children": [
+            {
+                "__id__": 3
+            },
+            {
+                "__id__": 4
+            },
+            {
+                "__id__": 5
+            },
+            {
+                "__id__": 6
+            },
+            {
+                "__id__": 8
+            },
+            {
+                "__id__": 17
+            }
+        ],
+        "_components": [
+            {
+                "__type__": "cc.Canvas",
+                "node": {
+                    "__id__": 2
+                },
+                "_designResolution": {
+                    "__type__": "cc.Size",
+                    "width": 720,
+                    "height": 1280
+                },
+                "_fitWidth": true
+            },
+            {
+                "__type__": "UIscr_friendUI1",
+                "node": {
+                    "__id__": 2
+                }
+            },
+            {
+                "__type__": "UIfriendSkill1",
+                "node": {
+                    "__id__": 2
+                }
+            }
+        ],
+        "_id": "bc432qh+nRGs5f6McfRvQtW",
+        "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 720,
+            "height": 1280
+        },
+        "_position": {
+            "__type__": "cc.Vec2",
+            "x": 360,
+            "y": 640
+        }
+    },
+    {
+        "__type__": "cc.Node",
+        "_name": "BG",
+        "_parent": {
+            "__id__": 2
+        },
+        "_components": [
+            {
+                "__type__": "cc.Sprite",
+                "node": {
+                    "__id__": 3
+                },
+                "_spriteFrame": {
+                    "__uuid__": "a2MjXRFdtLlYQ5ouAFv/+R"
+                },
+                "_sizeMode": 0
+            }
+        ],
+        "_color": {
+            "__type__": "cc.Color"
+        },
+        "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 720,
+            "height": 1280
+        }
+    },
+    {
+        "__type__": "cc.Node",
+        "_name": "notify",
+        "_parent": {
+            "__id__": 2
+        },
+        "_components": [
+            {
+                "__type__": "cc.Label",
+                "node": {
+                    "__id__": 4
+                },
+                "_useOriginalSize": false,
+                "_lineHeight": 70,
+                "_N$string": "",
+                "_N$horizontalAlign": 1,
+                "_N$overflow": 3
+            }
+        ],
+        "_anchorPoint": {
+            "__type__": "cc.Vec2",
+            "x": 0.5,
+            "y": 1
+        },
+        "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 600,
+            "height": 70
+        },
+        "_position": {
+            "__type__": "cc.Vec2",
+            "x": 8,
+            "y": 286
+        }
+    },
+    {
+        "__type__": "cc.Node",
+        "_name": "Show",
+        "_parent": {
+            "__id__": 2
+        },
+        "_components": [
+            {
+                "__type__": "cc.Layout",
+                "node": {
+                    "__id__": 5
+                },
+                "_layoutSize": {
+                    "__type__": "cc.Size",
+                    "width": 630,
+                    "height": 650
+                },
+                "_N$layoutType": 2,
+                "_N$spacingY": 20
+            }
+        ],
+        "_anchorPoint": {
+            "__type__": "cc.Vec2",
+            "x": 0.5,
+            "y": 1
+        },
+        "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 630,
+            "height": 650
+        },
+        "_position": {
+            "__type__": "cc.Vec2",
+            "y": 545
+        }
+    },
+    {
+        "__type__": "cc.Node",
+        "_name": "inf",
+        "_parent": {
+            "__id__": 2
+        },
+        "_children": [
+            {
+                "__id__": 7
+            }
+        ]
+    },
+    {
+        "__type__": "cc.Node",
+        "_name": "good",
+        "_parent": {
+            "__id__": 6
+        },
+        "_components": [
+            {
+                "__type__": "cc.Label",
+                "node": {
+                    "__id__": 7
+                },
+                "_useOriginalSize": false,
+                "_actualFontSize": 32,
+                "_fontSize": 32,
+                "_N$string": "晓月好感：4",
+                "_N$horizontalAlign": 1,
+                "_N$verticalAlign": 1
+            }
+        ],
+        "_anchorPoint": {
+            "__type__": "cc.Vec2",
+            "y": 0.5
+        },
+        "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 177.8,
+            "height": 40
+        },
+        "_position": {
+            "__type__": "cc.Vec2",
+            "x": -274,
+            "y": -192
+        }
+    },
+    {
+        "__type__": "cc.Node",
+        "_name": "button",
+        "_parent": {
+            "__id__": 2
+        },
+        "_children": [
+            {
+                "__id__": 9
+            },
+            {
+                "__id__": 11
+            },
+            {
+                "__id__": 13
+            },
+            {
+                "__id__": 15
+            },
+            {
+                "__id__": 18 
+            }
+        ],
+        "_position": {
+            "__type__": "cc.Vec2",
+            "y": -46
+        }
+    },
+    {
+        "__type__": "cc.Node",
+        "_name": "button1",
+        "_parent": {
+            "__id__": 8
+        },
+        "_children": [
+            {
+                "__id__": 10
+            }
+        ],
+        "_components": [
+            {
+                "__type__": "cc.Sprite",
+                "node": {
+                    "__id__": 9
+                },
+                "_spriteFrame": {
+                    "__uuid__": "c7hf6zsgtIO4ifNzD28fX7"
+                }
+            },
+            {
+                "__type__": "cc.Button",
+                "node": {
+                    "__id__": 9
+                },
+                "transition": 3,
+                "zoomScale": 1.1,
+                "_N$target": {
+                    "__id__": 9
+                }
+            }
+        ],
+        "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 584,
+            "height": 84
+        },
+        "_position": {
+            "__type__": "cc.Vec2",
+            "y": -230
+        }
+    },
+    {
+        "__type__": "cc.Node",
+        "_name": "text",
+        "_parent": {
+            "__id__": 9
+        },
+        "_components": [
+            {
+                "__type__": "cc.Label",
+                "node": {
+                    "__id__": 10
+                },
+                "_useOriginalSize": false,
+                "_actualFontSize": 32,
+                "_fontSize": 32,
+                "_lineHeight": 60,
+                "_N$string": "聊天（需10点精力）",
+                "_N$horizontalAlign": 1,
+                "_N$verticalAlign": 1,
+                "_N$overflow": 3
+            }
+        ],
+        "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 600,
+            "height": 60
+        },
+        "_position": {
+            "__type__": "cc.Vec2",
+            "y": -1
+        }
+    },
+    {
+        "__type__": "cc.Node",
+        "_name": "button2",
+        "_parent": {
+            "__id__": 8
+        },
+        "_children": [
+            {
+                "__id__": 12
+            }
+        ],
+        "_components": [
+            {
+                "__type__": "cc.Sprite",
+                "node": {
+                    "__id__": 11
+                },
+                "_spriteFrame": {
+                    "__uuid__": "c7hf6zsgtIO4ifNzD28fX7"
+                }
+            }
+        ],
+        "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 584,
+            "height": 84
+        },
+        "_position": {
+            "__type__": "cc.Vec2",
+            "x": 5,
+            "y": -330
+        }
+    },
+    {
+        "__type__": "cc.Node",
+        "_name": "text",
+        "_parent": {
+            "__id__": 11
+        },
+        "_components": [
+            {
+                "__type__": "cc.Label",
+                "node": {
+                    "__id__": 12
+                },
+                "_useOriginalSize": false,
+                "_actualFontSize": 32,
+                "_fontSize": 32,
+                "_lineHeight": 60,
+                "_N$string": "投食（任何食物都可）",
+                "_N$horizontalAlign": 1,
+                "_N$verticalAlign": 1,
+                "_N$overflow": 3
+            }
+        ],
+        "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 600,
+            "height": 60
+        },
+        "_position": {
+            "__type__": "cc.Vec2",
+            "y": -1
+        }
+    },
+    {
+        "__type__": "cc.Node",
+        "_name": "button3",
+        "_parent": {
+            "__id__": 8
+        },
+        "_children": [
+            {
+                "__id__": 14
+            }
+        ],
+        "_components": [
+            {
+                "__type__": "cc.Sprite",
+                "node": {
+                    "__id__": 13
+                },
+                "_spriteFrame": {
+                    "__uuid__": "c7hf6zsgtIO4ifNzD28fX7"
+                }
+            }
+        ],
+        "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 584,
+            "height": 84
+        },
+        "_position": {
+            "__type__": "cc.Vec2",
+            "y": -530
+        }
+    },
+    {
+        "__type__": "cc.Node",
+        "_name": "text",
+        "_parent": {
+            "__id__": 13
+        },
+        "_components": [
+            {
+                "__type__": "cc.Label",
+                "node": {
+                    "__id__": 14
+                },
+                "_useOriginalSize": false,
+                "_actualFontSize": 32,
+                "_fontSize": 32,
+                "_lineHeight": 60,
+                "_N$string": "查看特性",
+                "_N$horizontalAlign": 1,
+                "_N$verticalAlign": 1,
+                "_N$overflow": 3
+            }
+        ],
+        "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 600,
+            "height": 60
+        },
+        "_position": {
+            "__type__": "cc.Vec2",
+            "y": -1
+        }
+    },
+    {
+        "__type__": "cc.Node",
+        "_name": "button4",
+        "_parent": {
+            "__id__": 8
+        },
+        "_children": [
+            {
+                "__id__": 16
+            }
+        ],
+        "_components": [
+            {
+                "__type__": "cc.Sprite",
+                "node": {
+                    "__id__": 15
+                },
+                "_spriteFrame": {
+                    "__uuid__": "c7hf6zsgtIO4ifNzD28fX7"
+                }
+            }
+        ],
+        "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 584,
+            "height": 84
+        },
+        "_position": {
+            "__type__": "cc.Vec2",
+            "y": -430
+        }
+    },
+    {
+        "__type__": "cc.Node",
+        "_name": "text",
+        "_parent": {
+            "__id__": 15
+        },
+        "_components": [
+            {
+                "__type__": "cc.Label",
+                "node": {
+                    "__id__": 16
+                },
+                "_useOriginalSize": false,
+                "_actualFontSize": 32,
+                "_fontSize": 32,
+                "_lineHeight": 60,
+                "_N$string": "喂药...",
+                "_N$horizontalAlign": 1,
+                "_N$verticalAlign": 1,
+                "_N$overflow": 3
+            }
+        ],
+        "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 600,
+            "height": 60
+        },
+        "_position": {
+            "__type__": "cc.Vec2",
+            "y": -1
+        }
+    },
+    {
+        "__type__": "cc.Node",
+        "_name": "close",
+        "_parent": {
+            "__id__": 2
+        },
+        "_components": [
+            {
+                "__type__": "cc.Label",
+                "node": {
+                    "__id__": 17
+                },
+                "_useOriginalSize": false,
+                "_N$string": "<退出>",
+                "_N$horizontalAlign": 1,
+                "_N$verticalAlign": 1
+            }
+        ],
+        "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 126.72,
+            "height": 40
+        },
+        "_position": {
+            "__type__": "cc.Vec2",
+            "x": 258,
+            "y": -191
+        }
+    },
+        {
+        "__type__": "cc.Node",
+        "_name": "button5", 
+        "_parent": {
+            "__id__": 8 
+        },
+        "_children": [
+            {
+                "__id__": 19
+            }
+        ],
+        "_components": [
+            {
+                "__type__": "cc.Sprite", 
+                "node": {
+                    "__id__": 18 
+                },
+                "_spriteFrame": {
+                    "__uuid__": "c7hf6zsgtIO4ifNzD28fX7"  
+                }
+            }
+        ],
+        "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 584,                    
+            "height": 84                    
+        },
+        "_position": {
+            "__type__": "cc.Vec2",
+            "y": -30                        
+        }
+    },
+     
+    {
+        "__type__": "cc.Node",
+        "_name": "text",  
+        "_parent": {
+            "__id__": 18  
+        },
+        "_components": [
+            {
+                "__type__": "cc.Label",  
+                "node": {
+                    "__id__": 19  
+                },
+                "_useOriginalSize": false,
+                "_actualFontSize": 32,
+                "_fontSize": 32,
+                "_lineHeight": 60,
+                "_N$string": "查看碧瑶",
+                "_N$horizontalAlign": 1,
+                "_N$verticalAlign": 1,
+                "_N$overflow": 3
+            }
+        ],
+        "_contentSize": {
+            "__type__": "cc.Size",
+            "width": 600,
+            "height": 60
+        },
+        "_position": {
+            "__type__": "cc.Vec2",
+            "y": -1
+        }
+    }
+]
