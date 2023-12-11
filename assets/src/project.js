@@ -137,133 +137,122 @@ require = function e(t, n, a) {
                 },
                 l = {
                     0: function () {
-                        if(n.gameData2[0] == 1){n.achieveMent[0] = 1;}
+                        if(n.gameData2[0] == 1){
+                        n.achieveMent[0] = 1;
+                        a.save2();
+                    }
                         return n.achieveMent[0] == 1;
                     },
                     1: function () {
-                        if(t.achieve >=99){n.achieveMent[1] = 1;}
+                        if(t.achieve >=99){
+                            n.achieveMent[1] = 1;
+                            a.save2();
+                        }
                         return n.achieveMent[1] == 1;
                     },
                     2: function () {
-                        if(t.publicVar2[0] >= 66){n.achieveMent[2] = 1;}
+                        if(t.publicVar2[0] >= 66){
+                            n.achieveMent[2] = 1;
+                            a.save2();
+                        }
                         return n.achieveMent[2] == 1;
                     },
                     3: function () {
-                        if((t.publicVar2[1] / i)>=.25 && i>=999){n.achieveMent[3] = 1;}
+                        if((t.publicVar2[1] / i)>=.25){
+                            n.achieveMent[3] = 1;
+                            a.save2();
+                        }
                         return n.achieveMent[3] == 1;
                     },
                     4: function () {
-                        if(t.randomEvent[0] >= 10 && t.publicVar2[13] >= 10){n.achieveMent[4] = 1;}
+                        if(t.randomEvent[0] >= 10 && t.publicVar2[13] >= 10){
+                            n.achieveMent[4] = 1;
+                            a.save2();
+                        }
                         return n.achieveMent[4] == 1;
                     },
                     5: function () {
                         var e = 100 * t.publicVar2[2] / i;
-                        if(i >= 999 && e >= 24){n.achieveMent[5] = 1;}
-                        return n.achieveMent[5] == 1;
+                        return i >= 999 && e >= 24;
                     },
                     6: function () {
-                        if(t.publicVar2[5] >= 10){n.achieveMent[6] = 1;}
-                        return n.achieveMent[6] == 1;
+                        return t.publicVar2[5] >= 10;
                     },
                     7: function () {
-                        if( t.publicVar2[6] >= 999 ){ n.achieveMent[7] = 1 ; }
-                        return n.achieveMent[7] == 1;
+                        return t.publicVar2[6] >= 999;
                     },
                     8: function () {
-                        if( t.publicVar2[12] >= 49 ){ n.achieveMent[8] = 1 ; }
-                        return n.achieveMent[8] == 1;
+                        return t.publicVar2[12] >= 49;
                     },
                     9: function () {
-                        if( t.kills[3] >= 10 ){ n.achieveMent[9] = 1 ; }
-                        return n.achieveMent[9] == 1;
+                        return t.kills[3] >= 10;
                     },
                     10: function () {
-                        if( 1 == t.publicVar[5] ){ n.achieveMent[10] = 1 ; }
-                        return n.achieveMent[10] == 1;
+                        return 1 == t.publicVar[5];
                     },
                     11: function () {
-                        if( t.publicVar2[8] >= 36 ){ n.achieveMent[11] = 1 ; }
-                        return n.achieveMent[11] == 1;
+                        return t.publicVar2[8] >= 36;
                     },
                     12: function () {
-                        if( t.publicVar[0] >= 60 ){ n.achieveMent[12] = 1 ; }
-                        return n.achieveMent[12] == 1;
+                        return t.publicVar[0] >= 60;
                     },
                     13: function () {
-                        if( t.choice[5] >= 400 ){ n.achieveMent[13] = 1 ; }
-                        return n.achieveMent[13] == 1;
+                        return t.choice[5] >= 400;
                     },
                     14: function () {
                         if (t.publicVar2[10] >= 30 || 1 == t.publicVar2[11]) {
                             t.publicVar2[11] = 1;
-                            n.achieveMent[14] = 1 ;
                             a.save();
                             return !0;
                         }
                         return !1;
                     },
                     15: function () {
-                        if( 300 == t.distance && n.gameData[0] > 0 && 0 == t.choice[5] ){ n.achieveMent[15] = 1 ; }
-                        return n.achieveMent[15] == 1;
+                        return 300 == t.distance && n.gameData[0] > 0 && 0 == t.choice[5];
                     },
                     16: function () {
-                        if( t.publicVar[3] > 0 ){ n.achieveMent[16] = 1 ; }
-                        return n.achieveMent[16] == 1;
+                        return t.publicVar[3] > 0;
                     },
                     17: function () {
-                        if( t.randomEvent[1] >= 6 ){ n.achieveMent[17] = 1 ; }
-                        return n.achieveMent[17] == 1;
+                        return t.randomEvent[1] >= 6;
                     },
                     18: function () {
-                        if( t.kills[2] >= 40 && t.publicVar2[7] >= 20 ){ n.achieveMent[18] = 1 ; }
-                        return n.achieveMent[18] == 1;
+                        return t.kills[2] >= 40 && t.publicVar2[7] >= 20;
                     },
                     19: function () {
-                        if( t.orderTimes[3] >= 21 ){ n.achieveMent[19] = 1 ; }
-                        return n.achieveMent[19] == 1;
+                        return t.orderTimes[3] >= 21;
                     },
                     20: function () {
-                        if( c >= 99 ){ n.achieveMent[20] = 1 ; }
-                        return n.achieveMent[20] == 1;
+                        return c >= 99;
                     },
                     21: function () {
-                        if( t.publicVar2[9] >= 49 ){ n.achieveMent[21] = 1 ; }
-                        return n.achieveMent[21] == 1;
+                        return t.publicVar2[9] >= 49;
                     },
                     22: function () {
-                        if( t.itemNum[12] >= 6 ){ n.achieveMent[22] = 1 ; }
-                        return n.achieveMent[22] == 1;
+                        return t.itemNum[12] >= 6;
                     },
                     23: function () {
-                        if( t.itemNum2[10] >= 9 && t.itemNum2[11] >= 9 ){ n.achieveMent[23] = 1 ; }
-                        return n.achieveMent[23] == 1;
+                        return t.itemNum2[10] >= 9 && t.itemNum2[11] >= 9;
                     },
                     24: function () {
-                        if( t.publicVar3[14] >= 99 ){ n.achieveMent[24] = 1 ; }
-                        return n.achieveMent[24] == 1;
+                        return t.publicVar3[14] >= 99;
                     },
                     25: function () {
-                        if( t.publicVar[7] >= 600 && t.choice[5] <= 0 ){ n.achieveMent[25] = 1 ; }
-                        return n.achieveMent[25] == 1;
+                        return t.publicVar[7] >= 600 && t.choice[5] <= 0;
                     },
                     26: function () {
-                        if( t.publicVar2[9] >= 49 ){ n.achieveMent[26] = 1 ; }
-                        return n.achieveMent[26] == 1;
+                        return t.publicVar2[9] >= 49;
                     },
                     27: function () {
-                        if( r >= 1999 ){ n.achieveMent[27] = 1 ; }
-                        return n.achieveMent[27] == 1;
+                        return r >= 1999;
                     },
                     28: function () {
-                        if( t.choice[6] >= 17 ){ n.achieveMent[28] = 1 ; }
-                        return n.achieveMent[28] == 1;
+                        return t.choice[6] >= 17;
                     },
                     29: function () {
-                        if( n.gameData[1] + 1 >= 6 ){ n.achieveMent[29] = 1 ; }
-                        return n.achieveMent[29] == 1;
+                        return n.gameData[1] + 1 >= 6;
                     },
                     30: function () {
-                        if( o >= 300 ){ n.achieveMent[30] = 1 ; }
                         return o >= 300;
                     }
                 }, 
