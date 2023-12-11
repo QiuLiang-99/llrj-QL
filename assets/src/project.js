@@ -138,7 +138,7 @@ require = function e(t, n, a) {
                 l = {
                     0: function () {
                         if(n.gameData2[0] == 1){n.achieveMent[0] = 1;}
-                        return n.achieveMent[0] == 1;
+                        return n.achieveMent[0]==1;
                     },
                     1: function () {
                         if(t.achieve >=99){n.achieveMent[1] = 1;}
