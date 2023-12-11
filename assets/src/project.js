@@ -8268,39 +8268,51 @@ require = function e(t, n, a) {
             //探索传送门
             getItem: function () {
                 e("scr_public").regionId();
-                var t = e("scr_data"), n = this.getDrop(), a = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n), i = function () {
-                    var t = e("scr_data"), a = t.itemNum2[17] + t.publicVar3[9], i = 100 * Math.random(), c = "";
-                    i < a && (c = "没发现道具" != (c = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n)) ? "\n【放大镜：发现" + c + "】" : "\n【放大镜：什么也没有发现！】");
+                var t = e("scr_data"), n = this.getDrop(), 
+                text = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n), 
+                fangdajing = function () {
+                    var t = e("scr_data"), 
+                    fangdajingrate = t.itemNum2[17] + t.publicVar3[9], i = 100 * Math.random(), c = "";
+                    if (i < fangdajingrate) {
+                        c = "没发现道具" != (c = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n)) ? "\n【放大镜：发现" + c + "】" : "\n【放大镜：什么也没有发现！】";
+                    }
                     return c;
-                }(), c = function () {
-                    var t = e("scr_data"), a = "";
+                }(), 
+                XL = function () {
+                    var t = e("scr_data"), XLtext = "";
                     if (1 == t.publicVar[1]) {
                         var i = t.day + 40, c = 100 * Math.random();
-                        c < i && (a = "没发现道具" != (a = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n)) ? "\n【修罗：发现" + a + "】" : "\n【修罗：什么也没有发现！】");
+                        if (c < i) {
+                            XLtext = "没发现道具" != (XLtext = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n)) ? "\n【修罗：发现" + XLtext + "】" : "\n【修罗：什么也没有发现！】";//"没发现道具" != ...: 这一部分是将获取的项目与字符串 "没发现道具" 进行比较，使用不等于 (!=) 运算符。
+                        };
                     }
-                    return a;
+                    return XLtext;
                 }();
-                if ("没发现道具" != a) a = i + c + "发现" + a; else {
-                    var o = function () {
+                if ("没发现道具" != text) {text = fangdajing + XL + "发现" + text;} 
+                else {
+                    var XYSL = function () {
                         var t = e("scr_data"), a = 5 * (t.itemNum2[27] + t.publicVar3[17]), i = 100 * Math.random(), c = "";
-                        if (i < a) if ("没发现道具" != (c = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n))) c = "\n【晓月手链：发现" + c + "】"; else {
-                            t.money += 1;
-                            c = "\n【晓月手链：发现0.1元！】";
+                        if (i < a) {
+                            if ("没发现道具" != (c = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n))) c = "\n【晓月：发现" + c + "】"; 
+                            else {
+                                t.money += 1;
+                                c = "\n【晓月：发现0.1元！】";
+                            }
                         }
                         return c;
                     }();
                     t.publicVar2[1] += 1;
-                    a = o + i + c + "什么也没有找到！";
+                    text = XYSL + fangdajing + XL + "什么也没有找到！";
                     if (t.skillLv[23] > 0) {
                         t.money += 1;
-                        a += "【逆袭：金钱+0.1】";
+                        text += "【逆袭：金钱+0.1】";
                     }
                     if (t.day <= 5) {
                         t.itemNum[4] += 2;
-                        a += "【作者的呵护：获得「亚麻」*2（游戏前5天有效）】";
+                        text += "【作者的呵护：获得「亚麻」*2（游戏前5天有效）】";
                     }
                 }
-                e("scr_effect").playText("Canvas/Text/txt_notify", a, 60);
+                e("scr_effect").playText("Canvas/Text/txt_notify", text, 60);
             },
             getDrop: function () {
                 var t = [], n = this.getItemNum(), a = e("scr_public").regionId();
