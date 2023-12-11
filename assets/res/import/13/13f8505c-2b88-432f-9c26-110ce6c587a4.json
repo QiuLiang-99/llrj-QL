@@ -94,6 +94,9 @@
             },
             {
                 "__id__": 13
+            },
+            {
+                "__id__": 44
             }
         ],
         "_components": [
@@ -239,7 +242,7 @@
         },
         "_components": [
             {
-                "__type__": "FUNscr_autodataCopy",
+                "__type__": "44ab5HIdTVLaYk0L5S0uxkB",
                 "node": {
                     "__id__": 13
                 }
@@ -974,7 +977,7 @@
         },
         "_position": {
             "__type__": "cc.Vec2",
-            "y": -362
+            "y": -342
         }
     },
     {
@@ -1223,7 +1226,7 @@
                 "_useOriginalSize": false,
                 "_actualFontSize": 24,
                 "_fontSize": 24,
-                "_N$string": "版    本：0.93-2023-12-11",
+                "_N$string": "版    本：0.93",
                 "_N$horizontalAlign": 1,
                 "_N$verticalAlign": 1
             }
@@ -1496,11 +1499,12 @@
         },
         "_components": [
             {
-                "__type__": "FUNscr_autodataCopy",
+                "__type__": "FUNautodataCopy",
                 "node": {
-                    "__id__": 13
+                    "__id__": 44
                 }
             }
         ]
     }
+
 ]

@@ -446,27 +446,151 @@ require = function e(t, n, a) {
                     escapeExp: 0,
                     buffState: [0, 0],
                     ifNotify: !1,
-                    skillLv: {0:0,1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0,
-                        10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:0,18:0,19:0,
-                        20:0,21:0,22:0,23:0,24:0,25:0,26:0,27:0},
+                    skillLv: {
+                        0: 0,
+                        1: 0,
+                        2: 0,
+                        3: 0,
+                        4: 0,
+                        5: 0,
+                        6: 0,
+                        7: 0,
+                        8: 0,
+                        9: 0,
+                        10: 0,
+                        11: 0,
+                        12: 0,
+                        13: 0,
+                        14: 0,
+                        15: 0,
+                        16: 0,
+                        17: 0,
+                        18: 0,
+                        19: 0,
+                        20: 0,
+                        21: 0,
+                        22: 0,
+                        23: 0,
+                        24: 0,
+                        25: 0,
+                        26: 0,
+                        27: 0
+                    },
                     //特殊敌人传送门
-                    specialEnemy:
-                    {100001:{lv:1,hp:20,maxHp:20,att:1,def:0},
-                    100002:{lv:25,hp:875,maxHp:875,att:0,def:0},
-                    200001:{lv:8,hp:310,maxHp:310,att:20,def:0},
-                    300001:{lv:20,hp:510,maxHp:510,att:0,def:0},
-                    300002:{lv:45,hp:1550,maxHp:1550,att:0,def:0},
-                    300003:{lv:35,hp:3270,maxHp:3270,att:0,def:0},
-                    400001:{lv:100,hp:3345,maxHp:3345,att:0,def:234},
-                    400002:{lv:199,hp:19999,maxHp:19999,att:0,def:20},
-                    400003:{lv:60,hp:2050,maxHp:2050,att:310,def:121},
-                    900001:{lv:15,hp:575,maxHp:575,att:59,def:16},
-                    900002:{lv:20,hp:998,maxHp:998,att:50,def:36},
-                    900003:{lv:500,hp:16500,maxHp:16500,att:1500,def:1150},
-                    900004:{lv:1,hp:999999,maxHp:999999,att:999,def:0},
-                    900005:{lv:500,hp:599999,maxHp:599999,att:0,def:0},
-                    900006:{lv:200,hp:299999,maxHp:299999,att:0,def:0},
-                    900007:{lv:40,hp:3900,maxHp:3900,att:90,def:50}},
+                    specialEnemy: {
+                        100001: {
+                            lv: 1,
+                            hp: 20,
+                            maxHp: 20,
+                            att: 1,
+                            def: 0
+                        },
+                        100002: {
+                            lv: 25,
+                            hp: 875,
+                            maxHp: 875,
+                            att: 0,
+                            def: 0
+                        },
+                        200001: {
+                            lv: 8,
+                            hp: 310,
+                            maxHp: 310,
+                            att: 20,
+                            def: 0
+                        },
+                        300001: {
+                            lv: 20,
+                            hp: 510,
+                            maxHp: 510,
+                            att: 0,
+                            def: 0
+                        },
+                        300002: {
+                            lv: 45,
+                            hp: 1550,
+                            maxHp: 1550,
+                            att: 0,
+                            def: 0
+                        },
+                        300003: {
+                            lv: 35,
+                            hp: 3270,
+                            maxHp: 3270,
+                            att: 0,
+                            def: 0
+                        },
+                        400001: {
+                            lv: 100,
+                            hp: 3345,
+                            maxHp: 3345,
+                            att: 0,
+                            def: 234
+                        },
+                        400002: {
+                            lv: 199,
+                            hp: 19999,
+                            maxHp: 19999,
+                            att: 0,
+                            def: 20
+                        },
+                        400003: {
+                            lv: 60,
+                            hp: 2050,
+                            maxHp: 2050,
+                            att: 310,
+                            def: 121
+                        },
+                        900001: {
+                            lv: 15,
+                            hp: 575,
+                            maxHp: 575,
+                            att: 59,
+                            def: 16
+                        },
+                        900002: {
+                            lv: 20,
+                            hp: 998,
+                            maxHp: 998,
+                            att: 50,
+                            def: 36
+                        },
+                        900003: {
+                            lv: 500,
+                            hp: 16500,
+                            maxHp: 16500,
+                            att: 1500,
+                            def: 1150
+                        },
+                        900004: {
+                            lv: 1,
+                            hp: 999999,
+                            maxHp: 999999,
+                            att: 999,
+                            def: 0
+                        },
+                        900005: {
+                            lv: 500,
+                            hp: 599999,
+                            maxHp: 599999,
+                            att: 0,
+                            def: 0
+                        },
+                        900006: {
+                            lv: 200,
+                            hp: 299999,
+                            maxHp: 299999,
+                            att: 0,
+                            def: 0
+                        },
+                        900007: {
+                            lv: 40,
+                            hp: 3900,
+                            maxHp: 3900,
+                            att: 90,
+                            def: 50
+                        }
+                    },
                     friendSkill1: [1, 0, 0, 0, 0],
                     friendSkill2: [1, 0, 0, 0, 0],
                     friendSkill: [1, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -508,19 +632,97 @@ require = function e(t, n, a) {
                     "undefined" == typeof e.publicVar && (e.publicVar = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
                     "undefined" == typeof e.publicVar2 && (e.publicVar2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
                     "undefined" == typeof e.publicVar3 && (e.publicVar3 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-                    "undefined"==typeofe.specialEnemy[300001]&&(e.specialEnemy[300001]={lv:35,hp:510,maxHp:510,att:0,def:0});
-                    "undefined"==typeofe.specialEnemy[300002]&&(e.specialEnemy[300002]={lv:45,hp:1550,maxHp:1550,att:0,def:0});
-                    "undefined"==typeofe.specialEnemy[300003]&&(e.specialEnemy[300003]={lv:35,hp:3270,maxHp:3270,att:0,def:0});
-                    "undefined"==typeofe.specialEnemy[400001]&&(e.specialEnemy[400001]={lv:100,hp:3345,maxHp:3345,att:0,def:234});
-                    "undefined"==typeofe.specialEnemy[400002]&&(e.specialEnemy[400002]={lv:199,hp:19999,maxHp:19999,att:0,def:20});
-                    "undefined"==typeofe.specialEnemy[400003]&&(e.specialEnemy[400003]={lv:60,hp:2050,maxHp:2050,att:310,def:121});
-                    "undefined"==typeofe.specialEnemy[900001]&&(e.specialEnemy[900001]={lv:15,hp:575,maxHp:575,att:59,def:16});
-                    "undefined"==typeofe.specialEnemy[900002]&&(e.specialEnemy[900002]={lv:20,hp:998,maxHp:998,att:50,def:36});
-                    "undefined"==typeofe.specialEnemy[900003]&&(e.specialEnemy[900003]={lv:500,hp:16500,maxHp:16500,att:1500,def:1150});
-                    "undefined"==typeofe.specialEnemy[900004]&&(e.specialEnemy[900004]={lv:1,hp:999999,maxHp:999999,att:999,def:0});
-                    "undefined"==typeofe.specialEnemy[900005]&&(e.specialEnemy[900005]={lv:500,hp:599999,maxHp:599999,att:0,def:0});
-                    "undefined"==typeofe.specialEnemy[900006]&&(e.specialEnemy[900006]={lv:200,hp:299999,maxHp:299999,att:0,def:0});
-                    "undefined"==typeofe.specialEnemy[900007]&&(e.specialEnemy[900007]={lv:40,hp:3900,maxHp:3900,att:90,def:50});
+                    "undefined" == typeof e.specialEnemy[300001] && (e.specialEnemy[300001] = {
+                        lv: 35,
+                        hp: 510,
+                        maxHp: 510,
+                        att: 0,
+                        def: 0
+                    });
+                    "undefined" == typeof e.specialEnemy[300002] && (e.specialEnemy[300002] = {
+                        lv: 45,
+                        hp: 1550,
+                        maxHp: 1550,
+                        att: 0,
+                        def: 0
+                    });
+                    "undefined" == typeof e.specialEnemy[300003] && (e.specialEnemy[300003] = {
+                        lv: 35,
+                        hp: 3270,
+                        maxHp: 3270,
+                        att: 0,
+                        def: 0
+                    });
+                    "undefined" == typeof e.specialEnemy[400001] && (e.specialEnemy[400001] = {
+                        lv: 100,
+                        hp: 3345,
+                        maxHp: 3345,
+                        att: 0,
+                        def: 234
+                    });
+                    "undefined" == typeof e.specialEnemy[400002] && (e.specialEnemy[400002] = {
+                        lv: 199,
+                        hp: 19999,
+                        maxHp: 19999,
+                        att: 0,
+                        def: 20
+                    });
+                    "undefined" == typeof e.specialEnemy[400003] && (e.specialEnemy[400003] = {
+                        lv: 60,
+                        hp: 2050,
+                        maxHp: 2050,
+                        att: 310,
+                        def: 121
+                    });
+                    "undefined" == typeof e.specialEnemy[900001] && (e.specialEnemy[900001] = {
+                        lv: 15,
+                        hp: 575,
+                        maxHp: 575,
+                        att: 59,
+                        def: 16
+                    });
+                    "undefined" == typeof e.specialEnemy[900002] && (e.specialEnemy[900002] = {
+                        lv: 20,
+                        hp: 998,
+                        maxHp: 998,
+                        att: 50,
+                        def: 36
+                    });
+                    "undefined" == typeof e.specialEnemy[900003] && (e.specialEnemy[900003] = {
+                        lv: 500,
+                        hp: 16500,
+                        maxHp: 16500,
+                        att: 1500,
+                        def: 1150
+                    });
+                    "undefined" == typeof e.specialEnemy[900004] && (e.specialEnemy[900004] = {
+                        lv: 1,
+                        hp: 999999,
+                        maxHp: 999999,
+                        att: 999,
+                        def: 0
+                    });
+                    "undefined" == typeof e.specialEnemy[900005] && (e.specialEnemy[900005] = {
+                        lv: 500,
+                        hp: 599999,
+                        maxHp: 599999,
+                        att: 0,
+                        def: 0
+                    });
+                    "undefined" == typeof e.specialEnemy[900006] && (e.specialEnemy[900006] = {
+                        lv: 200,
+                        hp: 299999,
+                        maxHp: 299999,
+                        att: 0,
+                        def: 0
+                    });
+                    "undefined" == typeof e.specialEnemy[900007] && (e.specialEnemy[900007] = {
+                        lv: 40,
+                        hp: 3900,
+                        maxHp: 3900,
+                        att: 90,
+                        def: 50
+                    });
                 }(e = JSON.parse(cc.sys.localStorage.getItem("userData")));
                 t.exports = e;
             }
@@ -3526,14 +3728,14 @@ require = function e(t, n, a) {
                             } else if (this.publicVar == 3) {
 
                                 this.publicVar += 1;
-                                var e = 2 * this.att - yourstatus.def;
-                                scr_data.role.hp -= e;
+                                var e = 2 * this.att - o.def;
+                                c.role.hp -= e;
                                 return "【秋良使用「空气炮」，造成" + e + "点伤害】"
                             } else if (this.publicVar == 4) {
                                 this.publicVar += 1;
-                                var e = 1 * this.att - yourstatus.def;
-                                scr_data.role.hp -= e;
-                                cc.find("Event/scr_fight").getComponent("scr_fight").correct[1] -= parseInt(.5 * yourstatus.def);
+                                var e = 1 * this.att - o.def;
+                                c.role.hp -= e;
+                                cc.find("Event/scr_fight").getComponent("scr_fight").correct[1] -= parseInt(.5 * o.def);
                                 return "【秋良使用「绊倒乐队」，造成" + e + "点伤害，减少防御50%】"
                             } else if (this.publicVar == 5) {
                                 this.publicVar += 1;
@@ -3544,12 +3746,12 @@ require = function e(t, n, a) {
                                 return "【暂时就拿这么多道具好了！】"
                             }
                             e = this.att - o.def;
-                            scr_data.role.hp -= e;
+                            c.role.hp -= e;
                             return "【浮游炮「自动攻击」，造成" + e + "点伤害】";
                         },
                         defSkill: function () {
                             if (this.publicVar <= 2) {
-                                var e = parseInt(yourstatus.att);
+                                var e = parseInt(o.att);
                                 c.role.hp -= e;
                                 cc.find("Event/scr_fight").getComponent("scr_fight").publicVar -= 99999;
                                 return "【" + this.name + "使用「反弹披风」，反弹伤害！】";
@@ -3557,7 +3759,7 @@ require = function e(t, n, a) {
                             return "";
                         },
                         winEvent: function () {
-                            scr_data.choice[6] += 1;
+                            c.choice[6] += 1;
                             return "“好好好，这样玩是吧”";
                         },
                         lostEvent: void 0
@@ -3586,16 +3788,16 @@ require = function e(t, n, a) {
                                 this.publicVar += 1;
                                 var e = 1 * this.att - o.def;
                                 c.role.hp -= e;
-                                cc.find("Event/scr_fight").getComponent("scr_fight").correct[1] -= parseInt(.5 * yourstatus.def);
+                                cc.find("Event/scr_fight").getComponent("scr_fight").correct[1] -= parseInt(.5 * o.def);
                                 return "【" + this.name + "使用「铁砂之剑」，造成" + e + "点伤害，你减少50%防御】"
-                            }    
+                            }
                             else if (this.publicVar == 2) {
                                 this.publicVar += 1;
-                                var e = 5 * this.att - yourstatus.def;
+                                var e = 5 * this.att - o.def;
                                 scr_data.role.hp -= e;
-                                cc.find("Event/scr_fight").getComponent("scr_fight").correct[0] -= parseInt(.5 * yourstatus.att);
+                                cc.find("Event/scr_fight").getComponent("scr_fight").correct[0] -= parseInt(.5 * o.att);
                                 return "【" + this.name + "使用「雷击之枪」，造成" + e + "点伤害，你减少50%攻击】"
-                            }                        
+                            }
                             else if (this.publicVar == 3) {
 
                                 this.publicVar += 1;
@@ -7906,7 +8108,7 @@ require = function e(t, n, a) {
                                 if (n.friendSkill[6] > 0) {
                                     nextCrit = 1;
                                     BYskillText += "，你下次攻击必定暴击！";
-                                }
+                            }
                             }
                             theEnemy.hp -= BYsDamage;
                             BYstatus.attackTimes += 1;
@@ -8268,51 +8470,39 @@ require = function e(t, n, a) {
             //探索传送门
             getItem: function () {
                 e("scr_public").regionId();
-                var t = e("scr_data"), n = this.getDrop(), 
-                text = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n), 
-                fangdajing = function () {
-                    var t = e("scr_data"), 
-                    fangdajingrate = t.itemNum2[17] + t.publicVar3[9], i = 100 * Math.random(), c = "";
-                    if (i < fangdajingrate) {
-                        c = "没发现道具" != (c = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n)) ? "\n【放大镜：发现" + c + "】" : "\n【放大镜：什么也没有发现！】";
-                    }
+                var t = e("scr_data"), n = this.getDrop(), a = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n), i = function () {
+                    var t = e("scr_data"), a = t.itemNum2[17] + t.publicVar3[9], i = 100 * Math.random(), c = "";
+                    i < a && (c = "没发现道具" != (c = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n)) ? "\n【放大镜：发现" + c + "】" : "\n【放大镜：什么也没有发现！】");
                     return c;
-                }(), 
-                XL = function () {
-                    var t = e("scr_data"), XLtext = "";
+                }(), c = function () {
+                    var t = e("scr_data"), a = "";
                     if (1 == t.publicVar[1]) {
                         var i = t.day + 40, c = 100 * Math.random();
-                        if (c < i) {
-                            XLtext = "没发现道具" != (XLtext = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n)) ? "\n【修罗：发现" + XLtext + "】" : "\n【修罗：什么也没有发现！】";//"没发现道具" != ...: 这一部分是将获取的项目与字符串 "没发现道具" 进行比较，使用不等于 (!=) 运算符。
-                        };
+                        c < i && (a = "没发现道具" != (a = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n)) ? "\n【修罗：发现" + a + "】" : "\n【修罗：什么也没有发现！】");
                     }
-                    return XLtext;
+                    return a;
                 }();
-                if ("没发现道具" != text) {text = fangdajing + XL + "发现" + text;} 
-                else {
-                    var XYSL = function () {
+                if ("没发现道具" != a) a = i + c + "发现" + a; else {
+                    var o = function () {
                         var t = e("scr_data"), a = 5 * (t.itemNum2[27] + t.publicVar3[17]), i = 100 * Math.random(), c = "";
-                        if (i < a) {
-                            if ("没发现道具" != (c = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n))) c = "\n【晓月：发现" + c + "】"; 
-                            else {
-                                t.money += 1;
-                                c = "\n【晓月：发现0.1元！】";
-                            }
+                        if (i < a) if ("没发现道具" != (c = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n))) c = "\n【晓月手链：发现" + c + "】"; else {
+                            t.money += 1;
+                            c = "\n【晓月手链：发现0.1元！】";
                         }
                         return c;
                     }();
                     t.publicVar2[1] += 1;
-                    text = XYSL + fangdajing + XL + "什么也没有找到！";
+                    a = o + i + c + "什么也没有找到！";
                     if (t.skillLv[23] > 0) {
                         t.money += 1;
-                        text += "【逆袭：金钱+0.1】";
+                        a += "【逆袭：金钱+0.1】";
                     }
                     if (t.day <= 5) {
                         t.itemNum[4] += 2;
-                        text += "【作者的呵护：获得「亚麻」*2（游戏前5天有效）】";
+                        a += "【作者的呵护：获得「亚麻」*2（游戏前5天有效）】";
                     }
                 }
-                e("scr_effect").playText("Canvas/Text/txt_notify", text, 60);
+                e("scr_effect").playText("Canvas/Text/txt_notify", a, 60);
             },
             getDrop: function () {
                 var t = [], n = this.getItemNum(), a = e("scr_public").regionId();
@@ -8760,7 +8950,7 @@ require = function e(t, n, a) {
     }],
     scr_friendSkillUI1: [function (e, t, n) {
         "use strict";
-        cc._RF.push(t, "friendSkillUIText1", "scr_friendSkillUI1");
+        cc._RF.push(t, "0992cbWpqJNPIJFvroUyU98", "scr_friendSkillUI1");
         cc.Class({
             extends: cc.Component,
             properties: {},
@@ -8793,7 +8983,7 @@ require = function e(t, n, a) {
     }],
     scr_friendSkillUI2: [function (e, t, n) {
         "use strict";
-        cc._RF.push(t, "UIfriendSkillUI2", "scr_friendSkillUI2");
+        cc._RF.push(t, "d0387ZXPPtJs4Lfy6jPllmL", "scr_friendSkillUI2");
         cc.Class({
             extends: cc.Component,
             properties: {},
@@ -8831,7 +9021,7 @@ require = function e(t, n, a) {
     }],
     scr_friendUI1: [function (e, t, n) {
         "use strict";
-        cc._RF.push(t, "UIscr_friendUI1", "scr_friendUI1");
+        cc._RF.push(t, "871fc61bpBNRLPJHo54vOLw", "scr_friendUI1");
         cc.Class({
             extends: cc.Component,
             properties: {},
@@ -11827,7 +12017,7 @@ require = function e(t, n, a) {
                 this.schedule(function () {
                     this.creatText(l, "plot" + s, i[s]);
                     s++;
-                }, .5, r - 1);
+                }, 2.5, r - 1);
                 this.scheduleOnce(function () {
                     var e = a.choice1, t = a.choice2, n = cc.find("Canvas/Choice/Choice1"), i = cc.find("Canvas/Choice/Choice2");
                     n.getChildByName("choiceText").getComponent("cc.Label").string = o;
@@ -12061,7 +12251,7 @@ require = function e(t, n, a) {
         scr_data: "scr_data",
         scr_data2: "scr_data2",
         scr_dataCopy: "scr_dataCopy",
-        scr_autodataCopy: "scr_autodataCopy"
+        scr_autodataCopy:"scr_autodataCopy"
     }],
     scr_quitGame: [function (e, t, n) {
         "use strict";
@@ -12392,7 +12582,7 @@ require = function e(t, n, a) {
                 (function () {//非常重要！！！！每天睡觉保存一次存档！！！用来回档！！！
                         var n = e("scr_autodataCopy");
                         n = JSON.parse(cc.sys.localStorage.getItem("userData"));
-                        cc.sys.localStorage.setItem("autodataCopy", JSON.stringify(n));
+                        cc.sys.localStorage.setItem("autogamesave", JSON.stringify(n));
                 })();
                 n.save();
                 function c() {
@@ -13602,4 +13792,4 @@ require = function e(t, n, a) {
         });
         cc._RF.pop();
     }, {}]
-}, {}, ["scr_eatButton", "scr_makeButton", "scr_shopButton", "scr_skillButton", "scr_backMainUI", "scr_diaryDetermine", "scr_eventDetermine", "scr_restDetermine", "scr_QQpay", "scr_backStartUI", "scr_backSupport", "scr_continueButton", "scr_initGame", "scr_newGame", "scr_notice", "scr_notice2", "scr_open", "scr_startChoice", "scr_startUI", "scr_weixin", "scr_achieve", "scr_eatUI", "scr_eventData", "scr_makeUI", "scr_shop2", "scr_shop3", "scr_shop4", "scr_shopUI", "scr_skillJudge", "scr_skillUI", "scr_data", "scr_data2", "scr_dataCopy" ,"scr_autodataCopy", "scr_diary", "scr_event", "scr_mainUIEvent", "scr_plot", "scr_rest", "scr_enemy", "scr_explore", "scr_fight", "scr_fightState", "scr_forwardButton", "scr_friendSkillJudge1", "scr_friendSkillUI1", "scr_friendSkillUI2", "scr_friendUI1", "scr_skillJudge2", "scr_effect", "scr_public", "scr_home", "scr_mainUIinit", "scr_readConfession", "scr_end", "scr_initData", "scr_over", "scr_over2", "scr_over2_1", "scr_system", "NewScript", "scr_BGM", "scr_playAds", "scr_quitGame", "test", "testAll", "scr_liveModeMain"]);
+}, {}, ["scr_eatButton", "scr_makeButton", "scr_shopButton", "scr_skillButton", "scr_backMainUI", "scr_diaryDetermine", "scr_eventDetermine", "scr_restDetermine", "scr_QQpay", "scr_backStartUI", "scr_backSupport", "scr_continueButton", "scr_initGame", "scr_newGame", "scr_notice", "scr_notice2", "scr_open", "scr_startChoice", "scr_startUI", "scr_weixin", "scr_achieve", "scr_eatUI", "scr_eventData", "scr_makeUI", "scr_shop2", "scr_shop3", "scr_shop4", "scr_shopUI", "scr_skillJudge", "scr_skillUI", "scr_data", "scr_data2", "scr_dataCopy", "scr_autodataCopy", "scr_diary", "scr_event", "scr_mainUIEvent", "scr_plot", "scr_rest", "scr_enemy", "scr_explore", "scr_fight", "scr_fightState", "scr_forwardButton", "scr_friendSkillJudge1", "scr_friendSkillUI1", "scr_friendSkillUI2", "scr_friendUI1", "scr_skillJudge2", "scr_effect", "scr_public", "scr_home", "scr_mainUIinit", "scr_readConfession", "scr_end", "scr_initData", "scr_over", "scr_over2", "scr_over2_1", "scr_system", "NewScript", "scr_BGM", "scr_playAds", "scr_quitGame", "test", "testAll", "scr_liveModeMain"]);
