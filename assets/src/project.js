@@ -550,7 +550,7 @@ require = function e(t, n, a) {
                 a.parent = e;
                 a.setPosition(0, 0);
                 a.opacity = 0;
-                a.runAction(cc.fadeIn(3));
+                a.runAction(cc.fadeIn(.3));
                 a.color = new cc.Color(255, 255, 255);
                 a.getComponent(cc.Label).overflow = 3;
                 a.getComponent(cc.Label).horizontalAlign = 1;
@@ -658,7 +658,7 @@ require = function e(t, n, a) {
                         }, 0.3, o - 2);// 每隔 3 秒执行以下逻辑，总共执行 o - 2 次  也就是文本逐渐显示
                         this.scheduleOnce(function () {
                             u.active = !0;
-                            u.runAction(cc.fadeIn(2));
+                            u.runAction(cc.fadeIn(.2));
                         }, 0.3 * o); // 在 3 * o 秒之后执行一次以下逻辑。
                     } else cc.director.loadScene("rest");
                 }
@@ -1028,7 +1028,7 @@ require = function e(t, n, a) {
                 a.parent = e;
                 a.setPosition(0, 0);
                 a.opacity = 0;
-                a.runAction(cc.fadeIn(3));
+                a.runAction(cc.fadeIn(.3));
                 a.color = new cc.Color(255, 255, 255);
                 a.getComponent(cc.Label).overflow = 3;
                 a.getComponent(cc.Label).horizontalAlign = 0;
@@ -1076,7 +1076,7 @@ require = function e(t, n, a) {
                             15000: function () {
                                 (function () {
                                     r.active = !0;
-                                    r.runAction(cc.fadeIn(2));
+                                    r.runAction(cc.fadeIn(.2));
                                     s.on("touchstart", f, this);
                                     l.on("touchstart", d, this);
                                 })();
@@ -6279,7 +6279,7 @@ require = function e(t, n, a) {
                 a.parent = e;
                 a.setPosition(0, 0);
                 a.opacity = 0;
-                a.runAction(cc.fadeIn(2));
+                a.runAction(cc.fadeIn(.2));
                 a.color = new cc.Color(255, 255, 255);
                 a.getComponent(cc.Label).overflow = 3;
                 a.getComponent(cc.Label).horizontalAlign = 1;
@@ -9556,7 +9556,7 @@ require = function e(t, n, a) {
                 a.parent = e;
                 a.setPosition(0, 0);
                 a.opacity = 0;
-                a.runAction(cc.fadeIn(1));
+                a.runAction(cc.fadeIn(.1));
                 a.color = new cc.Color(0, 0, 0);
                 a.getComponent(cc.Label).overflow = 3;
                 a.getComponent(cc.Label).horizontalAlign = 1;
@@ -11335,7 +11335,7 @@ require = function e(t, n, a) {
                 e("scr_effect").playText("Canvas/text", "系统检测到你还有没用完的精力，你确定要睡觉吗？", 80);
                 t.opacity = 0;
                 this.scheduleOnce(function () {
-                    t.runAction(cc.fadeIn(2));
+                    t.runAction(cc.fadeIn(.2));
                 }, 2);
             }
         });
@@ -11449,7 +11449,7 @@ require = function e(t, n, a) {
                 a.parent = e;
                 a.setPosition(0, 0);
                 a.opacity = 0;
-                a.runAction(cc.fadeIn(3));
+                a.runAction(cc.fadeIn(.3));
                 a.color = new cc.Color(255, 255, 255);
                 a.getComponent(cc.Label).overflow = 3;
                 a.getComponent(cc.Label).horizontalAlign = 1;
@@ -11473,7 +11473,7 @@ require = function e(t, n, a) {
                 }, 3, i - 1);
                 this.scheduleOnce(function () {
                     r.active = !0;
-                    r.runAction(cc.fadeIn(2));
+                    r.runAction(cc.fadeIn(.2));
                 }, .3 * (i + 1));
                 r.getChildByName("choice1").on("touchstart", function () {
                     t.initMoney = l;
@@ -11509,7 +11509,7 @@ require = function e(t, n, a) {
                 a.parent = e;
                 a.setPosition(0, 0);
                 a.opacity = 0;
-                a.runAction(cc.fadeIn(3));
+                a.runAction(cc.fadeIn(.3));
                 a.color = new cc.Color(255, 255, 255);
                 a.getComponent(cc.Label).overflow = 3;
                 a.getComponent(cc.Label).horizontalAlign = 1;
@@ -11528,7 +11528,7 @@ require = function e(t, n, a) {
                 }, 2.5, i - 1);
                 this.scheduleOnce(function () {
                     r.active = !0;
-                    r.runAction(cc.fadeIn(2));
+                    r.runAction(cc.fadeIn(.2));
                 }, 2.5 * (i + 1));
                 r.getChildByName("choice1").on("touchstart", function () {
                     var e = t.role;
@@ -11577,7 +11577,7 @@ require = function e(t, n, a) {
                 a.parent = e;
                 a.setPosition(0, 0);
                 a.opacity = 0;
-                a.runAction(cc.fadeIn(3));
+                a.runAction(cc.fadeIn(.3));
                 a.color = new cc.Color(255, 255, 255);
                 a.getComponent(cc.Label).overflow = 3;
                 a.getComponent(cc.Label).horizontalAlign = 1;
@@ -11594,7 +11594,7 @@ require = function e(t, n, a) {
                 }, 2, i - 1);
                 this.scheduleOnce(function () {
                     r.active = !0;
-                    r.runAction(cc.fadeIn(2));
+                    r.runAction(cc.fadeIn(.2));
                 }, 2 * (i + 1));
                 r.on("touchstart", function () {
                     JSON.parse(cc.sys.localStorage.getItem("userData")) && cc.sys.localStorage.removeItem("userData");
@@ -11630,7 +11630,7 @@ require = function e(t, n, a) {
                 a.parent = e;
                 a.setPosition(0, 0);
                 a.opacity = 0;
-                a.runAction(cc.fadeIn(2));
+                a.runAction(cc.fadeIn(.2));
                 a.color = new cc.Color(255, 255, 255);
                 a.getComponent(cc.Label).overflow = 3;
                 a.getComponent(cc.Label).horizontalAlign = 1;
@@ -11842,7 +11842,7 @@ require = function e(t, n, a) {
                         n.active = !1;
                         cc.find("Canvas/Choice/label").active = !1;
                     }
-                    cc.find("Canvas/Choice").runAction(cc.fadeIn(2));
+                    cc.find("Canvas/Choice").runAction(cc.fadeIn(.2));
                     n.on("touchstart", e, this);
                     i.on("touchstart", t, this);
                 }, 2.5 * (r + 1));
@@ -12037,7 +12037,7 @@ require = function e(t, n, a) {
                         i.parent = e;
                         i.setPosition(0, 0);
                         i.opacity = 0;
-                        i.runAction(cc.fadeIn(3));
+                        i.runAction(cc.fadeIn(.3));
                         i.color = new cc.Color(255, 255, 255);
                         i.getComponent(cc.Label).overflow = 3;
                         i.getComponent(cc.Label).horizontalAlign = 1;
@@ -12409,11 +12409,11 @@ require = function e(t, n, a) {
                 var t = 0;
                 e("scr_data");
                 this.restMain();
-                cc.find("Canvas/Day").runAction(cc.fadeIn(1));
+                cc.find("Canvas/Day").runAction(cc.fadeIn(.1));
                 this.schedule(function () {
                     var e = ["Canvas/AttrShow", "Canvas/SkillShow", "Canvas/Determine"];
                     "Canvas/Determine" == e[t] && (cc.find("Canvas/Determine").active = !0);
-                    cc.find(e[t]).runAction(cc.fadeIn(1));
+                    cc.find(e[t]).runAction(cc.fadeIn(.1));
                     t++;
                 }, 1, 2);
                 e("scr_public").save();
@@ -13457,7 +13457,7 @@ require = function e(t, n, a) {
                     a.schedule(l, 2, 1);
                 })();
                 function l() {
-                    cc.find(["Canvas/Determine", "Canvas/text2"][s]).runAction(cc.fadeIn(2));
+                    cc.find(["Canvas/Determine", "Canvas/text2"][s]).runAction(cc.fadeIn(.2));
                     s++;
                 }
                 function u() {
