@@ -8047,7 +8047,7 @@ require = function e(t, n, a) {
                 }
                 function refreshEnemyStatus() {//战斗场景标签的内容
                     roleHpLabel.getComponent("cc.Label").string = "ATT" + youinFight.att +"|"+ "DEF" + youinFight.def;
-                    d.getComponent("cc.Label").string = theEnemy.name + "LV" + theEnemy.lv + "\nHP" + theEnemy.hp + "\nATT" + theEnemy.att + +"|" + "DEF" + theEnemy.def;
+                    d.getComponent("cc.Label").string = theEnemy.name + "LV" + theEnemy.lv + "\nHP" + theEnemy.hp + "\nATT" + theEnemy.att + " | " + "DEF" + theEnemy.def;
                     m.getComponent("cc.Label").string = calEscapeRate() + "%";
                     n.publicVar[4] > 0 && gunLabel();
                 }
@@ -8669,8 +8669,7 @@ require = function e(t, n, a) {
             shieldButton: function () {
                 this.node.off("touchstart", this.callBack, this);
                 this.node.runAction(cc.tintTo(.3, 114, 199, 255));
-                this.scheduleOnce(this.onLoad, .7);//不知道是啥，改了再说
-
+                this.scheduleOnce(this.onLoad, .7);
             },
             autoEat: function () {
                 //饱食度传送门
@@ -8749,7 +8748,7 @@ require = function e(t, n, a) {
     }],
     scr_friendSkillUI1: [function (e, t, n) {
         "use strict";
-        cc._RF.push(t, "0992cbWpqJNPIJFvroUyU98", "scr_friendSkillUI1");
+        cc._RF.push(t, "friendSkillUIText1", "scr_friendSkillUI1");
         cc.Class({
             extends: cc.Component,
             properties: {},
@@ -8782,7 +8781,7 @@ require = function e(t, n, a) {
     }],
     scr_friendSkillUI2: [function (e, t, n) {
         "use strict";
-        cc._RF.push(t, "d0387ZXPPtJs4Lfy6jPllmL", "scr_friendSkillUI2");
+        cc._RF.push(t, "UIfriendSkillUI2", "scr_friendSkillUI2");
         cc.Class({
             extends: cc.Component,
             properties: {},
@@ -8912,9 +8911,9 @@ require = function e(t, n, a) {
                 t.getChildByName("button3").on("touchstart", function () {
                     cc.director.loadScene("friendSkill1");
                 }, this);
-                //t.getChildByName("button5").on("touchstart", function () {
-                //    cc.director.loadScene("friendSkill2");
-                //}, this);
+                t.getChildByName("button5").on("touchstart", function () {
+                    cc.director.loadScene("friendSkill2");
+                }, this);
             }
         });
         cc._RF.pop();

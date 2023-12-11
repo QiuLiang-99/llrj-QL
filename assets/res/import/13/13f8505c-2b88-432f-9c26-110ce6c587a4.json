@@ -94,9 +94,6 @@
             },
             {
                 "__id__": 13
-            },
-            {
-                "__id__": 44
             }
         ],
         "_components": [
@@ -242,7 +239,7 @@
         },
         "_components": [
             {
-                "__type__": "44ab5HIdTVLaYk0L5S0uxkB",
+                "__type__": "FUNscr_autodataCopy",
                 "node": {
                     "__id__": 13
                 }
@@ -1499,9 +1496,9 @@
         },
         "_components": [
             {
-                "__type__": "FUNautodataCopy",
+                "__type__": "FUNscr_autodataCopy",
                 "node": {
-                    "__id__": 44
+                    "__id__": 13
                 }
             }
         ]
