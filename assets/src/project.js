@@ -476,6 +476,14 @@ require = function e(t, n, a) {
                     friendSkill: [1, 0, 0, 0, 0, 0, 0, 0, 0]
                 };
                 JSON.parse(cc.sys.localStorage.getItem("userData")) && function (e) {
+                    "undefined" == typeof e.itemNum[10] && (e.itemNum[10] = 0);
+                    "undefined" == typeof e.itemNum[11] && (e.itemNum[11] = 0);
+                    "undefined" == typeof e.itemNum[12] && (e.itemNum[12] = 0);
+                    "undefined" == typeof e.itemNum[13] && (e.itemNum[13] = 0);
+                    "undefined" == typeof e.itemNum[14] && (e.itemNum[14] = 0);
+                    "undefined" == typeof e.itemNum[15] && (e.itemNum[15] = 0);
+                    "undefined" == typeof e.itemNum[16] && (e.itemNum[16] = 0);
+                    "undefined" == typeof e.itemNum[17] && (e.itemNum[17] = 0);
                     "undefined" == typeof e.itemNum2[18] && (e.itemNum2[18] = 0);
                     "undefined" == typeof e.itemNum2[19] && (e.itemNum2[19] = 0);
                     "undefined" == typeof e.itemNum2[20] && (e.itemNum2[20] = 0);
@@ -581,16 +589,23 @@ require = function e(t, n, a) {
                 i = {
                     //每日睡觉时剧情传送门
                     1001: ["“你不配做一个父亲！”", "“既然那么恨我！为什么要生下我！”", "“没有你我照样可以活！”", "BGM1", [a.distance, 0]],
+                    1002: ["现在回头已经看不见家的方向了", "我回头看了看，", "他果然没有追过来", "BGM2", []],
                     1003: ["晚上下起了雨，", "又湿又冷，", "但是，我是不会回去的！:-)", "BGM2", []],
+                    1004: ["路上饿了就摘不知名的果树上的果子，", "有时候能看见一些猎物，但我确很难抓得住", "偶尔抓到一两只还能吃吃烤肉。", "感觉味道比家里的饭好吃。", "BGM1", []],
                     1005: ["16年前，1988年一个炎热的下午，", "我出生在一个小山村。", "母亲在我一岁时离家出走。", "我的童年，只有父亲醉酒后的叫骂声和远处的大山。", "BGM1", []],
+                    1007: ["夜里，我思索着以后的去路，", "我没有能去的地方，", "我想起了以前经常去玩的城里", "在城里逛的日子是我少数开心的时候，", "我决定去县城", "我来到了马路边", "勉强辨认出了方向", "BGM3", []],
                     1009: ["敏感、内向、偏执，", "不愿在社交上投入任何时间，", "几乎没什么朋友；", "而我唯一的亲人，", "现在也断了联系…", "我以后该怎么办?", "到了县城再去想吧...", "BGM3", []],
+                    2001: ["当我到达县城的时候，", "我的身上早脏的不成样子","我从垃圾桶翻出来了一些干净一点的衣服","顺便把自己洗了一下", "", []],
+                    2004: ["在县城我感觉到了自力更生的感觉，", "我偶尔可以打上零工","我也会从一些打折的商场买衣服","但我不喜欢这，太吵闹了", "", []],
                     2007: ["我来到昨天面试的小区，", "屋里早已没了人影", "", [a.choice[1], 2]],
+                    2014: ["不知道从何时起", "城里的小混混开始怕我了，", "这个县城我已经如鱼得水了", "BGM3", []],
                     2021: ["未成年，没技能，不善言谈...", "如果我死了，", "会有人伤心吗？", "BGM3", []],
                     2022: ["今天街道上聚集了一群人，", "我凑过去一看，", "——我的父亲——正被旁人拉着，他满脸通红，对着一个年轻人大声叫骂，", "他还是一如既往的暴躁，只是头上多了些许白发。", "我没敢多看，赶紧离开了。", "我决定，明天就离开县城，待在这里迟早会被发现。", "BGM1", []],
                     3001: ["山里异常安静，", "晚上湿度很大，篝火没法驱散。", "我喜欢这种安静，", "——这里才是我的世界。", "BGM2", []],
                     3002: ["母亲出走后的第二年，", "父亲开始带一些女人回家，", "而我，就像是一个不存在的人。", "或者，", "是个累赘...", "", []],
                     3003: ["既不种田，也不会哄女人的父亲，", "很快就没人愿意跟着他。", "他开始变得极度暴躁，动不动就砸东西。", "", []],
                     3004: ["由于生活习惯极差，", "父亲患上了痛风，", "我经常听到他晚上疼得大声叫骂。", "但是，第二天他依然会喝得酩酊大醉。", "", []],
+                    3014: ["晓月的性格很奇怪", "有时候会突然发脾气 ，", "有时候又会突然很开心，", "而且她很爱吃，只要我给她吃东西她就会很高兴", "难道她的肚子是无底洞吗", "", [a.ifFollow[0],0]],
                     3018: ["邻村，有一个我暗恋多年的女孩", "她清澈、而又懵懂的眼睛，就像朝阳下雾气缭绕的小河。", "然而，", "今年春节，在她辍学外出打工一年后，", "我亲耳听到她对她妈吼道", "“这种破地方！我TM再也不会回来了！......”", "", []],
                     3027: ["月光透过树叶，映入帐篷，", "斑驳的树影，在夏虫声中轻轻摇曳。", "我，", "真的可以脱开一切关系，而独自存活吗？", "", []],
                     3028: ["世界上有这么一类人，", "即使明知某种关系不健康，", "却依然难以舍弃。", "这是亲情、爱情、无奈、还是无知呢？", "", []],
@@ -826,13 +841,13 @@ require = function e(t, n, a) {
                     },
                     5: {
                         itemName: " 晓月的爱心料理 ",
-                        needDes: "※注满了晓月对你的爱",
+                        needDes: "※注满了晓月对你的爱，你有"+ this.data.itemNum[13] +"个",
                         des: "※你发誓，这是你这辈子吃过最好吃的东西 。所有属性全面提高，晓月好感越高，加成越高",
                         ifEnough: function (t) {
                             e("scr_data").itemNum[13] > 1 && (cc.find("Canvas/Page/view/content/page_2/" + t + "/button/name").color = new cc.color(255, 0, 0));
                         },
                         button: function () {
-                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = n.choice[5], o = i.maxHunger();
+                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = n.choice[5];
                                 if (n.itemNum[3] >= 0) {
                                 var r = "入口的那一刻，你快哭出来了" ;
                                 n.itemNum[13] -= 1;
@@ -8037,7 +8052,7 @@ require = function e(t, n, a) {
                 }
                 function refreshEnemyStatus() {//战斗场景标签的内容
                     roleHpLabel.getComponent("cc.Label").string = "ATT" + youinFight.att +"|"+ "DEF" + youinFight.def;
-                    d.getComponent("cc.Label").string = theEnemy.name + "LV" + theEnemy.lv + "\nHP" + theEnemy.hp + "\nATT" + theEnemy.att + "DEF" + theEnemy.def;
+                    d.getComponent("cc.Label").string = theEnemy.name + "LV" + theEnemy.lv + "\nHP" + theEnemy.hp + "\nATT" + theEnemy.att + +"|" + "DEF" + theEnemy.def;
                     m.getComponent("cc.Label").string = calEscapeRate() + "%";
                     n.publicVar[4] > 0 && gunLabel();
                 }
@@ -8776,7 +8791,12 @@ require = function e(t, n, a) {
             extends: cc.Component,
             properties: {},
             skillDes: function () {
-                var t = e("scr_data"), n = ["【陪伴】给主角增加" + parseInt(t.choice[5] / 4 + 10) + "点攻击，增加幅度与好感有关。天生自带，无需激活！", "【小伙伴】精力上限+20，好感达到1激活！", "【声援】每回合，" + Math.min(parseInt(t.choice[5] / 4), 100) + "%几率给主角恢复10%生命，并增加主角3%攻击（可无限叠加），触发概率与好感相关，好感达到500激活！", "【复刻】胜利后，100%几率再获得一次奖励，全怪物有效，好感达到800激活！", "【元气少女】睡觉时，健康恢复效果翻倍，生命恢复效果翻倍，精力额外再恢复20！好感达到1000激活！"];
+                var t = e("scr_data"), 
+                n = ["【陪伴】给主角增加" + parseInt(t.choice[5] / 4 + 10) + "点攻击，增加幅度与好感有关。天生自带，无需激活！", 
+                "【小伙伴】精力上限+20，好感达到1激活！", 
+                "【声援】每回合，" + Math.min(parseInt(t.choice[5] / 4), 100) + "%几率给主角恢复10%生命，并增加主角3%攻击（可无限叠加），触发概率与好感相关，好感达到500激活！", 
+                "【复刻】胜利后，100%几率再获得一次奖励，全怪物有效，好感达到800激活！", 
+                "【元气少女】睡觉时，健康恢复效果翻倍，生命恢复效果翻倍，精力额外再恢复20！好感达到1000激活！"];
                 return n;
             },
             showDes: function () {
@@ -10732,7 +10752,7 @@ require = function e(t, n, a) {
         scr_effect: "scr_effect",
         scr_public: "scr_public"
     }],
-    scr_mainUIinit: [function (e, t, n) {
+    scr_mainUIinit: [function (e, t, n) {//主界面的ui设置
         "use strict";
         cc._RF.push(t, "63b63kuwo9N7JpekGEK/q7S", "scr_mainUIinit");
         cc.Class({
@@ -10746,11 +10766,11 @@ require = function e(t, n, a) {
             initSkillShow: function () {
                 cc.find("Canvas/Text/txt_skillNum").getComponent("cc.Label").string = "特性  " + this.skillShow() + "/27";
             },
-            whichShow: function (t, n) {
+            whichShow: function (t, n) {//控制按钮显示函数
                 for (var a = e("scr_data").distance, i = cc.find(n).children, c = t.length, o = 0; o <= c; o++) a >= t[o] ? i[o].active = !0 : i[o].active = !1;
             },
             showButton: function () {
-                this.whichShow([6, 4, 7, 23], "Canvas/Button");
+                this.whichShow([3, 2, 4, 5], "Canvas/Button");//当距离大于多少的时候显示按钮    [6, 4, 7, 23]
                 e("scr_public").init();
             },
             showfriendButton: function () {
@@ -10759,7 +10779,7 @@ require = function e(t, n, a) {
             },
             onButton: function () {
                 var t = e("scr_data"), n = cc.find("Canvas/Button"), a = n.getChildByName("button_dekaron");
-                t.day > 45 && t.publicVar[1] >= -1 ? a.on("touchstart", this.dekaronButton, this) : a.active = !1;
+                t.day > 35 && t.publicVar[1] >= -1 ? a.on("touchstart", this.dekaronButton, this) : a.active = !1;//挑战45天才开，加速！
                 1 == t.ifFollow[0] ? n.getChildByName("button_friend").on("touchstart", function () {
                     cc.director.loadScene("friend1");
                 }, this) : 1 == t.ifFollow[1] && n.getChildByName("button_friend").on("touchstart", function () {
@@ -11133,7 +11153,7 @@ require = function e(t, n, a) {
                     {
                         itemName: "JK制服鞋LV" + this.data.itemNum2[18],
                         needDes: "※似乎是从某个美少女处获得的原味JK制服鞋子（10）",
-                        des: "※战斗结束后恢复" + this.data.itemNum2[18] + "点精力",
+                        des: "※战斗结束后恢复" + this.data.itemNum2[18] + "点精力，当前声望"+ e("scr_data").achieve,
                         ifEnough: function (t) {
                             e("scr_data").achieve >= 10 && (cc.find("Canvas/Page/view/content/page_5/" + t + "/button/name").color = new cc.color(255, 0, 0));
                         },
@@ -13372,13 +13392,14 @@ require = function e(t, n, a) {
                     25: "【霸气】狂拽炫酷吊炸天！攻击时，10%几率无视目标防御，且恢复自身3%生命。木棍、麻布衣达到15级时激活",
                     26: "【不屈的精神力】睡觉时30%几率额外再恢复30%精力！击败「草带男孩」40次后激活！（" + t.kills[2] + "/40）",
                     27: "【宿醉】前一天每喝一口酒增加15%概率触发，当天造成的伤害减少30%"
-                }, i = e("scr_data").skillLv, c = cc.find("Canvas/Scroll/view/content"), o = parseInt(1 + t.day / 3), r = Object.keys(a).length;
-                "undefined" == typeof r && (r = 99);
-                for (var s in a) {
-                    var l = r - s - 1;
-                    if (l > o - 1); else {
+                }, skillvalues = e("scr_data").skillLv, c = cc.find("Canvas/Scroll/view/content"), 
+                daystoT = parseInt(1 + t.day / 3), skillcount = Object.keys(a).length;
+                "undefined" == typeof skillcount && (skillcount = 99);
+                for (var keysF in a) {
+                    var l = skillcount - keysF - 1;
+                    if (l > 999); else {//从下往上显示，如果（比如27）大于天数除以3，（80天）则不显示，改成999   daystoT - 1
                         this.creatText(c, "skill" + l, a[l]);
-                        i[l] > 0 && (c.getChildByName("skill" + l).color = new cc.Color(0, 255, 0));
+                        skillvalues[l] > 0 && (c.getChildByName("skill" + l).color = new cc.Color(0, 255, 0));
                     }
                 }
                 var u = cc.find("Canvas/Button_loadAchieve"), p = cc.find("Canvas/Button_system");
