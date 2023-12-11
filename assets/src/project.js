@@ -394,7 +394,7 @@ require = function e(t, n, a) {
             properties: {},
             onLoad: function () {
                 var e = {};
-                "undefined" == typeof JSON.parse(cc.sys.localStorage.getItem("autodataCopy")) && (e = JSON.parse(cc.sys.localStorage.getItem("userData")));
+                "undefined" == typeof JSON.parse(cc.sys.localStorage.getItem("autogamesave")) && (e = JSON.parse(cc.sys.localStorage.getItem("userData")));
                 t.exports = e;
             }
         });
@@ -914,7 +914,7 @@ require = function e(t, n, a) {
                 n.getChildByName("des").getComponent("cc.Label").string = a.des;
                 n.getChildByName("button").getChildByName("name").getComponent("cc.Button").scheduleOnce(function () {
                     n.getChildByName("button").getChildByName("name").on("touchstart", i, this);
-                }, .4);
+                }, .2);
                 cc.find("Canvas/Page/view/content").getChildByName(t).addChild(n);
                 "undefined" != typeof a.ifEnough && a.ifEnough(c);
             },
@@ -11267,25 +11267,25 @@ require = function e(t, n, a) {
                 }, .2);
             },
             delayCreatItemUI1: function () {
-                this.scheduleOnce(this.creatItemUI1, .2);//制造按钮延迟时间，降低
+                this.scheduleOnce(this.creatItemUI1, .05);//制造按钮延迟时间，降低
             },
             delayCreatItemUI2: function () {
-                this.scheduleOnce(this.creatItemUI2, .2);
+                this.scheduleOnce(this.creatItemUI2, .05);
             },
             delayCreatItemUI3: function () {
-                this.scheduleOnce(this.creatItemUI3, .2);
+                this.scheduleOnce(this.creatItemUI3, .05);
             },
             delayCreatItemUI4: function () {
-                this.scheduleOnce(this.creatItemUI4, .2);
+                this.scheduleOnce(this.creatItemUI4, .05);
             },
             delayCreatItemUI5: function () {
-                this.scheduleOnce(this.creatItemUI5, .2);
+                this.scheduleOnce(this.creatItemUI5, .05);
             },
             delayCreatItemUI6: function () {
-                this.scheduleOnce(this.creatItemUI6, .2);
+                this.scheduleOnce(this.creatItemUI6, .05);
             },
             delayCreatItemUI7: function () {
-                this.scheduleOnce(this.creatItemUI7, .2);
+                this.scheduleOnce(this.creatItemUI7, .05);
             },
             onLoad: function () {
                 this.creatItemUI1();
@@ -11336,7 +11336,7 @@ require = function e(t, n, a) {
                 t.opacity = 0;
                 this.scheduleOnce(function () {
                     t.runAction(cc.fadeIn(.2));
-                }, 2);
+                }, .2);
             }
         });
         cc._RF.pop();
@@ -11525,11 +11525,11 @@ require = function e(t, n, a) {
                 this.schedule(function () {
                     s.creatText(o, "plot" + c, a[c]);
                     c++;
-                }, 2.5, i - 1);
+                }, .5, i - 1);
                 this.scheduleOnce(function () {
                     r.active = !0;
                     r.runAction(cc.fadeIn(.2));
-                }, 2.5 * (i + 1));
+                }, .5 * (i + 1));
                 r.getChildByName("choice1").on("touchstart", function () {
                     var e = t.role;
                     e.maxHp -= parseInt(.04 * n.role.maxHp());
@@ -11591,11 +11591,11 @@ require = function e(t, n, a) {
                 this.schedule(function () {
                     s.creatText(o, "plot" + c, n[c]);
                     c++;
-                }, 2, i - 1);
+                }, .2, i - 1);
                 this.scheduleOnce(function () {
                     r.active = !0;
                     r.runAction(cc.fadeIn(.2));
-                }, 2 * (i + 1));
+                }, .2 * (i + 1));
                 r.on("touchstart", function () {
                     JSON.parse(cc.sys.localStorage.getItem("userData")) && cc.sys.localStorage.removeItem("userData");
                     cc.director.loadScene("start");
@@ -11833,7 +11833,7 @@ require = function e(t, n, a) {
                 this.schedule(function () {
                     this.creatText(l, "plot" + s, i[s]);
                     s++;
-                }, 2.5, r - 1);
+                }, .5, r - 1);
                 this.scheduleOnce(function () {
                     var e = a.choice1, t = a.choice2, n = cc.find("Canvas/Choice/Choice1"), i = cc.find("Canvas/Choice/Choice2");
                     n.getChildByName("choiceText").getComponent("cc.Label").string = o;
@@ -12415,7 +12415,7 @@ require = function e(t, n, a) {
                     "Canvas/Determine" == e[t] && (cc.find("Canvas/Determine").active = !0);
                     cc.find(e[t]).runAction(cc.fadeIn(.1));
                     t++;
-                }, 1, 2);
+                }, .1, 2);
                 e("scr_public").save();
             }
         });
@@ -13118,10 +13118,10 @@ require = function e(t, n, a) {
                 n.getChildByName("need").getComponent("cc.Label").string = a.needDes;
                 "undefined" != typeof i ? n.getChildByName("button1").getComponent("cc.Button").scheduleOnce(function () {
                     n.getChildByName("button1").on("touchstart", i, this);
-                }, .4) : n.getChildByName("button1").active = !1;
+                }, .2) : n.getChildByName("button1").active = !1;
                 "undefined" != typeof c ? n.getChildByName("button2").getComponent("cc.Button").scheduleOnce(function () {
                     n.getChildByName("button2").on("touchstart", c, this);
-                }, .6) : n.getChildByName("button2").active = !1;
+                }, .3) : n.getChildByName("button2").active = !1;
                 cc.find("Canvas/Page/view/content").getChildByName(t).addChild(n);
                 "undefined" != typeof a.ifEnough && a.ifEnough(o);
             },
@@ -13154,13 +13154,13 @@ require = function e(t, n, a) {
                 }, .2);
             },
             delayCreatItemUI1: function () {
-                this.scheduleOnce(this.creatItemUI1, .2);
+                this.scheduleOnce(this.creatItemUI1, .05);
             },
             delayCreatItemUI2: function () {
-                this.scheduleOnce(this.creatItemUI2, .2);
+                this.scheduleOnce(this.creatItemUI2, .05);
             },
             delayCreatItemUI3: function () {
-                this.scheduleOnce(this.creatItemUI3, .2);
+                this.scheduleOnce(this.creatItemUI3, .05);
             },
             onLoad: function () {
                 this.creatItemUI1();
@@ -13454,7 +13454,7 @@ require = function e(t, n, a) {
                 })();
                 (function () {
                     r.playText("Canvas/text1", "逃跑的时候，脑子里浮现的是之前的往事...", 80);
-                    a.schedule(l, 2, 1);
+                    a.schedule(l, .2, 1);
                 })();
                 function l() {
                     cc.find(["Canvas/Determine", "Canvas/text2"][s]).runAction(cc.fadeIn(.2));
@@ -13489,7 +13489,7 @@ require = function e(t, n, a) {
                 cc.director.loadScene("message");
             },
             reloadgameButton: function () {
-                t = JSON.parse(cc.sys.localStorage.getItem("autodataCopy"));
+                t = JSON.parse(cc.sys.localStorage.getItem("autogamesave"));
                 cc.sys.localStorage.setItem("userData", JSON.stringify(t));
                 cc.director.loadScene("main");//加载今天早上保存的存档！！！正常请不要使用
             },
