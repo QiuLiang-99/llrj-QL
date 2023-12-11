@@ -8248,7 +8248,7 @@ require = function e(t, n, a) {
                     return t = Math.min(t, 100);
                 }
                 function refreshEnemyStatus() {//战斗场景标签的内容
-                    roleHpLabel.getComponent("cc.Label").string = "ATT" + youinFight.att +"|"+ "DEF" + youinFight.def;
+                    roleHpLabel.getComponent("cc.Label").string = "ATT" + (youinFight.att+inFight.correct[0])+"|"+ "DEF" + (youinFight.def+inFight.correct[1]);
                     d.getComponent("cc.Label").string = theEnemy.name + "LV" + theEnemy.lv + "\nHP" + theEnemy.hp + "\nATT" + theEnemy.att + " | " + "DEF" + theEnemy.def;
                     m.getComponent("cc.Label").string = calEscapeRate() + "%";
                     n.publicVar[4] > 0 && gunLabel();
