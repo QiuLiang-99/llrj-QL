@@ -94,6 +94,9 @@
             },
             {
                 "__id__": 13
+            },
+            {
+                "__id__": 44
             }
         ],
         "_components": [
@@ -1496,9 +1499,9 @@
         },
         "_components": [
             {
-                "__type__": "justfortest",
+                "__type__": "FUNautodataCopy",
                 "node": {
-                    "__id__": 13
+                    "__id__": 44
                 }
             }
         ]

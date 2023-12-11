@@ -388,7 +388,7 @@ require = function e(t, n, a) {
     }, {}],
     scr_autodataCopy: [function (e, t, n) {
         "use strict";
-        cc._RF.push(t, "justfortest", "scr_autodataCopy");
+        cc._RF.push(t, "FUNautodataCopy", "scr_autodataCopy");
         cc.Class({
             extends: cc.Component,
             properties: {},
