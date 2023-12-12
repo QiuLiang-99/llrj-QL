@@ -3793,8 +3793,8 @@ require = function e(t, n, a) {
                             }
                             else if (this.publicVar == 2) {
                                 this.publicVar += 1;
-                                var e = 5 * this.att - o.def;
-                                scr_data.role.hp -= e;
+                                var e = 2 * this.att - o.def;
+                                c.role.hp -= e;
                                 cc.find("Event/scr_fight").getComponent("scr_fight").correct[0] -= parseInt(.5 * o.att);
                                 return "【" + this.name + "使用「雷击之枪」，造成" + e + "点伤害，你减少50%攻击】"
                             }
