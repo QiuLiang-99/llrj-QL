@@ -3780,7 +3780,7 @@ require = function e(t, n, a) {
                         drop: [[100, 22, 30, 2]],
                         des: "这里是什么地方...黑子的超能力把我传送到哪里了",
                         skill: function () {
-                            if (this.publicVar = 0) {
+                            if (this.publicVar == 0) {
                                 this.publicVar += 1;
                                 return "【“明明是无能力者却有这等实力...可恶啊”】";
                             }
@@ -3799,7 +3799,6 @@ require = function e(t, n, a) {
                                 return "【" + this.name + "使用「雷击之枪」，造成" + e + "点伤害，你减少50%攻击】"
                             }
                             else if (this.publicVar == 3) {
-
                                 this.publicVar += 1;
                                 var e = 5 * this.att - o.def;
                                 c.role.hp -= e;
@@ -3816,6 +3815,10 @@ require = function e(t, n, a) {
                             return "【" + this.name + "释放「电弧」，造成" + e + "点伤害】";
                         },
                         defSkill: function () {
+                            if (c.itemNum2[14] > 0) {
+                                c.itemNum2[14] = 0
+                                this.publicVar += 1;
+                                return "【枪支限制！弹药清零】";}
                             var e = parseInt(o.att/2);
                             cc.find("Event/scr_fight").getComponent("scr_fight").publicVar -= e;                        
                             return "【" + this.name + "使用「电磁护盾」，受到的伤害减少一半！】";
