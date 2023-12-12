@@ -3816,12 +3816,6 @@ require = function e(t, n, a) {
                             return "【" + this.name + "释放「电弧」，造成" + e + "点伤害】";
                         },
                         defSkill: function () {
-                            if (e("scr_data").publicVar[4] == 1 ) {
-                                var e = parseInt(o.att);
-                                c.role.hp -= 2*e;
-                                cc.find("Event/scr_fight").getComponent("scr_fight").publicVar -= 99999;
-                                return "【" + this.name + "使用「电磁护盾」，逆转枪击！】";
-                            }
                             var e = parseInt(o.att/2);
                             cc.find("Event/scr_fight").getComponent("scr_fight").publicVar -= e;                        
                             return "【" + this.name + "使用「电磁护盾」，受到的伤害减少一半！】";
@@ -7720,7 +7714,7 @@ require = function e(t, n, a) {
             onLoad: function () {
                 var t = cc.find("Canvas/Button/button_forward").getComponent("scr_forwardButton").constructor, n = new t(), a = new t(), i = new t(), c = new t(), 
                 o = this, r = e("scr_data");
-                this.node.runAction(cc.tintTo(.3, 255, 255, 255));//变成黑色
+                this.node.runAction(cc.tintTo(.1, 255, 255, 255));//变成黑色
                 n.addDistance = function () { };
                 a.addDistance = function () { };
                 i.addDistance = function () { };
@@ -7729,23 +7723,23 @@ require = function e(t, n, a) {
                 };
                 n.shieldButton = function () {
                     o.node.off("touchstart", n.callBack, n);
-                    o.node.runAction(cc.tintTo(.3, 114, 199, 255));//变成淡蓝色，本来是0.3秒，现在改成0.1秒
-                    o.scheduleOnce(o.onLoad, .7);//按钮保护，0.7秒后才能再次按下，改为0.2
+                    o.node.runAction(cc.tintTo(.1, 114, 199, 255));//变成淡蓝色，本来是0.3秒，现在改成0.1秒
+                    o.scheduleOnce(o.onLoad, .2);//按钮保护，0.7秒后才能再次按下，改为0.2
                 };
                 a.shieldButton = function () {
                     o.node.off("touchstart", a.callBack, a);
-                    o.node.runAction(cc.tintTo(.3, 114, 199, 255));
-                    o.scheduleOnce(o.onLoad, .7);
+                    o.node.runAction(cc.tintTo(.1, 114, 199, 255));
+                    o.scheduleOnce(o.onLoad, .2);
                 };
                 i.shieldButton = function () {
                     o.node.off("touchstart", i.callBack, i);
-                    o.node.runAction(cc.tintTo(.3, 114, 199, 255));
-                    o.scheduleOnce(o.onLoad, .7);
+                    o.node.runAction(cc.tintTo(.1, 114, 199, 255));
+                    o.scheduleOnce(o.onLoad, .2);
                 };
                 c.shieldButton = function () {
                     o.node.off("touchstart", c.callBack, c);
-                    o.node.runAction(cc.tintTo(.3, 114, 199, 255));
-                    o.scheduleOnce(o.onLoad, .7);
+                    o.node.runAction(cc.tintTo(.1, 114, 199, 255));
+                    o.scheduleOnce(o.onLoad, .2);
                 };
                 n.getItemNum = function () {
                     return 1;
@@ -8248,7 +8242,7 @@ require = function e(t, n, a) {
                     return t = Math.min(t, 100);
                 }
                 function refreshEnemyStatus() {//战斗场景标签的内容
-                    roleHpLabel.getComponent("cc.Label").string = "ATT" + youinFight.att +"|"+ "DEF" + youinFight.def;
+                    roleHpLabel.getComponent("cc.Label").string = "ATT" + (youinFight.att+inFight.correct[0])+"|"+ "DEF" + (youinFight.def+inFight.correct[1]);
                     d.getComponent("cc.Label").string = theEnemy.name + "LV" + theEnemy.lv + "\nHP" + theEnemy.hp + "\nATT" + theEnemy.att + " | " + "DEF" + theEnemy.def;
                     m.getComponent("cc.Label").string = calEscapeRate() + "%";
                     n.publicVar[4] > 0 && gunLabel();
