@@ -985,10 +985,11 @@ require = function e(t, n, a) {
                             e("scr_data").itemNum2[7] > 0 && (cc.find("Canvas/Page/view/content/page_1/" + t + "/button/name").color = new cc.color(0, 255, 0));
                         },
                         button: function () {
-                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = (n.orderTimes[1],
-                                n.itemNum2[7]);
-                            n.orderTimes[1];
-                            if (c >= 1) {
+                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = n.itemNum2[7];
+                            if (2 == this.data.publicVar[1]) {
+                                a.playText("Canvas/notify", "好孩子不能抽烟哦！", 100)
+                            }
+                            else if (c >= 1) {
                                 n.health -= 1;
                                 n.itemNum2[7] -= 1;
                                 n.energy += 10 * parseInt(Math.max(0.05 - 0.01 * n.orderTimes[8], 0) * i.maxEnergy());
@@ -1012,7 +1013,10 @@ require = function e(t, n, a) {
                         },
                         button: function () {
                             var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
-                            if (n.itemNum2[12] >= 1) {
+                            if (2 == this.data.publicVar[1]) {
+                                a.playText("Canvas/notify", "好孩子不能喝酒哦！", 100)
+                            }
+                            else if (n.itemNum2[12] >= 1) {
                                 var c = 100 * Math.random(), o = 100 * Math.random(), r = "精力+30，获得【易拉罐】*1";
                                 n.itemNum2[12] -= 1;
                                 n.orderTimes[9] += 1;
@@ -7969,9 +7973,11 @@ require = function e(t, n, a) {
                 })();
                 //修罗难度传送门
                 (function () {
-                    if (-1 == n.publicVar[1]) {
-                        theEnemy.hp = parseInt(Math.max(.01 * theEnemy.hp, 1));
-                        theEnemy.maxHp = parseInt(Math.max(.01 * theEnemy.maxhp, 1));
+                    if (2 == n.publicVar[1]) {
+                        theEnemy.hp += parseInt(Math.max(1 * theEnemy.hp, 1));
+                        theEnemy.maxHp += parseInt(Math.max(1 * theEnemy.maxhp, 1));
+                        theEnemy.att += parseInt(Math.max(1 * theEnemy.att, 1));
+                        theEnemy.def += parseInt(Math.max(1 * theEnemy.def, 1));
                     } 
                     else if (1 == n.publicVar[1]) {
                         var e = n.day, a = e / 40 + 1, i = parseInt(Math.pow(e, 1.5) / 6);
@@ -8300,7 +8306,8 @@ require = function e(t, n, a) {
                 function isBattleEnd() {
                     if (theEnemy.hp <= 0) {
                         P();
-                        var e = theEnemy.drop, JKshoes = "", shouliandu = "", fightwinText = "战斗胜利！\n获得", o = inFight.getItem(e), 
+                        var e = theEnemy.drop, JKshoes = "", shouliandu = "", 
+                        fightwinText = "战斗胜利！\n获得", o = inFight.getItem(e), 
                         achieve = function () {
                             var e = "", t = theEnemy.achieve;
                             if (0 != t && "undefined" != typeof t) {
@@ -8321,8 +8328,13 @@ require = function e(t, n, a) {
                             }
                         }());
                         0 != n.itemNum2[18] && (JKshoes = function () {
-                            n.energy += (1 * n.itemNum2[18]);
-                            return "【JK制服鞋】恢复" + (1 * n.itemNum2[18]) + "精力!";
+                            var LV = 2 * n.itemNum2[18],rate = 100 * Math.random();
+                            if (rate < LV) {
+                                var getnum = 10;
+                                n.energy += getnum;
+                                return "【JK制服鞋】恢复" + getnum + "点精力!";
+                            }
+
                         }());
                         var addstate = function () {
                             var e = theEnemy.getAtt, t = 100 * Math.random();
@@ -8532,12 +8544,20 @@ require = function e(t, n, a) {
                 4e3 == n && (t = 4e3 + this.randomId([0, 10, 25, 55, 75, 100]));
                 return t;
             },
+            JKuniforms: function () {//JK制服的功能在这里哦
+                var t = e("scr_data"),rate = 100 *Math.random(),LV= 2 * t.itemNum2[24];
+                if (rate <= LV) {
+                    t.choice[5] += 1;
+                    t.publicVar[7] += 1;
+                }
+            },
             //前进各种概率传送门
             forward: function () {
                 var t = 100 * Math.random(), n = e("scr_data");
                 this.reduceRes();
                 this.recoveryHp();
                 this.reduceHealth();
+                this.JKuniforms();
                 if (t <= 20) if (n.distance <= 10) {//新手保护措施，可修改是否遇到怪物和敌人
                     n.publicVar2[3] += 1;
                     this.getItem();
@@ -11318,7 +11338,7 @@ require = function e(t, n, a) {
                     {
                         itemName: "JK制服鞋LV" + this.data.itemNum2[18],
                         needDes: "※似乎是从某个美少女处获得的原味JK制服鞋子（10）",
-                        des: "※战斗结束后恢复" + this.data.itemNum2[18] + "点精力，当前声望"+ e("scr_data").achieve,
+                        des: "※战斗结束后恢复" + this.data.itemNum2[18]*2 + "%概率恢复，10点精力，当前声望"+ e("scr_data").achieve,
                         ifEnough: function (t) {
                             e("scr_data").achieve >= 10 && (cc.find("Canvas/Page/view/content/page_5/" + t + "/button/name").color = new cc.color(255, 0, 0));
                         },
@@ -11375,13 +11395,23 @@ require = function e(t, n, a) {
                         }
                     },
                     24: {
-                        itemName: "滑稽裤LV" + this.data.itemNum2[24],
-                        needDes: "※收集类道具",
-                        des: "※每级增加2%逃跑几率！",
-                        button: function () {
-                            var e = 100 * Math.random();
-                            e < 30 ? n.playText("Canvas/notify", "(→_→) (↑_↑) (←_←) (↓_↓)", 100) : e < 60 ? n.playText("Canvas/notify", "(→_→) (←_←)(→_→)(←_←)", 100) : n.playText("Canvas/notify", "(↑_↑) (→_→) (↑_↑) (←_←)", 100);
-                        }
+                        itemName: "JK制服LV" + this.data.itemNum2[24],
+                        needDes: "※似乎是从某个美少女处获得的原味JK制服（10）",
+                        des: "※前进或者探索后有" + this.data.itemNum2[24]*2 + "%概率增加晓月和碧瑶的一点好感",
+                        ifEnough: function (t) {
+                            e("scr_data").achieve >= 10 && (cc.find("Canvas/Page/view/content/page_7/" + t + "/button/name").color = new cc.color(255, 0, 0));
+                        },
+                        button:
+                            function () {
+                                var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
+                                if (n.achieve >= 10) {
+                                    n.itemNum2[24] += 1;
+                                    n.achieve -= 10;
+                                    i.save();
+                                    a.playText("Canvas/notify", "获得【JK制服】*1！", 100);
+                                    t.delayCreatItemUI5();
+                                } else a.playText("Canvas/notify", "声望不足！", 100);
+                            }
                     },
                     25: {
                         itemName: "护身符LV" + this.data.itemNum2[25],
@@ -12055,13 +12085,13 @@ require = function e(t, n, a) {
                     //大部分物品对应名称传送门
                     itemName2: ["熟肉", "伤药", "帐篷", "木棍", "麻布衣", "陷阱", "驱蚊工具", "香烟", "匕首", "皮衣", "黑刀", "红夹克", "啤酒", "┑(=^ω^=)┑", "子弹", "晓风披肩", "漂亮石头", "放大镜", "装避鞋", "枪", "板砖", "小裤裤", "女装", "创口贴", "滑稽裤", "护身符", "幸运石", "晓月手链"],
                     ifNotify: !1,
-                    init: function () {
+                    init: function () {//主界面大部分按钮在此处
                         var t = cc.find("Canvas/Text"), n = e("scr_data");
                         t.getChildByName("txt_day").getComponent("cc.Label").string = this.regionName() + n.day + "天";
                         t.getChildByName("txt_energy").getComponent("cc.Label").string = n.energy + "/" + this.maxEnergy();
                         t.getChildByName("txt_hunger").getComponent("cc.Label").string = n.hunger + "/" + this.maxHunger();
                         t.getChildByName("txt_health").getComponent("cc.Label").string = "健康  " + n.health;
-                        t.getChildByName("txt_hp").getComponent("cc.Label").string = "生命  " + n.role.hp + "/" + this.role.maxHp();
+                        t.getChildByName("txt_hp").getComponent("cc.Label").string = "Hp：" + n.role.hp + "\nmaxHp：" + this.role.maxHp();
                         t.getChildByName("txt_att").getComponent("cc.Label").string = "攻击  " + this.role.att();
                         t.getChildByName("txt_def").getComponent("cc.Label").string = "防御  " + this.role.def();
                         t.getChildByName("txt_money").getComponent("cc.Label").string = "金钱  " + (n.money / 10).toFixed(1);
@@ -12360,13 +12390,12 @@ require = function e(t, n, a) {
                 })();
                 (function () {
                     var e = 15 * t.orderTimes[9], n = 100 * Math.random();
+                    t.orderTimes[9] = 0;
                     if (n < e) {
                         t.skillLv[27] = 1;
-                        t.orderTimes[9] = 0;
                         i.creatText("drunk", "【宿醉】伤害减少30%");
-                    } else
-                        t.orderTimes[9] = 0;
-                    t.skillLv[27] = 0;
+                    } else{
+                    t.skillLv[27] = 0};
                 })();
                 //每天事件早上结算传送门
                 (function () {
@@ -13495,7 +13524,7 @@ require = function e(t, n, a) {
                         0 == a[26] && t.kills[2] >= 40 && (a[26] = 1);
                     },
                     27: function () {
-                        t.skillLv[27] == 1 ? a[27] = 1 : a[27] = 0;
+                        a[27] == 1 ? a[27] = 1 : a[27] = 0;
                     }
                 };
                 for (var c in i) i[c]();
@@ -13556,7 +13585,7 @@ require = function e(t, n, a) {
                     24: "【圣斗士】战斗失败后，" + Math.min(Math.max(parseInt(t.publicVar3[12] / 5), 20), 40).toFixed(1) + "%几率满血复活！战斗失败79次后激活（" + t.publicVar3[12] + "/79）",
                     25: "【霸气】狂拽炫酷吊炸天！攻击时，10%几率无视目标防御，且恢复自身3%生命。木棍、麻布衣达到15级时激活",
                     26: "【不屈的精神力】睡觉时30%几率额外再恢复30%精力！击败「草带男孩」40次后激活！（" + t.kills[2] + "/40）",
-                    27: "【宿醉】前一天每喝一口酒增加15%概率触发，当天造成的伤害减少30%"
+                    27: "【宿醉】前一天每喝一口酒增加15%概率触发，当天造成的伤害减少30%"//bug 修正宿醉的效果
                 }, skillvalues = e("scr_data").skillLv, c = cc.find("Canvas/Scroll/view/content"), 
                 daystoT = parseInt(1 + t.day / 3), skillcount = Object.keys(a).length;
                 "undefined" == typeof skillcount && (skillcount = 99);
@@ -13613,16 +13642,11 @@ require = function e(t, n, a) {
                 t.getChildByName("choice5").on("touchstart", function () {
                     i.ifFollow[0] = 1;
                     i.ifFollow[1] = 1;
-                    i.publicVar[7] = -580;
+                    i.publicVar[7] = -1580;
                     u();
                 }, this);
                 t.getChildByName("choice6").on("touchstart", function () {
-                    i.itemNum2[2] += 20;
-                    i.itemNum2[15] += 50;
-                    i.itemNum[0] += 1000;
-                    i.achieve += 1000;
-                    i.money += 10000;
-                    i.publicVar[1] = -1;
+                    i.publicVar[1] = 2;
                     u();
                 }, this);
                 t.getChildByName("choice7").on("touchstart", function () {
