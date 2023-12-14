@@ -1041,11 +1041,11 @@ require = function e(t, n, a) {
                         needDes: "※注满了晓月对你的爱，你有"+ this.data.itemNum[13] +"个",
                         des: "※你发誓，这是你这辈子吃过最好吃的东西 。所有属性全面提高，晓月好感越高，加成越高",
                         ifEnough: function (t) {
-                            e("scr_data").itemNum[13] > 1 && (cc.find("Canvas/Page/view/content/page_2/" + t + "/button/name").color = new cc.color(255, 0, 0));
+                            e("scr_data").itemNum[13] > 0 && (cc.find("Canvas/Page/view/content/page_2/" + t + "/button/name").color = new cc.color(255, 0, 0));
                         },
                         button: function () {
                             var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = n.choice[5];
-                                if (n.itemNum[3] >= 0) {
+                                if (n.itemNum[13] >= 0) {
                                 var r = "入口的那一刻，你快哭出来了" ;
                                 n.itemNum[13] -= 1;
                                 i.maxHunger += parseInt(Math.max( c/50, 0));
@@ -1065,14 +1065,14 @@ require = function e(t, n, a) {
                     },
                     6: {
                         itemName: " 剩饭 ",
-                        needDes: "※在餐厅后厨里偷出来的没吃完的饭",
+                        needDes: "※在餐厅后厨里偷出来的没吃完的饭，你有"+ this.data.itemNum[14] +"个",
                         des: "※有些上好的菜几乎只吃了几口...更多的是你没见过的菜",
                         ifEnough: function (t) {
                             e("scr_data").itemNum[14] > 1 && (cc.find("Canvas/Page/view/content/page_2/" + t + "/button/name").color = new cc.color(0, 0, 255));
                         },
                         button: function () {
                             var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = n.itemNum[0], o = i.maxHunger();
-                            if (n.hunger < o) if (n.itemNum[14] >= 3) {
+                            if (n.hunger < o) if (n.itemNum[14] >= 1) {
                                 var r = "你大吃了一顿，感觉味道还不错，精力恢复50", s = 100 * Math.random();
                                 n.itemNum[14] -= 1;
                                 n.energy += 50;
@@ -9856,6 +9856,7 @@ require = function e(t, n, a) {
                                 if (e <= 20) {
                                     var i = 5 * parseInt(a.maxHunger() / 10);
                                     n.hunger += i;
+                                    n.itemNum[14]+=1;
                                     t.closeUI("找到一些剩饭！饥饿恢复50%（" + i + "点）！");
                                 }
                                 if (e > 20) {
