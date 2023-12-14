@@ -6897,7 +6897,7 @@ require = function e(t, n, a) {
                         choice1: function () {
                             n.itemNum2[27] += 1;
                             n.itemNum2[24] += 1;
-                            r("获得【晓月手链】*1，【滑稽裤】*1");
+                            r("获得【晓月手链】*1，【JK制服】*1");
                         },
                         choice2: function () {
                             n.itemNum[0] += 4;
@@ -9774,7 +9774,7 @@ require = function e(t, n, a) {
                 this.randomItemNum = parseInt(7 * Math.random() + 1);
                 this.stealMoney = parseInt(50 * Math.random() + 1);
                 this.stealRate = parseInt(100 * Math.random());
-                var c = [["女装", 22, 1, 1], ["创口贴", 23, 1, 1], ["护身符", 25, 1, 1], ["滑稽裤", 24, 1, 1], ["晓月手链", 27, 1, 1], ["幸运石", 26, 1, 1], ["板砖", 20, 1, 1], ["放大镜", 17, 1, 1], ["小裤裤", 21, 1, 1]];
+                var c = [["女装", 22, 1, 1], ["创口贴", 23, 1, 1], ["护身符", 25, 1, 1], ["JK制服", 24, 1, 1], ["晓月手链", 27, 1, 1], ["幸运石", 26, 1, 1], ["板砖", 20, 1, 1], ["放大镜", 17, 1, 1], ["小裤裤", 21, 1, 1]];
                 t.drawDiscount = parseInt(9 * Math.random() + 1);
                 this.changeItemId2 = parseInt(8.99 * Math.random());
                 this.changeItemId3 = parseInt(3.99 * Math.random());
@@ -12083,7 +12083,7 @@ require = function e(t, n, a) {
                 var n = {
                     itemName: ["果子", "木材", "易拉罐", "生肉", "亚麻", "艾草", "烟草", "烟头", "黑曜石", "火狐皮", "50ml啤酒", "白色粉末", "眼泪"],
                     //大部分物品对应名称传送门
-                    itemName2: ["熟肉", "伤药", "帐篷", "木棍", "麻布衣", "陷阱", "驱蚊工具", "香烟", "匕首", "皮衣", "黑刀", "红夹克", "啤酒", "┑(=^ω^=)┑", "子弹", "晓风披肩", "漂亮石头", "放大镜", "装避鞋", "枪", "板砖", "小裤裤", "女装", "创口贴", "滑稽裤", "护身符", "幸运石", "晓月手链"],
+                    itemName2: ["熟肉", "伤药", "帐篷", "木棍", "麻布衣", "陷阱", "驱蚊工具", "香烟", "匕首", "皮衣", "黑刀", "红夹克", "啤酒", "┑(=^ω^=)┑", "子弹", "晓风披肩", "漂亮石头", "放大镜", "JK制服鞋", "枪", "板砖", "小裤裤", "女装", "创口贴", "JK制服", "护身符", "幸运石", "晓月手链"],
                     ifNotify: !1,
                     init: function () {//主界面大部分按钮在此处
                         var t = cc.find("Canvas/Text"), n = e("scr_data");
@@ -12739,7 +12739,7 @@ require = function e(t, n, a) {
             onLoad: function () {
                 var t = this, n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = cc.find("Canvas/UI1"), o = cc.find("Canvas/UI2"), r = c.getChildByName("choice1"), s = c.getChildByName("choice2"), l = c.getChildByName("choice3"), u = c.getChildByName("choice4"), p = c.getChildByName("choice5"), f = (c.getChildByName("choice6"),
                     //物品掉落传送门
-                    [70, 70, 70, 70, 50]), d = [["披风", 15, 1, 100], ["小裤裤", 21, 1, 20], ["晓月手链", 27, 1, 20], ["幸运石", 26, 1, 20], ["板砖", 20, 1, 20], ["滑稽裤", 24, 1, 20]];
+                    [70, 70, 70, 70, 50]), d = [["披风", 15, 1, 100], ["小裤裤", 21, 1, 20], ["晓月手链", 27, 1, 20], ["幸运石", 26, 1, 20], ["板砖", 20, 1, 20], ["JK制服", 24, 1, 20]];
                 (function () {
                     c.active = !0;
                     o.active = !0;
@@ -13311,7 +13311,7 @@ require = function e(t, n, a) {
                                     }
                                     if (n > 95 && n <= 100) {
                                         a.itemNum2[24] += 1;
-                                        t = "【滑稽裤】*1！";
+                                        t = "【JK制服】*1！";
                                     }
                                     return t;
                                 }();
