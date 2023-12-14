@@ -7732,22 +7732,22 @@ require = function e(t, n, a) {
                 n.shieldButton = function () {
                     o.node.off("touchstart", n.callBack, n);
                     o.node.runAction(cc.tintTo(.1, 114, 199, 255));//变成淡蓝色，本来是0.3秒，现在改成0.1秒
-                    o.scheduleOnce(o.onLoad, .2);//按钮保护，0.7秒后才能再次按下，改为0.2
+                    o.scheduleOnce(o.onLoad, .05);//按钮保护，0.7秒后才能再次按下，改为0.2
                 };
                 a.shieldButton = function () {
                     o.node.off("touchstart", a.callBack, a);
                     o.node.runAction(cc.tintTo(.1, 114, 199, 255));
-                    o.scheduleOnce(o.onLoad, .2);
+                    o.scheduleOnce(o.onLoad, .05);
                 };
                 i.shieldButton = function () {
                     o.node.off("touchstart", i.callBack, i);
                     o.node.runAction(cc.tintTo(.1, 114, 199, 255));
-                    o.scheduleOnce(o.onLoad, .2);
+                    o.scheduleOnce(o.onLoad, .05);
                 };
                 c.shieldButton = function () {
                     o.node.off("touchstart", c.callBack, c);
                     o.node.runAction(cc.tintTo(.1, 114, 199, 255));
-                    o.scheduleOnce(o.onLoad, .2);
+                    o.scheduleOnce(o.onLoad, .05);
                 };
                 n.getItemNum = function () {
                     return 1;
@@ -8891,7 +8891,7 @@ require = function e(t, n, a) {
             shieldButton: function () {
                 this.node.off("touchstart", this.callBack, this);
                 this.node.runAction(cc.tintTo(.3, 114, 199, 255));
-                this.scheduleOnce(this.onLoad, .7);
+                this.scheduleOnce(this.onLoad, .05);
             },
             autoEat: function () {
                 //饱食度传送门
@@ -11576,8 +11576,8 @@ require = function e(t, n, a) {
                 e("scr_effect").playText("Canvas/text", "新开会删除旧存档，你确定要新开吗？", 80);
                 t.opacity = 0;
                 this.scheduleOnce(function () {
-                    t.runAction(cc.fadeIn(2));
-                }, 2);
+                    t.runAction(cc.fadeIn(.2));
+                }, .2);
             }
         });
         cc._RF.pop();
