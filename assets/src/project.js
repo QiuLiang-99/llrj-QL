@@ -986,7 +986,7 @@ require = function e(t, n, a) {
                         },
                         button: function () {
                             var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = n.itemNum2[7];
-                            if (2 == this.data.publicVar[1]) {
+                            if (2 == n.publicVar[1]) {
                                 a.playText("Canvas/notify", "好孩子不能抽烟哦！", 100)
                             }
                             else if (c >= 1) {
@@ -1013,7 +1013,7 @@ require = function e(t, n, a) {
                         },
                         button: function () {
                             var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
-                            if (2 == this.data.publicVar[1]) {
+                            if (2 == n.publicVar[1]) {
                                 a.playText("Canvas/notify", "好孩子不能喝酒哦！", 100)
                             }
                             else if (n.itemNum2[12] >= 1) {
