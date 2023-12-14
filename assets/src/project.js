@@ -1871,7 +1871,8 @@ require = function e(t, n, a) {
                         },
                         defSkill: void 0,
                         winEvent: function () {
-                            var t = this.maxHp - this.hp - 999999, n = Math.max(Math.min(Math.round(t / 500 + 1), 4), 1);
+                            //var t = this.maxHp - this.hp - 999999, n = Math.max(Math.min(Math.round(t / 500 + 1), 4), 1);
+                            var n = 4;
                             e("scr_data").itemNum[0] += n;
                             return "【果树自杀了！你对果树造成" + t + "点伤害，获得【果子】*" + n + "】";
                         },
@@ -8240,7 +8241,9 @@ require = function e(t, n, a) {
                     SaveGame();
                 }
                 function calEscapeRate() {
-                    var e = Math.round(100 * (1 - theEnemy.hp / theEnemy.maxHp)), t = (theEnemy.escapeRate + e + n.escapeExp / 10 + 2 * n.itemNum2[24] + n.publicVar3[11]).toFixed(1);
+                    var //e = Math.round(100 * (1 - theEnemy.hp / theEnemy.maxHp)), 
+                    e = 10;
+                    t = (theEnemy.escapeRate + e + n.escapeExp / 10 + 2 * n.itemNum2[24] + n.publicVar3[11]).toFixed(1);
                     t < 0 && (t = 0);
                     return t = Math.min(t, 100);
                 }
@@ -12348,7 +12351,7 @@ require = function e(t, n, a) {
                 n.autoEat();
                 (function () {
                     var e = 3 * t.orderTimes[1] - t.orderTimes[4], n = 100 * Math.random();
-                    1 == t.publicVar[1] && (e = t.orderTimes[1] - t.orderTimes[4]);
+                    //1 == t.publicVar[1] && (e = t.orderTimes[1] - t.orderTimes[4]);
                     if (n < e) {
                         t.publicVar2[8] += 1;
                         t.skillLv[4] = 1;
@@ -13524,7 +13527,7 @@ require = function e(t, n, a) {
             },
             onLoad: function () {
                 var t = e("scr_data"), n = (t.figthExp, 3 * t.orderTimes[1] - t.orderTimes[4]);
-                1 == t.publicVar[1] && (n = t.orderTimes[1] - t.orderTimes[4]);
+                //1 == t.publicVar[1] && (n = t.orderTimes[1] - t.orderTimes[4]);
                 var a = {
                     0: "【饥饿】当饥饿值低于0时激活。饥饿状态下，前进/探索有几率减少健康值，且睡觉时必定减少健康！（另外：饥饿时系统会自动使用食物，直到用光为止哦^_^）",
                     1: "【精力强化1】精力上限+10，战斗胜利8次后激活（" + t.winTimes + "/8）。",
