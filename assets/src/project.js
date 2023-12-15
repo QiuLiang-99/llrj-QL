@@ -980,25 +980,28 @@ require = function e(t, n, a) {
                     3: {
                         itemName: " 香烟 ",
                         needDes: "※拥有：" + this.data.itemNum2[7] + "（你当前烟瘾为" + n + "%）",
-                        des: "※效果：减少1点健康。恢复一半的精力，越抽越少解除【烟瘾】BUFF！(慎用)你，今天第" + this.data.orderTimes[8] + "次抽烟",
+                        des: "※效果：减少1点健康。恢复一半的精力，解除【烟瘾】BUFF！你，今天第" + this.data.orderTimes[8] + "次抽烟",
                         ifEnough: function (t) {
                             e("scr_data").itemNum2[7] > 0 && (cc.find("Canvas/Page/view/content/page_1/" + t + "/button/name").color = new cc.color(0, 255, 0));
                         },
                         button: function () {
-                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = n.itemNum2[7];
+                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = n.itemNum2[7],
+                            //Energy = 10 * parseInt(Math.max(0.05 - 0.01 * n.orderTimes[8], 0) * i.maxEnergy());
+                            Energy = 10 * parseInt(0.05 * i.maxEnergy());
                             if (2 == n.publicVar[1]) {
                                 a.playText("Canvas/notify", "好孩子不能抽烟哦！", 100)
                             }
                             else if (c >= 1) {
                                 n.health -= 1;
                                 n.itemNum2[7] -= 1;
-                                n.energy += 10 * parseInt(Math.max(0.05 - 0.01 * n.orderTimes[8], 0) * i.maxEnergy());
+                                n.energy += Energy;
                                 n.orderTimes[1] += 1;
                                 n.orderTimes[8] += 1;
+                                n.role.hp = i.role.maxHp();
                                 n.skillLv[4] = 0;
                                 n.itemNum[7] += 1;
                                 i.save();
-                                a.playText("Canvas/notify", "健康-1，精力恢复" + 10 * parseInt(Math.max(0.05 - 0.01 * n.orderTimes[8], 0) + "%！获得烟头*1", 100));
+                                a.playText("Canvas/notify", "健康-1，精力恢复" + Energy + "%！生命恢复为满，获得烟头*1", 100);
                                 t.delayCreatItemUI1();
                             } else a.playText("Canvas/notify", "道具不足！", 100);
                         }
@@ -1048,9 +1051,9 @@ require = function e(t, n, a) {
                             e("scr_data").itemNum[13] > 0 && (cc.find("Canvas/Page/view/content/page_2/" + t + "/button/name").color = new cc.color(255, 0, 0));
                         },
                         button: function () {
-                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = n.choice[5];
+                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = n.choice[5],
+                            r = "入口的那一刻，你快哭出来了" ;
                                 if (n.itemNum[13] >= 0) {
-                                var r = "入口的那一刻，你快哭出来了" ;
                                 n.itemNum[13] -= 1;
                                 i.maxHunger += parseInt(Math.max( c/50, 0));
                                 i.maxEnergy += parseInt(Math.max( c/50, 0));
@@ -8545,10 +8548,16 @@ require = function e(t, n, a) {
                 return t;
             },
             JKuniforms: function () {//JK制服的功能在这里哦
-                var t = e("scr_data"),rate = 100 *Math.random(),LV= 2 * t.itemNum2[24];
-                if (rate <= LV) {
+                var t = e("scr_data"),random = 100 *Math.random(),rate= 2 * t.itemNum2[24];
+                if (random <= rate) {
                     t.choice[5] += 1;
                     t.publicVar[7] += 1;
+                }
+            },
+            smoker: function () {//香烟的功能在这实现
+                var t = e("scr_data"),random = 100 *Math.random(),rate = 3 * t.orderTimes[1] - t.orderTimes[4];
+                if (random <= rate) {
+                    t.skillLv[4] = 1;
                 }
             },
             //前进各种概率传送门
@@ -8558,6 +8567,7 @@ require = function e(t, n, a) {
                 this.recoveryHp();
                 this.reduceHealth();
                 this.JKuniforms();
+                this.smoker();
                 if (t <= 20) if (n.distance <= 10) {//新手保护措施，可修改是否遇到怪物和敌人
                     n.publicVar2[3] += 1;
                     this.getItem();
@@ -12384,8 +12394,8 @@ require = function e(t, n, a) {
                     //1 == t.publicVar[1] && (e = t.orderTimes[1] - t.orderTimes[4]);
                     if (n < e) {
                         t.publicVar2[8] += 1;
-                        t.skillLv[4] = 1;
-                        i.creatText("smoke", "【烟瘾】攻击防御减少" + (t.skillLv[4] * 0.1 * (3 * t.orderTimes[1] - t.orderTimes[4])) + "%");
+                        t.skillLv[4] = 1;//(t.skillLv[4] * 0.1 * (3 * t.orderTimes[1] - t.orderTimes[4]))
+                        i.creatText("smoke", "【烟瘾】攻击防御减少" + t.skillLv[4] * 100 + "%");
                     } else t.skillLv[4] = 0;
                 })();
                 (function () {
