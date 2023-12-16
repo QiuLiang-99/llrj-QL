@@ -24,15 +24,17 @@ require = function e(t, n, a) {
         "use strict";
         cc._RF.push(t, "8d8c2z+e3xAIqUkxCqE4NZW", "scr_BGM");
         cc.Class({
-                    "extends":
+                    extends:
                         cc.Component, properties:
                     {
-                        BGM1: { url: cc.AudioClip, "default": null },
-                        BGM2: { url: cc.AudioClip, "default": null },
-                        BGM3: { url: cc.AudioClip, "default": null },
-                        BGM4: { url: cc.AudioClip, "default": null }
-                    }, onLoad: function () { }
-                }), cc._RFpop();
+                        BGM1: { url: cc.AudioClip, default: null },
+                        BGM2: { url: cc.AudioClip, default: null },
+                        BGM3: { url: cc.AudioClip, default: null },
+                        BGM4: { url: cc.AudioClip, default: null }
+                    }, 
+                    onLoad: function () { }
+                }); 
+                cc._RF.pop();
     }, {}],
     scr_QQpay: [function (e, t, n) {
         "use strict";
@@ -13796,4 +13798,4 @@ require = function e(t, n, a) {
         });
         cc._RF.pop();
     }, {}]
-}, {}, ["scr_eatButton", "scr_makeButton", "scr_shopButton", "scr_skillButton", "scr_backMainUI", "scr_diaryDetermine", "scr_eventDetermine", "scr_restDetermine", "scr_QQpay", "scr_backStartUI", "scr_backSupport", "scr_continueButton", "scr_initGame", "scr_newGame", "scr_notice", "scr_notice2", "scr_open", "scr_startChoice", "scr_startUI", "scr_weixin", "scr_achieve", "scr_eatUI", "scr_eventData", "scr_makeUI", "scr_shop2", "scr_shop3", "scr_shop4", "scr_shopUI", "scr_skillJudge", "scr_skillUI", "scr_data", "scr_data2", "scr_dataCopy", "scr_autodataCopy", "scr_diary", "scr_event", "scr_mainUIEvent", "scr_plot", "scr_rest", "scr_enemy", "scr_explore", "scr_fight", "scr_fightState", "scr_forwardButton", "scr_friendSkillJudge1", "scr_friendSkillUI1", "scr_friendSkillUI2", "scr_friendUI1", "scr_skillJudge2", "scr_effect", "scr_public", "scr_home", "scr_mainUIinit", "scr_readConfession", "scr_end", "scr_initData", "scr_over", "scr_over2", "scr_over2_1", "scr_system", "NewScript", "scr_BGM", "scr_playAds", "scr_quitGame", "test", "testAll", "scr_liveModeMain"]);
+}, {}, ["scr_eatButton", "scr_makeButton", "scr_shopButton", "scr_skillButton", "scr_backMainUI", "scr_diaryDetermine", "scr_eventDetermine", "scr_restDetermine", "scr_QQpay", "scr_backStartUI", "scr_backSupport", "scr_continueButton", "scr_initGame", "scr_newGame", "scr_notice", "scr_notice2", "scr_open", "scr_startChoice", "scr_startUI", "scr_weixin", "scr_achieve", "scr_eatUI", "scr_eventData", "scr_makeUI", "scr_shop2", "scr_shop3", "scr_shop4", "scr_shopUI", "scr_skillJudge", "scr_skillUI", "scr_data", "scr_data2", "scr_dataCopy", "scr_autodataCopy", "scr_diary", "scr_event", "scr_mainUIEvent", "scr_plot", "scr_rest", "scr_enemy", "scr_explore", "scr_fight", "scr_fightState", "scr_forwardButton", "scr_friendSkillJudge1", "scr_friendSkillUI1", "scr_friendSkillUI2", "scr_friendUI1", "scr_skillJudge2", "scr_effect", "scr_public", "scr_home", "scr_mainUIinit", "scr_readConfession", "scr_end", "scr_initData", "scr_over", "scr_over2", "scr_over2_1", "scr_system", "scr_BGM", "scr_playAds", "scr_quitGame", "test", "testAll", "scr_liveModeMain"]);
