@@ -1486,9 +1486,9 @@ require = function e(t, n, a) {
                         des: "“你笑啥？啊？！”",
                         skill: void 0,
                         defSkill: function () {
-                            if (100 * Math.random() < 10) {
+                            if (100 * Math.random() < 25) {
                                 cc.find("Event/scr_fight").getComponent("scr_fight").publicVar -= 9999;
-                                return "【" + this.name + "使用「格挡」（10%）！】";
+                                return "【" + this.name + "使用「格挡」（25%）！】";
                             }
                             return "";
                         },
@@ -1515,7 +1515,7 @@ require = function e(t, n, a) {
                             var t = e("scr_public"), n = t.role.att() - t.role.def();
                             if (100 * Math.random() < 25) {
                                 e("scr_data").role.hp -= n;
-                                return "【" + this.name + "使用「反震」（25%），你损失" + n + "点生命！】";
+                                return "【" + this.name + "使用「反震」，你损失" + n + "点生命！】";
                             }
                             return "";
                         },
@@ -1566,9 +1566,9 @@ require = function e(t, n, a) {
                             t = e("scr_data");
                             this.publicVar += 1;
                             if (this.publicVar <= 3) {
-                                if (n < 80) return "【" + this.name + "操起电棍，向你打来！但是被你躲开啦~】";
+                                if (n < 75) return "【" + this.name + "操起电棍，向你打来！但是被你躲开啦~】";
                                 t.role.hp -= 999;
-                                return "【你被电棍击中！损失999点生命！】（20%）";
+                                return "【你被电棍击中！损失999点生命！】（25%）";
                             }
                             this.hp -= 9999;
                             return "";
@@ -2680,7 +2680,7 @@ require = function e(t, n, a) {
                         achieve: 0,
                         getAtt: 1,
                         drop: [],
-                        des: "把...把钱交出来QAQ",
+                        des: "把钱交出来<(｀^′)>",
                         skill: function () {
                             var t = e("scr_data");
                             if (t.money > 0) {
@@ -2793,9 +2793,9 @@ require = function e(t, n, a) {
                             return "【刀疤男使用「嗜血狂魔」，你受到" + n + "点伤害,刀疤男恢复" + a + "点生命】";
                         },
                         defSkill: function () {
-                            if (100 * Math.random() < 10) {
+                            if (100 * Math.random() < 15) {
                                 cc.find("Event/scr_fight").getComponent("scr_fight").publicVar -= 9999;
-                                return "【刀疤男使用「格挡」（10%）！】";
+                                return "【刀疤男使用「格挡」（15%）！】";
                             }
                             return "";
                         },
@@ -3673,7 +3673,6 @@ require = function e(t, n, a) {
                             this.def -= 200;
                             return t;
                         },
-
                         winEvent: function () {
                             c.choice[6] += 1;
                             return "“再会吧~朋友...”";
@@ -12764,7 +12763,7 @@ require = function e(t, n, a) {
                 })();
                 x();
                 function m() {
-                    if (t.cureTimes >= 5) a.playText("Canvas/notify", "“啊哈哈哈哈哈~有些累了...下次再来哈~”", 60); else if (n.money >= 10) {
+                    if (t.cureTimes >= 3) a.playText("Canvas/notify", "“啊哈哈哈哈哈~有些累了...下次再来哈~”", 60); else if (n.money >= 10) {
                         var e = Math.max(100 - n.publicVar3[8], 0), i = 100 * Math.random();
                         n.publicVar3[7] -= 10;
                         t.cureTimes += 1;
@@ -13144,7 +13143,7 @@ require = function e(t, n, a) {
                             var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
                             if (n.money >= 10) {
                                 n.money -= 10;
-                                n.itemNum[1] += 10;
+                                n.itemNum[3] += 10;
                                 n.shopPoint += 20;
                                 i.save();
                                 a.playText("Canvas/notify", "获得【生肉】*10！积分*20！", 100);
