@@ -12591,7 +12591,7 @@ require = function e(t, n, a) {
                     }
                 })();
                 (function () {//非常重要！！！！每天睡觉保存一次存档！！！用来回档！！！
-                        var n = e("scr_autodataCopy");
+                        var n = e("scr_dataCopy");
                         n = JSON.parse(cc.sys.localStorage.getItem("userData"));
                         cc.sys.localStorage.setItem("autogamesave", JSON.stringify(n));
                 })();
