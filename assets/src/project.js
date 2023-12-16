@@ -8,9 +8,7 @@ require = function e(t, n, a) {
                 var l = new Error("Cannot find module '" + o + "'");
                 throw l.code = "MODULE_NOT_FOUND", l;
             }
-            var u = n[o] = {
-                exports: {}
-            };
+            var u = n[o] = { exports: {} };
             t[o][0].call(u.exports, function (e) {
                 var n = t[o][1][e];
                 return i(n || e);
@@ -22,42 +20,19 @@ require = function e(t, n, a) {
     return i;
 }
 ({
-    NewScript: [function (e, t, n) {
-        "use strict";
-        cc._RF.push(t, "157ea2hkc9J8KsDAUfgUmue", "NewScript");
-        cc.Class({
-            extends: cc.Component,
-            properties: {},
-            start: function () { }
-        });
-        cc._RF.pop();
-    }, {}],
     scr_BGM: [function (e, t, n) {
         "use strict";
         cc._RF.push(t, "8d8c2z+e3xAIqUkxCqE4NZW", "scr_BGM");
         cc.Class({
-            extends: cc.Component,
-            properties: {
-                BGM1: {
-                    url: cc.AudioClip,
-                    default: null
-                },
-                BGM2: {
-                    url: cc.AudioClip,
-                    default: null
-                },
-                BGM3: {
-                    url: cc.AudioClip,
-                    default: null
-                },
-                BGM4: {
-                    url: cc.AudioClip,
-                    default: null
-                }
-            },
-            onLoad: function () { }
-        });
-        cc._RF.pop();
+                    "extends":
+                        cc.Component, properties:
+                    {
+                        BGM1: { url: cc.AudioClip, "default": null },
+                        BGM2: { url: cc.AudioClip, "default": null },
+                        BGM3: { url: cc.AudioClip, "default": null },
+                        BGM4: { url: cc.AudioClip, "default": null }
+                    }, onLoad: function () { }
+                }), cc._RFpop();
     }, {}],
     scr_QQpay: [function (e, t, n) {
         "use strict";
@@ -1154,20 +1129,15 @@ require = function e(t, n, a) {
             },
             initText: function () {
                 var t = e("scr_data"), n = e("scr_public");
-                cc.find("Canvas/hunger").getComponent("cc.Label").string = "饥饿：" + t.hunger + "/" + n.maxHunger() + "  精力：" + t.energy + "/" + n.maxEnergy() + "  生命：" + t.role.hp + "/" + n.role.maxHp();
-            },
-            delayCreatItemUI1: function () {
-                this.scheduleOnce(this.creatItemUI1, .1);//使用 scheduleOnce 方法，在当前帧结束后延迟 0.1 秒执行 creatItemUI1 函数。
-            },
-            delayCreatItemUI2: function () {
-                this.scheduleOnce(this.creatItemUI2, .1);
-            },
-            delayCreatItemUI3: function () {
-                this.scheduleOnce(this.creatItemUI3, .1);
-            },
-            onLoad: function () {
-                this.creatItemUI1();
-                this.creatItemUI2();
+                    cc.find("Canvas/hunger").getComponent("cc.Label").string = "饥饿：" + t.hunger + "/" + n.maxHunger() + "  精力：" + t.energy + "/" + n.maxEnergy() + "  生命：" + t.role.hp + "/" + n.role.maxHp()
+                }, delayCreatItemUI1: function () {
+                    this.scheduleOnce(this.creatItemUI1, .1);//使用 scheduleOnce 方法，在当前帧结束后延迟 0.1 秒执行 creatItemUI1 函数。
+                }, delayCreatItemUI2: function () {
+                    this.scheduleOnce(this.creatItemUI2, .1);
+                }, delayCreatItemUI3: function () {
+                    this.scheduleOnce(this.creatItemUI3, .1);
+                }, onLoad: function () {
+                    this.creatItemUI1(); this.creatItemUI2();
             }
         });
         cc._RF.pop();
