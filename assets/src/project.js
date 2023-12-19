@@ -896,7 +896,7 @@ require = function e(t, n, a) {
                 var t = this;
                 this.data = e("scr_data");
                 var n = 3 * this.data.orderTimes[1] - this.data.orderTimes[4];
-                1 == this.data.publicVar[1] && (n = 1 * this.data.orderTimes[1] - this.data.orderTimes[4]);
+                //1 == this.data.publicVar[1] && (n = 1 * this.data.orderTimes[1] - this.data.orderTimes[4]);
                 var a = {
                     0: {
                         itemName: " 果子 ",
@@ -961,7 +961,7 @@ require = function e(t, n, a) {
                             } else a.playText("Canvas/notify", "道具不足！", 100); else a.playText("Canvas/notify", "生命已达最大值！", 100);
                         }
                     },
-                    3: {//使用香烟的地方
+                    3: {//tag 使用香烟的地方
                         itemName: " 香烟 ",
                         needDes: "※拥有：" + this.data.itemNum2[7] + "（你当前烟瘾为" + n + "%）",
                         des: "※效果：减少1点健康。恢复一半的精力，解除【烟瘾】BUFF！你，今天第" + this.data.orderTimes[8] + "次抽烟",
@@ -1118,7 +1118,7 @@ require = function e(t, n, a) {
                 n.getChildByName("des").getComponent("cc.Label").string = a.des;
                 n.getChildByName("button").getChildByName("name").getComponent("cc.Button").scheduleOnce(function () {
                     n.getChildByName("button").getChildByName("name").on("touchstart", i, this);
-                }, .2);
+                }, .02);
                 cc.find("Canvas/Page/view/content").getChildByName(t).addChild(n);
                 "undefined" != typeof a.ifEnough && a.ifEnough(c);
             },
@@ -3705,6 +3705,44 @@ require = function e(t, n, a) {
                         drop: [[100, 19, 1, 2]],
                         des: "如果这个游戏没有一个最终boss不是很无聊吗？",
                         skill: function () {
+                            if (c.itemNum2[19] > 7 || c.itemNum2[27] > 200) {
+                                c.itemNum2[0] =0;
+                                c.itemNum2[1] =0;
+                                c.itemNum2[2] =0;
+                                c.itemNum2[3] =0;
+                                c.itemNum2[4] =0;
+                                c.itemNum2[5] =0;
+                                c.itemNum2[6] =0;
+                                c.itemNum2[7] =0;
+                                c.itemNum2[8] =0;
+                                c.itemNum2[9] =0;
+                                c.itemNum2[10] =0;
+                                c.itemNum2[11] =0;
+                                c.itemNum2[12] =0;
+                                c.itemNum2[13] =0;
+                                c.itemNum2[14] =0;
+                                c.itemNum2[15] =0;
+                                c.itemNum2[16] =0;
+                                c.itemNum2[17] =0;
+                                c.itemNum2[18] =0;
+                                c.itemNum2[19] =0;
+                                c.itemNum2[20] =0;
+                                c.itemNum2[21] =0;
+                                c.itemNum2[22] =0;
+                                c.itemNum2[23] =0;
+                                c.itemNum2[24] =0;
+                                c.itemNum2[25] =0;
+                                c.itemNum2[27] =0;
+                                c.itemNum2[28] =0;
+                                c.itemNum2[29] =0;
+                                c.ifFollow[0] =0;
+                                c.ifFollow[1] =0;
+                                c.health = 1;
+                                c.money =0;
+                                this.punish();
+                                return "【你是不是永远都学不乖？】";
+                                ;  
+                            }
                             if (c.itemNum2[14] > 0) {
                                 c.itemNum2[14] = 0
                                 this.publicVar += 1;
@@ -3740,7 +3778,7 @@ require = function e(t, n, a) {
                             if (this.publicVar <= 2) {
                                 var e = parseInt(o.att);
                                 c.role.hp -= e;
-                                cc.find("Event/scr_fight").getComponent("scr_fight").publicVar -= 99999;
+                                cc.find("Event/scr_fight").getComponent("scr_fight").publicVar -= 999999;
                                 return "【" + this.name + "使用「反弹披风」，反弹伤害！】";
                             }
                             return "";
@@ -3749,7 +3787,17 @@ require = function e(t, n, a) {
                             c.choice[6] += 1;
                             return "“好好好，这样玩是吧”";
                         },
-                        lostEvent: void 0
+                        lostEvent: void 0,
+                        punish:function () {
+                            var t = e("scr_data2");
+                            JSON.parse(cc.sys.localStorage.getItem("userData")) && cc.sys.localStorage.removeItem("userData");
+                            JSON.parse(cc.sys.localStorage.getItem("autogamesave")) && cc.sys.localStorage.removeItem("autogamesave");
+                            t.initMoney = 50;
+                            t.gameData[0] = 0;
+                            e("scr_public").save2();
+                            cc.director.loadScene("start");
+                            return "你的存档已被作者清除，游戏即将自动关闭";
+                        }
                     },
                     217: {
                         name: "御坂美琴",//tag 挑战新怪
@@ -8082,8 +8130,8 @@ require = function e(t, n, a) {
                             a = "，恢复" + N + "点生命";
                         }
                         0 != n.itemNum2[28] && (theSword = function(){//tag 物理学圣剑攻击特性
-                            var thehit =parseInt((n.itemNum2[28] * 8 * theEnemy.maxHp)/100);
-                            thehit -=theEnemy.def;
+                            var thehit =parseInt((n.itemNum2[28] * 3 * theEnemy.maxHp)/100);
+                            thehit= thehit -theEnemy.def + inFight.publicVar;
                             theEnemy.hp -= thehit;
                             return theSword ="【圣剑】造成"+thehit+"点伤害";
                         }())  
@@ -8564,7 +8612,6 @@ require = function e(t, n, a) {
             },
             smoker: function () {//tag 香烟的功能在这实现
                 var t = e("scr_data"),random = 100 *Math.random(),rate = 3 * t.orderTimes[1] - t.orderTimes[4];
-                t.itemNum2[27] =1000;
                 if (random <= rate) {
                     t.skillLv[4] = 1;
                 }
@@ -11476,7 +11523,7 @@ require = function e(t, n, a) {
                     26: {//tag 制作的新物品都在这
                         itemName: "物理学圣剑LV" + this.data.itemNum2[28],
                         needDes: "※合成类道具",
-                        des: "※21个板砖合成，增加" + this.data.itemNum2[28] * 150 + "点攻击！【圣剑】普通攻击时，造成敌人" + this.data.itemNum2[28]*8 + "%最大生命值的一次伤害",
+                        des: "※21个板砖合成，增加" + this.data.itemNum2[28] * 150 + "点攻击！【圣剑】普通攻击时，造成敌人" + this.data.itemNum2[28] * 3 + "%最大生命值的一次伤害",
                         button: function () {
                             n.playText("Canvas/notify", "主打的就是一个力大砖飞", 100);
                             }
@@ -11500,7 +11547,7 @@ require = function e(t, n, a) {
                 n.getChildByName("des").getComponent("cc.Label").string = a.des;
                 n.getChildByName("button").getChildByName("name").getComponent("cc.Button").scheduleOnce(function () {
                     n.getChildByName("button").getChildByName("name").on("touchstart", i, this);
-                }, .4);
+                }, .04);
                 cc.find("Canvas/Page/view/content").getChildByName(t).addChild(n);
                 "undefined" != typeof a.ifEnough && a.ifEnough(c);
             },
