@@ -403,14 +403,14 @@ require = function e(t, n, a) {
                     publicVar: [0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                     publicVar2: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                     publicVar3: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                    orderTimes: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                    //加入ordertimes8,9
+                    orderTimes: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0, 0],
+                    //加入ordertimes8,9,10,11,12
                     randomEvent: [0, 0, 0, 0, 0, 0, 0, 99, 588, 0, 0, 0, 0, 0],
                     choice: [2, 0, 0, 0, 0, 0, 0, 0, 0],
                     chioce2: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                     kills: [0, 0, 0, 0],
                     itemNum: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],//ITEMNUM【17】
-                    itemNum2: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0],//tag 新变量在这加ITEMNUM2【28,29,30】
+                    itemNum2: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0,0,0,0,0,0],//tag 新变量在这加ITEMNUM2【28,29,30】
                     ifFollow: [0, 0],
                     plotId: 0,
                     talkTimes: [0, 0],
@@ -422,7 +422,7 @@ require = function e(t, n, a) {
                     winTimes: 0,
                     winsstreaks: 0,
                     escapeExp: 0,
-                    buffState: [0, 0, 0],
+                    buffState: [0, 0, 0, 0],
                     ifNotify: !1,
                     skillLv: {
                         0: 0,
@@ -594,7 +594,17 @@ require = function e(t, n, a) {
                     "undefined" == typeof e.itemNum2[27] && (e.itemNum2[27] = 0);
                     "undefined" == typeof e.itemNum2[28] && (e.itemNum2[28] = 0);
                     "undefined" == typeof e.itemNum2[29] && (e.itemNum2[29] = 0);
-                    "undefined" == typeof e.itemNum2[30] && (e.itemNum2[310] = 0);
+                    "undefined" == typeof e.itemNum2[30] && (e.itemNum2[30] = 0);
+                    "undefined" == typeof e.itemNum2[31] && (e.itemNum2[31] = 0);
+                    "undefined" == typeof e.itemNum2[32] && (e.itemNum2[32] = 0);
+                    "undefined" == typeof e.itemNum2[33] && (e.itemNum2[33] = 0);
+                    "undefined" == typeof e.itemNum2[34] && (e.itemNum2[34] = 0);
+                    "undefined" == typeof e.itemNum2[35] && (e.itemNum2[35] = 0);
+                    "undefined" == typeof e.itemNum2[36] && (e.itemNum2[36] = 0);
+                    //"undefined" == typeof e.itemNum2[37] && (e.itemNum2[37] = 0);
+                    "undefined" == typeof e.orderTimes[10] && (e.orderTimes[10] = 0);
+                    "undefined" == typeof e.orderTimes[11] && (e.orderTimes[11] = 0);
+                    
                     //新增物品传送门
                     "undefined" == typeof e.ifFollow && (e.ifFollow = [0, 0]);
                     "undefined" == typeof e.talkTimes && (e.talkTimes = [0, 0]);
@@ -609,6 +619,7 @@ require = function e(t, n, a) {
                     "undefined" == typeof e.cigaretteuptimes && (e.cigaretteuptimes = 0);//新加的东西
                     "undefined" == typeof e.winsstreaks && (e.winsstreaks = 0);
                     "undefined" == typeof e.buffState[2] && (e.buffState[2] = 0)
+                    "undefined" == typeof e.buffState[3] && (e.buffState[3] = 0)
                     "undefined" == typeof e.escapeExp && (e.escapeExp = 0);
                     "undefined" == typeof e.randomEvent[11] && (e.randomEvent[11] = 0);
                     "undefined" == typeof e.randomEvent[12] && (e.randomEvent[12] = 0);
@@ -851,7 +862,7 @@ require = function e(t, n, a) {
                         this.schedule(function () {
                             this.creatText(l, "plot" + s, i[s]);
                             s++;
-                        }, 3, o - 2);
+                        }, .3, o - 2);
                         this.scheduleOnce(function () {
                             u.active = !0;
                             u.runAction(cc.fadeIn(.2));
@@ -901,7 +912,7 @@ require = function e(t, n, a) {
                     0: {
                         itemName: " 果子 ",
                         needDes: "※拥有：" + this.data.itemNum[0],
-                        des: "※效果：饥饿+20，15%几率恢复1点健康值",
+                        des: "※效果：饥饿+20，15%几率恢复1点健康值,今天你吃了" + this.data.orderTimes[10] + "次果子",
                         ifEnough: function (t) {
                             e("scr_data").itemNum[0] > 0 && (cc.find("Canvas/Page/view/content/page_1/" + t + "/button/name").color = new cc.color(0, 255, 0));
                         },
@@ -912,6 +923,7 @@ require = function e(t, n, a) {
                                 n.itemNum[0] -= 1;
                                 n.hunger += 20;
                                 n.orderTimes[5] += 1;
+                                n.orderTimes[10] += 1;
                                 if (s < 15) {
                                     n.health += 1;
                                     r += "，健康值+1";
@@ -925,7 +937,7 @@ require = function e(t, n, a) {
                     1: {
                         itemName: " 熟肉 ",
                         needDes: "※拥有：" + this.data.itemNum2[0],
-                        des: "※效果：饥饿+70",
+                        des: "※效果：饥饿+70,今天你吃了" + this.data.orderTimes[11] + "次熟肉",
                         ifEnough: function (t) {
                             e("scr_data").itemNum2[0] > 0 && (cc.find("Canvas/Page/view/content/page_1/" + t + "/button/name").color = new cc.color(0, 255, 0));
                         },
@@ -935,6 +947,7 @@ require = function e(t, n, a) {
                                 n.itemNum2[0] -= 1;
                                 n.hunger += 70;
                                 n.orderTimes[2] += 1;
+                                n.orderTimes[11] += 1;
                                 i.save();
                                 a.playText("Canvas/notify", "饥饿+70！", 60);
                                 t.delayCreatItemUI1();
@@ -961,7 +974,7 @@ require = function e(t, n, a) {
                             } else a.playText("Canvas/notify", "道具不足！", 100); else a.playText("Canvas/notify", "生命已达最大值！", 100);
                         }
                     },
-                    3: {//tag 使用香烟的地方
+                    3: {//tag 使用进食物品的地方
                         itemName: " 香烟 ",
                         needDes: "※拥有：" + this.data.itemNum2[7] + "（你当前烟瘾为" + n + "%）",
                         des: "※效果：减少1点健康。恢复一半的精力，解除【烟瘾】BUFF！你，今天第" + this.data.orderTimes[8] + "次抽烟",
@@ -986,7 +999,7 @@ require = function e(t, n, a) {
                                 n.itemNum[7] += 1;
                                 n.buffState[2] =1;
                                 i.save();
-                                a.playText("Canvas/notify", "健康-1，精力恢复" + Energy + "%！生命恢复为满，获得烟头*1", 100);
+                                a.playText("Canvas/notify", "健康-1，精力恢复" + Energy + "！生命恢复为满，获得烟头*1", 100);
                                 t.delayCreatItemUI1();
                             } else a.playText("Canvas/notify", "道具不足！", 100);
                         }
@@ -1042,7 +1055,7 @@ require = function e(t, n, a) {
                                 n.itemNum[13] -= 1;
                                 n.maxHunger += parseInt(Math.max( c/50, 0));
                                 n.maxEnergy += parseInt(Math.max( c/50, 0));
-                                n.health += parseInt(Math.max( c, 0));
+                                n.health += parseInt(Math.max(10, 0));
 				                n.energy = i.maxEnergy();
 				                n.hunger = i.maxHunger();
 				                n.role.att += parseInt(Math.max( c/10, 0));
@@ -3690,7 +3703,7 @@ require = function e(t, n, a) {
                         lostEvent: void 0
                     },
                     216: {
-                        name: "秋良",
+                        name: "秋良·左轮",
                         lv: 999,
                         hp: 1e7,
                         maxHp: 1e7,
@@ -3702,9 +3715,37 @@ require = function e(t, n, a) {
                         lostHealth: 1,
                         achieve: 100,
                         getAtt: 1,
-                        drop: [[100, 19, 1, 2]],
-                        des: "如果这个游戏没有一个最终boss不是很无聊吗？",
+                        drop: [[50, 19, 1, 2]],
+                        des: "如果这个游戏没有一个最终boss不是很无聊吗？\n（催更请录屏战斗过程）",
                         skill: function () {
+                            this.publicVar = Math.ceil(Math.random()*6);
+                            if (c.itemNum2[14] > 0) {
+                                c.itemNum2[14] = 0
+                                return "【枪支限制！弹药清零】";
+                            } else if (this.publicVar <= 2) {
+                                return "【秋良正在上子弹】";
+                            } else if (this.publicVar == 3) {
+                                var e = 1 * this.att - o.def;
+                                c.role.hp -= e;
+                                return "【秋良使用「射击」，造成" + e + "点伤害】"
+                            } else if (this.publicVar == 4) {
+                                var e = 2 * this.att - o.def;
+                                c.role.hp -= e;
+                                cc.find("Event/scr_fight").getComponent("scr_fight").correct[1] -= parseInt(.5 * o.def);
+                                return "【秋良使用「爆头」，造成" + e + "点伤害，减少防御50%】"
+                            } else if (this.publicVar == 5) {
+                                this.att += parseInt(1 * this.att);
+                                return "【秋良使用「过热」，攻击力翻倍】"
+                            } else if (this.publicVar == 6) {
+                                var e = 6 * this.att - o.def;
+                                c.role.hp -= e;
+                                return "【秋良使用「快速扳机」，造成" + e + "点伤害，】"
+                            }
+                            e = this.att - o.def;
+                            c.role.hp -= e;
+                            return "【枪灵「自动攻击」，造成" + e + "点伤害】";
+                        },
+                        defSkill: function () {
                             if (c.itemNum2[19] > 7 || c.itemNum2[27] > 200) {
                                 c.itemNum2[0] =0;
                                 c.itemNum2[1] =0;
@@ -3743,43 +3784,12 @@ require = function e(t, n, a) {
                                 return "【你是不是永远都学不乖？】";
                                 ;  
                             }
-                            if (c.itemNum2[14] > 0) {
-                                c.itemNum2[14] = 0
-                                this.publicVar += 1;
-                                return "【枪支限制！弹药清零】";
-                            } else if (this.publicVar < 3) {
-                                this.publicVar += 1;
-                                return "【秋良正在掏四次元口袋】";
-                            } else if (this.publicVar == 3) {
-
-                                this.publicVar += 1;
-                                var e = 2 * this.att - o.def;
-                                c.role.hp -= e;
-                                return "【秋良使用「空气炮」，造成" + e + "点伤害】"
-                            } else if (this.publicVar == 4) {
-                                this.publicVar += 1;
-                                var e = 1 * this.att - o.def;
-                                c.role.hp -= e;
-                                cc.find("Event/scr_fight").getComponent("scr_fight").correct[1] -= parseInt(.5 * o.def);
-                                return "【秋良使用「绊倒乐队」，造成" + e + "点伤害，减少防御50%】"
-                            } else if (this.publicVar == 5) {
-                                this.publicVar += 1;
-                                this.def += parseInt(1 * this.def);
-                                this.att += parseInt(1 * this.att);
-                                return "【秋良使用「放大灯」，攻防翻倍】"
-                            } else if (this.publicVar == 6) {
-                                return "【暂时就拿这么多道具好了！】"
-                            }
-                            e = this.att - o.def;
-                            c.role.hp -= e;
-                            return "【浮游炮「自动攻击」，造成" + e + "点伤害】";
-                        },
-                        defSkill: function () {
-                            if (this.publicVar <= 2) {
+                            if (this.publicVar <= 3) {
                                 var e = parseInt(o.att);
+                                this.publicVar = Math.ceil(Math.random()*6);
                                 c.role.hp -= e;
                                 cc.find("Event/scr_fight").getComponent("scr_fight").publicVar -= 999999;
-                                return "【" + this.name + "使用「反弹披风」，反弹伤害！】";
+                                return "【" + this.name + "使用「枪魂附体」，反弹伤害！】";
                             }
                             return "";
                         },
@@ -3840,14 +3850,14 @@ require = function e(t, n, a) {
                                 return "【" + this.name + "使用「超电磁炮」，造成" + e + "点伤害】"
                             }
                             else if (this.publicVar == 4) {
-                                this.publicVar = 2;
+                                this.publicVar = 1;
                                 /*this.def += parseInt(1 * this.def);
                                 this.att += parseInt(1 * this.att);
                                 return "【秋良对" + this.name + "使用「放大灯」，攻防翻倍】"*/
                             }
                             e = this.att - o.def;
                             c.role.hp -= e;
-                            return "【" + this.name + "释放「电弧」，造成" + e + "点伤害】";
+                            return "【" + this.name + "释放「落雷」，造成" + e + "点伤害】";
                         },
                         defSkill: function () {
                             if (c.itemNum2[14] > 0) {
@@ -3859,7 +3869,7 @@ require = function e(t, n, a) {
                             return "【" + this.name + "使用「电磁护盾」，受到的伤害减少一半！】";
                         },
                         winEvent: function () {
-                            c.choice[6] -= 3;
+                            c.choice[6] += 1;
                             return "“诶？这个黑洞是！（御坂美琴被黑洞吸走了）”";
                         },
                         lostEvent: void 0
@@ -7812,7 +7822,7 @@ require = function e(t, n, a) {
                     return [[16, 0, 2, 1], [25, 1, 2, 1], [25, 4, 2, 1], [19, 5, 1, 1], [6, 6, 1, 1]];//a是郊外，i是市中心，c是山洞
                 };
                 i.getDrop = function () {
-                    return [[97, 2, 1, 1], [20, 2, 1, 1], [25, 99, 2, 3], [15, 7, 1, 1] [1, 14, 1, 1]];//加入1%剩饭
+                    return [[97, 2, 1, 1], [20, 2, 1, 1], [25, 99, 2, 3], [15, 7, 1, 1],[2, 14, 1, 1]];//加入2%剩饭
                 };
                 c.getDrop = function () {
                     return [[60, 16, 1, 2], [20, 16, 1, 2], [8, 8, 1, 1]];
@@ -7864,19 +7874,19 @@ require = function e(t, n, a) {
                 };
                 //位移传送门
                 switch (r.publicVar[13]) {
-                    case 0:
+                        case 0://城中村
                         this.node.on("touchstart", n.callBack, n);
                         break;
 
-                    case 1:
+                        case 1://郊外
                         this.node.on("touchstart", a.callBack, a);
                         break;
 
-                    case 2:
+                        case 2://市中心
                         this.node.on("touchstart", i.callBack, i);
                         break;
 
-                    case 3:
+                        case 3://山洞
                         this.node.on("touchstart", c.callBack, c);
                 }
             }
@@ -8132,6 +8142,7 @@ require = function e(t, n, a) {
                         0 != n.itemNum2[28] && (theSword = function(){//tag 物理学圣剑攻击特性
                             var thehit =parseInt((n.itemNum2[28] * 3 * theEnemy.maxHp)/100);
                             thehit= thehit -theEnemy.def + inFight.publicVar;
+                            thehit = Math.max(thehit , 0);
                             theEnemy.hp -= thehit;
                             return theSword ="【圣剑】造成"+thehit+"点伤害";
                         }())  
@@ -8411,7 +8422,7 @@ require = function e(t, n, a) {
                                     var t = 100 * Math.random();
                                     if (t < 101) {
                                         var a = inFight.getItem(e);
-                                        return "【复刻：" + a + "】";
+                                        return "【晓月：" + a + "】";
                                     }
                                     return "";
                                 }
@@ -8551,8 +8562,7 @@ require = function e(t, n, a) {
                         c < i && (a = "没发现道具" != (a = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n)) ? "\n【修罗：发现" + a + "】" : "\n【修罗：什么也没有发现！】");
                     }
                     return a;
-                }();
-                var o = function () {//done 晓月手链升级
+                }(), o = function () {//done 晓月手链升级
                     var t = e("scr_data"), a = 1 * (t.itemNum2[27] + t.publicVar3[17]), i = 100 * Math.random(), c = "";
                     if (i < a) if ("没发现道具" != (c = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n))) c = "\n【晓月：发现" + c + "】"; 
                     else {
@@ -9040,7 +9050,7 @@ require = function e(t, n, a) {
         cc.Class({
             extends: cc.Component,
             properties: {},
-            skillDes: function () {
+            skillDes: function () {//tag 晓月技能文本
                 var t = e("scr_data"), 
                 n = ["【陪伴】给主角增加" + parseInt(t.choice[5] / 4 + 10) + "点攻击，增加幅度与好感有关。天生自带，无需激活！", 
                 "【小伙伴】精力上限+20，好感达到1激活！", 
@@ -10200,7 +10210,7 @@ require = function e(t, n, a) {
                         }
                     },
                     2005: {
-                        text: ["发现一份搬砖（LV.1）的零工，", "是否去试试？", "是（需20饥饿,成功率" + Math.min(70 + n.workExp, 100) + "%）", "算了"],
+                        text: ["发现一份搬砖（LV.1）的零工，工资0.4元", "是否去试试？", "是（需20饥饿和20精力,成功率" + Math.min(70 + n.workExp, 100) + "%）", "算了"],
                         action: function () {
                             cc.find("Canvas/Event/Choice/label").getComponent("cc.Label").string = "【提示】如果饥饿不足，系统将自动使用食物哦^_^";
                         },
@@ -10208,18 +10218,24 @@ require = function e(t, n, a) {
                             var a = e("scr_public");
                             s();
                             if (n.hunger >= 0) {
+                                if (n.energy >= 20) {//done 县城打工改进
                                 var i = n.workExp, c = 100 * Math.random(), o = 70 + i;
+                                    var slry = parseInt(4 + n.publicVar2[30] / 15);
                                 n.hunger -= 20;
                                 a.autoEat();
                                 if (c < o) {
-                                    n.money += 4;
+                                    n.publicVar2[30] += 1;
+                                    n.money += slry;
                                     n.workExp += 2;
-                                    t.closeUI("应聘成功，面试经验+2！\n获得" + .4.toFixed(1) + "元！");
+                                    n.energy -=20;
+                                    t.closeUI("应聘成功，消耗精力，面试经验+2，阅历+1！\n获得" + slry.toFixed(1) + "元！");
                                 } else {
                                     n.publicVar2[9] += 1;
                                     n.workExp += 1;
                                     t.closeUI("面试经验+1\n【“不好意思，我们可不敢乱用没身份证的小孩，你还是去找找其他工作吧”】");
                                 }
+                                } else {cc.find("Canvas/Event/Choice/Choice1/choiceText").getComponent("cc.Label").string = "精力不足！";
+                            } 
                             } else cc.find("Canvas/Event/Choice/Choice1/choiceText").getComponent("cc.Label").string = "饥饿值不足！";
                         },
                         choice2: function () {
@@ -10227,7 +10243,7 @@ require = function e(t, n, a) {
                         }
                     },
                     2006: {
-                        text: ["发现一份服务生（LV.2）的临时工，", "是否去试试？", "是（需20饥饿,成功率" + Math.min(20 + n.workExp, 100) + "%）", "算了"],
+                        text: ["发现一份服务生（LV.2）的临时工，工资0.6元", "是否去试试？", "是（需20饥饿，10精力,成功率" + Math.min(20 + n.workExp, 100) + "%）", "算了"],
                         action: function () {
                             cc.find("Canvas/Event/Choice/label").getComponent("cc.Label").string = "【提示】如果饥饿不足，系统将自动使用食物哦^_^";
                         },
@@ -10235,17 +10251,25 @@ require = function e(t, n, a) {
                             var a = e("scr_public");
                             s();
                             if (n.hunger >= 20) {
+                                if (n.energy >= 10) {
                                 var i = n.workExp, c = 100 * Math.random(), o = 20 + i;
+                                    var slry = parseInt(6 + n.publicVar2[30] / 15);
                                 n.hunger -= 20;
                                 a.autoEat();
                                 if (c < o) {
+                                        n.publicVar2[30] += 2;
                                     n.money += 6;
                                     n.workExp += 5;
-                                    t.closeUI("应聘成功，面试经验+5！获得" + .6.toFixed(1) + "元！");
+                                        n.energy -=10;
+                                        n.itemNum[14] += 1;
+                                        t.closeUI("应聘成功，消耗精力，面试经验+5,阅历+2！获得" + slry.toFixed(1) + "元！你顺便带走了店里的剩饭，获得【剩饭】*1");
                                 } else {
+                                        n.publicVar2[30] += 1;
                                     n.publicVar2[9] += 1;
                                     n.workExp += 3;
-                                    t.closeUI("“面试经验+3\n【“你太内向，对别人评价又很敏感；\n我不建议你做这种需要频繁和各种人、打交道的工作，\n你还是找点技术活做做吧。”】");
+                                        t.closeUI("“面试经验+3，阅历+1\n【“你太内向，对别人评价又很敏感；\n我不建议你做这种需要频繁和各种人、打交道的工作，\n你还是找点技术活做做吧。”】");
+                                }
+                            } else {cc.find("Canvas/Event/Choice/Choice1/choiceText").getComponent("cc.Label").string = "精力不足！";
                                 }
                             } else cc.find("Canvas/Event/Choice/Choice1/choiceText").getComponent("cc.Label").string = "饥饿值不足！";
                         },
@@ -10439,7 +10463,7 @@ require = function e(t, n, a) {
                         }
                     },
                     4003: {
-                        text: ["发现一份贴小广告的工作，是否去试试？", "是（需20饥饿）", "算了"],
+                        text: ["发现一份贴小广告的工作，是否去试试？（消耗10精力）", "是（需20饥饿）", "算了"],
                         action: function () {
                             cc.find("Canvas/Event/Choice/label").getComponent("cc.Label").string = "【提示】如果饥饿不足，系统将自动使用食物哦^_^";
                         },
@@ -10449,9 +10473,11 @@ require = function e(t, n, a) {
                             if (n.hunger >= 0) {
                                 var i = parseInt(3 + n.publicVar2[30] / 15);
                                 n.money += i;
+                                n.publicVar2[30] += 1;
                                 n.hunger -= 20;
+                                n.energy -=10;
                                 a.autoEat();
-                                t.closeUI("获得报酬" + (i / 10).toFixed(1) + "元");
+                                t.closeUI("获得报酬" + (i / 10).toFixed(1) + "元，阅历+1");
                             } else cc.find("Canvas/Event/Choice/Choice1/choiceText").getComponent("cc.Label").string = "饥饿值不足！";
                         },
                         choice2: function () {
@@ -10630,7 +10656,7 @@ require = function e(t, n, a) {
                         }
                     },
                     8001: {
-                        text: ["在一个在建筑工地找到一份送水泥的临时工作，做不做呢？", "做（需20饥饿）", "算了"],
+                        text: ["在一个在建筑工地找到一份送水泥的临时工作，做不做呢？（消耗20精力）", "做（需20饥饿）", "算了"],
                         action: function () {
                             cc.find("Canvas/Event/Choice/label").getComponent("cc.Label").string = "【提示】如果饥饿不足，系统将自动使用食物哦^_^";
                         },
@@ -10640,9 +10666,11 @@ require = function e(t, n, a) {
                             if (n.hunger >= 0) {
                                 var i = parseInt(5 + n.publicVar2[30] / 15);
                                 n.money += i;
+                                n.publicVar2[30] += 1;
                                 n.hunger -= 20;
+                                n.energy -=20;
                                 a.autoEat();
-                                t.closeUI("获得报酬" + (i / 10).toFixed(1) + "元");
+                                t.closeUI("获得报酬" + (i / 10).toFixed(1) + "元，阅历+1");
                             } else cc.find("Canvas/Event/Choice/Choice1/choiceText").getComponent("cc.Label").string = "饥饿值不足！";
                         },
                         choice2: function () {
@@ -11130,23 +11158,24 @@ require = function e(t, n, a) {
                 a.getComponent(cc.Label).lineHeight = 80;
                 a.getComponent(cc.Label).fontSize = 40;
             },
-            //制作传送门
+            //tag 制作传送门
             itemContent: function () {
                 this.data = e("scr_data");
                     this.status = e("scr_public");
                 var t = this, n = e("scr_effect"), a = {
                     0: {
                         itemName: " 熟肉 ",
-                        needDes: "※需【生肉】" + this.data.itemNum[3] + "/1【木材】" + this.data.itemNum[1] + "/1",
+                        needDes: "※需【生肉】" + this.data.itemNum[3] + "/1【木材】" + Math.max(this.data.itemNum[1] - t.data.itemNum[30],0) + "/1",
                         des: "※获得【熟肉】（已拥有" + this.data.itemNum2[0] + "）",
                         ifEnough: function (e) {
-                            t.data.itemNum[3] >= 1 && t.data.itemNum[1] >= 1 && (cc.find("Canvas/Page/view/content/page_1/" + e + "/button/name").color = new cc.color(0, 255, 0));
+                            t.data.itemNum[3] >= 1 && (t.data.itemNum[1] >= 1 || 0 != t.data.itemNum[30]) && (cc.find("Canvas/Page/view/content/page_1/" + e + "/button/name").color = new cc.color(0, 255, 0));
                         },
                         button: function () {
                             var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
-                            if (n.itemNum[3] >= 1 && n.itemNum[1] >= 1) {
+                            if (n.itemNum[3] >= 1 && (n.itemNum[1] >= 1 || 0 != n.itemNum[30])) {
+                                var xq = Math.max(1 - n.itemNum2[30],0)
                                 n.itemNum[3] -= 1;
-                                n.itemNum[1] -= 1;
+                                n.itemNum[1] -= xq;
                                 n.itemNum2[0] += 1;
                                 i.save();
                                 a.playText("Canvas/notify", "获得【熟肉】*1", 100);
@@ -11535,6 +11564,14 @@ require = function e(t, n, a) {
                         button: function () {
                             n.playText("Canvas/notify", "御坂妹妹会佩戴的一种感应电磁场变化的设备", 100);
                             }
+                    },
+                    28: {
+                        itemName: "电饭煲LV" + this.data.itemNum2[30],
+                        needDes: "※购买类道具升级",
+                        des: "※制作熟肉时不再需要木材",
+                        button: function () {
+                            n.playText("Canvas/notify", "御坂妹妹会佩戴的一种感应电磁场变化的设备", 100);
+                            }
                     }
                 };
                 return a;
@@ -11589,6 +11626,12 @@ require = function e(t, n, a) {
                     for (var t = 24; t <= 27; t++) this.creatPrefab(t, "page_7");
                 } else this.creatText(cc.find("Canvas/Page/view/content/page_7"), "notify", "※第7页内容，将在到达县城后解锁！");
             },
+            creatItemUI8: function () {
+                if (e("scr_data").distance >= 0) {
+                        cc.find("Canvas/Page/view/content/page_8").removeAllChildren();
+                    for (var t = 28; t <= 28; t++) this.creatPrefab(t, "page_8");
+                } else this.creatText(cc.find("Canvas/Page/view/content/page_8"), "notify", "※第8页内容，将在到达县城后解锁！");
+            },
             delayCreatItemUI: function () {
                 var e = this;
                 this.scheduleOnce(function () {
@@ -11625,6 +11668,7 @@ require = function e(t, n, a) {
                 this.creatItemUI5();
                 this.creatItemUI6();
                 this.creatItemUI7();
+                this.creatItemUI8();
             }
         });
         cc._RF.pop();
@@ -12225,7 +12269,8 @@ require = function e(t, n, a) {
                         t.choice[8] >= 1 && (a += "【围栏】");
                         t.skillLv[27] >= 1 && (a += "【宿醉】");
                         if (1==t.buffState[2]) {a+= "【自信"+ t.winsstreaks +"】"}
-                        //tag buff传送门
+                        //if (1==t.buffState[3]) {a+= "【营养不良】"}
+                        //tag buff显示传送门
                         n.getChildByName("txt_state").getComponent("cc.Label").string = a;
                     },
                     //距离显示传送门
@@ -12325,7 +12370,8 @@ require = function e(t, n, a) {
                     },
                     //精力传送门
                     maxEnergy: function () {
-                        var t = e("scr_data"), n = t.skillLv, a = t.maxEnergy + 10 * n[1] + 20 * n[7] + 30 * n[12] + 10 * t.itemNum2[2] + t.friendSkill1[1] * t.ifFollow[0] * 20 + 10 * t.publicVar[18];
+                        var t = e("scr_data"), n = t.skillLv, 
+                        a = t.maxEnergy + 10 * n[1] + 20 * n[7] + 30 * n[12] + 10 * t.itemNum2[2] + t.friendSkill1[1] * t.ifFollow[0] * 20 + 10 * t.publicVar[18];
                         return a;
                     },
                     maxHunger: function () {
@@ -12518,13 +12564,26 @@ require = function e(t, n, a) {
                     } else{
                     t.skillLv[27] = 0};
                 })();
-                //每天事件早上结算传送门
+                (function () {//todo
+                    var guozi = 2 * t.orderTimes[10],shurou = 1 * t.orderTimes[11],rate = guozi/shurou,exp = t.publicVar2[26];
+                    if (rate < (850+exp/150-exp) && (500+exp/350-exp)< rate) {
+                        t.buffState[3] = 1;
+                        i.creatText("some", "【营养均衡】额外恢复20精力");
+                    } else{
+                        t.buffState[3] = 0;
+                    };
+                })();
+                //tag 每天事件早上结算传送门
                 (function () {
                     cc.find("Canvas/energy/text");
                     var e = 0, a = n.maxEnergy();
                     t.energy += a;
                     t.energy > a && (t.energy = a);
                     if (c()) {
+                        e = 20;
+                        t.energy += e;
+                    }
+                    if (1 == t.buffState[3]) {
                         e = 20;
                         t.energy += e;
                     }
@@ -13153,7 +13212,7 @@ require = function e(t, n, a) {
                     type: cc.Prefab
                 }
             },
-            //商店传送门
+            //tag 商店传送门
             itemContent: function () {
                 var t = this;
                 this.data = e("scr_data");
@@ -13162,6 +13221,7 @@ require = function e(t, n, a) {
                         itemName: " 木材*10（拥有" + this.data.itemNum[1] + ")",
                         needDes: "购买1次/5次：1元/5元",
                         ifEnough: function (t) {
+                            cc.find("Canvas/Page/view/content/page_1/" + t + "/button2/text").getComponent("cc.Label").string = "购买*5";
                             e("scr_data").money >= 10 && (cc.find("Canvas/Page/view/content/page_1/" + t + "/name").color = new cc.color(0, 255, 0));
                         },
                         button1: function () {
@@ -13191,6 +13251,7 @@ require = function e(t, n, a) {
                         itemName: " 亚麻*10（拥有" + this.data.itemNum[4] + ")",
                         needDes: "购买1次/5次：1元/5元",
                         ifEnough: function (t) {
+                            cc.find("Canvas/Page/view/content/page_1/" + t + "/button2/text").getComponent("cc.Label").string = "购买*5";
                             e("scr_data").money >= 10 && (cc.find("Canvas/Page/view/content/page_1/" + t + "/name").color = new cc.color(0, 255, 0));
                         },
                         button1: function () {
@@ -13220,6 +13281,7 @@ require = function e(t, n, a) {
                         itemName: " 果子*5（拥有" + this.data.itemNum[0] + ")",
                         needDes: "购买1次/5次：0.5元/2.5元",
                         ifEnough: function (t) {
+                            cc.find("Canvas/Page/view/content/page_1/" + t + "/button2/text").getComponent("cc.Label").string = "购买*5";
                             e("scr_data").money >= 5 && (cc.find("Canvas/Page/view/content/page_1/" + t + "/name").color = new cc.color(0, 255, 0));
                         },
                         button1: function () {
@@ -13268,6 +13330,7 @@ require = function e(t, n, a) {
                         itemName: " 生肉*2（拥有" + this.data.itemNum[3] + ")",
                         needDes: "购买1次/5次：0.4元/2元",
                         ifEnough: function (t) {
+                            cc.find("Canvas/Page/view/content/page_2/" + t + "/button2/text").getComponent("cc.Label").string = "购买*5";
                             e("scr_data").money >= 4 && (cc.find("Canvas/Page/view/content/page_2/" + t + "/name").color = new cc.color(0, 255, 0));
                         },
                         button1: function () {
@@ -13364,34 +13427,30 @@ require = function e(t, n, a) {
                         button2: void 0
                     },
                     8: {
-                        itemName: " 待定！！木材*10（拥有" + this.data.itemNum[1] + ")",
-                        needDes: "购买/出售：1元/0.5元",
+                        itemName: " 电饭煲（当前等级" + this.data.itemNum2[30] + ")",
+                        needDes: "价格：10元",
                         ifEnough: function (t) {
-                            e("scr_data").money >= 10 && (cc.find("Canvas/Page/view/content/page_3/" + t + "/name").color = new cc.color(0, 255, 0));
+                            e("scr_data").money >= 100 && (cc.find("Canvas/Page/view/content/page_3/" + t + "/name").color = new cc.color(0, 255, 0));
                         },
                         button1: function () {
                             var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
-                            if (n.money >= 10) {
-                                n.money -= 10;
-                                n.itemNum[1] += 10;
-                                n.shopPoint += 10;
+                            if (n.money >= 100) {
+                                if (0 != n.itemNum2[30]) {
+                                    
+
+                                n.money -= 100;
+                                n.itemNum2[30] += 1;
+                                n.shopPoint += 100;
                                 i.save();
-                                a.playText("Canvas/notify", "获得【木材】*10！积分*10！", 100);
+                                a.playText("Canvas/notify", "获得【电饭煲】*1！积分*100！", 100);
                                 t.delayCreatItemUI();
+                                } else {
+                                a.playText("Canvas/notify", "已经买过了", 100);
+                                }
                             } else a.playText("Canvas/notify", "钱不够！", 100);
                         },
-                        button2: function () {
-                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
-                            if (n.itemNum[1] >= 10) {
-                                n.money += 5;
-                                n.itemNum[1] -= 10;
-                                i.save();
-                                a.playText("Canvas/notify", "失去【木材】*10，获得0.5元！", 100);
-                                t.delayCreatItemUI();
-                            } else a.playText("Canvas/notify", "道具不足！", 100);
-                        }
+                        button2: void 0
                     },
-
                     9:
                     {
                         itemName: "  抽奖  ",
@@ -13453,10 +13512,10 @@ require = function e(t, n, a) {
                 n.getChildByName("need").getComponent("cc.Label").string = a.needDes;
                 "undefined" != typeof i ? n.getChildByName("button1").getComponent("cc.Button").scheduleOnce(function () {
                     n.getChildByName("button1").on("touchstart", i, this);
-                }, .2) : n.getChildByName("button1").active = !1;
+                }, .05) : n.getChildByName("button1").active = !1;
                 "undefined" != typeof c ? n.getChildByName("button2").getComponent("cc.Button").scheduleOnce(function () {
                     n.getChildByName("button2").on("touchstart", c, this);
-                }, .3) : n.getChildByName("button2").active = !1;
+                }, .05) : n.getChildByName("button2").active = !1;
                 cc.find("Canvas/Page/view/content").getChildByName(t).addChild(n);
                 "undefined" != typeof a.ifEnough && a.ifEnough(o);
             },
@@ -13486,7 +13545,7 @@ require = function e(t, n, a) {
                     e.creatItemUI1();
                     e.creatItemUI2();
                     e.creatItemUI3();
-                }, .2);
+                }, .05);
             },
             delayCreatItemUI1: function () {
                 this.scheduleOnce(this.creatItemUI1, .05);
@@ -13706,7 +13765,7 @@ require = function e(t, n, a) {
                     24: "【圣斗士】战斗失败后，" + Math.min(Math.max(parseInt(t.publicVar3[12] / 5), 20), 40).toFixed(1) + "%几率满血复活！战斗失败79次后激活（" + t.publicVar3[12] + "/79）",
                     25: "【霸气】狂拽炫酷吊炸天！攻击时，10%几率无视目标防御，且恢复自身3%生命。木棍、麻布衣达到15级时激活",
                     26: "【不屈的精神力】睡觉时30%几率额外再恢复30%精力！击败「草带男孩」40次后激活！（" + t.kills[2] + "/40）",
-                    27: "【宿醉】前一天每喝一口酒增加15%概率触发，当天造成的伤害减少30%，【自信】请看秋良版更新日志"//bug 修正宿醉的效果
+                    27: "【宿醉】前一天每喝一口酒增加15%概率触发，当天造成的伤害减少30%，【自信】请看秋良版更新日志"//tag 特性的描述文本
                 }, skillvalues = e("scr_data").skillLv, c = cc.find("Canvas/Scroll/view/content"), 
                 daystoT = parseInt(1 + t.day / 3), skillcount = Object.keys(a).length;
                 "undefined" == typeof skillcount && (skillcount = 99);
