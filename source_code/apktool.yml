@@ -1,0 +1,19 @@
+version: 2.9.1
+apkFileName: llrj-QLTfix14.APK
+isFrameworkApk: false
+usesFramework:
+  ids:
+  - 1
+  tag: null
+sdkInfo:
+  minSdkVersion: 10
+  targetSdkVersion: 27
+packageInfo:
+  forcedPackageId: 127
+  renameManifestPackage: org.cocos2d.StrayDiaryQL
+versionInfo:
+  versionCode: 5
+  versionName: 1.5
+resourcesAreCompressed: false
+sharedLibrary: false
+sparseResources: false
