@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout branch
-          uses: actions/checkout@/v4
+          uses: actions/checkout@v4
 
       - name: setup java runtime
         uses: actions/setup-java@v4
@@ -27,7 +27,7 @@ jobs:
 
       - name: rename apk
           run: mv source_code/dist/llrj_QL_unsigned${GITHUB_SHA}-aligned-debugSigned.apk source_code/dist/llrj_QL_signed.apk 
-          
+
       - name: rename idsig
           run: mv source_code/dist/llrj_QL_unsigned${GITHUB_SHA}-aligned-debugSigned.apk.idsig  source_code/dist/llrj_QL_signed${GITHUB_SHA}.apk.idsig  
 
