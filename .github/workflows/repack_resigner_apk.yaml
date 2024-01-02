@@ -21,6 +21,9 @@ jobs:
       - name: Show Java version
         run: java --version
 
+      - name: create target output directory
+        run: mkdir -p source/dist
+
       - name: Repack source code to unsigned APK
         run: java -jar tools/apktool_2.9.1.jar b source_code -o source_code/dist/llrj_QL_unsigned_${GITHUB_SHA}.apk
 
@@ -36,7 +39,7 @@ jobs:
       - name: Upload APK to artifact
         uses: actions/upload-artifact@v2
         with:
-          name: ${GITHUB_SHA}
+          name: llrj_QL_signed
           path: source_code/dist/
 
       - name: Upload release asset
@@ -46,4 +49,4 @@ jobs:
           asset_path: source_code/dist/llrj_QL_signed_${GITHUB_SHA}.apk
           asset_name: llrj_QL_signed_${GITHUB_SHA}.apk
           asset_content_type: application/vnd.android.package-archive
-          token: ${{ secrets.ACTION_TOKEN }}
+        token: ${{ secrets.ACTION_TOKEN }}
