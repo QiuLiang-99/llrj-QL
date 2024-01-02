@@ -10,20 +10,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout branch
-      - uses: actions/checkout@/v4
-      - run: echo setup java runtime
-      - uses: actions/setup-java@v4
+          uses: actions/checkout@/v4
+
+      - name: setup java runtime
+        uses: actions/setup-java@v4
         with:
           distribution: 'oracle'
           java-version: '17'
-      - run: java --version
-      - run: echo repack source code to unsigned apk
-      - run: java -jar tools/apktool_2.9.1.jar b source_code -o source_code/dist/llrj_QL_unsigned_${GITHUB_SHA}.apk
-      - run: echo  resign the new apk package
-      - run: java -jar tools/uber-apk-signer-1.3.0.jar --apk source_code/dist/llrj_QL_unsigned_${GITHUB_SHA}.apk -o source_code/dist/
-      - run: echo rename apk
-      - run: mv source_code/dist/llrj_QL_unsigned${GITHUB_SHA}-aligned-debugSigned.apk source_code/dist/llrj_QL_signed.apk 
-      - run: mv source_code/dist/llrj_QL_unsigned${GITHUB_SHA}-aligned-debugSigned.apk.idsig  source_code/dist/llrj_QL_signed${GITHUB_SHA}.apk.idsig  
+        run: java --version
+
+      - name: repack source code to unsigned apk
+          run: java -jar tools/apktool_2.9.1.jar b source_code -o source_code/dist/llrj_QL_unsigned_${GITHUB_SHA}.apk
+
+      - name: resign the new apk package
+          run: java -jar tools/uber-apk-signer-1.3.0.jar --apk source_code/dist/llrj_QL_unsigned_${GITHUB_SHA}.apk -o source_code/dist/
+
+      - name: rename apk
+          run: mv source_code/dist/llrj_QL_unsigned${GITHUB_SHA}-aligned-debugSigned.apk source_code/dist/llrj_QL_signed.apk 
+          
+      - name: rename idsig
+          run: mv source_code/dist/llrj_QL_unsigned${GITHUB_SHA}-aligned-debugSigned.apk.idsig  source_code/dist/llrj_QL_signed${GITHUB_SHA}.apk.idsig  
 
 
 
