@@ -20,16 +20,16 @@ jobs:
         run: java --version
 
       - name: repack source code to unsigned apk
-          run: java -jar tools/apktool_2.9.1.jar b source_code -o source_code/dist/llrj_QL_unsigned_${GITHUB_SHA}.apk
+        run: java -jar tools/apktool_2.9.1.jar b source_code -o source_code/dist/llrj_QL_unsigned_${GITHUB_SHA}.apk
 
       - name: resign the new apk package
-          run: java -jar tools/uber-apk-signer-1.3.0.jar --apk source_code/dist/llrj_QL_unsigned_${GITHUB_SHA}.apk -o source_code/dist/
+        run: java -jar tools/uber-apk-signer-1.3.0.jar --apk source_code/dist/llrj_QL_unsigned_${GITHUB_SHA}.apk -o source_code/dist/
 
       - name: rename apk
-          run: mv source_code/dist/llrj_QL_unsigned${GITHUB_SHA}-aligned-debugSigned.apk source_code/dist/llrj_QL_signed.apk 
+        run: mv source_code/dist/llrj_QL_unsigned${GITHUB_SHA}-aligned-debugSigned.apk source_code/dist/llrj_QL_signed.apk 
 
       - name: rename idsig
-          run: mv source_code/dist/llrj_QL_unsigned${GITHUB_SHA}-aligned-debugSigned.apk.idsig  source_code/dist/llrj_QL_signed${GITHUB_SHA}.apk.idsig  
+        run: mv source_code/dist/llrj_QL_unsigned${GITHUB_SHA}-aligned-debugSigned.apk.idsig  source_code/dist/llrj_QL_signed${GITHUB_SHA}.apk.idsig  
 
 
 
