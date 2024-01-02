@@ -49,4 +49,4 @@ jobs:
           asset_path: source_code/dist/llrj_QL_signed_${GITHUB_SHA}.apk
           asset_name: llrj_QL_signed_${GITHUB_SHA}.apk
           asset_content_type: application/vnd.android.package-archive
-        token: ${{ secrets.ACTION_TOKEN }}
+        # token: ${{ secrets.ACTION_TOKEN }}
