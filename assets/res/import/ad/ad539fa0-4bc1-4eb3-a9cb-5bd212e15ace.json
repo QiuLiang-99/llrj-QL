@@ -343,7 +343,7 @@
                 "_useOriginalSize": false,
                 "_actualFontSize": 30,
                 "_fontSize": 30,
-                "_N$string": "旅游者：初始食物+20，恢复品+20，\n资金+3，精力上限+10",
+                "_N$string": "放弃防御：初始攻击力为0，获得10点初始防御",
                 "_N$horizontalAlign": 1,
                 "_N$verticalAlign": 1
             }
@@ -459,7 +459,7 @@
                 "_useOriginalSize": false,
                 "_actualFontSize": 32,
                 "_fontSize": 32,
-                "_N$string": "父慈子孝：初始拿走家里10块",
+                "_N$string": "好战者：遭遇敌人的概率增加50%\n战胜后获得的属性翻倍",
                 "_N$horizontalAlign": 1,
                 "_N$verticalAlign": 1
             }
@@ -517,7 +517,7 @@
                 "_useOriginalSize": false,
                 "_actualFontSize": 32,
                 "_fontSize": 32,
-                "_N$string": "地主家儿子：初始资金+5，且每天获得0.2元",
+                "_N$string": "商店扒手：购买基础物资时获得量+20%",
                 "_N$horizontalAlign": 1,
                 "_N$verticalAlign": 1
             }
