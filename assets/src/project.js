@@ -426,6 +426,8 @@ require = function e(t, n, a) {
                         gift: [0, 0, 0, 0],
                         randomBuff: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         escapeExp: 0,
+                        energyconsumetimes: 1,
+                        temp: 0,
                         buffState: [0, 0, 0, 0],
                         ifNotify: !1,
                         skillLv: {
@@ -587,7 +589,7 @@ require = function e(t, n, a) {
                     };
                     JSON.parse(cc.sys.localStorage.getItem("userData")) && function (e) {
                         "undefined" == typeof e.itemNum[17] && (e.itemNum[17] = 0);
-
+                        "undefined" == typeof e.energyconsumetimes && (e.energyconsumetimes = 1);
                         "undefined" == typeof e.itemNum2[36] && (e.itemNum2[36] = 0);
                         //"undefined" == typeof e.itemNum2[37] && (e.itemNum2[37] = 0);
                         "undefined" == typeof e.orderTimes[10] && (e.orderTimes[10] = 0);
@@ -2559,6 +2561,44 @@ require = function e(t, n, a) {
                         },
                         3010: {
                             name: "科学家",
+                            lv: 1e3,
+                            hp: 99999,
+                            maxHp: 99999,
+                            att: 2999,
+                            def: 1199,
+                            publicVar: 0,
+                            escapeRate: -70,
+                            enemyEscapeRate: 0,
+                            lostHealth: 2,
+                            achieve: 0,
+                            getAtt: 1,
+                            drop: [[100, 16, 1, 2], [100, 16, 1, 2]],
+                            des: "“入侵者，既然你来到这里，就不太可能出去了~”",
+                            skill: function () {
+                                this.publicVar += 1;
+                                var e = parseInt(this.att * (1 + this.publicVar / 10));
+                                c.role.hp -= e;
+                                this.hp += e;
+                                return "【" + this.name + "喷出「靶向喷雾」你受到" + e + "点伤害。" + this.name + "恢复" + e + "点生命，并收集1点能量！】";
+                            },
+                            defSkill: function () {
+                                if (this.publicVar % 4 == 0) {
+                                    this.def = 899;
+                                    return "【" + this.name + "「无敌屏障」被击破！】";
+                                }
+                                if (this.publicVar % 2 == 0) {
+                                    this.def = 99999;
+                                    return "【" + this.name + "启动「无敌屏障」！】";
+                                }
+                                var e = parseInt(o.att * (.2 + this.publicVar / 10));
+                                c.role.hp -= e;
+                                return "【" + this.name + "开启「反射屏障」你受到" + e + "点伤害！】";
+                            },
+                            winEvent: void 0,
+                            lostEvent: void 0
+                        },
+                        4001: {
+                            name: "日本怪1",
                             lv: 1e3,
                             hp: 99999,
                             maxHp: 99999,
@@ -7737,7 +7777,7 @@ require = function e(t, n, a) {
             scr_effect: "scr_effect",
             scr_public: "scr_public"
         }],
-        //探索传送门
+        //tag 探索传送门
         scr_explore: [function (e, t, n) {
             "use strict";
             cc._RF.push(t, "aac8eR1m+lE25FoXnDRrcRr", "scr_explore");
@@ -7745,8 +7785,8 @@ require = function e(t, n, a) {
                 extends: cc.Component,
                 properties: {},
                 onLoad: function () {
-                    var t = cc.find("Canvas/Button/button_forward").getComponent("scr_forwardButton").constructor, n = new t(), a = new t(), i = new t(), c = new t(),
-                        o = this, r = e("scr_data");
+                    var t = cc.find("Canvas/Button/button_forward").getComponent("scr_forwardButton").constructor, n = new t(), a = new t(), i = new t(), c = new t(),//todo
+                        o = this, r = e("scr_data"), Tokyo = new t();
                     this.node.runAction(cc.tintTo(.1, 255, 255, 255));//变成黑色
                     n.addDistance = function () { };
                     a.addDistance = function () { };
@@ -7754,6 +7794,7 @@ require = function e(t, n, a) {
                     c.addDistance = function () {
                         e("scr_data").publicVar3[1] += 1;
                     };
+                    Tokyo.addDistance = function () { };
                     n.shieldButton = function () {
                         o.node.off("touchstart", n.callBack, n);
                         o.node.runAction(cc.tintTo(.1, 114, 199, 255));//变成淡蓝色，本来是0.3秒，现在改成0.1秒
@@ -7774,6 +7815,11 @@ require = function e(t, n, a) {
                         o.node.runAction(cc.tintTo(.1, 114, 199, 255));
                         o.scheduleOnce(o.onLoad, .05);
                     };
+                    Tokyo.shieldButton = function () {
+                        o.node.off("touchstart", c.callBack, c);
+                        o.node.runAction(cc.tintTo(.1, 114, 199, 255));
+                        o.scheduleOnce(o.onLoad, .05);
+                    };
                     n.getItemNum = function () {
                         return 1;
                     };
@@ -7785,6 +7831,9 @@ require = function e(t, n, a) {
                     };
                     c.getItemNum = function () {
                         return Math.min(parseInt(e("scr_data").publicVar3[1] / 100 + 1), 4);
+                    };
+                    Tokyo.getItemNum = function () {
+                        return 2;//todo
                     };
                     n.dryUp = function () {
                         var t = e("scr_public").regionId(), n = e("scr_data");
@@ -7803,6 +7852,9 @@ require = function e(t, n, a) {
                     c.getFigthId = function () {
                         return [3001, 3002, 3003, 3004, 3005, 3006, 3007, 3008, 3009, 3010, 900004][Math.min(parseInt(e("scr_data").publicVar3[1] / 50), 10)];
                     };
+                    Tokyo.getEnemyRate = function () {
+                        return [[0, 0], [20, 2001], [40, 2002], [60, 2003], [75, 2004], [100, 2005]];
+                    };//todo
                     a.getDrop = function () {
                         return [[16, 0, 2, 1], [25, 1, 2, 1], [25, 4, 2, 1], [19, 5, 1, 1], [6, 6, 1, 1]];//a是郊外，i是市中心，c是山洞
                     };
@@ -7810,6 +7862,9 @@ require = function e(t, n, a) {
                         return [[97, 2, 1, 1], [20, 2, 1, 1], [25, 99, 2, 3], [15, 7, 1, 1], [2, 14, 1, 1]];//加入2%剩饭
                     };
                     c.getDrop = function () {
+                        return [[60, 16, 1, 2], [20, 16, 1, 2], [8, 8, 1, 1]];
+                    };
+                    Tokyo.getDrop = function () {//todo
                         return [[60, 16, 1, 2], [20, 16, 1, 2], [8, 8, 1, 1]];
                     };
                     a.regionEventId = function () {
@@ -7821,6 +7876,9 @@ require = function e(t, n, a) {
                     c.regionEventId = function () {
                         return 9e3 + c.randomId([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]);
                     };
+                    Tokyo.regionEventId = function () {
+                        return 9e3 + c.randomId([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]);
+                    };//todo
                     c.regionEventId = function () {
                         return 0;
                     };
@@ -7933,10 +7991,10 @@ require = function e(t, n, a) {
                     a.setScale(0, 0);
                     a.runAction(i);
                 },
-                getItem: function (t) {//getitem函数，第一位是概率，第二位是在itemnum中的位置，第三个是获得的数量，第四个是判断是itemnum1还是2还是钱
+                getItem: function (t) {//tag getitem函数，第一位是概率，第二位是在itemnum中的位置，第三个是获得的数量，第四个是判断是itemnum1还是2还是钱
                     for (var n = "", a = t.length, i = e("scr_public"), c = e("scr_data"), o = 0; o < a; o++) {
                         if (100 * Math.random() < t[o][0]) {
-                            var r = t[o][1], s = t[o][2], l = t[o][3];
+                            var r = t[o][1], s = t[o][2] * c.energyconsumetimes, l = t[o][3];
                             if (2 == l) {
                                 var u = i.itemName2;
                                 c.itemNum2[r] += s;
@@ -8407,7 +8465,7 @@ require = function e(t, n, a) {
                         n.enemyId = 0;
                         SaveGame();
                     }
-                    function isBattleEnd() {
+                    function isBattleEnd() {//tag 战斗结束函数
                         if (theEnemy.hp <= 0) {
                             P();
                             var e = theEnemy.drop, JKshoes = "", shouliandu = "",
@@ -8441,7 +8499,7 @@ require = function e(t, n, a) {
                                 return "";
                             }());
                             var addstate = function () {
-                                var e = theEnemy.getAtt, t = 100 * Math.random();
+                                var e = theEnemy.getAtt * n.energyconsumetimes, t = 100 * Math.random();
                                 if (3 == n.publicVar[1]) {
                                     e *= 2;
                                 }
@@ -8499,6 +8557,7 @@ require = function e(t, n, a) {
                             "没发现道具" == o && (fightwinText = fightwinText.replace("获得", ""));
                             fightwinText = lucky + XY + XL + JKshoes + fightwinText + o + addstate + shouliandu + achieve;
                             "undefined" != typeof theEnemy.winEvent && (fightwinText = fightwinText + "！\n" + theEnemy.winEvent());
+                            //n.energyconsumetimes = n.temp;
                             leaveBattle();
                             inFight.scheduleOnce(function () {
                                 i.playText("Canvas/Text/txt_notify", fightwinText, 80);
@@ -8564,7 +8623,7 @@ require = function e(t, n, a) {
             scr_enemy: "scr_enemy",
             scr_public: "scr_public"
         }],
-        //前进按钮传送门
+        //tag 前进按钮传送门
         scr_forwardButton: [function (e, t, n) {
             "use strict";
             cc._RF.push(t, "7e6b7ZHdulNI6LuPQKyXMkr", "scr_forwardButton");
@@ -8589,7 +8648,7 @@ require = function e(t, n, a) {
                 getItemNum: function () {
                     return 2;
                 },
-                //探索传送门
+                //tag 探索传送门
                 getItem: function () {
                     e("scr_public").regionId();
                     var t = e("scr_data"), n = this.getDrop(), a = cc.find("Event/scr_fight").getComponent("scr_fight").getItem(n), i = function () {
@@ -8647,7 +8706,7 @@ require = function e(t, n, a) {
                     return 1e3 == t ? 60 : 2e3 == t ? 30 : 3e3 == t ? 50 : 4e3 == t ? 50 : void 0;
                 },
                 regionEventId: function () {
-                    var t = 1, n = e("scr_public").regionId();
+                    var t = 1, n = e("scr_public").regionId();//todo
                     1e3 == n && (t = 1e3 + this.randomId([0, 25, 50, 75, 100]));
                     2e3 == n && (t = 2e3 + this.randomId([0, 10, 20, 40, 50, 90, 100]));
                     3e3 == n && (t = 3e3 + this.randomId([0, 15, 25, 35, 50, 65, 80, 100]));
@@ -8682,6 +8741,9 @@ require = function e(t, n, a) {
                         } else {
                             n.publicVar2[2] += 1;
                             this.fight();
+                            n.energy += 10 * (n.energyconsumetimes - 1);
+                            //n.temp = n.energyconsumetimes;
+                            ///n.energyconsumetimes = 1;
                         }
                     } else if (rate <= 80) {
                         n.publicVar2[3] += 1;
@@ -8692,9 +8754,9 @@ require = function e(t, n, a) {
                             this.getItem();
                         } else {
                             n.publicVar2[4] += 1;
-                            this.event();
+                            this.event();//返还精力
+                            n.energy += 10 * (n.energyconsumetimes - 1);
                         }
-
                     }
                 },
                 reduceHealth: function () {
@@ -8750,7 +8812,7 @@ require = function e(t, n, a) {
                 callBack: function () {
                     var t = e("scr_data"), n = e("scr_effect"), a = e("scr_public"), i = this.dryUp();
                     a.ifGameOver();
-                    this.Energy = 10;
+                    this.Energy = 10 * t.energyconsumetimes;
                     if (t.energy >= this.Energy && 0 == i)
                         if (t.day >= 180) this.end();
                         else if (290 == t.distance && 1 == t.ifFollow[0]) {
@@ -9378,7 +9440,7 @@ require = function e(t, n, a) {
                             if (a < e) {
                                 var i = parseInt(7.9 * Math.random()), c = ["liao ♂ 得不错", "“瑶酱~今天也要元气满满喔~”", "“嘿~嘿嘿~”", "“(｡･∀･)ﾉﾞ嗨！~上午好呀！”", "一波调戏", "一波求教", "“早上好呀！”", "“卡哇咿滴斯勒” “？”"];
                                 t.publicVar[7] += 1;
-                                t.publicVar[8] = 0;//todo
+                                t.publicVar[8] = 0;//tag 碧瑶聊天
                                 t.publicVar2[20] += parseInt(3 * Math.random() + 1);
                                 n.playText("Canvas/notify", c[i] + "，好感+1\n（当前好感：" + t.publicVar[7] + "）\n（下次成功率为" + t.publicVar2[20] + "%+" + 2 * t.publicVar[20] + "）", 60);
                             } else {
@@ -9386,7 +9448,7 @@ require = function e(t, n, a) {
                                 t.publicVar2[20] -= parseInt(3 * Math.random() + 1);
                                 n.playText("Canvas/notify", "一顿" + c[i] + "，好感+0\n（下次聊天成功率" + t.publicVar2[20] + "%+" + 2 * t.publicVar[20] + "%）", 60);
                             }
-                            if (t.talkTimes[1] == 100) {//todo 碧瑶聊天奖励 
+                            if (t.talkTimes[1] == 100) {//tag 碧瑶聊天奖励 
 
                             }
                             t.energy -= 10;
@@ -12405,6 +12467,9 @@ require = function e(t, n, a) {
                             if (300 == t.distance) {
                                 var n = cc.find("Canvas/Button/txt_place").getComponent("cc.Label");
                                 0 == t.publicVar[13] ? n.string = "「城中村」" : 1 == t.publicVar[13] ? n.string = "「郊外」" : 2 == t.publicVar[13] ? n.string = "「市中心」" : 3 == t.publicVar[13] && (n.string = "「山洞" + t.publicVar3[1] + "米」");
+                                if (4 == t.publicVar[13]) {
+                                    n.string = "「东京」";
+                                }
                             }
                         },
                         buttonState: function () {
@@ -12493,7 +12558,7 @@ require = function e(t, n, a) {
                             a < n[0] && (t = 1e3);
                             a == n[0] && (t = 2e3);
                             a > n[0] && a < n[1] && (t = 3e3);
-                            a == n[1] && (t = 4e3);
+                            a == n[1] && (t = 4e3);//todo
                             return t;
                         },
                         regionName: function () {
@@ -13050,210 +13115,233 @@ require = function e(t, n, a) {
             scr_effect: "scr_effect",
             scr_public: "scr_public"
         }],
-        scr_shop3: [function (e, t, n) {
+        scr_shop3: [function (e, t, n) {//tag 晓风大楼
             "use strict";
             cc._RF.push(t, "bddbc1AxUZNv63YXc4kCfkQ", "scr_shop3");
             cc.Class({
                 extends: cc.Component,
                 properties: {},
                 onLoad: function () {
-                    var t = this, n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = cc.find("Canvas/UI1"), o = cc.find("Canvas/UI2"), r = c.getChildByName("choice1"), s = c.getChildByName("choice2"), l = c.getChildByName("choice3"), u = c.getChildByName("choice4"), p = c.getChildByName("choice5"), f = (c.getChildByName("choice6"),
-                        //物品掉落传送门
-                        [70, 70, 70, 70, 50]), d = [["披风", 15, 1, 100], ["小裤裤", 21, 1, 20], ["晓月手链", 27, 1, 20], ["幸运石", 26, 1, 20], ["板砖", 20, 1, 20], ["JK制服", 24, 1, 20]];
+                    var thisModule = this, data = e("scr_data"), a = e("scr_effect"), i = e("scr_public"),
+                        floorchooseUI = cc.find("Canvas/UI1"), canteen = cc.find("Canvas/UI2"),
+                        floor1 = floorchooseUI.getChildByName("choice1"), floor2 = floorchooseUI.getChildByName("choice2"), floor3 = floorchooseUI.getChildByName("choice3"), floor4 = floorchooseUI.getChildByName("choice4"), floor5 = floorchooseUI.getChildByName("choice5"),
+                        floor6 = floorchooseUI.getChildByName("choice6"),
+                        rateoffloor = [70, 70, 70, 70, 50, 0],//todo 100出现率
+                        dataofiteminffloor1 = [["披风", 15, 1, 100], ["小裤裤", 21, 1, 20], ["晓月手链", 27, 1, 20], ["幸运石", 26, 1, 20], ["板砖", 20, 1, 20], ["JK制服", 24, 1, 20]];
                     (function () {
-                        c.active = !0;
-                        o.active = !0;
-                        o.scale = 0;
-                        t.cureTimes = 0;
-                        t.gameTime1 = n.publicVar3[6];
-                        t.gameTime2 = n.publicVar3[6];
-                        t.r1 = 100 * Math.random();
-                        t.r2 = 100 * Math.random();
-                        t.r3 = 100 * Math.random();
-                        t.r4 = 100 * Math.random();
-                        t.r5 = 100 * Math.random();
-                        t.makeMoneyRate = (50 * Math.random() + 25).toFixed(1);
-                        t.makeMoneyProfit = (50 * Math.random()).toFixed(1);
-                        t.r3 < f[2] && (l.getChildByName("text").getComponent("cc.Label").string = "三楼：晓风料理");
-                        t.itemId = parseInt(5.99 * Math.random());
-                        t.itemDiscount = parseInt(30 * Math.random() + 60);
-                        t.itemName = d[t.itemId][0];
-                        t.itemPrice = d[t.itemId][3];
-                        t.finalPrice = parseInt(t.itemPrice * t.itemDiscount / 100);
+                        floorchooseUI.active = !0;
+                        canteen.active = !0;
+                        canteen.scale = 0;
+                        thisModule.calltimesinF5 = 0;
+                        thisModule.gameTime1 = data.publicVar3[6];
+                        thisModule.gameTime2 = data.publicVar3[6];
+                        thisModule.r1 = 100 * Math.random();
+                        thisModule.r2 = 100 * Math.random();
+                        thisModule.r3 = 100 * Math.random();
+                        thisModule.r4 = 100 * Math.random();
+                        thisModule.r5 = 100 * Math.random();
+                        thisModule.r6 = 100 * Math.random();
+                        thisModule.makeMoneyRate = (50 * Math.random() + 25).toFixed(1);
+                        thisModule.makeMoneyProfit = (50 * Math.random()).toFixed(1);
+                        thisModule.r3 < rateoffloor[2] && (floor3.getChildByName("text").getComponent("cc.Label").string = "三楼：晓风料理");
+                        thisModule.itemId = parseInt(5.99 * Math.random());
+                        thisModule.itemDiscount = parseInt(30 * Math.random() + 60);
+                        thisModule.itemName = dataofiteminffloor1[thisModule.itemId][0];
+                        thisModule.itemPrice = dataofiteminffloor1[thisModule.itemId][3];
+                        thisModule.finalPrice = parseInt(thisModule.itemPrice * thisModule.itemDiscount / 100);
                     })();
-                    C();
+                    givetexttobutton();
                     (function () {
-                        c.getChildByName("back").on("touchstart", function () {
+                        floorchooseUI.getChildByName("back").on("touchstart", function () {
                             e("scr_public").save();
                             cc.director.loadScene("main");
                         }, this);
-                        t.r1 < f[0] ? r.on("touchstart", b, r) : r.on("touchstart", I, r);
-                        t.r2 < f[1] ? s.on("touchstart", _, s) : s.on("touchstart", I, s);
-                        t.r3 < f[2] ? l.on("touchstart", v, l) : l.on("touchstart", I, l);
-                        t.r4 < f[3] ? u.on("touchstart", h, u) : u.on("touchstart", I, u);
-                        n.publicVar3[7] > 800 ? p.on("touchstart", E, p) : t.r5 < f[4] ? p.on("touchstart", V, p) : p.on("touchstart", m, p);
-                        o.getChildByName("choice1").on("touchstart", y, this);
-                        o.getChildByName("choice2").on("touchstart", g, this);
-                        o.getChildByName("back").on("touchstart", function () {
-                            o.runAction(cc.scaleTo(.3, 0));
+                        thisModule.r1 < rateoffloor[0] ? floor1.on("touchstart", functionofF1, floor1) : floor1.on("touchstart", callbacknotopen, floor1);
+                        thisModule.r2 < rateoffloor[1] ? floor2.on("touchstart", functionofF2, floor2) : floor2.on("touchstart", callbacknotopen, floor2);
+                        thisModule.r3 < rateoffloor[2] ? floor3.on("touchstart", justfade, floor3) : floor3.on("touchstart", callbacknotopen, floor3);
+                        thisModule.r4 < rateoffloor[3] ? floor4.on("touchstart", functionofF4, floor4) : floor4.on("touchstart", callbacknotopen, floor4);
+                        data.publicVar3[7] > 800 ? floor5.on("touchstart", showfloor5disable, floor5) : thisModule.r5 < rateoffloor[4] ? floor5.on("touchstart", showdisable, floor5) : floor5.on("touchstart", functionofF5, floor5);
+                        thisModule.r6 < rateoffloor[5] ? floor6.on("touchstart", functionofF6, floor6) : floor6.on("touchstart", function () {
+                            a.playText("Canvas/notify", "“现在还不是时候！”", 60);
+                        }, floor6);
+                        canteen.getChildByName("choice1").on("touchstart", eathanbeger, this);
+                        canteen.getChildByName("choice2").on("touchstart", eatguozi, this);
+                        canteen.getChildByName("back").on("touchstart", function () {
+                            canteen.runAction(cc.scaleTo(.3, 0));
                             (function () {
-                                N();
-                                c.runAction(cc.scaleTo(.3, 1));
+                                settextclear();
+                                floorchooseUI.runAction(cc.scaleTo(.3, 1));
                             })();
                         }, this);
                     })();
-                    x();
-                    function m() {
-                        if (t.cureTimes >= 3) a.playText("Canvas/notify", "“啊哈哈哈哈哈~有些累了...下次再来哈~”", 60); else if (n.money >= 10) {
-                            var e = Math.max(100 - n.publicVar3[8], 0), i = 100 * Math.random();
-                            n.publicVar3[7] -= 10;
-                            t.cureTimes += 1;
-                            n.money -= 10;
+                    judgefloor2();
+                    judgefloor6();
+                    function judgefloor6() {
+                        thisModule.r6 < rateoffloor[5] ? floor6.getChildByName("text").getComponent("cc.Label").string = "六楼：秋良传送门" : floor6.getChildByName("text").getComponent("cc.Label").string = "？？？？？（未开启...）";
+                    }
+                    function functionofF6() {
+                        //todo 创建一个新的场景
+                        data.publicVar[13] = 4;
+                        e("scr_public").save();
+                        cc.director.loadScene("main", function () {
+                            e("scr_effect").playText("Canvas/Text/txt_notify", "你已到达日本，可以开始探索啦~", 60);
+                        });
+                        /*t.plotId = 1;
+                        t.enemyId = 108;
+                        a.save();
+                        cc.director.loadScene("plot");*/
+                    }
+                    function functionofF5() {
+                        if (thisModule.calltimesinF5 >= 3) a.playText("Canvas/notify", "“啊哈哈哈哈哈~有些累了...下次再来哈~”", 60); else if (data.money >= 10) {
+                            var e = Math.max(100 - data.publicVar3[8], 0), i = 100 * Math.random();
+                            data.publicVar3[7] -= 10;
+                            thisModule.calltimesinF5 += 1;
+                            data.money -= 10;
                             if (i < e) {
-                                n.orderTimes[4] += 1;
+                                data.orderTimes[4] += 1;
                                 a.playText("Canvas/notify", "电疗成功！烟瘾减少1%，电疗店总资产+1元", 60);
                             } else {
-                                n.health -= 1;
+                                data.health -= 1;
                                 a.playText("Canvas/notify", "电疗失败...健康减1点...电疗店总资产+1元", 60);
                             }
-                            C();
+                            givetexttobutton();
                         } else a.playText("Canvas/notify", "没钱！", 60);
                     }
-                    function h() {
-                        if (t.gameTime2 - t.gameTime1 > 30) a.playText("Canvas/notify", "“小兄弟，没身份证的人只能临时上机两小时哦，我怕警察来查，请下次再玩吧~”", 60); else if (20 == n.publicVar3[6]) {
-                            n.money += 1;
-                            n.publicVar3[6] += 1;
+                    function functionofF4() {
+                        if (thisModule.gameTime2 - thisModule.gameTime1 > 30) a.playText("Canvas/notify", "“小兄弟，没身份证的人只能临时上机两小时哦，我怕警察来查，请下次再玩吧~”", 60); else if (20 == data.publicVar3[6]) {
+                            data.money += 1;
+                            data.publicVar3[6] += 1;
                             a.playText("Canvas/notify", "你玩游戏的热情让网吧老板很是感动，老板鼓励你坚持梦想，并奖励你0.1元，~", 60);
-                        } else if (50 == n.publicVar3[6]) {
-                            n.money += 5;
-                            n.publicVar3[6] += 1;
+                        } else if (50 == data.publicVar3[6]) {
+                            data.money += 5;
+                            data.publicVar3[6] += 1;
                             a.playText("Canvas/notify", "你成功晋级青铜段位，老板流出喜悦的泪水，并奖励你0.5元~", 60);
-                        } else if (90 == n.publicVar3[6]) {
-                            n.hunger = i.maxHunger();
-                            n.publicVar3[6] += 1;
+                        } else if (90 == data.publicVar3[6]) {
+                            data.hunger = i.maxHunger();
+                            data.publicVar3[6] += 1;
                             a.playText("Canvas/notify", "你成功晋级白银段位，老板高兴的请你吃了一顿麻辣烫，饥饿全恢复！", 60);
-                        } else if (140 == n.publicVar3[6]) {
-                            n.money += 20;
-                            n.itemNum2[25] += 1;
-                            n.publicVar3[6] += 1;
-                            C();
+                        } else if (140 == data.publicVar3[6]) {
+                            data.money += 20;
+                            data.itemNum2[25] += 1;
+                            data.publicVar3[6] += 1;
+                            givetexttobutton();
                             a.playText("Canvas/notify", "你成功晋级黄金段位，老板奖励你2元钱，和一件个护身符~", 60);
-                        } else if (200 == n.publicVar3[6]) {
-                            n.itemNum2[21] += 1;
-                            n.itemNum2[22] += 1;
-                            n.publicVar3[6] += 1;
+                        } else if (200 == data.publicVar3[6]) {
+                            data.itemNum2[21] += 1;
+                            data.itemNum2[22] += 1;
+                            data.publicVar3[6] += 1;
                             a.playText("Canvas/notify", "你成功晋级白金段位，老板赠送你她的贴身衣物，获得【女装】*1和【小裤裤】*1！", 60);
-                        } else if (300 == n.publicVar3[6]) {
-                            n.hunger = i.maxHunger();
-                            n.publicVar3[6] += 1;
-                            C();
+                        } else if (300 == data.publicVar3[6]) {
+                            data.hunger = i.maxHunger();
+                            data.publicVar3[6] += 1;
+                            givetexttobutton();
                             a.playText("Canvas/notify", "你成功晋级砖石段位，老板兴奋的邀你去她房里睡一觉，精力全恢复！", 60);
-                        } else if (450 == n.publicVar3[6]) {
-                            n.itemNum2[17] += 1;
-                            n.itemNum2[26] += 1;
-                            n.itemNum2[27] += 1;
-                            n.publicVar3[6] += 1;
+                        } else if (450 == data.publicVar3[6]) {
+                            data.itemNum2[17] += 1;
+                            data.itemNum2[26] += 1;
+                            data.itemNum2[27] += 1;
+                            data.publicVar3[6] += 1;
                             a.playText("Canvas/notify", "你成功晋级大师段位，老板赠送你一些收集品，获得【晓月手链】*1【幸运石】*1【放大镜】*1！", 60);
-                        } else if (700 == n.publicVar3[6]) {
-                            n.role.att += 50;
-                            n.role.def += 25;
-                            n.role.maxHp += 250;
-                            n.publicVar3[6] += 1;
+                        } else if (700 == data.publicVar3[6]) {
+                            data.role.att += 50;
+                            data.role.def += 25;
+                            data.role.maxHp += 250;
+                            data.publicVar3[6] += 1;
                             i.save();
                             a.playText("Canvas/notify", "你成功晋级王者段位，老板授予你「王的男人」称号，攻击永久+50，防御永久+25，生命永久+250！", 60);
-                        } else if (n.money >= 1) {
-                            var e = Math.min((40 + n.publicVar3[6] / 10).toFixed(1), 75), c = 100 * Math.random();
-                            n.money -= 1;
+                        } else if (data.money >= 1) {
+                            var e = Math.min((40 + data.publicVar3[6] / 10).toFixed(1), 75), c = 100 * Math.random();
+                            data.money -= 1;
                             if (c < e) {
-                                n.publicVar3[5] < 99 && (n.publicVar3[5] += 1);
-                                n.publicVar3[6] += 1;
-                                t.gameTime2 += 1;
+                                data.publicVar3[5] < 99 && (data.publicVar3[5] += 1);
+                                data.publicVar3[6] += 1;
+                                thisModule.gameTime2 += 1;
                                 a.playText("Canvas/notify", "游戏胜利！炒开森~攻防血提高1%（临时效果，随天数缓慢衰减）。游戏技术+1", 60);
-                                C();
+                                givetexttobutton();
                             } else {
-                                n.publicVar3[5] = 0;
-                                n.publicVar3[6] += 1;
-                                t.gameTime2 += 1;
+                                data.publicVar3[5] = 0;
+                                data.publicVar3[6] += 1;
+                                thisModule.gameTime2 += 1;
                                 a.playText("Canvas/notify", "游戏失败！不开心~属性加成消失...游戏技术+1", 60);
-                                C();
+                                givetexttobutton();
                             }
                         } else a.playText("Canvas/notify", "没钱...", 60);
                     }
-                    function v() {
-                        c.runAction(cc.scaleTo(.3, 0));
+                    function justfade() {
+                        floorchooseUI.runAction(cc.scaleTo(.3, 0));
                         (function () {
-                            N();
-                            o.runAction(cc.scaleTo(.3, 1));
+                            settextclear();
+                            canteen.runAction(cc.scaleTo(.3, 1));
                         })();
                     }
-                    function y() {
-                        if (n.hunger > i.maxHunger()) a.playText("Canvas/notify", "已经吃不下啦...", 60); else if (n.itemNum[3] >= 4 && n.itemNum[0] >= 5) {
-                            n.hunger += 350;
-                            n.maxHunger += 15;
-                            n.itemNum[3] -= 4;
-                            n.itemNum[0] -= 5;
-                            n.publicVar3[13] += 1;
+                    function eathanbeger() {
+                        if (data.hunger > i.maxHunger()) a.playText("Canvas/notify", "已经吃不下啦...", 60); else if (data.itemNum[3] >= 4 && data.itemNum[0] >= 5) {
+                            data.hunger += 350;
+                            data.maxHunger += 15;
+                            data.itemNum[3] -= 4;
+                            data.itemNum[0] -= 5;
+                            data.publicVar3[13] += 1;
                             a.playText("Canvas/notify", "饥饿+350，最大饥饿值提高15点！", 60);
-                            C();
+                            givetexttobutton();
                         } else a.playText("Canvas/notify", "食材不足~", 60);
                     }
-                    function g() {
-                        if (n.hunger > i.maxHunger()) a.playText("Canvas/notify", "已经吃不下啦...", 60); else if (n.itemNum[0] >= 5) {
-                            n.hunger += 100;
-                            n.health += 2;
-                            n.itemNum[0] -= 5;
+                    function eatguozi() {
+                        if (data.hunger > i.maxHunger()) a.playText("Canvas/notify", "已经吃不下啦...", 60); else if (data.itemNum[0] >= 5) {
+                            data.hunger += 100;
+                            data.health += 2;
+                            data.itemNum[0] -= 5;
                             a.playText("Canvas/notify", "饥饿+100，健康值+2！", 60);
-                            C();
+                            givetexttobutton();
                         } else a.playText("Canvas/notify", "食材不足~", 60);
                     }
-                    function b() {
+                    function functionofF1() {
                         var e = 100 * Math.random();
-                        if (0 == t.makeMoneyRate) a.playText("Canvas/notify", "“今日已投资，请明日再来吧~”", 60); else if (0 == n.money) a.playText("Canvas/notify", "“不好意思，请你出去~”", 60); else if (n.money > 500) a.playText("Canvas/notify", "“不好意思，你已超过国家监管限定金额，请你去实体银行吧，我们只是网上的小银行~”", 60); else if (e < t.makeMoneyRate) {
-                            var i = parseInt(n.money * t.makeMoneyProfit / 100);
-                            n.money += i;
-                            a.playText("Canvas/notify", "投资成功！金钱增加" + t.makeMoneyProfit + "%(+" + (i / 10).toFixed(1) + ")", 60);
-                            t.makeMoneyRate = 0;
-                            C();
+                        if (0 == thisModule.makeMoneyRate) a.playText("Canvas/notify", "“今日已投资，请明日再来吧~”", 60); else if (0 == data.money) a.playText("Canvas/notify", "“不好意思，请你出去~”", 60); else if (data.money > 500) a.playText("Canvas/notify", "“不好意思，你已超过国家监管限定金额，请你去实体银行吧，我们只是网上的小银行~”", 60); else if (e < thisModule.makeMoneyRate) {
+                            var i = parseInt(data.money * thisModule.makeMoneyProfit / 100);
+                            data.money += i;
+                            a.playText("Canvas/notify", "投资成功！金钱增加" + thisModule.makeMoneyProfit + "%(+" + (i / 10).toFixed(1) + ")", 60);
+                            thisModule.makeMoneyRate = 0;
+                            givetexttobutton();
                         } else {
-                            i = parseInt(n.money * t.makeMoneyProfit / 100);
-                            n.money -= i;
-                            a.playText("Canvas/notify", "投资失败...金钱缩水" + t.makeMoneyProfit + "%(-" + (i / 10).toFixed(1) + ")", 60);
-                            t.makeMoneyRate = 0;
-                            C();
+                            i = parseInt(data.money * thisModule.makeMoneyProfit / 100);
+                            data.money -= i;
+                            a.playText("Canvas/notify", "投资失败...金钱缩水" + thisModule.makeMoneyProfit + "%(-" + (i / 10).toFixed(1) + ")", 60);
+                            thisModule.makeMoneyRate = 0;
+                            givetexttobutton();
                         }
                     }
-                    function _() {
-                        if (t.itemDiscount >= 9999) a.playText("Canvas/notify", "商品已售罄~", 60); else if (n.money >= t.finalPrice) {
-                            var e = d[t.itemId][1], i = d[t.itemId][2];
-                            n.money -= t.finalPrice;
-                            n.itemNum2[e] += i;
-                            a.playText("Canvas/notify", "获得【" + t.itemName + "】*" + i, 60);
-                            t.itemDiscount = 9999;
-                            C();
-                            x();
+                    function functionofF2() {
+                        if (thisModule.itemDiscount >= 9999) a.playText("Canvas/notify", "商品已售罄~", 60); else if (data.money >= thisModule.finalPrice) {
+                            var e = dataofiteminffloor1[thisModule.itemId][1], i = dataofiteminffloor1[thisModule.itemId][2];
+                            data.money -= thisModule.finalPrice;
+                            data.itemNum2[e] += i;
+                            a.playText("Canvas/notify", "获得【" + thisModule.itemName + "】*" + i, 60);
+                            thisModule.itemDiscount = 9999;
+                            givetexttobutton();
+                            judgefloor2();
                         } else a.playText("Canvas/notify", "金钱不足！", 60);
                     }
-                    function x() {
-                        t.itemDiscount >= 9999 ? s.getChildByName("text").getComponent("cc.Label").string = "二楼：晓风服饰（已售罄~）" : t.r2 < f[1] ? s.getChildByName("text").getComponent("cc.Label").string = "二楼：晓风服饰（" + t.itemName + "," + t.itemDiscount + "折," + (t.finalPrice / 10).toFixed(1) + "元）" : s.getChildByName("text").getComponent("cc.Label").string = "？？？？（放假中...）";
+                    function judgefloor2() {
+                        thisModule.itemDiscount >= 9999 ? floor2.getChildByName("text").getComponent("cc.Label").string = "二楼：晓风服饰（已售罄~）" : thisModule.r2 < rateoffloor[1] ? floor2.getChildByName("text").getComponent("cc.Label").string = "二楼：晓风服饰（" + thisModule.itemName + "," + thisModule.itemDiscount + "折," + (thisModule.finalPrice / 10).toFixed(1) + "元）" : floor2.getChildByName("text").getComponent("cc.Label").string = "？？？？（放假中...）";
                     }
-                    function C() {
-                        t.r1 < f[0] ? r.getChildByName("text").getComponent("cc.Label").string = "一楼：晓风金融（赢钱概率" + t.makeMoneyRate + "%）" : r.getChildByName("text").getComponent("cc.Label").string = "？？？？（放假中...）";
-                        t.r4 < f[3] ? u.getChildByName("text").getComponent("cc.Label").string = "四楼：晓风网咖（属性+" + n.publicVar3[5] + "%,胜率" + Math.min((40 + n.publicVar3[6] / 10).toFixed(1), 75) + "%）" : u.getChildByName("text").getComponent("cc.Label").string = "？？？？（放假中...）";
-                        cc.find("Canvas/UI2/hunger").getComponent("cc.Label").string = "饥饿 " + n.hunger + "/" + i.maxHunger();
-                        cc.find("Canvas/money").getComponent("cc.Label").string = "金钱 " + (n.money / 10).toFixed(1);
-                        n.publicVar3[7] > 800 ? p.getChildByName("text").getComponent("cc.Label").string = "关门大吉！转行啦~" : t.r5 < f[4] ? p.getChildByName("text").getComponent("cc.Label").string = "？？？？（心情不好，外出旅游啦~）" : p.getChildByName("text").getComponent("cc.Label").string = "五楼：小风电疗（资产" + ((800 - n.publicVar3[7]) / 10).toFixed(1) + "元,成功率" + Math.max(100 - n.publicVar3[8], 0) + "%）";
+                    function givetexttobutton() {
+                        thisModule.r1 < rateoffloor[0] ? floor1.getChildByName("text").getComponent("cc.Label").string = "一楼：晓风金融（赢钱概率" + thisModule.makeMoneyRate + "%）" : floor1.getChildByName("text").getComponent("cc.Label").string = "？？？？（放假中...）";
+                        thisModule.r4 < rateoffloor[3] ? floor4.getChildByName("text").getComponent("cc.Label").string = "四楼：晓风网咖（属性+" + data.publicVar3[5] + "%,胜率" + Math.min((40 + data.publicVar3[6] / 10).toFixed(1), 75) + "%）" : floor4.getChildByName("text").getComponent("cc.Label").string = "？？？？（放假中...）";
+                        cc.find("Canvas/UI2/hunger").getComponent("cc.Label").string = "饥饿 " + data.hunger + "/" + i.maxHunger();
+                        cc.find("Canvas/money").getComponent("cc.Label").string = "金钱 " + (data.money / 10).toFixed(1);
+                        data.publicVar3[7] > 800 ? floor5.getChildByName("text").getComponent("cc.Label").string = "关门大吉！转行啦~" : thisModule.r5 < rateoffloor[4] ? floor5.getChildByName("text").getComponent("cc.Label").string = "？？？？（心情不好，外出旅游啦~）" : floor5.getChildByName("text").getComponent("cc.Label").string = "五楼：小风电疗（资产" + ((800 - data.publicVar3[7]) / 10).toFixed(1) + "元,成功率" + Math.max(100 - data.publicVar3[8], 0) + "%）";
                         i.save();
                     }
-                    function E() {
+                    function showfloor5disable() {
                         a.playText("Canvas/notify", "由于经济不景气，公司倒闭，老板转行卖土鸡蛋去啦~", 60);
                     }
-                    function I() {
+                    function callbacknotopen() {
                         a.playText("Canvas/notify", "“放假啦！哈哈哈哈哈！”", 60);
                     }
-                    function V() {
+                    function showdisable() {
                         a.playText("Canvas/notify", "“再为难~也不能耽误放假呀！哈哈哈哈哈！”", 60);
                     }
-                    function N() {
+                    function settextclear() {
                         cc.find("Canvas/notify").getComponent("cc.Label").string = "";
                     }
                 }
@@ -14151,20 +14239,38 @@ require = function e(t, n, a) {
             });
             cc._RF.pop();
         }, {}],
-        scr_system: [function (e, t, n) {
+        scr_system: [function (e, t, n) {//tag 设置界面
             "use strict";
             cc._RF.push(t, "00817ZNI7hJb4XVsFxczkla", "scr_system");
             cc.Class({
                 extends: cc.Component,
                 properties: {},
                 onLoad: function () {
-                    var t = ["一般", "快", "一般"], n = cc.find("Canvas/button/speed"), a = e("scr_data"), i = e("scr_effect");
-                    cc.find("Canvas/text/speed").getComponent("cc.Label").string = "你目前剧情（部分）播放速度为" + t[a.publicVar[6] || 2];
-                    n.on("touchstart", function () {
+                    var t = ["一般", "快", "一般"],
+                        n = cc.find("Canvas/button/speed"), a = e("scr_data"), i = e("scr_effect"),
+                        speedtext = cc.find("Canvas/text/speed");
+                    speedtext.getComponent("cc.Label").string = "你目前剧情（部分）播放速度为" + t[a.publicVar[6] || 2];
+                    let ex = cc.instantiate(n);//复制一个一模一样的按钮 1
+                    ex.setPosition(0, 459 - 200);//设置位置 往第一个按钮的下方移动200像素 2
+                    cc.find("Canvas/button").addChild(ex);  // 将按钮节点作为当前节点的子节点 3
+                    ex.getChildByName("New Label").getComponent("cc.Label").string = "倍 率";
+                    //获得按钮上的节点，用名字搜索子节点       子节点上有一个组件    修改组件的字符  4
+                    ex.color = cc.Color.RED;  //设置新节点的颜色
+                    //text.string = "测试按钮";//text.parent = ex;//text.color = cc.Color.RED;
+                    let exT = cc.instantiate(speedtext);//复制显示文字的label
+                    exT.setPosition(0, 557 - 200);// 如法炮制
+                    cc.find("Canvas/text").addChild(exT);
+                    exT.getComponent("cc.Label").string = "你当前拥有 " + a.energyconsumetimes + "x 前进/探索速度\n（探索时会消耗对应倍数的精力\n但是奖励总量不变）";
+                    n.on("touchstart", function () {//添加触摸函数要最后加，不然复制的按钮也会有这个函数（也许吧）
                         a.publicVar[6] += 1;
                         a.publicVar[6] > 2 && (a.publicVar[6] = 1);
                         i.playText("Canvas/text/speed", "你目前剧情播放速度为" + t[a.publicVar[6]], 60);
                     }, n);
+                    ex.on("touchstart", function () {//添加触摸函数要最后加，不然复制的按钮也会有这个函数（也许吧）
+                        a.energyconsumetimes += 1;
+                        a.energyconsumetimes > 10 && (a.energyconsumetimes = 1);
+                        exT.getComponent("cc.Label").string = "你当前拥有 " + a.energyconsumetimes + "x 前进/探索速度\n（探索时会消耗对应倍数的精力\n但是奖励总量不变）";//todo
+                    }, ex);
                 }
             });
             cc._RF.pop();
