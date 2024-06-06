@@ -75,7 +75,7 @@ require = function e(t, n, a) {
                 },
                 //成就传送门            
                 onLoad: function () {
-                    var t = e("scr_data"), n = e("scr_data2"), a = e("scr_public"), i = t.publicVar2[2] + t.publicVar2[3] + t.publicVar2[4], c = t.itemNum2[17] + t.itemNum2[18] + t.itemNum2[20] + t.itemNum2[21] + t.itemNum2[22] + t.itemNum2[23] + t.itemNum2[24] + t.itemNum2[25], o = this.day(), r = t.choice[5] + t.publicVar[7], s = {
+                    var t = e("scr_data"), n = e("scr_data2"), a = e("scr_public"), i = t.publicVar2[2] + t.publicVar2[3] + t.publicVar2[4], c = t.itemNum2[17] + t.itemNum2[18] + t.itemNum2[20] + t.itemNum2[21] + t.itemNum2[22] + t.itemNum2[23] + t.itemNum2[24] + t.itemNum2[25], o = this.day(), r = t.friend_xiaoyue.favorability + t.publicVar[7], s = {
                         0: "【第一次】第一次击败女贼（小学生）",
                         1: "【dalao】声望达到99（" + t.achieve + "/99，目前版本声望系统暂未开放）",
                         2: "【非酋矿老板】被劫匪抢劫66次！（" + t.publicVar2[0] + "/66，包括66次以上，下同）",
@@ -89,7 +89,7 @@ require = function e(t, n, a) {
                         10: "【县城一霸】击败刀疤男",
                         11: "【残废】触发烟瘾36次（" + t.publicVar2[8] + "/36）",
                         12: "【对不起，我要做个坏人】罪恶值60（" + t.publicVar[0] + "/60）",
-                        13: "【抱走晓月】晓月好感400（" + t.choice[5] + "/400）",
+                        13: "【抱走晓月】晓月好感400（" + t.friend_xiaoyue.favorability + "/400）",
                         14: "【饥渴少女（晓月）】“老哥，我想要...”“没有！滚~”。连续30天不喂食晓月！（" + t.publicVar2[10] + "/30）",
                         15: "【真.爱】触发回到认识晓月前一天后，放弃认识晓月，并到达省城",
                         16: "【决心】击败通缉犯",
@@ -163,7 +163,7 @@ require = function e(t, n, a) {
                             return n.achieveMent[12] == 1;
                         },
                         13: function () {
-                            if (t.choice[5] >= 400) { n.achieveMent[13] = 1; }
+                            if (t.friend_xiaoyue.favorability >= 400) { n.achieveMent[13] = 1; }
                             return n.achieveMent[13] == 1;
                         },
                         14: function () {
@@ -176,7 +176,7 @@ require = function e(t, n, a) {
                             return !1;
                         },
                         15: function () {
-                            if (300 == t.distance && n.gameData[0] > 0 && 0 == t.choice[5]) { n.achieveMent[15] = 1; }
+                            if (300 == t.distance && n.gameData[0] > 0 && 0 == t.friend_xiaoyue.favorability) { n.achieveMent[15] = 1; }
                             return n.achieveMent[15] == 1;
                         },
                         16: function () {
@@ -216,7 +216,7 @@ require = function e(t, n, a) {
                             return n.achieveMent[24] == 1;
                         },
                         25: function () {
-                            if (t.publicVar[7] >= 600 && t.choice[5] <= 0) { n.achieveMent[25] = 1; }
+                            if (t.publicVar[7] >= 600 && t.friend_xiaoyue.favorability <= 0) { n.achieveMent[25] = 1; }
                             return n.achieveMent[25] == 1;
                         },
                         26: function () {
@@ -391,8 +391,8 @@ require = function e(t, n, a) {
                         },
                         money: 5,
                         day: 1,
-                        energy: 50,
-                        maxEnergy: 50,
+                        energy: 100,
+                        maxEnergy: 100,
                         hunger: 100,
                         maxHunger: 100,
                         health: 30,
@@ -408,10 +408,13 @@ require = function e(t, n, a) {
                         //加入ordertimes8,9,10,11,12
                         randomEvent: [0, 0, 0, 0, 0, 0, 0, 99, 588, 0, 0, 0, 0, 0],
                         choice: [2, 0, 0, 0, 0, 0, 0, 0, 0],
+                        friend_xiaoyue: {
+                            favorability: 0,
+                        },
                         chioce2: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                         kills: [0, 0, 0, 0],
                         itemNum: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],//ITEMNUM【17】
-                        itemNum2: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],//tag 新变量在这加ITEMNUM2【28,29,30】
+                        itemNum2: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],//tag 新变量在这加
                         ifFollow: [0, 0],
                         plotId: 0,
                         talkTimes: [0, 0],
@@ -425,6 +428,8 @@ require = function e(t, n, a) {
                         randomModel: 0,
                         gift: [0, 0, 0, 0],
                         randomBuff: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                        escapeBattle: 0,
+                        winEnemy: [],
                         escapeExp: 0,
                         energyconsumetimes: 1,
                         inBattle: 0,
@@ -609,6 +614,8 @@ require = function e(t, n, a) {
                         "undefined" == typeof e.skillLv[34] && (e.skillLv[34] = 0);
                         "undefined" == typeof e.skillLv[35] && (e.skillLv[35] = 0);
                         //新增物品传送门
+                        "undefined" == typeof e.escapeBattle && (e.escapeBattle = 0);
+                        "undefined" == typeof e.winEnemy && (e.winEnemy = []);
                         "undefined" == typeof e.randomModel && (e.randomModel = 0);
                         "undefined" == typeof e.gift && (e.gift = [0, 0, 0, 0]);
                         "undefined" == typeof e.randomBuff && (e.randomBuff = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
@@ -629,7 +636,7 @@ require = function e(t, n, a) {
                         "undefined" == typeof e.randomEvent[13] && (e.randomEvent[13] = 0);
                     }(e = JSON.parse(cc.sys.localStorage.getItem("userData")));
                     t.exports = e;
-                }
+                },
             });
             cc._RF.pop();
         }, {}],
@@ -887,30 +894,45 @@ require = function e(t, n, a) {
                         3: {//tag 进食物品传送门
                             itemName: " 香烟 ",
                             needDes: "※拥有：" + this.data.itemNum2[7] + "（你当前烟瘾为" + n + "%）",
-                            des: "※效果：减少1点健康。恢复一半的精力，解除【烟瘾】BUFF！你，今天第" + this.data.orderTimes[8] + "次抽烟",
+                            des: "※效果：减少1点健康。恢复" + 50 + this.data.orderTimes[8] * 5 + "精力，解除【烟瘾】BUFF！你，今天第" + this.data.orderTimes[8] + "次抽烟",
                             ifEnough: function (t) {
                                 e("scr_data").itemNum2[7] > 0 && (cc.find("Canvas/Page/view/content/page_1/" + t + "/button/name").color = new cc.color(0, 255, 0));
                             },
                             button: function () {
                                 var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = n.itemNum2[7],
                                     //Energy = 10 * parseInt(Math.max(0.05 - 0.01 * n.orderTimes[8], 0) * i.maxEnergy());
-                                    Energy = 10 * parseInt(0.05 * i.maxEnergy());
+                                    //Energy = 10 * parseInt(0.05 * i.maxEnergy());
+                                    Energy = 50 + n.orderTimes[8] * 5,
+                                    text = "";
                                 if (2 == n.publicVar[1]) {
                                     a.playText("Canvas/notify", "好孩子不能抽烟哦！", 100)
                                 }
                                 else if (c >= 1) {
-                                    n.health -= 1;
+
                                     n.itemNum2[7] -= 1;
                                     n.energy += Energy;
-                                    n.orderTimes[1] += 1;
+
                                     n.orderTimes[8] += 1;
-                                    n.role.hp = i.role.maxHp();
+                                    //n.role.hp = i.role.maxHp();
                                     n.skillLv[4] = 0;
                                     n.itemNum[7] += 1;
                                     n.buffState[2] = 1;
-                                    n.maxHealth -= 1;
+
+                                    var rate = n.orderTimes[8] * 3 + n.orderTimes[1] * 3 - n.orderTimes[4];
+                                    if (Math.random() * 100 < 15) {
+                                        n.orderTimes[1] += 1;
+                                        n.health -= 1;
+                                        text = "烟瘾增加！健康-1"
+                                    }
+                                    if (Math.random() * 100 < rate) {
+                                        n.orderTimes[1] += 1;
+                                        n.health -= 1;
+                                        n.maxHealth -= 1;
+                                        text = "烟瘾增加！健康/最大健康-1"
+                                    }
+
                                     i.save();
-                                    a.playText("Canvas/notify", "健康/最大健康-1，精力恢复" + Energy + "！生命恢复为满，获得烟头*1", 100);
+                                    a.playText("Canvas/notify", "精力恢复" + Energy + "！获得烟头*1" + text, 100);
                                     t.delayCreatItemUI1();
                                 } else a.playText("Canvas/notify", "道具不足！", 100);
                             }
@@ -960,7 +982,7 @@ require = function e(t, n, a) {
                                 e("scr_data").itemNum[13] > 0 && (cc.find("Canvas/Page/view/content/page_2/" + t + "/button/name").color = new cc.color(255, 0, 0));
                             },
                             button: function () {
-                                var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = n.choice[5],
+                                var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = n.friend_xiaoyue.favorability,
                                     r = "入口的那一刻，你快哭出来了";
                                 if (n.itemNum[13] > 0) {
                                     n.itemNum[13] -= 1;
@@ -1167,7 +1189,7 @@ require = function e(t, n, a) {
                         s = r.getChildByName("determine1"), l = r.getChildByName("determine2"),
                         u = e("scr_public");
                     (function () {
-                        var e = i.choice[5] + i.publicVar[7];
+                        var e = i.friend_xiaoyue.favorability + i.publicVar[7];
                         if (0 == a.gameData[3]) {
                             a.gameData[1] += 1;
                             a.gameData[3] = 1;
@@ -3819,11 +3841,11 @@ require = function e(t, n, a) {
                         218: {
                             name: "路明非",
                             lv: "·S",
-                            hp: 3e6,
-                            maxHp: 3e6,
-                            att: 2000,
-                            def: 400,
-                            publicVar: 0,
+                            hp: 5e5,
+                            maxHp: 5e5,
+                            att: 1000,
+                            def: 1000,
+                            publicVar: 2,
                             escapeRate: -9999,
                             enemyEscapeRate: 0,
                             lostHealth: 1,
@@ -3833,38 +3855,100 @@ require = function e(t, n, a) {
                             des: "是我害死了绘梨衣...",
                             skill: function () {
                                 var text = "" + this.name + "使用";
-                                if (this.getAtt == 1) {
-                                    if (0 == this.publicVar) {
-                                        c.itemNum2[14] = 0;
-                                        c.ifFollow[0] = 0;
-                                        c.ifFollow[1] = 0;
-                                        this.publicVar += 1;
-                                        text += "「Noglue」，你失去所有技能和伙伴,"
-                                    }
+                                if ((this.hp / this.maxHp) > 0.25) {
                                     if ((this.hp / this.maxHp) > 0.75) {
-                                        this.publicVar += 3;
-                                        text += "「The gathing」，技能强化，";
+                                        this.publicVar += 2;
+                                        text += "「The gathing」，回复蓝量，";
                                     }
-                                    else if ((this.hp / this.maxHp) > 0.5) {
-                                        this.publicVar += 1;
-                                        this.maxHp = parseInt(this.maxHp * 0.75);
-                                        this.hp = this.maxHp;
-                                        text += "「不要死」，失去25%最大生命,回满生命"
-                                    }
-                                    if ((this.hp / this.maxHp) < 0.5 || this.publicVar > 10) {
-                                        this.getAtt = 2;
-                                        if (this.publicVar > 10) {
-                                            this.publicVar = 10;
+                                    if (this.getAtt == 1) {
+                                        if (1 == this.lostHealth) {
+                                            c.itemNum2[14] = 0;
+                                            c.ifFollow[0] = 0;
+                                            c.ifFollow[1] = 0;
+                                            this.lostHealth += 1;
+                                            text += "「Noglue」，你失去所有技能和伙伴,"
+                                        } else if (2 == this.lostHealth) {
+                                            this.lostHealth += 1;
+                                            this.hp = this.maxHp / 2;
+                                            this.publicVar += 5;
+                                            text += "「七宗罪」，" + this.name + "以血为引，开启了七宗罪，";
                                         }
-                                        this.maxHp = 3e6 * this.publicVar;
-                                        this.att = 2000 * this.publicVar;
-                                        this.def = 400 * this.publicVar;
-                                        this.hp = this.maxHp;
-                                        text += "【something for nothing】融合度" + 10 * this.publicVar + "%";
-                                        this.name = "路鸣泽";
-                                        this.lv = "未知";
+                                        else if (3 == this.lostHealth) {
+                                            this.lostHealth += 1;
+                                            this.att += this.att * 1;
+                                            var e = 1 * this.att - o.def;
+                                            c.role.hp -= e;
+                                            this.publicVar += 1;
+                                            text += "「色欲」，" + this.name + "造成" + e + "伤害";
+                                        }
+                                        else if (4 == this.lostHealth) {
+                                            this.lostHealth += 1;
+                                            this.att += this.att * 1;
+                                            var e = 2 * this.att - o.def;
+                                            c.role.hp -= e;
+                                            this.publicVar += 2;
+                                            text += "「饕餮」，" + this.name + "造成" + e + "伤害";
+                                        }
+                                        else if (5 == this.lostHealth) {
+                                            this.lostHealth += 1;
+                                            this.att += this.att * 1;
+                                            var e = 3 * this.att - o.def;
+                                            c.role.hp -= e;
+                                            this.publicVar += 3;
+                                            text += "「贪婪」，" + this.name + "造成" + e + "伤害";
+                                        } else if (6 == this.lostHealth) {
+                                            this.lostHealth += 1;
+                                            this.att += this.att * 1;
+                                            var e = 3 * this.att - o.def;
+                                            c.role.hp -= e;
+                                            this.publicVar += 4;
+                                            text += "「懒惰」，" + this.name + "造成" + e + "伤害";
+                                        } else if (7 == this.lostHealth) {
+                                            this.lostHealth += 1;
+                                            this.att += this.att * 1;
+                                            var e = 3 * this.att - o.def;
+                                            c.role.hp -= e;
+                                            this.publicVar += 5;
+                                            text += "「妒忌」，" + this.name + "造成" + e + "伤害";
+                                        } else if (8 == this.lostHealth) {
+                                            this.lostHealth += 1;
+                                            this.att += this.att * 1;
+                                            var e = 3 * this.att - o.def;
+                                            c.role.hp -= e;
+                                            this.publicVar += 6;
+                                            text += "「傲慢」，" + this.name + "造成" + e + "伤害";
+                                        } else if (9 == this.lostHealth) {
+                                            this.att += this.att * 1;
+                                            var e = 3 * this.att - o.def;
+                                            c.role.hp -= e;
+                                            this.publicVar += 7;
+                                            text += "「暴怒」，" + this.name + "造成" + e + "伤害";
+                                        }
+                                    } if (this.publicVar > 10) {
+                                        if (this.getAtt == 1) {
+                                            this.getAtt = 2;
+                                            this.maxHp = this.maxHp * this.publicVar;
+                                            this.att = this.att * this.publicVar;
+                                            this.def = this.def * this.publicVar;
+                                            this.hp = this.maxHp;
+                                            text += "【something for nothing】融合度" + 10 * this.publicVar + "%";
+                                            this.name = "路鸣泽";
+                                            this.lv = "未知";
+                                            this.publicVar = 2;
+                                        } else if (this.getAtt == 2 && this.publicVar > 16) {
+                                            this.getAtt = 3;
+                                            this.maxHp = this.maxHp * this.publicVar;
+                                            this.att = this.att * this.publicVar;
+                                            this.def = this.def * this.publicVar;
+                                            this.hp = this.maxHp;
+                                            text += "【something for nothing】" + 1 * this.publicVar + "倍增幅";
+                                            this.name = "路鸣泽";
+                                            this.lv = "龙王再世";
+                                            this.publicVar = 2;
+                                        }
                                     }
-                                } else if (this.getAtt == 2) {
+                                }
+                                if (this.getAtt == 2) {
                                     if (this.publicVar % 3 == 0) {
                                         this.publicVar += 1;
                                         var e = this.att * 2;
@@ -3873,6 +3957,7 @@ require = function e(t, n, a) {
                                     } else if (this.publicVar % 3 == 1) {
                                         this.publicVar += 1;
                                         var e = 3 * this.att - o.def;
+                                        c.role.hp -= e;
                                         text += "「烛龙」，造成" + e + "点伤害";
                                     } else if (this.publicVar % 3 == 2) {
                                         this.publicVar += 1;
@@ -3880,12 +3965,49 @@ require = function e(t, n, a) {
                                     } else {
                                         this.publicVar += 1;
                                     }
+                                } else if (this.getAtt == 3) {
+                                    if (this.publicVar % 3 == 0) {
+                                        this.publicVar += 1;
+                                        this.att = this.att * 2;
+                                        text += "「时零」，攻击力翻倍";
+                                    } else if (this.publicVar % 3 == 1) {
+                                        this.publicVar += 1;
+                                        this.def = this.def * 2;
+                                        text += "「王权」，防御力翻倍";
+                                    } else if (this.publicVar % 3 == 2) {
+                                        this.publicVar += 1;
+                                        this.att = 1;
+                                        this.def = 1;
+                                        this.hp = 1;
+                                        text += "「江南老贼」，路明非纯废物";
+                                    } else {
+                                        this.publicVar += 1;
+                                    }
+                                }
+                                if (this.getAtt == 1) {
+                                    if ((this.hp / this.maxHp) < 0.5 && (this.publicVar > 0)) {
+                                        this.publicVar -= 1;
+                                        this.maxHp = parseInt(this.maxHp * 0.75);
+                                        this.hp = this.maxHp;
+                                        text += "「不要死」，失去25%最大生命,回满生命"
+                                    }
+
+                                } else if (this.getAtt == 2) {
+                                    if ((this.hp / this.maxHp) < 0.5 && (this.publicVar > 0)) {
+                                        this.publicVar -= 1;
+                                        this.maxHp = parseInt(this.maxHp * 0.75);
+                                        this.hp = this.maxHp;
+                                        text += "「不要死」，失去25%最大生命,回满生命"
+                                    }
+                                } else if (this.getAtt == 2) {
+
                                 }
                                 return text;
                             },
                             defSkill: function () {
+
                                 if (this.publicVar == 0) {
-                                    return "【如果我早点出手，也许绘梨衣就不会死了】";
+                                    return "【你也是来夺走她的吗！】";
                                 }
                                 return "";
                             },
@@ -4323,7 +4445,7 @@ require = function e(t, n, a) {
                             },
                             defSkill: void 0,
                             winEvent: function () {
-                                var e = Math.min(parseInt(.05 * c.choice[5] + 5), 55);
+                                var e = Math.min(parseInt(.05 * c.friend_xiaoyue.favorability + 5), 55);
                                 c.role.def += e;
                                 c.chioce2[7] += 1;
                                 return "【“你走吧，我想静静~”。哥哥的祝福：防御永久增加" + e + "（与晓月好感有关）！】";
@@ -4362,7 +4484,7 @@ require = function e(t, n, a) {
                                 return "【“哈哈哈哈哈”】";
                             },
                             winEvent: function () {
-                                var e = Math.min(parseInt(.5 * c.choice[5] + 50), 550);
+                                var e = Math.min(parseInt(.5 * c.friend_xiaoyue.favorability + 50), 550);
                                 c.role.maxHp += e;
                                 c.chioce2[7] += 1;
                                 return "【“好像还有点钱嗷~”。母上大人的祝福：生命永久增加" + e + "（与晓月好感有关）！】";
@@ -4402,7 +4524,7 @@ require = function e(t, n, a) {
                                 return "【" + this.name + "使用「空手道.蓄气！」，" + this.name + "攻击强化！】";
                             },
                             winEvent: function () {
-                                var e = Math.min(parseInt(.1 * c.choice[5] + 10), 110);
+                                var e = Math.min(parseInt(.1 * c.friend_xiaoyue.favorability + 10), 110);
                                 c.role.att += e;
                                 c.chioce2[7] += 1;
                                 return "【父亲大人的祝福：攻击永久增加" + e + "（与晓月好感有关）！】";
@@ -4764,7 +4886,7 @@ require = function e(t, n, a) {
                             winEvent: function () {
                                 var t = e("scr_data"), n = this.publicVar + 5;
                                 t.money += n;
-                                e("scr_data2").gameData2[0] = 1;
+                                e("scr_data2").gameData2[0] += 1;
                                 t.randomEvent[3] += 1;
                                 return "【获得" + (n / 10).toFixed(1) + "元！】【“呜呜呜，我告诉我姐去”】";
                             },
@@ -7067,7 +7189,7 @@ require = function e(t, n, a) {
                                 text: ["早上我还在睡觉，外面传来一阵阵大哭声和大笑声吵醒，", "我钻出帐篷一看————", "路边，一个叉腿坐地、短发、身着中学校服的妹子，喝着啤酒，一会大笑，一会大哭...", "过去问问", "算了，还是不要生事的好"],
                                 require: [],
                                 choice1: function () {
-                                    0 == a.gameData[4] ? n.choice[5] += 1 : n.choice[5] += 66;
+                                    0 == a.gameData[4] ? i.QLnewfunction.addxiaoyue_favorability(1) : i.QLnewfunction.addxiaoyue_favorability(66);
                                     r("女孩（晓月，游戏伙伴之一）瞟了你一眼，并没有理你，只是自顾自的喝完了手上的啤酒", "随后她站起来，拍了拍身上的灰就离开了");
                                 },
                                 choice2: function () {
@@ -7077,9 +7199,10 @@ require = function e(t, n, a) {
                             },
                             3011: {
                                 text: ["晚上，我正在帐篷里睡觉", "一个柔软的身体钻了进来，", "“(；´д｀)ゞ~老哥你好~", "有没有啥吃的a~，", "我两天没吃过东西啦\n(ಥ_ಥ)”", "有哇", "流氓——呀————！"],
-                                require: [n.choice[5], 1],
+                                require: [n.friend_xiaoyue.favorability, 1],
                                 choice1: function () {
-                                    n.choice[5] += 30;
+                                    i.QLnewfunction.addxiaoyue_favorability(30);
+                                    //n.friend_xiaoyue.favorability += 30;
                                     n.itemNum[0] -= parseInt(.5 * n.itemNum[0]);
                                     n.itemNum2[0] -= parseInt(.5 * n.itemNum2[0]);
                                     n.itemNum2[12] -= parseInt(.5 * n.itemNum2[12]);
@@ -7094,22 +7217,26 @@ require = function e(t, n, a) {
                                 text: ["“嘿~老哥，做早饭咧~(｀・ω・´)", "我做饭可厉害啦(*￣︶￣)，", "让我试试呗( • ̀ω•́ )✧~", "让她试", "不让她试"],
                                 require: [n.ifFollow[0], 1],
                                 choice1: function () {
-                                    if (n.choice[5] < 35) {
+                                    if (n.friend_xiaoyue.favorability < 35) {
                                         n.role.hp = 1;
-                                        n.choice[5] += 40;
+                                        i.QLnewfunction.addxiaoyue_favorability(40);
+                                        //n.friend_xiaoyue.favorability += 40;
                                         r("...你喝了一大盆「黯然销魂十杂大补汤」\n【生命全损失，晓月好感+40】");
-                                    } else if (n.choice[5] < 100) {
+                                    } else if (n.friend_xiaoyue.favorability < 100) {
                                         n.itemNum2[0] += 3;
-                                        n.choice[5] += 20;
+                                        //n.friend_xiaoyue.favorability += 20;
+                                        i.QLnewfunction.addxiaoyue_favorability(20);
                                         r("获得【熟肉】*3\n晓月好感+20");
                                     } else {
                                         n.itemNum[13] += 1;
-                                        n.choice[5] += 50;
+                                        i.QLnewfunction.addxiaoyue_favorability(50);
+                                        //n.friend_xiaoyue.favorability += 50;
                                         r("获得神秘道具\n晓月好感+50");
                                     }
                                 },
                                 choice2: function () {
-                                    n.choice[5] -= 5;
+                                    i.QLnewfunction.addxiaoyue_favorability(-5);
+                                    //n.friend_xiaoyue.favorability -= 5;
                                     r("哼！￣へ￣\n【晓月好感-5】");
                                 }
                             },
@@ -7130,11 +7257,13 @@ require = function e(t, n, a) {
                                 require: [n.ifFollow[0], 1],
                                 choice1: function () {
                                     n.energy = 0;
-                                    n.choice[5] += 100;
+                                    i.QLnewfunction.addxiaoyue_favorability(100);
+                                    //n.friend_xiaoyue.favorability += 100;
                                     r("由于晓月晚上说梦话（偷笑）、蹬人，你一晚没睡！\n【精力0恢复！晓月好感+100】");
                                 },
                                 choice2: function () {
-                                    n.choice[5] -= 5;
+                                    i.QLnewfunction.addxiaoyue_favorability(-5);
+                                    //n.friend_xiaoyue.favorability -= 5;
                                     r("￣へ￣\n【晓月好感-5】");
                                 }
                             },
@@ -7169,8 +7298,9 @@ require = function e(t, n, a) {
                                 text: ["你在一个隐蔽的草丛中发现一套水手服，", "似乎是有人故意放在这里的", "你要用它替换掉晓月身上的脏衣服吗？", "这是为她着想！", "想想就行了(º﹃º )"],
                                 require: [n.ifFollow[0], 1],
                                 choice1: function () {
-                                    if (n.choice[5] > 400) {
-                                        n.choice[5] += 75;
+                                    if (n.friend_xiaoyue.favorability > 400) {
+                                        i.QLnewfunction.addxiaoyue_favorability(75);
+                                        //n.friend_xiaoyue.favorability += 75;
                                         r("(/ω＼)好害羞...不过只要你喜欢我就穿...\no(*////▽////*)q\n晓月好感+75");
                                     } else {
                                         n.role.hp = 1;
@@ -7335,7 +7465,7 @@ require = function e(t, n, a) {
                             },
                             4018: {
                                 text: ["这天，我在街上游荡，", "意外的碰到了晓月！", "她全是干干净净，依旧留在短发", "我感觉脸颊发烫，刚想找个地方避开，但是还是被发现，", "“hi~老哥~好久不见呀”", "“对不起，我...”", "“啊~~你走了之后，那个大叔就放开了我，还把我送回了家，什么事也没发生┐(´∀｀)┌。我先上学去了，拜拜~”", "", "....."],
-                                require: [n.choice[5], 1],
+                                require: [n.friend_xiaoyue.favorability, 1],
                                 require2: [n.publicVar[3], 0],
                                 choice1: function () { },
                                 choice2: function () {
@@ -7345,7 +7475,7 @@ require = function e(t, n, a) {
                             4019: {
                                 text: ["这天，我在街上游荡，", "意外的碰到了那天的短发女孩（晓月）。", "她全是干干净净，简直像是换了一个人！", "是否过去打招呼？", "是", "算了，这么漂亮的妹子怎可能喜欢我"],
                                 require: [],
-                                require2: [n.choice[5], 0],
+                                require2: [n.friend_xiaoyue.favorability, 0],
                                 choice1: function () {
                                     n.publicVar[9] = 2;
                                     r("“喔~是你呀~我认得你！要是有啥困难，可以来找我喔︿(￣︶￣)︿”，女孩的热情，让我鼻子一酸，这是我第一次有这种感受...");
@@ -8059,6 +8189,7 @@ require = function e(t, n, a) {
                     }, Askill)
                     n.publicVar[4] = 0;
                     n.Askills[0] = 0;
+                    n.inBattle = 1;//进入战斗
                     this.correct = [0, 0];//临时攻击和防御力，随便减少
                     this.publicVar = 0;
                     for (var I in o) theEnemy[I] = o[I];//这段代码使用 for...in 循环，遍历对象 o 中的所有可枚举属性，并将它们赋值给对象 r。
@@ -8102,6 +8233,20 @@ require = function e(t, n, a) {
                             }
                         }
                     })();
+                    (function () {
+                        if (n.escapeBattle == 1) {
+                            for (const id in n.winEnemy) {
+                                if (n.winEnemy[id] == n.enemyId) {
+                                    theEnemy.hp = 1;
+                                    theEnemy.maxHp = 1;
+                                    theEnemy.att = 1;
+                                    theEnemy.def = 1;
+                                    break;
+                                }
+                            }
+                        }
+                    })();
+
                     //tag 战斗特效传送门
                     var yourDEF = youinFight.def, Edes = theEnemy.des, k = ["均  衡", "进  攻", "防  御"];
                     var rateofshanbi;
@@ -8136,7 +8281,7 @@ require = function e(t, n, a) {
                             if (function () {
                                 {
                                     if (1 == n.ifFollow[0] && 1 == n.friendSkill1[2]) {//声援概率计算处
-                                        var e = parseInt(n.choice[5] / 4), t = 100 * Math.random();
+                                        var e = parseInt(n.friend_xiaoyue.favorability / 4), t = 100 * Math.random();
                                         return t < e;
                                     }
                                     return !1;
@@ -8215,7 +8360,7 @@ require = function e(t, n, a) {
                                 var damageTimes = 1 + 1;
                                 for (let i = 0; i <= attTimes; i++) {
                                     damageTimes += (i / 2);
-                                }//todo
+                                }
                                 damageTimesText *= damageTimes;
                                 youHitsText = youHitsText.replace(/普攻|割裂|枪击/, "居合");
                                 /暴击|爆头/.test(youHitsText) && (youHitsText = youHitsText.replace(/暴击|爆头/, "「斩，无赦！」"));
@@ -8339,7 +8484,7 @@ require = function e(t, n, a) {
                             n.escapeExp += a;
                             i.playText("Canvas/Text/txt_notify", "逃跑成功！\n逃跑技术+" + a + "（累计" + n.escapeExp + "）", 80);
                             leaveBattle();
-                            yourLostskill();
+                            afterbattleskill();
                         }
                     }, ESCbutton);
                     refreshEnemyStatus();
@@ -8379,7 +8524,7 @@ require = function e(t, n, a) {
                                 (function () {
                                     P();
                                     i.playText("Canvas/Text/txt_notify", theEnemy.name + "逃跑啦！", 80);
-                                    yourLostskill();
+                                    afterbattleskill();
                                 })();
                                 return;
                             }
@@ -8483,9 +8628,10 @@ require = function e(t, n, a) {
                     }
                     function SaveGame() {
                         a.save();
+                        a.save2();
                         a.init();
                     }
-                    function yourLostskill() {
+                    function afterbattleskill() {
                         var e = cc.find("Canvas/Button"), t = cc.find("Canvas/Text/txt_notify");
                         if (n.role.hp <= 0) {
                             if (n.skillLv[24] > 0) {
@@ -8526,6 +8672,17 @@ require = function e(t, n, a) {
                     function isBattleEnd() {//func 战斗结束函数
                         if (theEnemy.hp <= 0) {
                             P();
+                            var alreadywin = false;
+                            for (const id in n.winEnemy) {
+                                if (n.winEnemy[id] == n.enemyId) {
+                                    alreadywin = true;
+                                    break;
+                                }
+                            }
+                            if (!alreadywin) {
+                                n.winEnemy.push(n.enemyId);
+                            } else {
+                            }
                             var e = theEnemy.drop, JKshoes = "", shouliandu = "",
                                 fightwinText = "战斗胜利！\n获得", o = inFight.getItem(e),
                                 achieve = function () {
@@ -8615,11 +8772,11 @@ require = function e(t, n, a) {
                             n.inBattle = 0;
                             "没发现道具" == o && (fightwinText = fightwinText.replace("获得", ""));
                             fightwinText = lucky + XY + XL + JKshoes + fightwinText + o + addstate + shouliandu + achieve;
-                            "undefined" != typeof theEnemy.winEvent && (fightwinText = fightwinText + "！\n" + theEnemy.winEvent());
+                            "undefined" != typeof theEnemy.winEvent && (fightwinText = fightwinText + "！\n" + theEnemy.winEvent()/*获胜之后在这里调用了一下敌人的函数*/);
                             leaveBattle();
                             inFight.scheduleOnce(function () {
                                 i.playText("Canvas/Text/txt_notify", fightwinText, 80);
-                                yourLostskill();
+                                afterbattleskill();
                             }, 1);
                         }
                     }
@@ -8640,7 +8797,7 @@ require = function e(t, n, a) {
                             leaveBattle();
                             inFight.scheduleOnce(function () {
                                 i.playText("Canvas/Text/txt_notify", e, 80);
-                                yourLostskill();
+                                afterbattleskill();
                             }, 0.3);
                         }
                     }
@@ -8775,7 +8932,8 @@ require = function e(t, n, a) {
                 JKuniforms: function () {//JK制服的功能在这里哦
                     var t = e("scr_data"), random = 100 * Math.random(), rate = 2 * t.itemNum2[24];
                     if (random <= rate) {
-                        t.choice[5] += 1;
+                        i.QLnewfunction.addxiaoyue_favorability(1);
+                        //t.friend_xiaoyue.favorability += 1;
                         t.publicVar[7] += 1;
                     }
                 },
@@ -8784,6 +8942,9 @@ require = function e(t, n, a) {
                     if (random <= rate) {
                         t.skillLv[4] = 1;
                     }
+                    //test
+                    //var func = e("scr_public");
+                    //func.QLnewfunction.addxiaoyue_favorability(2);
                 },
                 //tag 前进各种概率传送门
                 forward: function () {
@@ -8793,27 +8954,34 @@ require = function e(t, n, a) {
                     this.reduceHealth();
                     this.JKuniforms();
                     this.smoker();//新手保护措施，可修改是否遇到怪物和敌人
-                    if (rate <= 20 + 10 * (3 == n.publicVar[1] ? 1 : 0)) {
-                        if (n.distance <= 10) {
+                    const BONUS_MULTIPLIER = 10;
+                    const ENERGY_INCREMENT = 10;
+                    const CLOSE_DISTANCE = 10;
+                    const MEDIUM_DISTANCE = 20;
+                    const LOW_RATE_THRESHOLD = 20 + BONUS_MULTIPLIER * (n.publicVar[1] === 3 ? 1 : 0);
+                    const MEDIUM_RATE_THRESHOLD = 80;
+                    const HIGH_RATE_THRESHOLD = 100;
+
+                    if (rate <= LOW_RATE_THRESHOLD) {
+                        if (n.distance <= CLOSE_DISTANCE) {
                             n.publicVar2[3] += 1;
                             this.getItem();
                         } else {
                             n.publicVar2[2] += 1;
                             this.fight();
-                            n.energy += 10 * (n.energyconsumetimes - 1);
-                            n.inBattle = 1;
+                            n.energy += ENERGY_INCREMENT * (n.energyconsumetimes - 1);
                         }
-                    } else if (rate <= 80) {
+                    } else if (rate <= MEDIUM_RATE_THRESHOLD) {
                         n.publicVar2[3] += 1;
                         this.getItem();
-                    } else if (rate <= 100) {
-                        if (n.distance <= 20) {
+                    } else if (rate <= HIGH_RATE_THRESHOLD) {
+                        if (n.distance <= MEDIUM_DISTANCE) {
                             n.publicVar2[3] += 1;
                             this.getItem();
                         } else {
                             n.publicVar2[4] += 1;
-                            this.event();//返还精力
-                            n.energy += 10 * (n.energyconsumetimes - 1);
+                            this.event(); // Restore energy
+                            n.energy += ENERGY_INCREMENT * (n.energyconsumetimes - 1);
                         }
                     }
                 },
@@ -9189,19 +9357,19 @@ require = function e(t, n, a) {
                     var t = e("scr_data"), n = e("scr_public"), a = t.friendSkill1, i = {
                         1:
                             function () {
-                                0 == a[1] && t.choice[5] >= 1 && (a[1] = 1);
+                                0 == a[1] && t.friend_xiaoyue.favorability >= 1 && (a[1] = 1);
                             },
                         2:
                             function () {
-                                0 == a[2] && t.choice[5] >= 500 && (a[2] = 1);
+                                0 == a[2] && t.friend_xiaoyue.favorability >= 500 && (a[2] = 1);
                             },
                         3:
                             function () {
-                                0 == a[3] && t.choice[5] >= 800 && (a[3] = 1);
+                                0 == a[3] && t.friend_xiaoyue.favorability >= 800 && (a[3] = 1);
                             },
                         4:
                             function () {
-                                0 == a[4] && t.choice[5] >= 1000 && (a[4] = 1);
+                                0 == a[4] && t.friend_xiaoyue.favorability >= 1000 && (a[4] = 1);
                             }
                     };
                     for (var c in i) i[c]();
@@ -9209,7 +9377,7 @@ require = function e(t, n, a) {
                 },
                 onLoad: function () {
                     this.skillJugge();
-                }
+                },
             });
             cc._RF.pop();
         }, {
@@ -9224,9 +9392,9 @@ require = function e(t, n, a) {
                 properties: {},
                 skillDes: function () {//tag 晓月技能文本
                     var t = e("scr_data"),
-                        n = ["【陪伴】给主角增加" + parseInt(t.choice[5] / 4 + 10) + "点攻击，增加幅度与好感有关。天生自带，无需激活！",
+                        n = ["【陪伴】给主角增加" + parseInt(t.friend_xiaoyue.favorability / 4 + 10) + "点攻击，增加幅度与好感有关。天生自带，无需激活！",
                             "【小伙伴】精力上限+20，好感达到1激活！",
-                        "【声援】每回合，" + Math.min(parseInt(t.choice[5] / 4), 100) + "%几率给主角恢复10%生命，并增加主角3%攻击（可无限叠加），触发概率与好感相关，好感达到500激活！",
+                        "【声援】每回合，" + Math.min(parseInt(t.friend_xiaoyue.favorability / 4), 100) + "%几率给主角恢复10%生命，并增加主角3%攻击（可无限叠加），触发概率与好感相关，好感达到500激活！",
                             "【复刻】胜利后，100%几率再获得一次奖励，全怪物有效，好感达到800激活！",
                             "【元气少女】睡觉时，健康恢复效果翻倍，生命恢复效果翻倍，精力额外再恢复20！好感达到1000激活！"];
                     return n;
@@ -9302,7 +9470,7 @@ require = function e(t, n, a) {
                 },
                 initUI: function () {
                     var t = e("scr_data");
-                    cc.find("Canvas/inf/good").getComponent("cc.Label").string = "晓月好感：" + t.choice[5];
+                    cc.find("Canvas/inf/good").getComponent("cc.Label").string = "晓月好感：" + t.friend_xiaoyue.favorability;
                 },
                 initUI2: function () {
                     var t = e("scr_data");
@@ -9315,7 +9483,8 @@ require = function e(t, n, a) {
                             t.publicVar2[10] = 0;
                             t.publicVar[2] = 1;
                             t.itemNum[0] -= 1;
-                            t.choice[5] += 1;
+                            a.QLnewfunction.addxiaoyue_favorability(1);
+                            //t.friend_xiaoyue.favorability += 1;
                             this.initUI();
                             cc.find("Canvas/Show").removeAllChildren();
                             n.playText("Canvas/notify", "果子-1，晓月好感+1", 80);
@@ -9323,7 +9492,8 @@ require = function e(t, n, a) {
                             t.publicVar2[10] = 0;
                             t.publicVar[2] = 1;
                             t.itemNum2[0] -= 1;
-                            t.choice[5] += 3;
+                            //t.friend_xiaoyue.favorability += 3;
+                            a.QLnewfunction.addxiaoyue_favorability(3);
                             this.initUI();
                             cc.find("Canvas/Show").removeAllChildren();
                             n.playText("Canvas/notify", "熟肉-1，晓月好感+3", 80);
@@ -9338,7 +9508,8 @@ require = function e(t, n, a) {
                     var t = e("scr_data"), n = e("scr_effect"), a = e("scr_public");
                     if (t.itemNum2[1] > 0) {
                         var amount = t.itemNum2[1];
-                        t.choice[5] += 2 * amount;
+                        a.QLnewfunction.addxiaoyue_favorability(2 * amount);
+                        //t.friend_xiaoyue.favorability += 2 * amount;
                         t.itemNum2[1] -= amount;
                         this.initUI();
                         a.save();
@@ -9361,7 +9532,8 @@ require = function e(t, n, a) {
                         i.showText(o, "plot" + c, r, 60);
                         t.talkTimes[0] += 1;
                         t.energy -= 10;
-                        t.choice[5] += 1;
+                        i.QLnewfunction.addxiaoyue_favorability(1);
+                        //t.friend_xiaoyue.favorability += 1;
                         if (t.talkTimes[0] == 100) {//tag 晓月聊天处
                             n.itemNum[13] += 1;
                             i.showText(o, "plot" + c,
@@ -10004,6 +10176,7 @@ require = function e(t, n, a) {
                         var i = new Date(), c = parseInt(i.getTime() / 36e5);
                         n.gameData[2] = c;
                     }
+                    //func 游戏初始化加属性
                     n.gameData[3] = 0;
                     t.publicVar[6] = 2;
                     a.save();
@@ -11386,8 +11559,10 @@ require = function e(t, n, a) {
                                     n.itemNum[3] -= 1;
                                     n.itemNum[1] -= xq;
                                     n.itemNum2[0] += 1;
+                                    var consume = Math.max(2 - 2 * n.itemNum2[30], 0);
+                                    n.energy -= consume;
                                     i.save();
-                                    a.playText("Canvas/notify", "获得【熟肉】*1", 100);
+                                    a.playText("Canvas/notify", "获得【熟肉】*1" + "消耗" + consume + "精力", 100);
                                     t.delayCreatItemUI();
                                 } else a.playText("Canvas/notify", "材料不足！", 100);
                             }
@@ -11404,8 +11579,10 @@ require = function e(t, n, a) {
                                 if (n.itemNum[5] >= 2) {
                                     n.itemNum[5] -= 2;
                                     n.itemNum2[1] += 1;
+                                    var consume = 2;
+                                    n.energy -= consume;
                                     i.save();
-                                    a.playText("Canvas/notify", "获得【伤药】*1", 100);
+                                    a.playText("Canvas/notify", "获得【伤药】*1" + "消耗" + consume + "精力", 100);
                                     t.delayCreatItemUI();
                                 } else a.playText("Canvas/notify", "材料不足！", 100);
                             }
@@ -11423,8 +11600,10 @@ require = function e(t, n, a) {
                                     n.itemNum[1] -= c;
                                     n.itemNum[4] -= r;
                                     n.itemNum2[2] += 1;
+                                    var consume = Math.ceil(n.itemNum2[2] / 5) * 5;;
+                                    n.energy -= consume;
                                     i.save();
-                                    a.playText("Canvas/notify", "精力上限+10！", 100);
+                                    a.playText("Canvas/notify", "精力上限+10！" + "消耗" + consume + "精力", 100);
                                     t.delayCreatItemUI();
                                 } else a.playText("Canvas/notify", "材料不足！", 100);
                             }
@@ -11445,8 +11624,10 @@ require = function e(t, n, a) {
                                 if (n.itemNum[1] >= c) {
                                     n.itemNum[1] -= c;
                                     n.itemNum2[3] += 1;
+                                    var consume = Math.ceil(n.itemNum2[3] / 5) * 5;;
+                                    n.energy -= consume;
                                     i.save();
-                                    a.playText("Canvas/notify", "攻击+10！", 100);
+                                    a.playText("Canvas/notify", "攻击+10！" + "消耗" + consume + "精力", 100);
                                     t.delayCreatItemUI();
                                 } else a.playText("Canvas/notify", "材料不足！", 100);
                             }
@@ -11467,8 +11648,10 @@ require = function e(t, n, a) {
                                 if (n.itemNum[4] >= c) {
                                     n.itemNum[4] -= c;
                                     n.itemNum2[4] += 1;
+                                    var consume = Math.ceil(n.itemNum2[4] / 5) * 5;;
+                                    n.energy -= consume;
                                     i.save();
-                                    a.playText("Canvas/notify", "生命上限+50！", 100);
+                                    a.playText("Canvas/notify", "生命上限+50！" + "消耗" + consume + "精力", 100);
                                     t.delayCreatItemUI();
                                 } else a.playText("Canvas/notify", "材料不足！", 100);
                             }
@@ -11484,12 +11667,14 @@ require = function e(t, n, a) {
                             button: function () {
                                 var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = 8 + 2 * n.itemNum2[6];
                                 if (n.itemNum2[6] >= 50) {
-                                    a.playText("Canvas/notify", "驱蚊工具已经满级了！", 100);
+                                    a.playText("Canvas/notify", "驱蚊工具已经满级了！" + "消耗" + consume + "精力", 100);
                                     return;
                                 }
                                 if (n.itemNum[5] >= c) {
                                     n.itemNum[5] -= c;
                                     n.itemNum2[6] += 1;
+                                    var consume = Math.ceil(n.itemNum2[6] / 5) * 5;;
+                                    n.energy -= consume;
                                     i.save();
                                     a.playText("Canvas/notify", "讨厌的蚊子减少啦~", 100);
                                     t.delayCreatItemUI();
@@ -11514,8 +11699,10 @@ require = function e(t, n, a) {
                                 if (n.itemNum[1] >= c) {
                                     n.itemNum[1] -= c;
                                     n.itemNum2[5] += 1;
+                                    var consume = Math.ceil(n.itemNum2[5] / 5) * 5;;
+                                    n.energy -= consume;
                                     i.save();
-                                    a.playText("Canvas/notify", "升级成功！", 100);
+                                    a.playText("Canvas/notify", "升级成功！" + "消耗" + consume + "精力", 100);
                                     t.delayCreatItemUI();
                                 } else a.playText("Canvas/notify", "材料不足！", 100);
                             }
@@ -11537,14 +11724,18 @@ require = function e(t, n, a) {
                                 if (c >= 4) {
                                     n.itemNum[6] -= 4;
                                     n.itemNum2[7] += 1;
+                                    var consume = 2;
+                                    n.energy -= consume;
                                     i.save();
-                                    a.playText("Canvas/notify", "获得【香烟】*1！", 100);
+                                    a.playText("Canvas/notify", "获得【香烟】*1！" + "消耗" + consume + "精力", 100);
                                     t.delayCreatItemUI();
                                 } else if (o >= 8) {
                                     n.itemNum[7] -= 8;
                                     n.itemNum2[7] += 1;
+                                    var consume = 2;
+                                    n.energy -= consume;
                                     i.save();
-                                    a.playText("Canvas/notify", "获得【香烟】*1！", 100);
+                                    a.playText("Canvas/notify", "获得【香烟】*1！" + "消耗" + consume + "精力", 100);
                                     t.delayCreatItemUI();
                                 } else if (n.achieve >= 50 && 0 == n.cigaretteuptimes) {//done 烟的新功能
                                     n.achieve >= 50;
@@ -11570,8 +11761,10 @@ require = function e(t, n, a) {
                                 if (n.itemNum[10] >= 5) {
                                     n.itemNum[10] -= 5;
                                     n.itemNum2[12] += 1;
+                                    var consume = 2;
+                                    n.energy -= consume;
                                     i.save();
-                                    a.playText("Canvas/notify", "获得【啤酒】*1！", 100);
+                                    a.playText("Canvas/notify", "获得【啤酒】*1！" + "消耗" + consume + "精力", 100);
                                     t.delayCreatItemUI3();
                                 } else a.playText("Canvas/notify", "材料不足！", 100);
                             }
@@ -11627,8 +11820,10 @@ require = function e(t, n, a) {
                                 if (n.itemNum[8] >= c) {
                                     n.itemNum[8] -= c;
                                     n.itemNum2[10] += 1;
+                                    var consume = Math.ceil(n.itemNum2[10] / 5) * 25;;
+                                    n.energy -= consume;
                                     i.save();
-                                    a.playText("Canvas/notify", "获得【黑刀】*1！", 100);
+                                    a.playText("Canvas/notify", "获得【黑刀】*1！" + "消耗" + consume + "精力", 100);
                                     t.delayCreatItemUI4();
                                 } else a.playText("Canvas/notify", "材料不足！", 100);
                             }
@@ -11646,8 +11841,10 @@ require = function e(t, n, a) {
                                 if (n.itemNum[9] >= c) {
                                     n.itemNum[9] -= c;
                                     n.itemNum2[11] += 1;
+                                    var consume = Math.ceil(n.itemNum2[11] / 5) * 25;;
+                                    n.energy -= consume;
                                     i.save();
-                                    a.playText("Canvas/notify", "获得【红夹克】*1！", 100);
+                                    a.playText("Canvas/notify", "获得【红夹克】*1！" + "消耗" + consume + "精力", 100);
                                     t.delayCreatItemUI4();
                                 } else a.playText("Canvas/notify", "材料不足！", 100);
                             }
@@ -12391,7 +12588,8 @@ require = function e(t, n, a) {
                             },
                             choice2: function () {
                                 t.distance += 1;
-                                t.choice[5] += 10;
+                                n.QLnewfunction.addxiaoyue_favorability(1);
+                                //t.friend_xiaoyue.favorability += 10;
                                 t.ifFollow[0] = 0;
                                 n.save();
                                 cc.director.loadScene("main", function () {
@@ -12596,7 +12794,7 @@ require = function e(t, n, a) {
                                 var a = t.role.att + 10 * t.itemNum2[3] + 20 * t.itemNum2[8] + 30 * t.itemNum2[10] + 10 * t.skillLv[11] + 20 * t.skillLv[18] + 30 * t.skillLv[22] + 5 * t.itemNum2[20] + t.publicVar3[4];
                                 a += t.itemNum2[28] * 150;//物理学圣剑加攻击
                                 if (1 == t.ifFollow[0]) {
-                                    a += parseInt(t.choice[5] / 4 + 10);
+                                    a += parseInt(t.friend_xiaoyue.favorability / 4 + 10);
                                 }
                                 a = Math.round(a * (1 - (t.skillLv[4] * smokerate) / 100) * (1 + t.publicVar[17] / 1e3 + t.itemNum2[15] / 100 + t.publicVar3[5] / 100));
                                 if (t.randomBuff[1] == 1) {
@@ -12715,10 +12913,25 @@ require = function e(t, n, a) {
                             i.getComponent(cc.Label).string = n;
                             i.getComponent(cc.Label).lineHeight = a;
                             i.getComponent(cc.Label).fontSize = 32;
+                        },
+                        QLnewfunction: {
+                            addxiaoyue_favorability: function (num) {
+                                var data = e("scr_data"), func = e("scr_public");
+                                data.friend_xiaoyue.favorability += num;
+                                if (2 == data.publicVar[1]) {
+                                    if (num > 0) {
+                                        data.friend_xiaoyue.favorability += num;
+                                    }
+                                }
+                                func.save();
+                            }
+
                         }
+
                     };
                     t.exports = n;
                 }
+
             });
             cc._RF.pop();
         }, {
@@ -13000,7 +13213,8 @@ require = function e(t, n, a) {
                         (function () {
                             if (1 == t.ifFollow[0] && 0 == t.publicVar[2]) {
                                 t.publicVar2[10] += 1;
-                                t.choice[5] -= 1;
+                                i.QLnewfunction.addxiaoyue_favorability(-1);
+                                //t.friend_xiaoyue.favorability -= 1;
                                 i.creatText("ifEat", "【不开森】晓月好感-1（哼！）");
                             }
                             t.publicVar[2] = 0;
@@ -13830,7 +14044,7 @@ require = function e(t, n, a) {
                         },
                         8: {
                             itemName: " 电饭煲（当前等级" + this.data.itemNum2[30] + ")",
-                            needDes: "价格：10元",
+                            needDes: "价格：10元，做饭的时候非常方便",
                             ifEnough: function (t) {
                                 e("scr_data").money >= 100 && (cc.find("Canvas/Page/view/content/page_3/" + t + "/name").color = new cc.color(0, 255, 0));
                             },
@@ -14345,16 +14559,29 @@ require = function e(t, n, a) {
                     exT.setPosition(0, 557 - 200);// 如法炮制
                     cc.find("Canvas/text").addChild(exT);
                     exT.getComponent("cc.Label").string = "你当前拥有 " + a.energyconsumetimes + "x 前进/探索速度\n（探索时会消耗对应倍数的精力\n但是奖励总量不变）";
-                    n.on("touchstart", function () {//添加触摸函数要最后加，不然复制的按钮也会有这个函数（也许吧）
-                        a.publicVar[6] += 1;
-                        a.publicVar[6] > 2 && (a.publicVar[6] = 1);
-                        i.playText("Canvas/text/speed", "你目前剧情播放速度为" + t[a.publicVar[6]], 60);
-                    }, n);
                     ex.on("touchstart", function () {//添加触摸函数要最后加，不然复制的按钮也会有这个函数（也许吧）
                         a.energyconsumetimes += 1;
                         a.energyconsumetimes > 10 && (a.energyconsumetimes = 1);
-                        exT.getComponent("cc.Label").string = "你当前拥有 " + a.energyconsumetimes + "x 前进/探索速度\n（探索时会消耗对应倍数的精力\n但是奖励总量不变）";//todo
+                        exT.getComponent("cc.Label").string = "你当前拥有 " + a.energyconsumetimes + "x 前进/探索速度\n（探索时会消耗对应倍数的精力\n但是奖励总量不变）";
                     }, ex);
+
+                    let escapeBattleBtn = cc.instantiate(n);//复制一个一模一样的按钮 1
+                    escapeBattleBtn.setPosition(0, 459 - 400);//设置位置 往第一个按钮的下方移动200像素 2
+                    cc.find("Canvas/button").addChild(escapeBattleBtn);  // 将按钮节点作为当前节点的子节点 3
+                    escapeBattleBtn.getChildByName("New Label").getComponent("cc.Label").string = "跳 过";
+                    //获得按钮上的节点，用名字搜索子节点       子节点上有一个组件    修改组件的字符  4
+                    escapeBattleBtn.color = cc.Color.RED;  //设置新节点的颜色
+                    //text.string = "测试按钮";//text.parent = ex;//text.color = cc.Color.RED;
+                    let escapeBattleT = cc.instantiate(speedtext);//复制显示文字的label
+                    escapeBattleT.setPosition(0, 557 - 400);// 如法炮制
+                    cc.find("Canvas/text").addChild(escapeBattleT);
+                    var textesc = ["关闭", "开启"];
+                    escapeBattleT.getComponent("cc.Label").string = "当前选项为 " + textesc[a.escapeBattle] + " 状态。\n开启选项后已经击杀过的敌人\n再次遇到时将会一击秒杀";
+                    escapeBattleBtn.on("touchstart", function () {//添加触摸函数要最后加，不然复制的按钮也会有这个函数（也许吧）
+                        a.escapeBattle += 1;
+                        a.escapeBattle > 1 && (a.escapeBattle = 0);
+                        escapeBattleT.getComponent("cc.Label").string = "当前选项为 " + textesc[a.escapeBattle] + " 状态。\n开启选项后已经击杀过的敌人\n再次遇到时将会一击秒杀";//todo 跳过战斗设置
+                    }, escapeBattleBtn);
                 }
             });
             cc._RF.pop();
@@ -14412,7 +14639,7 @@ require = function e(t, n, a) {
                     t.itemNum2[21] = 200;
                     t.itemNum2[22] = 200;
                     t.ifFollow[0] = 1;
-                    t.choice[5] = 999;
+                    t.friend_xiaoyue.favorability = 999;
                     t.skillLv[5] = 1;
                     t.skillLv[9] = 1;
                     t.skillLv[14] = 1;
