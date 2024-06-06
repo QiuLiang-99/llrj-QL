@@ -8126,7 +8126,7 @@ require = function e(t, n, a) {
                 getItem: function (t) {//func getitem函数，第一位是概率，第二位是在itemnum中的位置，第三个是获得的数量，第四个是判断是itemnum1还是2还是钱
                     for (var n = "", a = t.length, i = e("scr_public"), c = e("scr_data"), o = 0; o < a; o++) {
                         if (100 * Math.random() < t[o][0]) {
-                            var r = t[o][1], s = t[o][2], l = t[o][3];
+                            var r = t[o][1], s = 3 * t[o][2], l = t[o][3];
                             if (c.inBattle != 1) {
                                 s *= c.energyconsumetimes;
                             }
