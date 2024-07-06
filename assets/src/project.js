@@ -1,4 +1,3 @@
-var test = require('src/test.js');
 require = function loadModule(moduleDefinitions, hasBeenLoadedModulesExportValues, needLoadModuleIDList) {// 定义一个模块加载器
     function getModulesExportInMEM(needLoadModuleID) {// 加载模块的函数
         if (hasBeenLoadedModulesExportValues[needLoadModuleID]) {// 如果模块已经被加载，直接返回
@@ -32,6 +31,209 @@ require = function loadModule(moduleDefinitions, hasBeenLoadedModulesExportValue
     };
     return getModulesExportInMEM;
 }
+var scr_achieve = [function (e, t, n) {
+    "use strict";
+    cc._RF.push(t, "141caSLnsJIHJZ46hPGujwi", "scr_achieve");
+    cc.Class({
+        extends: cc.Component,
+        properties: {},
+        creatText: function (e, t, n) {
+            var a = new cc.Node(t);
+            a.addComponent(cc.Label);
+            a.parent = e;
+            a.setPosition(0, 0);
+            a.color = new cc.Color(115, 115, 115);
+            a.getComponent(cc.Label).overflow = 3;
+            a.setContentSize(630, 300);
+            a.getComponent(cc.Label).string = n;
+            a.getComponent(cc.Label).lineHeight = 50;
+            a.getComponent(cc.Label).fontSize = 32;
+        },
+        day: function () {
+            var t = new Date(), n = parseInt(t.getTime() / 36e5);
+            return parseInt(n - e("scr_data2").gameData[2]);
+        },
+        //成就传送门            
+        onLoad: function () {
+            var t = e("scr_data"), n = e("scr_data2"), a = e("scr_public"), i = t.publicVar2[2] + t.publicVar2[3] + t.publicVar2[4], c = t.itemNum2[17] + t.itemNum2[18] + t.itemNum2[20] + t.itemNum2[21] + t.itemNum2[22] + t.itemNum2[23] + t.itemNum2[24] + t.itemNum2[25], o = this.day(), r = t.friend_xiaoyue.favorability + t.publicVar[7], s = {
+                0: "【第一次】第一次击败女贼（小学生）",
+                1: "【dalao】声望达到99（" + t.achieve + "/99，目前版本声望系统暂未开放）",
+                2: "【非酋矿老板】被劫匪抢劫66次！（" + t.publicVar2[0] + "/66，包括66次以上，下同）",
+                3: "【非酋勘察队】前进探索999次，且啥也没找到比例超过25%！你目前一共前进探索" + i + "次，其中有" + t.publicVar2[1] + "次啥也没找到，占比" + (100 * t.publicVar2[1] / i).toFixed(1) + "%",
+                4: "【非酋流浪汉】捡钱被打10次（" + t.randomEvent[0] + "/10），翻垃圾被抢10次（" + t.publicVar2[13] + "/10）",
+                5: "【一身骚气∠( ᐛ 」∠)＿】前进探索999次，且战斗占比超过24%！你目前一共前进探索" + i + "次，其中战斗" + t.publicVar2[2] + "次（占比" + (100 * t.publicVar2[2] / i).toFixed(1) + "%），捡道具" + t.publicVar2[3] + "次（占比" + (100 * t.publicVar2[3] / i).toFixed(1) + "%），事件" + t.publicVar2[4] + "次（占" + (100 * t.publicVar2[4] / i).toFixed(1) + "%）",
+                6: "【震惊！一小伙被十个阿姨轮流摸】被老奶奶摸钱10次（" + t.publicVar2[5] + "/10）！",
+                7: "【扶我起来，我还能跑】逃跑失败999次（" + t.publicVar2[6] + "/999）",
+                8: "【一个约定】“10年后，如果你还在，咱们就结婚吧！”女流氓：“嗯...”碰到女流氓49次（" + t.publicVar2[12] + "/49）！",
+                9: "【巨人杀手】击杀山顶巨人10只或以上（" + t.kills[3] + "/10）",
+                10: "【县城一霸】击败刀疤男",
+                11: "【残废】触发烟瘾36次（" + t.publicVar2[8] + "/36）",
+                12: "【对不起，我要做个坏人】罪恶值60（" + t.evil.evilValue + "/60）",
+                13: "【抱走晓月】晓月好感400（" + t.friend_xiaoyue.favorability + "/400）",
+                14: "【饥渴少女（晓月）】“老哥，我想要...”“没有！滚~”。连续30天不喂食晓月！（" + t.publicVar2[10] + "/30）",
+                15: "【真.爱】触发回到认识晓月前一天后，放弃认识晓月，并到达省城",
+                16: "【决心】击败通缉犯",
+                17: "【你是个好人】拥有6个人的「好人卡」（" + t.Collectibles.goodPeopleCard + "/6）",
+                18: "【珍.爱】击败草带男孩40次（" + t.kills[2] + "/40），并且被击败20次（" + t.publicVar2[7] + "/20）",
+                19: "【雷电法王】电疗成功21次（" + t.orderTimes[3] + "/21）",
+                20: "【收集癖】拥有99个收集类道具（" + c + "/99）",
+                21: "【就算被伤透，我依然爱着你】找工作失败49次（" + t.publicVar2[9] + "/49）",
+                22: "【生而为人，我很抱歉】拥有6个人的「眼泪」（" + t.itemNum[12] + "/6，最难成就 ）",
+                23: "【鬼武者】拥有9级黑刀和9级红夹克",
+                24: "【人狠话不多】打出99颗以上子弹（" + t.publicVar3[14] + "/99）",
+                25: "【表白女神】陈碧瑶好感600（" + t.publicVar[7] + "/600），且晓月好感等于0",
+                26: "【调戏女神】还没想到hiahiahia(ಡωಡ)",
+                27: "【蛰居族】晓月好感+陈碧瑶达好感达1999（" + r + "/1999）",
+                28: "【天下第二】通关挑战副本",
+                29: "【真爱粉】本游戏通关6次以上（" + n.gameData[1] + "/6）",
+                30: "【作者亲爹妈】本游戏在你手机中存活达300小时（" + o + "/300）"
+            }, l = {
+                0: function () {
+                    if (n.gameData2[0] == 1) { n.achieveMent[0] = 1; }
+                    return n.achieveMent[0] == 1;
+
+                },
+                1: function () {
+                    if (t.achieve >= 99) { n.achieveMent[1] = 1; }
+                    return n.achieveMent[1] == 1;
+                },
+                2: function () {
+                    if (t.publicVar2[0] >= 66) { n.achieveMent[2] = 1; }
+                    return n.achieveMent[2] == 1;
+                },
+                3: function () {
+                    if ((t.publicVar2[1] / i) >= .25 && i >= 999) { n.achieveMent[3] = 1; }
+                    return n.achieveMent[3] == 1;
+                },
+                4: function () {
+                    if (t.randomEvent[0] >= 10 && t.publicVar2[13] >= 10) { n.achieveMent[4] = 1; }
+                    return n.achieveMent[4] == 1;
+                },
+                5: function () {
+                    var e = 100 * t.publicVar2[2] / i;
+                    if (i >= 999 && e >= 24) { n.achieveMent[5] = 1; }
+                    return n.achieveMent[5] == 1;
+                },
+                6: function () {
+                    if (t.publicVar2[5] >= 10) { n.achieveMent[6] = 1; }
+                    return n.achieveMent[6] == 1;
+                },
+                7: function () {
+                    if (t.publicVar2[6] >= 999) { n.achieveMent[7] = 1; }
+                    return n.achieveMent[7] == 1;
+                },
+                8: function () {
+                    if (t.publicVar2[12] >= 49) { n.achieveMent[8] = 1; }
+                    return n.achieveMent[8] == 1;
+                },
+                9: function () {
+                    if (t.kills[3] >= 10) { n.achieveMent[9] = 1; }
+                    return n.achieveMent[9] == 1;
+                },
+                10: function () {
+                    if (1 == t.publicVar[5]) { n.achieveMent[10] = 1; }
+                    return n.achieveMent[10] == 1;
+                },
+                11: function () {
+                    if (t.publicVar2[8] >= 36) { n.achieveMent[11] = 1; }
+                    return n.achieveMent[11] == 1;
+                },
+                12: function () {
+                    if (t.evil.evilValue >= 60) { n.achieveMent[12] = 1; }
+                    return n.achieveMent[12] == 1;
+                },
+                13: function () {
+                    if (t.friend_xiaoyue.favorability >= 400) { n.achieveMent[13] = 1; }
+                    return n.achieveMent[13] == 1;
+                },
+                14: function () {
+                    if (t.publicVar2[10] >= 30 || 1 == t.publicVar2[11]) {
+                        t.publicVar2[11] = 1;
+                        n.achieveMent[14] = 1;
+                        a.save();
+                        return !0;
+                    }
+                    return !1;
+                },
+                15: function () {
+                    if (300 == t.distance && n.gameData[0] > 0 && 0 == t.friend_xiaoyue.favorability) { n.achieveMent[15] = 1; }
+                    return n.achieveMent[15] == 1;
+                },
+                16: function () {
+                    if (t.publicVar[3] > 0) { n.achieveMent[16] = 1; }
+                    return n.achieveMent[16] == 1;
+                },
+                17: function () {
+                    if (t.Collectibles.goodPeopleCard >= 6) { n.achieveMent[17] = 1; }
+                    return n.achieveMent[17] == 1;
+                },
+                18: function () {
+                    if (t.kills[2] >= 40 && t.publicVar2[7] >= 20) { n.achieveMent[18] = 1; }
+                    return n.achieveMent[18] == 1;
+                },
+                19: function () {
+                    if (t.orderTimes[3] >= 21) { n.achieveMent[19] = 1; }
+                    return n.achieveMent[19] == 1;
+                },
+                20: function () {
+                    if (c >= 99) { n.achieveMent[20] = 1; }
+                    return n.achieveMent[20] == 1;
+                },
+                21: function () {
+                    if (t.publicVar2[9] >= 49) { n.achieveMent[21] = 1; }
+                    return n.achieveMent[21] == 1;
+                },
+                22: function () {
+                    if (t.itemNum[12] >= 6) { n.achieveMent[22] = 1; }
+                    return n.achieveMent[22] == 1;
+                },
+                23: function () {
+                    if (t.itemNum2[10] >= 9 && t.itemNum2[11] >= 9) { n.achieveMent[23] = 1; }
+                    return n.achieveMent[23] == 1;
+                },
+                24: function () {
+                    if (t.publicVar3[14] >= 99) { n.achieveMent[24] = 1; }
+                    return n.achieveMent[24] == 1;
+                },
+                25: function () {
+                    if (t.publicVar[7] >= 600 && t.friend_xiaoyue.favorability <= 0) { n.achieveMent[25] = 1; }
+                    return n.achieveMent[25] == 1;
+                },
+                26: function () {
+                    if (t.publicVar2[9] >= 49) { n.achieveMent[26] = 1; }
+                    return n.achieveMent[26] == 1;
+                },
+                27: function () {
+                    if (r >= 1999) { n.achieveMent[27] = 1; }
+                    return n.achieveMent[27] == 1;
+                },
+                28: function () {
+                    if (t.choice[6] >= 17) { n.achieveMent[28] = 1; }
+                    return n.achieveMent[28] == 1;
+                },
+                29: function () {
+                    if (n.gameData[1] + 1 >= 6) { n.achieveMent[29] = 1; }
+                    return n.achieveMent[29] == 1;
+                },
+                30: function () {
+                    if (o >= 300) { n.achieveMent[30] = 1; }
+                    return o >= 300;
+                }
+            },
+                u = cc.find("Canvas/Scroll/view/content");
+            for (var p in s) {//把文字内容输出到屏幕上
+                this.creatText(u, "skill" + p, s[p]);
+                l[p]() && (u.getChildByName("skill" + p).color = new cc.Color(0, 255, 0));
+            }
+            var f = cc.find("Canvas/Button_backMainUI");
+            f.on("touchstart", function () {
+                cc.director.loadScene("main");
+                a.save2();
+            }, f);
+        }
+    });
+    cc._RF.pop();
+}]
 var moduleDefinitions = {
     scr_BGM: [function (e, t, n) {
         "use strict";
@@ -64,209 +266,7 @@ var moduleDefinitions = {
         });
         cc._RF.pop();
     }],
-    scr_achieve: [function (e, t, n) {
-        "use strict";
-        cc._RF.push(t, "141caSLnsJIHJZ46hPGujwi", "scr_achieve");
-        cc.Class({
-            extends: cc.Component,
-            properties: {},
-            creatText: function (e, t, n) {
-                var a = new cc.Node(t);
-                a.addComponent(cc.Label);
-                a.parent = e;
-                a.setPosition(0, 0);
-                a.color = new cc.Color(115, 115, 115);
-                a.getComponent(cc.Label).overflow = 3;
-                a.setContentSize(630, 300);
-                a.getComponent(cc.Label).string = n;
-                a.getComponent(cc.Label).lineHeight = 50;
-                a.getComponent(cc.Label).fontSize = 32;
-            },
-            day: function () {
-                var t = new Date(), n = parseInt(t.getTime() / 36e5);
-                return parseInt(n - e("scr_data2").gameData[2]);
-            },
-            //成就传送门            
-            onLoad: function () {
-                var t = e("scr_data"), n = e("scr_data2"), a = e("scr_public"), i = t.publicVar2[2] + t.publicVar2[3] + t.publicVar2[4], c = t.itemNum2[17] + t.itemNum2[18] + t.itemNum2[20] + t.itemNum2[21] + t.itemNum2[22] + t.itemNum2[23] + t.itemNum2[24] + t.itemNum2[25], o = this.day(), r = t.friend_xiaoyue.favorability + t.publicVar[7], s = {
-                    0: "【第一次】第一次击败女贼（小学生）",
-                    1: "【dalao】声望达到99（" + t.achieve + "/99，目前版本声望系统暂未开放）",
-                    2: "【非酋矿老板】被劫匪抢劫66次！（" + t.publicVar2[0] + "/66，包括66次以上，下同）",
-                    3: "【非酋勘察队】前进探索999次，且啥也没找到比例超过25%！你目前一共前进探索" + i + "次，其中有" + t.publicVar2[1] + "次啥也没找到，占比" + (100 * t.publicVar2[1] / i).toFixed(1) + "%",
-                    4: "【非酋流浪汉】捡钱被打10次（" + t.randomEvent[0] + "/10），翻垃圾被抢10次（" + t.publicVar2[13] + "/10）",
-                    5: "【一身骚气∠( ᐛ 」∠)＿】前进探索999次，且战斗占比超过24%！你目前一共前进探索" + i + "次，其中战斗" + t.publicVar2[2] + "次（占比" + (100 * t.publicVar2[2] / i).toFixed(1) + "%），捡道具" + t.publicVar2[3] + "次（占比" + (100 * t.publicVar2[3] / i).toFixed(1) + "%），事件" + t.publicVar2[4] + "次（占" + (100 * t.publicVar2[4] / i).toFixed(1) + "%）",
-                    6: "【震惊！一小伙被十个阿姨轮流摸】被老奶奶摸钱10次（" + t.publicVar2[5] + "/10）！",
-                    7: "【扶我起来，我还能跑】逃跑失败999次（" + t.publicVar2[6] + "/999）",
-                    8: "【一个约定】“10年后，如果你还在，咱们就结婚吧！”女流氓：“嗯...”碰到女流氓49次（" + t.publicVar2[12] + "/49）！",
-                    9: "【巨人杀手】击杀山顶巨人10只或以上（" + t.kills[3] + "/10）",
-                    10: "【县城一霸】击败刀疤男",
-                    11: "【残废】触发烟瘾36次（" + t.publicVar2[8] + "/36）",
-                    12: "【对不起，我要做个坏人】罪恶值60（" + t.evil.evilValue + "/60）",
-                    13: "【抱走晓月】晓月好感400（" + t.friend_xiaoyue.favorability + "/400）",
-                    14: "【饥渴少女（晓月）】“老哥，我想要...”“没有！滚~”。连续30天不喂食晓月！（" + t.publicVar2[10] + "/30）",
-                    15: "【真.爱】触发回到认识晓月前一天后，放弃认识晓月，并到达省城",
-                    16: "【决心】击败通缉犯",
-                    17: "【你是个好人】拥有6个人的「好人卡」（" + t.Collectibles.goodPeopleCard + "/6）",
-                    18: "【珍.爱】击败草带男孩40次（" + t.kills[2] + "/40），并且被击败20次（" + t.publicVar2[7] + "/20）",
-                    19: "【雷电法王】电疗成功21次（" + t.orderTimes[3] + "/21）",
-                    20: "【收集癖】拥有99个收集类道具（" + c + "/99）",
-                    21: "【就算被伤透，我依然爱着你】找工作失败49次（" + t.publicVar2[9] + "/49）",
-                    22: "【生而为人，我很抱歉】拥有6个人的「眼泪」（" + t.itemNum[12] + "/6，最难成就 ）",
-                    23: "【鬼武者】拥有9级黑刀和9级红夹克",
-                    24: "【人狠话不多】打出99颗以上子弹（" + t.publicVar3[14] + "/99）",
-                    25: "【表白女神】陈碧瑶好感600（" + t.publicVar[7] + "/600），且晓月好感等于0",
-                    26: "【调戏女神】还没想到hiahiahia(ಡωಡ)",
-                    27: "【蛰居族】晓月好感+陈碧瑶达好感达1999（" + r + "/1999）",
-                    28: "【天下第二】通关挑战副本",
-                    29: "【真爱粉】本游戏通关6次以上（" + n.gameData[1] + "/6）",
-                    30: "【作者亲爹妈】本游戏在你手机中存活达300小时（" + o + "/300）"
-                }, l = {
-                    0: function () {
-                        if (n.gameData2[0] == 1) { n.achieveMent[0] = 1; }
-                        return n.achieveMent[0] == 1;
-
-                    },
-                    1: function () {
-                        if (t.achieve >= 99) { n.achieveMent[1] = 1; }
-                        return n.achieveMent[1] == 1;
-                    },
-                    2: function () {
-                        if (t.publicVar2[0] >= 66) { n.achieveMent[2] = 1; }
-                        return n.achieveMent[2] == 1;
-                    },
-                    3: function () {
-                        if ((t.publicVar2[1] / i) >= .25 && i >= 999) { n.achieveMent[3] = 1; }
-                        return n.achieveMent[3] == 1;
-                    },
-                    4: function () {
-                        if (t.randomEvent[0] >= 10 && t.publicVar2[13] >= 10) { n.achieveMent[4] = 1; }
-                        return n.achieveMent[4] == 1;
-                    },
-                    5: function () {
-                        var e = 100 * t.publicVar2[2] / i;
-                        if (i >= 999 && e >= 24) { n.achieveMent[5] = 1; }
-                        return n.achieveMent[5] == 1;
-                    },
-                    6: function () {
-                        if (t.publicVar2[5] >= 10) { n.achieveMent[6] = 1; }
-                        return n.achieveMent[6] == 1;
-                    },
-                    7: function () {
-                        if (t.publicVar2[6] >= 999) { n.achieveMent[7] = 1; }
-                        return n.achieveMent[7] == 1;
-                    },
-                    8: function () {
-                        if (t.publicVar2[12] >= 49) { n.achieveMent[8] = 1; }
-                        return n.achieveMent[8] == 1;
-                    },
-                    9: function () {
-                        if (t.kills[3] >= 10) { n.achieveMent[9] = 1; }
-                        return n.achieveMent[9] == 1;
-                    },
-                    10: function () {
-                        if (1 == t.publicVar[5]) { n.achieveMent[10] = 1; }
-                        return n.achieveMent[10] == 1;
-                    },
-                    11: function () {
-                        if (t.publicVar2[8] >= 36) { n.achieveMent[11] = 1; }
-                        return n.achieveMent[11] == 1;
-                    },
-                    12: function () {
-                        if (t.evil.evilValue >= 60) { n.achieveMent[12] = 1; }
-                        return n.achieveMent[12] == 1;
-                    },
-                    13: function () {
-                        if (t.friend_xiaoyue.favorability >= 400) { n.achieveMent[13] = 1; }
-                        return n.achieveMent[13] == 1;
-                    },
-                    14: function () {
-                        if (t.publicVar2[10] >= 30 || 1 == t.publicVar2[11]) {
-                            t.publicVar2[11] = 1;
-                            n.achieveMent[14] = 1;
-                            a.save();
-                            return !0;
-                        }
-                        return !1;
-                    },
-                    15: function () {
-                        if (300 == t.distance && n.gameData[0] > 0 && 0 == t.friend_xiaoyue.favorability) { n.achieveMent[15] = 1; }
-                        return n.achieveMent[15] == 1;
-                    },
-                    16: function () {
-                        if (t.publicVar[3] > 0) { n.achieveMent[16] = 1; }
-                        return n.achieveMent[16] == 1;
-                    },
-                    17: function () {
-                        if (t.Collectibles.goodPeopleCard >= 6) { n.achieveMent[17] = 1; }
-                        return n.achieveMent[17] == 1;
-                    },
-                    18: function () {
-                        if (t.kills[2] >= 40 && t.publicVar2[7] >= 20) { n.achieveMent[18] = 1; }
-                        return n.achieveMent[18] == 1;
-                    },
-                    19: function () {
-                        if (t.orderTimes[3] >= 21) { n.achieveMent[19] = 1; }
-                        return n.achieveMent[19] == 1;
-                    },
-                    20: function () {
-                        if (c >= 99) { n.achieveMent[20] = 1; }
-                        return n.achieveMent[20] == 1;
-                    },
-                    21: function () {
-                        if (t.publicVar2[9] >= 49) { n.achieveMent[21] = 1; }
-                        return n.achieveMent[21] == 1;
-                    },
-                    22: function () {
-                        if (t.itemNum[12] >= 6) { n.achieveMent[22] = 1; }
-                        return n.achieveMent[22] == 1;
-                    },
-                    23: function () {
-                        if (t.itemNum2[10] >= 9 && t.itemNum2[11] >= 9) { n.achieveMent[23] = 1; }
-                        return n.achieveMent[23] == 1;
-                    },
-                    24: function () {
-                        if (t.publicVar3[14] >= 99) { n.achieveMent[24] = 1; }
-                        return n.achieveMent[24] == 1;
-                    },
-                    25: function () {
-                        if (t.publicVar[7] >= 600 && t.friend_xiaoyue.favorability <= 0) { n.achieveMent[25] = 1; }
-                        return n.achieveMent[25] == 1;
-                    },
-                    26: function () {
-                        if (t.publicVar2[9] >= 49) { n.achieveMent[26] = 1; }
-                        return n.achieveMent[26] == 1;
-                    },
-                    27: function () {
-                        if (r >= 1999) { n.achieveMent[27] = 1; }
-                        return n.achieveMent[27] == 1;
-                    },
-                    28: function () {
-                        if (t.choice[6] >= 17) { n.achieveMent[28] = 1; }
-                        return n.achieveMent[28] == 1;
-                    },
-                    29: function () {
-                        if (n.gameData[1] + 1 >= 6) { n.achieveMent[29] = 1; }
-                        return n.achieveMent[29] == 1;
-                    },
-                    30: function () {
-                        if (o >= 300) { n.achieveMent[30] = 1; }
-                        return o >= 300;
-                    }
-                },
-                    u = cc.find("Canvas/Scroll/view/content");
-                for (var p in s) {//把文字内容输出到屏幕上
-                    this.creatText(u, "skill" + p, s[p]);
-                    l[p]() && (u.getChildByName("skill" + p).color = new cc.Color(0, 255, 0));
-                }
-                var f = cc.find("Canvas/Button_backMainUI");
-                f.on("touchstart", function () {
-                    cc.director.loadScene("main");
-                    a.save2();
-                }, f);
-            }
-        });
-        cc._RF.pop();
-    }],
+    scr_achieve: scr_achieve,
     scr_backMainUI: [function (e, t, n) {
         "use strict";
         cc._RF.push(t, "3e3ebJJTbNAf4EOh0d4HMO1", "scr_backMainUI");
@@ -13687,6 +13687,14 @@ var moduleDefinitions = {
                 t.itemDiscount = Math.random();
                 t.ifSellOut = 0;
                 var u = parseInt(l[t.itemId][3] * t.itemDiscount), p = l[t.itemId][0], f = l[t.itemId][1], d = l[t.itemId][2];
+                var origin = s;
+                var newBtn_1 = cc.instantiate(origin);//复制一个一模一样的按钮 1
+                newBtn_1.setPosition(0, 318 - 100);//设置位置 往第一个按钮的下方移动100像素 2
+                cc.find("Canvas/UI1").addChild(newBtn_1);  // 将按钮节点作为当前节点的子节点 3
+                newBtn_1.getChildByName("text").getComponent("cc.Label").string = "倍 率";
+                //获得按钮上的节点，用名字搜索子节点       子节点上有一个组件    修改组件的字符  4
+                //newBtn_1.color = cc.Color.RED;  //设置新节点的颜色
+                //text.string = "测试按钮";//text.parent = ex;//text.color = cc.Color.RED;
                 m();
                 (function () {
                     o.on("touchstart", h, this);
@@ -13694,14 +13702,6 @@ var moduleDefinitions = {
                     s.on("touchstart", y, this);
                     newBtn_1.on("touchstart", FnewBtn_1, this);
                 })();
-                var origin = s;
-                var newBtn_1 = cc.instantiate(origin);//复制一个一模一样的按钮 1
-                newBtn_1.setPosition(0, 318 - 200);//设置位置 往第一个按钮的下方移动200像素 2
-                cc.find("Canvas/UI1").addChild(newBtn_1);  // 将按钮节点作为当前节点的子节点 3
-                newBtn_1.getChildByName("text").getComponent("cc.Label").string = "倍 率";
-                //获得按钮上的节点，用名字搜索子节点       子节点上有一个组件    修改组件的字符  4
-                //newBtn_1.color = cc.Color.RED;  //设置新节点的颜色
-                //text.string = "测试按钮";//text.parent = ex;//text.color = cc.Color.RED;
                 function m() {
                     cc.find("Canvas/money").getComponent("cc.Label").string = "金钱：" + (n.money / 10).toFixed(1) + " 罪恶值：" + n.evil.evilValue;
                     cc.find("Canvas/UI1/choice2/text").getComponent("cc.Label").string = "出售伤药（每个1毛，已拥有" + n.itemNum2[1] + "）";
@@ -13786,326 +13786,312 @@ var moduleDefinitions = {
                 var thisScrModule = this;
                 this.data = e("scr_data");
                 this.data.evil.virtueLevel > 0 ? 0.2 : 0;
-                class good {
+                class Good {
                     constructor(itemName, needDes, price, ifEnough, button1, button2) {
                         this.data = e("scr_data");
+                        this.count = 1;
                         this.itemName = itemName;
                         this.needDes = needDes;
                         this.price = price;
                         this.ifEnough = ifEnough;
                         this.button1 = button1;
                         this.button2 = button2;
-
+                    }
+                    displayInfo() {
+                        console.log(`Item Name: ${this.itemName}, Price: ${this.price}`);
                     }
                 }
-                var items = {
-                    0: {
-                        itemName: " 木材*10（拥有" + this.data.itemNum[1] + ")",
-                        needDes: "购买1次/5次：1元/5元",
-                        price: 10 * (1),
-                        ifEnough: function (t) {
-                            cc.find("Canvas/Page/view/content/page_1/" + t + "/button2/text").getComponent("cc.Label").string = "购买*5";
-                            e("scr_data").money >= 10 * (1) && (cc.find("Canvas/Page/view/content/page_1/" + t + "/name").color = new cc.color(0, 255, 0));
-                        },
-                        button1: function () {
-                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
-                            var cost = Math.ceil(10 * (1));
-                            if (n.money >= cost) {
-                                if (4 == n.publicVar[1]) {
-                                    buy(cost, 12, 1, "木材");
+                var items = [];
+                items.push(new Good(" 木材*10（拥有" + this.data.itemNum[1] + ")", "购买1次/5次：1元/5元", 10 * (1), function (t) {
+                    cc.find("Canvas/Page/view/content/page_1/" + t + "/button2/text").getComponent("cc.Label").string = "购买*5";
+                    e("scr_data").money >= 10 * (1) && (cc.find("Canvas/Page/view/content/page_1/" + t + "/name").color = new cc.color(0, 255, 0));
+                }, function () {
+                    var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
+                    var cost = Math.ceil(10 * (1));
+                    if (n.money >= cost) {
+                        if (4 == n.publicVar[1]) {
+                            buy(cost, 12, 1, "木材");
 
-                                } else {
-                                    buy(cost, 10, 1, "木材");
-                                }
+                        } else {
+                            buy(cost, 10, 1, "木材");
+                        }
 
-                            } else a.playText("Canvas/notify", "钱不够！", 100);
-                        },
-                        button2: function () {
-                            var cost = Math.ceil(10 * (1) * 5);
-                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
-                            if (n.money >= 50) {
-                                if (4 == n.publicVar[1]) {
-                                    buy(cost, 60, 1, "木材");
-                                } else {
-                                    buy(cost, 50, 1, "木材");
-                                }
-                            } else a.playText("Canvas/notify", "钱不够！", 100);
+                    } else a.playText("Canvas/notify", "钱不够！", 100);
+                }, function () {
+                    var cost = Math.ceil(10 * (1) * 5);
+                    var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
+                    if (n.money >= 50) {
+                        if (4 == n.publicVar[1]) {
+                            buy(cost, 60, 1, "木材");
+                        } else {
+                            buy(cost, 50, 1, "木材");
                         }
+                    } else a.playText("Canvas/notify", "钱不够！", 100);
+                }));
+                let providedObject = {
+                    itemName: "亚麻*10（拥有" + this.data.itemNum[4] + ")",
+                    needDes: "购买1次/5次：1元/5元",
+                    price: 10 * (1),
+                    ifEnough: function (t) {
+                        cc.find("Canvas/Page/view/content/page_1/" + t + "/button2/text").getComponent("cc.Label").string = "购买*5";
+                        e("scr_data").money >= 10 * (1) && (cc.find("Canvas/Page/view/content/page_1/" + t + "/name").color = new cc.color(0, 255, 0));
                     },
-                    1: {
-                        itemName: " 亚麻*10（拥有" + this.data.itemNum[4] + ")",
-                        needDes: "购买1次/5次：1元/5元",
-                        price: 10 * (1),
-                        ifEnough: function (t) {
-                            cc.find("Canvas/Page/view/content/page_1/" + t + "/button2/text").getComponent("cc.Label").string = "购买*5";
-                            e("scr_data").money >= 10 * (1) && (cc.find("Canvas/Page/view/content/page_1/" + t + "/name").color = new cc.color(0, 255, 0));
-                        },
-                        button1: function () {
-                            var cost = Math.ceil(10 * (1));
-                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
-                            if (n.money >= cost) {
-                                if (4 == n.publicVar[1]) {
-                                    buy(cost, 12, 4, "亚麻");
-                                } else {
-                                    buy(cost, 10, 4, "亚麻");
-                                }
-                            } else a.playText("Canvas/notify", "钱不够！", 100);
-                        },
-                        button2: function () {
-                            var cost = Math.ceil(10 * (1) * 5);
-                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
-                            if (n.money >= cost) {
-                                if (4 == n.publicVar[1]) {
-                                    buy(cost, 60, 4, "亚麻");
-                                } else {
-                                    buy(cost, 50, 4, "亚麻");
-                                }
-                            } else a.playText("Canvas/notify", "钱不够！", 100);
-                        }
-                    },
-                    2: {
-                        itemName: " 果子*5（拥有" + this.data.itemNum[0] + ")",
-                        needDes: "购买1次/5次：0.5元/2.5元",
-                        price: 5 * (1),
-                        ifEnough: function (t) {
-                            cc.find("Canvas/Page/view/content/page_1/" + t + "/button2/text").getComponent("cc.Label").string = "购买*5";
-                            e("scr_data").money >= 5 * (1) && (cc.find("Canvas/Page/view/content/page_1/" + t + "/name").color = new cc.color(0, 255, 0));
-                        },
-                        button1: function () {
-                            var cost = Math.ceil(5 * (1));
-                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
-                            if (n.money >= cost) {
-                                if (4 == n.publicVar[1]) {
-                                    buy(cost, 6, 0, "果子");
-                                } else {
-                                    buy(cost, 5, 0, "果子");
-                                }
-                            } else a.playText("Canvas/notify", "钱不够！", 100);
-                        },
-                        button2: function () {
-                            var cost = Math.ceil(10 * (1) * 5);
-                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
-                            if (n.money >= cost) {
-                                if (4 == n.publicVar[1]) {
-                                    buy(cost, 30, 0, "果子");
-                                } else {
-                                    buy(cost, 25, 0, "果子");
-                                }
-                            } else a.playText("Canvas/notify", "钱不够！", 100);
-                        }
-                    },
-                    3: {
-                        itemName: " 易拉罐（拥有" + this.data.itemNum[2] + ")",
-                        needDes: "售价：每只1毛~",
-                        price: 1,
-                        ifEnough: function (t) {
-                            e("scr_data").itemNum[2] > 0 && (cc.find("Canvas/Page/view/content/page_1/" + t + "/name").color = new cc.color(0, 255, 0));
-                        },
-                        button1: void 0,
-                        button2: function () {
-                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = n.itemNum[2];
-                            if (c > 0) {
-                                n.money += c;
-                                n.itemNum[2] -= c;
-                                n.shopPoint += c;
-                                i.save();
-                                a.playText("Canvas/notify", "失去【易拉罐】*" + c + "，获得" + c + "毛钱，积分+" + c, 100);
-                                thisScrModule.delayCreatItemUI();
-                            } else a.playText("Canvas/notify", "道具不足！", 100);
-                        }
-                    },
-                    4: {
-                        itemName: " 生肉*2（拥有" + this.data.itemNum[3] + ")",
-                        needDes: "购买1次/5次：0.4元/2元",
-                        price: 4 * (1),
-                        ifEnough: function (t) {
-                            cc.find("Canvas/Page/view/content/page_2/" + t + "/button2/text").getComponent("cc.Label").string = "购买*5";
-                            e("scr_data").money >= 4 * (1) && (cc.find("Canvas/Page/view/content/page_2/" + t + "/name").color = new cc.color(0, 255, 0));
-                        },
-                        button1: function () {
-                            var cost = Math.ceil(4 * (1));
-                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
-                            if (n.money >= cost) {
-                                if (4 == n.publicVar[1]) {
-                                    buy(cost, 2, 3, "生肉");
-                                } else {
-                                    buy(cost, 2, 3, "生肉");
-                                }
-                            } else a.playText("Canvas/notify", "钱不够！", 100);
-                        },
-                        button2: function () {
-                            var cost = Math.ceil(4 * (1) * 5);
-                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
-                            if (n.money >= 10) {
-                                if (4 == n.publicVar[1]) {
-                                    buy(cost, 12, 3, "生肉");
-                                } else {
-                                    buy(cost, 10, 3, "生肉");
-                                }
-
-                            } else a.playText("Canvas/notify", "钱不够！", 100);
-                        }
-                    },
-                    5: {
-                        itemName: " 艾草*4（拥有" + this.data.itemNum[5] + ")",
-                        needDes: "购买/出售：0.4元/0.2元",
-                        price: 4 * (1),
-                        ifEnough: function (t) {
-                            e("scr_data").money >= 4 * (1) && (cc.find("Canvas/Page/view/content/page_2/" + t + "/name").color = new cc.color(0, 255, 0));
-                        },
-                        button1: function () {
-                            var cost = Math.ceil(4 * (1));
-                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
-                            if (n.money >= 4) {
-                                if (4 == n.publicVar[1]) {
-                                    buy(cost, 5, 5, "艾草");
-                                } else {
-                                    buy(cost, 4, 5, "艾草");
-                                }
-                            } else a.playText("Canvas/notify", "钱不够！", 100);
-                        },
-                        button2: function () {
-                            //var cost = Math.ceil(price);
-                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
-                            if (n.itemNum[5] >= 4) {
-                                if (4 == n.publicVar[1]) {
-                                    buy(2, -4, 5, "艾草");
-                                } else {
-                                    buy(2, -4, 5, "艾草");
-                                }
-                            } else a.playText("Canvas/notify", "道具不足！", 100);
-                        }
-                    },
-                    6: {
-                        itemName: " 匕首（当前等级" + this.data.itemNum2[8] + ")",
-                        needDes: "价格：" + (3.2 + .3 * this.data.itemNum2[8]).toFixed(1) + "元",
-                        price: null,//parseInt(5 * (1))
-                        ifEnough: function (t) {
-                            cc.find("Canvas/Page/view/content/page_2/" + t + "/button1/text").getComponent("cc.Label").string = "升级";
-                            var n = e("scr_data");
-                            n.money >= 32 + 3 * n.itemNum2[8] && (cc.find("Canvas/Page/view/content/page_2/" + t + "/name").color = new cc.color(0, 255, 0));
-                        },
-                        button1: function () {
-                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = 32 + 3 * n.itemNum2[8], o = n.money, r = 32 + 3 * n.itemNum2[8];
-                            if (n.itemNum2[8] >= 50) {
-                                a.playText("Canvas/notify", "匕首已经满级了！", 100);
-                                return;
+                    button1: function () {
+                        var cost = Math.ceil(10 * (1));
+                        var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
+                        if (n.money >= cost) {
+                            if (4 == n.publicVar[1]) {
+                                buy(cost, 12, 4, "亚麻");
+                            } else {
+                                buy(cost, 10, 4, "亚麻");
                             }
-                            if (o >= c) {
-                                n.money -= c;
-                                n.itemNum2[8] += 1;
-                                n.shopPoint += r;
-                                i.save();
-                                a.playText("Canvas/notify", "匕首等级提高1级！积分*" + r + "！", 100);
-                                thisScrModule.delayCreatItemUI();
-                            } else a.playText("Canvas/notify", "钱不够！", 100);
-                        },
-                        button2: void 0
+                        } else a.playText("Canvas/notify", "钱不够！", 100);
                     },
-                    7: {
-                        itemName: " 皮衣（当前等级" + this.data.itemNum2[9] + ")",
-                        needDes: "价格：" + (2 + .2 * this.data.itemNum2[9]).toFixed(1) + "元",
-                        price: null,//parseInt(5 * (1))
-                        ifEnough: function (t) {
-                            cc.find("Canvas/Page/view/content/page_2/" + t + "/button1/text").getComponent("cc.Label").string = "升级";
-                            var n = e("scr_data");
-                            n.money >= 20 + 2 * n.itemNum2[9] && (cc.find("Canvas/Page/view/content/page_2/" + t + "/name").color = new cc.color(0, 255, 0));
-                        },
-                        button1: function () {
-                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = 20 + 2 * n.itemNum2[9], o = n.money, r = 20 + 2 * n.itemNum2[9];
-                            if (n.itemNum2[9] >= 50) {
-                                a.playText("Canvas/notify", "皮衣已经满级了！", 100);
-                                return;
+                    button2: function () {
+                        var cost = Math.ceil(10 * (1) * 5);
+                        var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
+                        if (n.money >= cost) {
+                            if (4 == n.publicVar[1]) {
+                                buy(cost, 60, 4, "亚麻");
+                            } else {
+                                buy(cost, 50, 4, "亚麻");
                             }
-                            if (o >= c) {
-                                n.money -= c;
-                                n.itemNum2[9] += 1;
-                                n.shopPoint += r;
-                                i.save();
-                                a.playText("Canvas/notify", "皮衣等级提高1级！积分*" + r + "！", 100);
-                                thisScrModule.delayCreatItemUI();
-                            } else a.playText("Canvas/notify", "钱不够！", 100);
-                        },
-                        button2: void 0
-                    },
-                    8: {
-                        itemName: " 电饭煲（当前等级" + this.data.itemNum2[30] + ")",
-                        needDes: "价格：10元，做饭的时候非常方便",
-                        price: 100 * (1),
-                        ifEnough: function (t) {
-                            e("scr_data").money >= 100 * (1) && (cc.find("Canvas/Page/view/content/page_3/" + t + "/name").color = new cc.color(0, 255, 0));
-                        },
-                        button1: function () {
-                            var cost = Math.ceil(100 * (1));
-                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
-                            if (n.money >= 100) {
-                                if (0 == n.itemNum2[30]) {
-                                    n.money -= 100;
-                                    n.itemNum2[30] += 1;
-                                    n.shopPoint += 100;
-                                    i.save();
-                                    a.playText("Canvas/notify", "获得【电饭煲】*1！积分*100！", 100);
-                                    thisScrModule.delayCreatItemUI();
-                                } else {
-                                    a.playText("Canvas/notify", "已经买过了", 100);
-                                }
-                            } else a.playText("Canvas/notify", "钱不够！", 100);
-                        },
-                        button2: void 0
-                    },
-                    9:
-                    {
-                        itemName: "  抽奖  ",
-                        needDes: "价格：100积分，随机获得一份奖励！",
-                        price: 100,
-                        ifEnough: function (t) {
-                            cc.find("Canvas/Page/view/content/page_3/" + t + "/button1/text").getComponent("cc.Label").string = "抽奖";
-                            e("scr_data").shopPoint >= 100 && (cc.find("Canvas/Page/view/content/page_3/" + t + "/name").color = new cc.color(0, 255, 0));
-                        },
-                        button1: function () {
-                            var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
-                            if (n.shopPoint >= 100) {
-                                n.shopPoint -= 100;
-                                var c = function () {
-                                    var t = "", n = 100 * Math.random(), a = e("scr_data");
-                                    if (n <= 20) {
-                                        a.money += 10;
-                                        t = "1元钱！";
-                                    }
-                                    if (n > 20 && n <= 30) {
-                                        a.itemNum2[23] += 1;
-                                        t = "【创可贴】*1！";
-                                    }
-                                    if (n > 30 && n <= 50) {
-                                        a.itemNum2[21] += 1;
-                                        t = "【小裤裤】*1！";
-                                    }
-                                    if (n > 50 && n <= 70) {
-                                        a.itemNum2[20] += 1;
-                                        t = "【板砖】*1！";
-                                    }
-                                    if (n > 70 && n <= 90) {
-                                        a.itemNum2[26] += 1;
-                                        t = "【幸运石】*1！";
-                                    }
-                                    if (n > 90 && n <= 95) {
-                                        a.itemNum2[27] += 1;
-                                        t = "【晓月手链】*1！";
-                                    }
-                                    if (n > 95 && n <= 100) {
-                                        a.itemNum2[24] += 1;
-                                        t = "【JK制服】*1！";
-                                    }
-                                    return t;
-                                }();
-                                i.save();
-                                a.playText("Canvas/notify", "恭喜获得，" + c, 100);
-                                thisScrModule.delayCreatItemUI();
-                            } else a.playText("Canvas/notify", "积分不够！", 100);
-                        },
-                        button2: void 0
+                        } else a.playText("Canvas/notify", "钱不够！", 100);
                     }
                 };
+
+                // 实例化Good对象并添加到items数组
+                let goodItem = new Good(providedObject.itemName, providedObject.needDes, providedObject.price, providedObject.ifEnough, providedObject.button1, providedObject.button2);
+                items.push(goodItem);
+                // 假设Good类已经定义，且items数组已经存在
+
+                // 从提供的对象直接转换并添加到items数组
+                items.push(new Good(
+                    "果子*5（拥有" + this.data.itemNum[0] + ")",
+                    "购买1次/5次：0.5元/2.5元",
+                    5 * (1),
+                    function (t) {
+                        cc.find("Canvas/Page/view/content/page_1/" + t + "/button2/text").getComponent("cc.Label").string = "购买*5";
+                        e("scr_data").money >= 5 * (1) && (cc.find("Canvas/Page/view/content/page_1/" + t + "/name").color = new cc.color(0, 255, 0));
+                    },
+                    function () {
+                        var cost = Math.ceil(5 * (1));
+                        var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
+                        if (n.money >= cost) {
+                            if (4 == n.publicVar[1]) {
+                                buy(cost, 6, 0, "果子");
+                            } else {
+                                buy(cost, 5, 0, "果子");
+                            }
+                        } else a.playText("Canvas/notify", "钱不够！", 100);
+                    },
+                    function () {
+                        var cost = Math.ceil(10 * (1) * 5);
+                        var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
+                        if (n.money >= cost) {
+                            if (4 == n.publicVar[1]) {
+                                buy(cost, 30, 0, "果子");
+                            } else {
+                                buy(cost, 25, 0, "果子");
+                            }
+                        } else a.playText("Canvas/notify", "钱不够！", 100);
+                    }
+                ));
+                items.push(new Good(
+                    "易拉罐（拥有" + this.data.itemNum[2] + ")",
+                    "售价：每只1毛~",
+                    1,
+                    function (t) {
+                        e("scr_data").itemNum[2] > 0 && (cc.find("Canvas/Page/view/content/page_1/" + t + "/name").color = new cc.color(0, 255, 0));
+                    },
+                    undefined,
+                    function () {
+                        var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = n.itemNum[2];
+                        if (c > 0) {
+                            n.money += c;
+                            n.itemNum[2] -= c;
+                            n.shopPoint += c;
+                            i.save();
+                            a.playText("Canvas/notify", "失去【易拉罐】*" + c + "，获得" + c + "毛钱，积分+" + c, 100);
+                            thisScrModule.delayCreatItemUI();
+                        } else a.playText("Canvas/notify", "道具不足！", 100);
+                    }
+                ));
+                items.push(new Good(
+                    "生肉*2（拥有" + this.data.itemNum[3] + ")",
+                    "购买1次/5次：0.4元/2元",
+                    4 * (1),
+                    function (t) {
+                        cc.find("Canvas/Page/view/content/page_2/" + t + "/button2/text").getComponent("cc.Label").string = "购买*5";
+                        e("scr_data").money >= 4 * (1) && (cc.find("Canvas/Page/view/content/page_2/" + t + "/name").color = new cc.color(0, 255, 0));
+                    },
+                    function () {
+                        var cost = Math.ceil(4 * (1));
+                        var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
+                        if (n.money >= cost) {
+                            buy(cost, 2, 3, "生肉");
+                        } else a.playText("Canvas/notify", "钱不够！", 100);
+                    },
+                    function () {
+                        var cost = Math.ceil(4 * (1) * 5);
+                        var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
+                        if (n.money >= cost) {
+                            buy(cost, 10, 3, "生肉");
+                        } else a.playText("Canvas/notify", "钱不够！", 100);
+                    }
+                ));
+                items.push({
+                    itemName: "艾草*4（拥有" + this.data.itemNum[5] + ")",
+                    needDes: "购买/出售：0.4元/0.2元",
+                    price: 4 * (1),
+                    ifEnough: function (t) {
+                        e("scr_data").money >= 4 * (1) && (cc.find("Canvas/Page/view/content/page_2/" + t + "/name").color = new cc.color(0, 255, 0));
+                    },
+                    button1: function () {
+                        var cost = Math.ceil(4 * (1));
+                        var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
+                        if (n.money >= cost) {
+                            if (4 == n.publicVar[1]) {
+                                buy(cost, 5, 5, "艾草");
+                            } else {
+                                buy(cost, 4, 5, "艾草");
+                            }
+                        } else a.playText("Canvas/notify", "钱不够！", 100);
+                    },
+                    button2: function () {
+                        var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
+                        if (n.itemNum[5] >= 4) {
+                            if (4 == n.publicVar[1]) {
+                                buy(2, -4, 5, "艾草");
+                            } else {
+                                buy(2, -4, 5, "艾草");
+                            }
+                        } else a.playText("Canvas/notify", "道具不足！", 100);
+                    }
+                });
+                items.push(new Good(
+                    "匕首（当前等级" + this.data.itemNum2[8] + ")",
+                    "价格：" + (3.2 + 0.3 * this.data.itemNum2[8]).toFixed(1) + "元",
+                    parseInt(3.2 + 0.3 * this.data.itemNum2[8]), // 根据需要调整计算方式
+                    function (t) {
+                        cc.find("Canvas/Page/view/content/page_2/" + t + "/button1/text").getComponent("cc.Label").string = "升级";
+                        var n = e("scr_data");
+                        n.money >= 32 + 3 * n.itemNum2[8] && (cc.find("Canvas/Page/view/content/page_2/" + t + "/name").color = new cc.color(0, 255, 0));
+                    },
+                    function () {
+                        var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = 32 + 3 * n.itemNum2[8], o = n.money;
+                        if (n.itemNum2[8] >= 50) {
+                            a.playText("Canvas/notify", "匕首已经满级了！", 100);
+                            return;
+                        }
+                        if (o >= c) {
+                            n.money -= c;
+                            n.itemNum2[8] += 1;
+                            n.shopPoint += c; // 注意这里使用c而不是r，因为r未定义
+                            i.save();
+                            a.playText("Canvas/notify", "匕首等级提高1级！积分*" + c + "！", 100);
+                            thisScrModule.delayCreatItemUI();
+                        } else a.playText("Canvas/notify", "钱不够！", 100);
+                    },
+                    undefined
+                ));
+                items.push(new Good(
+                    "皮衣（当前等级" + this.data.itemNum2[9] + ")",
+                    "价格：" + (2 + .2 * this.data.itemNum2[9]).toFixed(1) + "元",
+                    20 + 2 * this.data.itemNum2[9], // 根据给定的逻辑计算价格
+                    function (t) {
+                        cc.find("Canvas/Page/view/content/page_2/" + t + "/button1/text").getComponent("cc.Label").string = "升级";
+                        var n = e("scr_data");
+                        n.money >= 20 + 2 * n.itemNum2[9] && (cc.find("Canvas/Page/view/content/page_2/" + t + "/name").color = new cc.color(0, 255, 0));
+                    },
+                    function () {
+                        var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public"), c = 20 + 2 * n.itemNum2[9], o = n.money;
+                        if (n.itemNum2[9] >= 50) {
+                            a.playText("Canvas/notify", "皮衣已经满级了！", 100);
+                            return;
+                        }
+                        if (o >= c) {
+                            n.money -= c;
+                            n.itemNum2[9] += 1;
+                            n.shopPoint += c; // 使用c而不是重新计算的r，因为它们是相同的
+                            i.save();
+                            a.playText("Canvas/notify", "皮衣等级提高1级！积分*" + c + "！", 100);
+                            thisScrModule.delayCreatItemUI();
+                        } else a.playText("Canvas/notify", "钱不够！", 100);
+                    },
+                    undefined // button2为void 0，直接使用undefined
+                ));
+                items.push(new Good(
+                    "电饭煲（当前等级" + this.data.itemNum2[30] + ")",
+                    "价格：10元，做饭的时候非常方便",
+                    100 * (1),
+                    function (t) {
+                        e("scr_data").money >= 100 * (1) && (cc.find("Canvas/Page/view/content/page_3/" + t + "/name").color = new cc.color(0, 255, 0));
+                    },
+                    function () {
+                        var cost = Math.ceil(100 * (1));
+                        var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
+                        if (n.money >= 100) {
+                            if (0 == n.itemNum2[30]) {
+                                n.money -= 100;
+                                n.itemNum2[30] += 1;
+                                n.shopPoint += 100;
+                                i.save();
+                                a.playText("Canvas/notify", "获得【电饭煲】*1！积分*100！", 100);
+                                thisScrModule.delayCreatItemUI();
+                            } else {
+                                a.playText("Canvas/notify", "已经买过了", 100);
+                            }
+                        } else a.playText("Canvas/notify", "钱不够！", 100);
+                    },
+                    undefined
+                ));
+                items.push(new Good(
+                    "抽奖",
+                    "价格：100积分，随机获得一份奖励！",
+                    100,
+                    function (t) {
+                        cc.find("Canvas/Page/view/content/page_3/" + t + "/button1/text").getComponent("cc.Label").string = "抽奖";
+                        e("scr_data").shopPoint >= 100 && (cc.find("Canvas/Page/view/content/page_3/" + t + "/name").color = new cc.color(0, 255, 0));
+                    },
+                    function () {
+                        var n = e("scr_data"), a = e("scr_effect"), i = e("scr_public");
+                        if (n.shopPoint >= 100) {
+                            n.shopPoint -= 100;
+                            var reward = function () {
+                                var result = "", randomNum = 100 * Math.random(), data = e("scr_data");
+                                if (randomNum <= 20) {
+                                    data.money += 10;
+                                    result = "1元钱！";
+                                } else if (randomNum <= 30) {
+                                    data.itemNum2[23] += 1;
+                                    result = "【创可贴】*1！";
+                                } else if (randomNum <= 50) {
+                                    data.itemNum2[21] += 1;
+                                    result = "【小裤裤】*1！";
+                                } else if (randomNum <= 70) {
+                                    data.itemNum2[20] += 1;
+                                    result = "【板砖】*1！";
+                                } else if (randomNum <= 90) {
+                                    data.itemNum2[26] += 1;
+                                    result = "【幸运石】*1！";
+                                } else if (randomNum <= 95) {
+                                    data.itemNum2[27] += 1;
+                                    result = "【晓月手链】*1！";
+                                } else if (randomNum <= 100) {
+                                    data.itemNum2[24] += 1;
+                                    result = "【JK制服】*1！";
+                                }
+                                return result;
+                            }();
+                            i.save();
+                            a.playText("Canvas/notify", "恭喜获得，" + reward, 100);
+                            thisScrModule.delayCreatItemUI();
+                        } else a.playText("Canvas/notify", "积分不够！", 100);
+                    },
+                    undefined
+                ));
+
                 return items;
             },
             buy: function (cost, count, itemID, itemName) {
@@ -14159,7 +14145,7 @@ var moduleDefinitions = {
                 cc.find("Canvas/Page/view/content/page_3").removeAllChildren();
                 for (var e = 8; e <= 9; e++) this.creatPrefab(e, "page_3");
             },
-            showPlayersMoney: function () {
+            initText: function () {
                 var t = e("scr_data");
                 cc.find("Canvas/money").getComponent("cc.Label").string = "金钱：" + (t.money / 10).toFixed(1) + "元";
                 cc.find("Canvas/point").getComponent("cc.Label").string = "积分：" + t.shopPoint;
@@ -14528,6 +14514,7 @@ var moduleDefinitions = {
             properties: {},
             supportButton: function () {
                 cc.director.loadScene("support");
+
             },
             messageButton: function () {
                 cc.director.loadScene("message");
@@ -14547,6 +14534,7 @@ var moduleDefinitions = {
                 this.controlButton();
                 var text = cc.find("Canvas/Other"), n = e("scr_data");
                 const url = `https://api.github.com/repos/QiuLiang-99/llrj-QL`;
+                t.getChildByName("Label").getComponent("cc.Label").string = "当前版本号：7.6" ;
                 let xhr = new XMLHttpRequest();
                 xhr.open("GET", url, true);
                 xhr.onreadystatechange = function () {
@@ -14566,7 +14554,7 @@ var moduleDefinitions = {
                     }
                 };
                 xhr.send();
-
+                //bug 记得每次更新版本要写版本号
             }
         });
         cc._RF.pop();
