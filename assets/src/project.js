@@ -1,4 +1,4 @@
-const test = require('test');
+var test = require('src/test.js');
 require = function loadModule(moduleDefinitions, hasBeenLoadedModulesExportValues, needLoadModuleIDList) {// 定义一个模块加载器
     function getModulesExportInMEM(needLoadModuleID) {// 加载模块的函数
         if (hasBeenLoadedModulesExportValues[needLoadModuleID]) {// 如果模块已经被加载，直接返回
@@ -48,7 +48,7 @@ var moduleDefinitions = {
             onLoad: function () { }
         });
         cc._RF.pop();
-    }, {}],
+    }],
     scr_QQpay: [function (e, t, n) {
         "use strict";
         cc._RF.push(t, "fc884/pvDpG6bLBf547DI5C", "scr_QQpay");
@@ -63,7 +63,7 @@ var moduleDefinitions = {
             }
         });
         cc._RF.pop();
-    }, {}],
+    }],
     scr_achieve: [function (e, t, n) {
         "use strict";
         cc._RF.push(t, "141caSLnsJIHJZ46hPGujwi", "scr_achieve");
@@ -266,10 +266,6 @@ var moduleDefinitions = {
             }
         });
         cc._RF.pop();
-    }, {
-        scr_data: "scr_data",
-        scr_data2: "scr_data2",
-        scr_public: "scr_public"
     }],
     scr_backMainUI: [function (e, t, n) {
         "use strict";
