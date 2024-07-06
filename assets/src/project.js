@@ -14531,10 +14531,10 @@ var moduleDefinitions = {
                 cc.find("Canvas/button/button_support").on("touchstart", this.supportButton, this);
                 cc.find("Canvas/button/button_message").on("touchstart", this.messageButton, this);
                 cc.find("Canvas/button/button_reloadgame").on("touchstart", this.reloadgameButton, this);
-                this.controlButton();
+ 			    this.controlButton();
                 var text = cc.find("Canvas/Other"), n = e("scr_data");
                 const url = `https://api.github.com/repos/QiuLiang-99/llrj-QL`;
-                t.getChildByName("Label").getComponent("cc.Label").string = "当前版本号：7.6" ;
+                text.getChildByName("version").getComponent("cc.Label").string = "当前版本号：7.6" ;
                 let xhr = new XMLHttpRequest();
                 xhr.open("GET", url, true);
                 xhr.onreadystatechange = function () {
