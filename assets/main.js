@@ -2,12 +2,12 @@
 
     'use strict';
 
-    function boot() {
+    function boot () {
 
         var settings = window._CCSettings;
         window._CCSettings = undefined;
 
-        if (!settings.debug) {
+        if ( !settings.debug ) {
             var uuids = settings.uuids;
 
             var rawAssets = settings.rawAssets;
@@ -54,7 +54,7 @@
             canvas = document.getElementById('GameCanvas');
         }
 
-        function setLoadingDisplay() {
+        function setLoadingDisplay () {
             // Loading splash scene
             var splash = document.getElementById('splash');
             var progressBar = splash.querySelector('.progress-bar span');
@@ -98,7 +98,7 @@
                         cc.sys.browserType !== cc.sys.BROWSER_TYPE_MOBILE_QQ
                     );
                 }
-
+                
                 // Limit downloading max concurrent task to 2,
                 // more tasks simultaneously may cause performance draw back on some android system / brwosers.
                 // You can adjust the number based on your own test result, you have to set it before any loading process to take effect.
@@ -135,42 +135,20 @@
             );
         };
 
-        //func jsList 在前面的会先加载，所以务必注意先后顺序
-        var jsList = [];
-        jsList.push("initialize.js");
-        jsList.push("scr_achieve.js");
-        jsList.push("scr_data.js");
-        jsList.push("scr_data2.js");
-        jsList.push("scr_diary.js");
-        jsList.push("scr_eatUI.js");
-        jsList.push("scr_enemy.js");
-        jsList.push("scr_event.js");
-        jsList.push("scr_explore.js");
-        jsList.push("scr_fightState.js");
-        jsList.push("scr_fight.js");
-        jsList.push("scr_forwardButton.js");
-        jsList.push("scr_friendUI1.js");
-        jsList.push("scr_home.js");
-        jsList.push("scr_mainUIEvent.js");
-        jsList.push("scr_mainUIinit.js");
-        jsList.push("scr_open.js");
-        jsList.push("scr_public.js");
-        jsList.push("scr_rest.js");
-        jsList.push("scr_shop2.js");
-        jsList.push("scr_shop3.js");
-        jsList.push("scr_shop4.js");
-        jsList.push("scr_shopUI.js");
-        jsList.push("scr_skillUI.js");
-        jsList.push("scr_startChoice.js");
-        jsList.push("scr_startUI.js");
-        jsList.push("scr_system.js");
-        jsList.push("loadAll.js");
-        jsList.push('project.js');
-
+        // jsList
+        var jsList = settings.jsList;
+        var bundledScript = settings.debug ? 'src/project.dev.js' : 'src/project.js';
+        if (jsList) {
+            jsList = jsList.map(function (x) { return 'src/' + x; });
+            jsList.push(bundledScript);
+        }
+        else {
+            jsList = [bundledScript];
+        }
 
         // anysdk scripts
         if (cc.sys.isNative && cc.sys.isMobile) {
-            //            jsList = jsList.concat(['src/anysdk/jsb_anysdk.js', 'src/anysdk/jsb_anysdk_constants.js']);
+//            jsList = jsList.concat(['src/anysdk/jsb_anysdk.js', 'src/anysdk/jsb_anysdk_constants.js']);
         }
 
 
