@@ -2,12 +2,12 @@
 
     'use strict';
 
-    function boot() {
+    function boot () {
 
         var settings = window._CCSettings;
         window._CCSettings = undefined;
 
-        if (!settings.debug) {
+        if ( !settings.debug ) {
             var uuids = settings.uuids;
 
             var rawAssets = settings.rawAssets;
@@ -54,7 +54,7 @@
             canvas = document.getElementById('GameCanvas');
         }
 
-        function setLoadingDisplay() {
+        function setLoadingDisplay () {
             // Loading splash scene
             var splash = document.getElementById('splash');
             var progressBar = splash.querySelector('.progress-bar span');
@@ -98,7 +98,7 @@
                         cc.sys.browserType !== cc.sys.BROWSER_TYPE_MOBILE_QQ
                     );
                 }
-
+                
                 // Limit downloading max concurrent task to 2,
                 // more tasks simultaneously may cause performance draw back on some android system / brwosers.
                 // You can adjust the number based on your own test result, you have to set it before any loading process to take effect.
@@ -136,14 +136,19 @@
         };
 
         // jsList
-        var jsList = [];
-        jsList.push("test.js");
-        jsList.push('project.js');
-
+        var jsList = settings.jsList;
+        var bundledScript = settings.debug ? 'src/project.dev.js' : 'src/project.js';
+        if (jsList) {
+            jsList = jsList.map(function (x) { return 'src/' + x; });
+            jsList.push(bundledScript);
+        }
+        else {
+            jsList = [bundledScript];
+        }
 
         // anysdk scripts
         if (cc.sys.isNative && cc.sys.isMobile) {
-            //            jsList = jsList.concat(['src/anysdk/jsb_anysdk.js', 'src/anysdk/jsb_anysdk_constants.js']);
+//            jsList = jsList.concat(['src/anysdk/jsb_anysdk.js', 'src/anysdk/jsb_anysdk_constants.js']);
         }
 
 
