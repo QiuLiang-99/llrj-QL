@@ -1213,7 +1213,7 @@
     },
     {
         "__type__": "cc.Node",
-        "_name": "New Label",
+        "_name": "version",
         "_parent": {
             "__id__": 34
         },
@@ -1506,5 +1506,4 @@
             }
         ]
     }
-
 ]
